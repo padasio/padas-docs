@@ -12,24 +12,24 @@
 
     ---
 
-    Focus on your content and generate a responsive and searchable static site
+    Details on system requirements and how to install and run PADAS in production environments.
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Reference](installation.md)
 
 -   :material-format-font:{ .lg .middle } __Made to measure__
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    This guide provides how to utilize PADAS Manager for configuring properties and PDL rules.
 
-    [:octicons-arrow-right-24: Customization](#)
+    [:octicons-arrow-right-24: Customization](user-guide.md)
 
 -   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
 
     ---
 
-    Material for MkDocs is licensed under MIT and available on [GitHub]
+    Integrate with data ingest pipelines (e.g. Winlogbeat) and downstream SIEM/Analytics platforms (e.g. Splunk)
 
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-arrow-right-24: License](admin-guide.md/#integrate-to-external-systems)
 
 </div>
