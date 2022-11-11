@@ -7,7 +7,7 @@ title: Overview
 
 <figure markdown>
   <p>
-  <img src="/assets/img/padas_architecture.png" class="img-fluid py-5">
+  <img src="assets/img/padas_architecture.png" class="img-fluid py-5">
   </p>
 </figure>
 
