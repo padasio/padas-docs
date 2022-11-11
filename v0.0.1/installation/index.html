@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/img/padas_logo_color.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+    
+    
+      
+        <title>Installation - PADAS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas-utils.css">
+    
+      <link rel="stylesheet" href="../assets/css/syntax.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PADAS Documentation" class="md-header__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PADAS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PADAS Documentation" class="md-nav__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    PADAS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    System Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-systems" class="md-nav__link">
+    Operating Systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-install-using-tar-archive" class="md-nav__link">
+    Manual Install Using TAR Archive
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Install Using TAR Archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-software" class="md-nav__link">
+    Download the software
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-as-a-service" class="md-nav__link">
+    Register as a Service
+  </a>
+  
+    <nav class="md-nav" aria-label="Register as a Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-for-the-first-time" class="md-nav__link">
+    Start For the First Time
+  </a>
+  
+    <nav class="md-nav" aria-label="Start For the First Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detect-engine" class="md-nav__link">
+    Detect Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-engine" class="md-nav__link">
+    Transform Engine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#padas-command-line-interface" class="md-nav__link">
+    PADAS Command Line Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstall" class="md-nav__link">
+    Uninstall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        User Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-reference/" class="md-nav__link">
+        PDL Reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Admin Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Admin Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Admin Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin-guide/" class="md-nav__link">
+        Admin Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datamodel-reference/" class="md-nav__link">
+        Datamodel Reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    System Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-systems" class="md-nav__link">
+    Operating Systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-install-using-tar-archive" class="md-nav__link">
+    Manual Install Using TAR Archive
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Install Using TAR Archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-software" class="md-nav__link">
+    Download the software
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-as-a-service" class="md-nav__link">
+    Register as a Service
+  </a>
+  
+    <nav class="md-nav" aria-label="Register as a Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-for-the-first-time" class="md-nav__link">
+    Start For the First Time
+  </a>
+  
+    <nav class="md-nav" aria-label="Start For the First Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detect-engine" class="md-nav__link">
+    Detect Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-engine" class="md-nav__link">
+    Transform Engine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#padas-command-line-interface" class="md-nav__link">
+    PADAS Command Line Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstall" class="md-nav__link">
+    Uninstall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Installation</h1>
+
+<h2 id="installation">Installation</h2>
+<p><br></p>
+<h3 id="system-requirements">System Requirements</h3>
+<p><br></p>
+<h5 id="hardware">Hardware</h5>
+<p _="%" docs_sysreq_hardware.md="docs/sysreq_hardware.md" include="include">The following machine recommendations are for installing individual PADAS components:</p>
+<p><br></p>
+<h5 id="software">Software</h5>
+<p>{% include docs/sysreq_confluent.md %}</p>
+<p><br></p>
+<h5 id="operating-systems">Operating Systems</h5>
+<p _="%" docs_sysreq_os.md="docs/sysreq_os.md" include="include">PADAS supports the following operating systems.</p>
+<p><br></p>
+<h5 id="java">Java</h5>
+<p>{% include docs/sysreq_java.md %}</p>
+<p><br></p>
+<hr />
+<h3 id="manual-install-using-tar-archive">Manual Install Using TAR Archive</h3>
+<p><br></p>
+<h4 id="download-the-software">Download the software</h4>
+<ol>
+<li>Download the latest version here: <a href="/assets/downloads/padas-{{ site.data.versions.latest_version }}.tgz">padas-{{ site.data.versions.latest_version }}.tgz</a> or via command line:
+<div class="highlight"><pre><span></span><code>curl -O https://www.padas.io/assets/downloads/padas-<span class="o">{{</span> site.data.versions.latest_version <span class="o">}}</span>.tgz
+</code></pre></div>
+NOTE: You can verify the integrity by checking against its SHA512 checksum: <a href="/assets/downloads/padas-{{ site.data.versions.latest_version }}.tgz.sha512">padas-{{ site.data.versions.latest_version }}.tgz.sha512</a></li>
+<li>Extract contents of the archive (default <code>/opt</code> is assumed for <code>$PADAS_HOME</code>)
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt
+tar xvf padas-<span class="o">{{</span> site.data.versions.latest_version <span class="o">}}</span>.tgz
+</code></pre></div>
+<br>
+You should have these directories:
+{% include docs/padas_folders.md %}
+<br></li>
+</ol>
+<p><strong>IMPORTANT NOTE</strong>: It is recommended to create a separate user to run Padas, other than <code>root</code>.  In our examples, we use <code>padas</code> as both the user and group name.  Following is an example on how to create such user:
+<div class="highlight"><pre><span></span><code>sudo useradd -d /opt/padas -U padas
+</code></pre></div></p>
+<hr />
+<h3 id="register-as-a-service">Register as a Service</h3>
+<ol>
+<li>Run Padas to create a service file. (Note: following examples assume <code>$PADAS_HOME</code> to be <code>/opt/padas</code> directory)
+<div class="highlight"><pre><span></span><code>bin/padas set-service
+Systemd unit file has been created as <span class="s1">&#39;/opt/padas/libs/padas.service&#39;</span>
+</code></pre></div></li>
+<li>Review the generated service file (<code>libs/padas.service</code>) and edit as necessary (e.g. user &amp; group information, JVM memory options according to your system settings)
+<div class="highlight"><pre><span></span><code><span class="err">[Unit]</span><span class="w"></span>
+<span class="na">Description</span><span class="o">=</span><span class="s">PADAS - Alert Detection for Streaming Events</span><span class="w"></span>
+<span class="na">Documentation</span><span class="o">=</span><span class="s">https://www.padas.io/docs</span><span class="w"></span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span><span class="w"></span>
+<span class="c">#</span><span class="w"></span>
+<span class="err">[Service]</span><span class="w"></span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"></span>
+<span class="na">User</span><span class="o">=</span><span class="s">padas</span><span class="w"></span>
+<span class="na">Group</span><span class="o">=</span><span class="s">padas</span><span class="w"></span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ site.data.versions.latest_version }}.jar</span><span class="w"></span>
+<span class="na">TimeoutStopSec</span><span class="o">=</span><span class="s">180</span><span class="w"></span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">no</span><span class="w"></span>
+<span class="c">#</span><span class="w"></span>
+<span class="err">[Install]</span><span class="w"></span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
+</code></pre></div></li>
+<li>Copy the service file under system
+<div class="highlight"><pre><span></span><code>sudo cp /opt/padas/libs/padas.service /etc/systemd/system/
+</code></pre></div></li>
+<li>Reload systemd process
+<div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
+</code></pre></div></li>
+</ol>
+<p><br></p>
+<hr />
+<h4 id="start-for-the-first-time">Start For the First Time</h4>
+<p><strong>IMPORTANT NOTE</strong>: You need a running Kafka environment (Broker(s) and Schema Registry) and a PADAS license key. <a href="/index.html#download">Request a license key</a> if you don't have one.</p>
+<h5 id="manager">Manager</h5>
+<ol>
+<li>Edit <code>etc/padas.properties</code> file to reflect your environment and enter the license key.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>manager</code>.
+<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">manager</span><span class="w"></span>
+<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
+<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
+<span class="na">padas.license</span><span class="o">=</span><span class="s">&lt;ENTER YOUR LICENSE KEY HERE&gt;</span><span class="w"></span>
+</code></pre></div></li>
+<li>Use command-line interface (CLI) to start PADAS:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
+./padas start
+</code></pre></div></li>
+<li _="%" docs_padas_licenseagreement_start.md="docs/padas_licenseagreement_start.md" include="include">PADAS displays the license agreement and prompts you to accept in order to continue.</li>
+<li>Create admin username.  This is the user that you log into PADAS Manager with.
+<div class="highlight"><pre><span></span><code>Please enter an administrator username? <span class="o">[</span>admin<span class="o">]</span>:
+</code></pre></div></li>
+<li>Create the password for the user that you just created.
+<div class="highlight"><pre><span></span><code>Password must contain at least <span class="m">8</span> total printable ASCII characters.
+Please enter a new password:
+Please repeat the password:
+Successfully saved password.
+</code></pre></div></li>
+<li>By default, Manager web interface starts on tcp/9000 port.  Open a browser and access PADAS Manager (e.g. http://localhost:9000).  For any custom configurations please go to <a href="/docs/admin-guide.html#anchor1">Admin Guide</a></li>
+<li>Once logged in, unless the topics are created separately, Manager will prompt you to create the required Kafka topics.
+    <img src="/assets/img/topics_pre_sample.png" width="67%">
+    <br/>
+    <strong>IMPORTANT NOTE</strong>: Number of partitions for each topic needs to be determined based on the expected event data load, performance requirements and your Kafka cluster setup.  Please consult your Kafka administrator or PADAS representative for assistance.  Once set, number of partitions can not be changed (the topic needs to be deleted and re-created).</li>
+<li>
+<p>Go to <span class="fw-bold"><i class="bi bi-file-ruled"></i>Rules</span> menu link and click <span class="btn btn-padas">Edit</span> button in order to add rules. You can upload our out-of-the-box MITRE ATT&amp;CK compatible rules, <a href="/assets/config/padasRules.json">padasRules.json</a>, that work with Winlogbeat eventlog from <code>winlogbeat-sysmon</code> and <code>winlogbeat-security</code> datamodels in <code>padas_events</code></p>
+<p><img src="/assets/img/rules_upload_sample.png" width="67%">
+<br/>
+9. Go to <span class="fw-bold"><i class="bi bi-filter"></i>Properties</span> menu link and click <span class="btn btn-padas">Edit</span> button in order to add properties.  You can upload out-of-the-box transformations for Winlogbeat, <a href="/assets/config/padas_transformation.properties">padas_transformation.properties</a>, which are configured for getting <code>winlogbeat-sysmon</code> and <code>winlogbeat-security</code> topics transformed into <code>padas_events</code></p>
+<p><img src="/assets/img/transform_upload_sample.png" width="67%">
+<br/>
+<br/></p>
+<h5 id="detect-engine">Detect Engine</h5>
+<ol>
+<li>Edit <code>etc/padas.properties</code> file to reflect your environment.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>detect</code> (default setting).
+<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">detect</span><span class="w"></span>
+<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
+<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
+</code></pre></div></li>
+<li>Use command-line interface (CLI) to start PADAS:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
+./padas start
+</code></pre></div></li>
+<li _="%" docs_padas_licenseagreement_start.md="docs/padas_licenseagreement_start.md" include="include">PADAS displays the license agreement and prompts you to accept in order to continue.</li>
+</ol>
+</li>
+</ol>
+<p><br/></p>
+<h5 id="transform-engine">Transform Engine</h5>
+<ol>
+<li>Edit <code>etc/padas.properties</code> file to reflect your environment.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>transform</code>.
+<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">detect</span><span class="w"></span>
+<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
+<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
+</code></pre></div></li>
+<li>Use command-line interface (CLI) to start PADAS:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
+./padas start
+</code></pre></div></li>
+<li _="%" docs_padas_licenseagreement_start.md="docs/padas_licenseagreement_start.md" include="include">PADAS displays the license agreement and prompts you to accept in order to continue.</li>
+</ol>
+<p><br></p>
+<hr />
+<h3 id="padas-command-line-interface">PADAS Command Line Interface</h3>
+<p _="%" docs_padas_cli.md="docs/padas_cli.md" include="include">A wrapper script is provided to manage PADAS service: <code>$PADAS_HOME/bin/padas</code></p>
+<p><br>
+Example outputs when components are started for the first time.</p>
+<p _="%" docs_padas_manager_start_console.md="docs/padas_manager_start_console.md" include="include"><br>
+Manager:</p>
+<p _="%" docs_padas_detect_start_console.md="docs/padas_detect_start_console.md" include="include"><br>
+Detect Engine:</p>
+<p _="%" docs_padas_transform_start_console.md="docs/padas_transform_start_console.md" include="include"><br>
+Transform Engine:</p>
+<p><br></p>
+<hr />
+<h3 id="uninstall">Uninstall</h3>
+<ol>
+<li>Remove Padas directory.  For example:
+<div class="highlight"><pre><span></span><code>rm -rf /opt/padas
+</code></pre></div></li>
+</ol>
+<p><br></p>
+<hr />
+<h3 id="docker">Docker</h3>
+<p><em>TBD</em></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../get-started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting Started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../user-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: User Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              User Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - Padas Inc. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/padasio" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

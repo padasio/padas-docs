@@ -1,0 +1,854 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/img/padas_logo_color.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+    
+    
+      
+        <title>PDL Reference - PADAS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas-utils.css">
+    
+      <link rel="stylesheet" href="../assets/css/syntax.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pdl-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PADAS Documentation" class="md-header__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PADAS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PDL Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PADAS Documentation" class="md-nav__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    PADAS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        User Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PDL Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PDL Reference
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pdl-reference" class="md-nav__link">
+    PDL Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="PDL Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdl-syntax" class="md-nav__link">
+    PDL Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-operators" class="md-nav__link">
+    Supported Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-json-values" class="md-nav__link">
+    Supported JSON Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-support" class="md-nav__link">
+    Wildcard Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-arguments" class="md-nav__link">
+    Grouped arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Admin Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Admin Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Admin Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin-guide/" class="md-nav__link">
+        Admin Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datamodel-reference/" class="md-nav__link">
+        Datamodel Reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pdl-reference" class="md-nav__link">
+    PDL Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="PDL Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdl-syntax" class="md-nav__link">
+    PDL Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-operators" class="md-nav__link">
+    Supported Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-json-values" class="md-nav__link">
+    Supported JSON Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-support" class="md-nav__link">
+    Wildcard Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-arguments" class="md-nav__link">
+    Grouped arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>PDL Reference</h1>
+
+<h2 id="pdl-reference">PDL Reference</h2>
+<p>This is a reference guide for the Padas Domain Language (PDL).   In this manual you will find explanation of PDL syntax, descriptions, and examples. </p>
+<p>In order to understand how PADAS works, please review <a href="/docs/get-started.html">Getting Started</a>.</p>
+<p><br></p>
+<h4 id="pdl-syntax">PDL Syntax</h4>
+<p>The following sections desribe the syntax used for Padas Domain Language (PDL) queries.  PDL performs operations on a single event (<code>padas_events</code> topic, <code>jsondata</code> field) and simply compares to the query, then returns a <code>boolean</code> response to indicate a match or mismatch.</p>
+<p>PDL syntax requires fields to be available in JSON object that it compares against.</p>
+<p><br></p>
+<h4 id="examples">Examples</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Event <code>jsondata</code> value</th>
+      <th scope="col">PDL Query</th>
+      <th scope="col">Expected Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+        {
+          "field1":{
+            "subfield1":"subvalue1",
+            "subfield2":"sub value2"
+          },
+          "field2":"value2",
+          "field3":123
+        }
+        </pre>
+      </td>
+      <td><code>field1.subfield2 ?= "value2"</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>
+        <pre>
+        {
+          "field1":"value1",
+          "field2":"value2 text2 value2",
+          "field3":123,
+          "field4":"value4",
+          "field_5":5,
+          "field-6":6,
+          "field:7":7
+        }
+        </pre
+      ></td>
+      <td><code>field1="va*e1"</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>
+        <pre>
+          {
+            "field1":{
+              "subfield1":"subvalue1",
+              "subfield2":"sub value2"
+            },
+            "field2":"value2",
+            "field3":123
+          }
+        </pre>
+      </td>
+      <td><code>(field1.subfield2 = "value2" AND field3=123)</code></td>
+      <td><code>false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br></p>
+<h4 id="supported-operators">Supported Operators</h4>
+<p>PDL supports the following operators and keywords when comparing events to the query.</p>
+<p>Below table provides examples based on the following JSON value:</p>
+<pre>
+{
+  "field1":"value1",
+  "field2":"value2 text2 value2",
+  "field3":123
+}
+
+</pre>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Operator/Keyword</th>
+      <th scope="col">Description</th>
+      <th scope="col">Example (<code>true</code>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>NOT</code></td>
+      <td>NOT, negates the result</td>
+      <td><code>NOT (field1 = "valueXXX")</code></td>
+    </tr>
+    <tr>
+      <td><code>AND</code></td>
+      <td>AND, expects both sides to be <code>true</code></td>
+      <td><code>field1="value1" AND field3=123</code></td>
+    </tr>
+    <tr>
+      <td><code>OR</code></td>
+      <td>OR, expects at least one side to be <code>true</code></td>
+      <td><code>field1="xyz" OR field3=123</code></td>
+    </tr>
+    <tr>
+      <td><code>=</code></td>
+      <td>Equals, returns <code>true</code> if the value is an exact match.  <br />A single wildcard <code>*</code> is also accepted for string values.</td>
+      <td><code>field1="value1"</code><br /><code>field1="val*"</code></td>
+    </tr>
+    <tr>
+      <td><code>!=</code></td>
+      <td>Not Equals, returns <code>true</code> if the value does not match</td>
+      <td><code>field3 != 456</code></td>
+    </tr>
+    <tr>
+      <td><code>?=</code></td>
+      <td>Contains, checks whether the string value contains the query</td>
+      <td><code>field2 ?= "text2"</code></td>
+    </tr>
+    <tr>
+      <td><code>&gt;</code></td>
+      <td>Greater than, returns <code>true</code> if query comparison value is greater than event field value</td>
+      <td><code>field3 > 100</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;</code></td>
+      <td>Less than, returns <code>true</code> if query comparison value is less than event field value</td>
+      <td><code>field3 < 200</code></td>
+    </tr>
+    <tr>
+      <td><code>&gt;=</code></td>
+      <td>Greater than or equals, returns <code>true</code> if query comparison value is greater than or equals to the event field value</td>
+      <td><code>field3 >= 123</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;=</code></td>
+      <td>Less than or equals, returns <code>true</code> if query comparison value is less than or equals to the event field value</td>
+      <td><code>field3 <= 123</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br></p>
+<h4 id="supported-json-values">Supported JSON Values</h4>
+<p>PDL comparisons work on <strong>String</strong> and <strong>Integer</strong> JSON values.  <strong>String</strong> comparisons MUST be defined in quotes <code>"</code> within PDL query definition.</p>
+<p><br />
+<strong>Examples:</strong></p>
+<p>PDL query with <code>field1="123"</code> will compare <code>"123"</code> as a <strong>String</strong> JSON value.</p>
+<p>PDL query with <code>field2=123</code> will compare <code>123</code> as an <strong>Integer</strong> JSON value.</p>
+<p><br></p>
+<h4 id="wildcard-support">Wildcard Support</h4>
+<p>PDL supports a single wildcard <code>*</code> with Equals operator (<code>=</code>) for <strong>String</strong> JSON values.  Following are valid PDL query examples with wildcard usage:</p>
+<div class="highlight"><pre><span></span><code>field1=&quot;val*1&quot;
+field1=&quot;val*&quot;
+field1=&quot;*ue1&quot;
+</code></pre></div>
+<p><br /></p>
+<h4 id="grouped-arguments">Grouped arguments</h4>
+<p>Sometimes the syntax must display arguments as a group to show that the set of arguments are used together. Parenthesis <code>( )</code> are used to group arguments.</p>
+<p>For example in this syntax:
+<code>(field1="val1" OR field2=123) AND field3="value3"</code></p>
+<p>The grouped argument is <code>(field1="val1" OR field2=123)</code> and its results are evaluated as a whole.</p>
+<p><br /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../user-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: User Guide" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              User Guide
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../admin-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Admin Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Admin Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - Padas Inc. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/padasio" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

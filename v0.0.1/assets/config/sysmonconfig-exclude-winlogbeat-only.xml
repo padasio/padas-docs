@@ -1,0 +1,53 @@
+<Sysmon schemaversion="4.50">
+	<!--SYSMON META CONFIG-->
+	<HashAlgorithms>md5,sha256,IMPHASH</HashAlgorithms> <!-- Both MD5 and SHA256 are the industry-standard algorithms. Remove IMPHASH if you do not use DLL import fingerprinting. -->
+	<CheckRevocation/> <!-- Check loaded drivers, log if their code-signing certificate has been revoked, in case malware stole one to sign a kernel driver -->
+
+	<EventFiltering>
+
+	<!--SYSMON EVENT ID 1 : PROCESS CREATION [ProcessCreate]-->
+	<!--DATA: UtcTime, ProcessGuid, ProcessID, Image, FileVersion, Description, Product, Company, CommandLine, CurrentDirectory, User, LogonGuid, LogonId, TerminalSessionId, IntegrityLevel, Hashes, ParentProcessGuid, ParentProcessId, ParentImage, ParentCommandLine, RuleName-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessCreate onmatch="exclude">
+			<!--SECTION: Winlogbeat-->
+			<Image condition="contains">winlogbeat.exe</Image>
+		</ProcessCreate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 3 : NETWORK CONNECTION INITIATED [NetworkConnect]-->
+	<!--DATA: UtcTime, ProcessGuid, ProcessId, Image, User, Protocol, Initiated, SourceIsIpv6, SourceIp, SourceHostname, SourcePort, SourcePortName, DestinationIsIpV6, DestinationIp, DestinationHostname, DestinationPort, DestinationPortName-->
+	<RuleGroup name="" groupRelation="or">
+		<NetworkConnect onmatch="exclude">
+			<!--SECTION: Winlogbeat-->
+			<Image condition="contains">winlogbeat.exe</Image>
+		</NetworkConnect>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 5 : PROCESS ENDED [ProcessTerminate]-->
+	<!--DATA: UtcTime, ProcessGuid, ProcessId, Image-->
+	<RuleGroup name="" groupRelation="or">
+		<ProcessTerminate onmatch="exclude">
+			<!--SECTION: Winlogbeat-->
+			<Image condition="contains">winlogbeat.exe</Image>
+		</ProcessTerminate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 11 : FILE CREATED [FileCreate]-->
+	<!--DATA: UtcTime, ProcessGuid, ProcessId, Image, TargetFilename, CreationUtcTime-->
+	<RuleGroup name="" groupRelation="or">
+		<FileCreate onmatch="exclude">
+			<!--SECTION: Winlogbeat-->
+			<Image condition="contains">winlogbeat.exe</Image>
+		</FileCreate>
+	</RuleGroup>
+
+	<!--SYSMON EVENT ID 22 : DNS QUERY [DnsQuery]-->
+	<RuleGroup name="" groupRelation="or">
+		<DnsQuery onmatch="exclude">
+			<!--SECTION: Winlogbeat-->
+			<Image condition="contains">winlogbeat.exe</Image>
+		</DnsQuery>
+	</RuleGroup>
+
+	</EventFiltering>
+</Sysmon>
