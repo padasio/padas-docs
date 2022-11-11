@@ -40,4 +40,4 @@ jobs:
         
       - name: Deploy with mike
         run: |
-          mike deploy --push ${{ steps.extract_branch.outputs.branch }}
+          mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }} latest
