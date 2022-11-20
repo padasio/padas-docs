@@ -32,7 +32,9 @@ markdown_extensions:
 
 nav:
   - index.md
-  - get-started.md
+  - 'Get Started':
+    - introduction.md
+    - quickstart.md
   - 'User Guide':
     - installation.md
     - user-guide.md
