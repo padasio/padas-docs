@@ -6,4 +6,32 @@
   --md-primary-fg-color:        #353637;
   --md-primary-fg-color--light: #f1f3f5;
   --md-primary-fg-color--dark:  #353637;
+  --md-accent-fg-color: #24d4f7;
+}
+
+.padas {
+  color: #24d4f7;
+}
+
+.md-nav, .md-nav__link {
+  color: #353637;
+}
+
+.md-nav a:hover {
+  color: #24d4f7;
+  text-decoration: none;
+}
+
+.md-nav__link a:hover {
+  color: #24d4f7;
+  text-decoration: none;
+}
+
+.nav a {
+  color: #f1f3f5;
+  transition: ease-in-out color .15s;
+}
+.nav a:hover {
+  color: #24d4f7;
+  text-decoration: none;
 }
