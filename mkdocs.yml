@@ -12,7 +12,6 @@ extra_css:
   - assets/css/extra.css
   - assets/css/padas.css
   - assets/css/padas-utils.css
-  - assets/css/syntax.css
 
 markdown_extensions:
   - tables
@@ -27,8 +26,7 @@ markdown_extensions:
       alternate_style: true 
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  
+      emoji_generator: !!python/name:materialx.emoji.to_svg  
 
 nav:
   - index.md
@@ -56,3 +54,5 @@ extra:
 
 copyright: Copyright &copy; 2023 - Padas Inc. All rights reserved.
 
+watch:
+  - "snippets"
