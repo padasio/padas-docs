@@ -1,15 +1,15 @@
-<table class="table table-striped">
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Event <code>jsondata</code> value</th>
+      <th scope="col">JSON Event Data</th>
       <th scope="col">PDL Query</th>
       <th scope="col">Expected Result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        <pre>
+      <td class="align-middle">
+        ```json
         {
           "field1":{
             "subfield1":"subvalue1",
@@ -18,14 +18,22 @@
           "field2":"value2",
           "field3":123
         }
-        </pre>
+        ```
       </td>
-      <td><code>field1.subfield2 ?= "value2"</code></td>
-      <td><code>true</code></td>
+      <td class="align-middle">
+      ```bash
+      field1.subfield2 ?= "value2"
+      ```
+      </td>
+      <td class="align-middle">
+      ```python
+      true
+      ```
+      </td>
     </tr>
     <tr>
-      <td>
-        <pre>
+      <td class="align-middle">
+        ```json
         {
           "field1":"value1",
           "field2":"value2 text2 value2",
@@ -35,14 +43,22 @@
           "field-6":6,
           "field:7":7
         }
-        </pre
-      ></td>
-      <td><code>field1="va*e1"</code></td>
-      <td><code>true</code></td>
+        ```
+      </td>
+      <td class="align-middle">
+      ```bash
+      field1="va*e1"
+      ```
+      </td>
+      <td class="align-middle">
+      ```
+      true
+      ```
+      </td>
     </tr>
     <tr>
-      <td>
-        <pre>
+      <td class="align-middle">
+        ```json
           {
             "field1":{
               "subfield1":"subvalue1",
@@ -51,10 +67,18 @@
             "field2":"value2",
             "field3":123
           }
-        </pre>
+        ```
       </td>
-      <td><code>(field1.subfield2 = "value2" AND field3=123)</code></td>
-      <td><code>false</code></td>
+      <td class="align-middle">
+      ```bash
+      (field1.subfield2 = "value2" AND field3=123)
+      ```
+      </td>
+      <td class="align-middle">
+      ```
+      false
+      ```
+      </td>
     </tr>
   </tbody>
 </table>

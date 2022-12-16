@@ -1,3 +1,5 @@
+PADAS supports the following operating systems.
+
 - RHEL/CentOS 8.x
 - Debian 9 (stretch)
 - Debian 10 (buster)

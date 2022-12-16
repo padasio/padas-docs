@@ -1,15 +1,17 @@
 ---
 title: Quick Start
 layout: documentation
+padas_version: 0.0.1
 ---
 
-This quick start guide assumes all components (Confluent Kafka and Padas) will be installed on the same machine.  In production, it is recommended to separate out these components on different nodes/hosts.
+Use Padas to perform streaming event data transformations and apply specific rules to filter out sample data.  This quick start guide assumes all components (Confluent Kafka and Padas) will be installed on the same machine.  In production, it is recommended to separate out these components on different nodes/hosts.
 
 ### Prerequisites
 - Internet connectivity
-- Supported [Operating System](/docs/installation.html#operating-systems)
+- Supported [Operating System](/installation.html#operating-systems)
 - A supported version of [Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Java 8 and Java 11 are supported in this version.
-- Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  You should have at least the following services up and running.
+- Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  
+- You should have at least Kafka and Zookeeper services up and running.
     ```sh
     confluent local services status
     ...
@@ -27,11 +29,12 @@ Below diagram shows what will be accomplished with this quick start guide.
  <img src="/assets/img/padas_quickstart_setup.png" width="67%">
 
 #### Step 1: Download and define components
-1. [Download](/index.html#download) the latest version (e.g. `padas-{{ site.data.versions.latest_version }}.tgz`)
+1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and Manager components applicable to your platform.
 2. Use the `tar` command to decompress the archive file
 
     ```sh
-    tar -xvzf padas-{{ site.data.versions.latest_version }}.tgz
+    --> site_name
+    tar -xvzf padas-{{ padas_version }}.tgz
     ```
 3. Since we have everything on a single host, make a copy of the extracted folder for manager, transform engine, and detect engine
 
@@ -83,7 +86,8 @@ At this stage, make sure you have Confluent Kafka running locally as mentioned i
 ```
 cd padas-manager/
 ```
-{% include docs/padas_manager_start_console.md %}
+--8<-- "padas_manager_start_console.md"
+
 2. **Login**: Go to [http://localhost:9000](http://localhost:9000) and login with the credentials used in previous step (e.g. admin)
 
     <img src="/assets/img/login_sample.png" width="67%">
@@ -130,7 +134,7 @@ cd padas-manager/
 ```
 cd padas-detect/
 ```
-{% include docs/padas_detect_start_console.md %}
+--8<-- "padas_detect_start_console.md"
 
 #### Step 4: Start Transform Engine
 1. Before starting Transform Engine we must first create the specified input topic (i.e. `testtopic`) in Kafka.  You can do this from [Confluent Control Center](https://docs.confluent.io/platform/current/control-center/topics/create.html) or from the console as shown below.
@@ -144,7 +148,7 @@ cd padas-detect/
 ```
 cd padas-transform/
 ```
-{% include docs/padas_transform_start_console.md %}
+--8<-- "padas_transform_start_console.md"
 
 #### Step 5: Generate Sample Event
 

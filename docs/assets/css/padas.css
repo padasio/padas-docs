@@ -20,7 +20,7 @@ article > section > .row {
 
 
 a {
-  color: #24d4f7;
+  color: #24d4f7 !important;
   transition: ease-in-out color .15s;
 }
 

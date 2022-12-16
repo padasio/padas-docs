@@ -50,11 +50,11 @@ Properties view provides configuration entries for Detect and Transform Engine c
 
 <br />
 
-{% include docs/props_detect.md %}
+--8<-- "props_detect.md"
 
 <br /><br />
 
-{% include docs/props_transform.md %}
+--8<-- "props_transform.md"
 
 <br/>
 
@@ -79,7 +79,7 @@ Rules view provides configuration entries for Detect Engine rules that are appli
 
 <br />
 
-{% include docs/props_rules.md %}
+--8<-- "props_rules.md"
 
 <br />
 

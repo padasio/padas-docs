@@ -1,56 +1,41 @@
 ---
 title: Installation
+latest_version: 0.0.1
 ---
-## Installation
-
-<br>
-
 ### System Requirements
 
-<br>
+#### Hardware
+--8<-- "sysreq_hardware.md"
 
-##### Hardware
-The following machine recommendations are for installing individual PADAS components:
-{% include docs/sysreq_hardware.md %}
+#### Software
+--8<-- "sysreq_confluent.md"
 
-<br>
-##### Software
-{% include docs/sysreq_confluent.md %}
+#### Operating Systems
+--8<-- "sysreq_os.md"
 
-<br>
-##### Operating Systems
-PADAS supports the following operating systems.
-{% include docs/sysreq_os.md %}
-
-<br>
-##### Java
-{% include docs/sysreq_java.md %}
-
-<br>
+#### Java
+--8<-- "sysreq_java.md"
 
 ---
 
 ### Manual Install Using TAR Archive
-<br>
 
 #### Download the software
-1. Download the latest version here: [padas-{{ site.data.versions.latest_version }}.tgz](/assets/downloads/padas-{{ site.data.versions.latest_version }}.tgz) or via command line:
-```sh
-curl -O https://www.padas.io/assets/downloads/padas-{{ site.data.versions.latest_version }}.tgz
+1. Download the latest version here: [padas-{{ latest_version }}.tgz](/assets/downloads/padas-{{ latest_version }}.tgz) or via command line:
+```bash
+curl -O https://www.padas.io/assets/downloads/padas-{{ latest_version }}.tgz
 ```
-NOTE: You can verify the integrity by checking against its SHA512 checksum: [padas-{{ site.data.versions.latest_version }}.tgz.sha512](/assets/downloads/padas-{{ site.data.versions.latest_version }}.tgz.sha512)
 2. Extract contents of the archive (default `/opt` is assumed for `$PADAS_HOME`)
-```sh
+```bash
 cd /opt
-tar xvf padas-{{ site.data.versions.latest_version }}.tgz
+tar xvf padas-{{ latest_version }}.tgz
 ```
-<br>
+
 You should have these directories:
-{% include docs/padas_folders.md %}
-<br>
+--8<-- "padas_folders.md"
 
 **IMPORTANT NOTE**: It is recommended to create a separate user to run Padas, other than `root`.  In our examples, we use `padas` as both the user and group name.  Following is an example on how to create such user:
-```
+```bash
 sudo useradd -d /opt/padas -U padas
 ```
 
@@ -59,7 +44,7 @@ sudo useradd -d /opt/padas -U padas
 ### Register as a Service
 
 1. Run Padas to create a service file. (Note: following examples assume `$PADAS_HOME` to be `/opt/padas` directory)
-```sh
+```bash
 bin/padas set-service
 Systemd unit file has been created as '/opt/padas/libs/padas.service'
 ```
@@ -74,7 +59,7 @@ After=network.target
 Type=simple
 User=padas
 Group=padas
-ExecStart=java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ site.data.versions.latest_version }}.jar
+ExecStart=java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ latest_version }}.jar
 TimeoutStopSec=180
 Restart=no
 #
@@ -82,24 +67,21 @@ Restart=no
 WantedBy=multi-user.target
 ```
 3. Copy the service file under system
-```sh
+```bash
 sudo cp /opt/padas/libs/padas.service /etc/systemd/system/
 ```
 4. Reload systemd process
-```sh
+```bash
 sudo systemctl daemon-reload
 ```
 
-
-<br>
-
 ---
 
-#### Start For the First Time
+### Start For the First Time
 
-**IMPORTANT NOTE**: You need a running Kafka environment (Broker(s) and Schema Registry) and a PADAS license key. [Request a license key](/index.html#download) if you don't have one.
+**IMPORTANT NOTE**: You need a running Kafka environment (Kafka broker(s) at the very least).
 
-##### Manager
+#### Manager
 1. Edit `etc/padas.properties` file to reflect your environment and enter the license key.  Note that `padas.instance.role` **MUST** be `manager`.
 ```properties
 padas.instance.role=manager
@@ -113,7 +95,7 @@ cd $PADAS_HOME/bin
 ./padas start
 ```
 3. PADAS displays the license agreement and prompts you to accept in order to continue.
-{% include docs/padas_licenseagreement_start.md %}
+--8<-- "padas_licenseagreement_start.md"
 4. Create admin username.  This is the user that you log into PADAS Manager with.
 ```sh
 Please enter an administrator username? [admin]:
@@ -138,8 +120,8 @@ Successfully saved password.
 
     <img src="/assets/img/transform_upload_sample.png" width="67%">
     <br/>
-<br/>
-##### Detect Engine
+
+#### Engine
 1. Edit `etc/padas.properties` file to reflect your environment.  Note that `padas.instance.role` **MUST** be `detect` (default setting).
 ```properties
 padas.instance.role=detect
@@ -152,10 +134,10 @@ cd $PADAS_HOME/bin
 ./padas start
 ```
 3. PADAS displays the license agreement and prompts you to accept in order to continue.
-{% include docs/padas_licenseagreement_start.md %}
+--8<-- "padas_licenseagreement_start.md"
 
-<br/>
-##### Transform Engine
+
+#### Transform Engine
 1. Edit `etc/padas.properties` file to reflect your environment.  Note that `padas.instance.role` **MUST** be `transform`.
 ```properties
 padas.instance.role=detect
@@ -168,7 +150,7 @@ cd $PADAS_HOME/bin
 ./padas start
 ```
 3. PADAS displays the license agreement and prompts you to accept in order to continue.
-{% include docs/padas_licenseagreement_start.md %}
+--8<-- "padas_licenseagreement_start.md"
 
 <br>
 
@@ -176,24 +158,18 @@ cd $PADAS_HOME/bin
 
 ### PADAS Command Line Interface
 A wrapper script is provided to manage PADAS service: `$PADAS_HOME/bin/padas`
-{% include docs/padas_cli.md %}
+--8<-- "padas_cli.md"
 
-<br>
 Example outputs when components are started for the first time.
 
-<br>
 Manager:
-{% include docs/padas_manager_start_console.md %}
+--8<-- "padas_manager_start_console.md"
 
-<br>
 Detect Engine:
-{% include docs/padas_detect_start_console.md %}
+--8<-- "padas_detect_start_console.md"
 
-<br>
 Transform Engine:
-{% include docs/padas_transform_start_console.md %}
-
-<br>
+--8<-- "padas_transform_start_console.md"
 
 ---
 
@@ -202,8 +178,6 @@ Transform Engine:
 ```sh
 rm -rf /opt/padas
 ```
-
-<br>
 
 ---
 

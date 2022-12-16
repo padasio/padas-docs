@@ -1,3 +1,11 @@
+---
+title: Configuration File Reference
+layout: documentation
+---
+
+### Padas Engine Properties Specifications (`padas.properties.spec`)
+
+```properties
 ####################################
 # This file provides all possible options for padas.properties file.
 # Use this file to configure PADAS instances and their properties.
@@ -16,12 +24,6 @@ bootstrap.servers=localhost:9092
 padas.uuid=
 # N/A - Automatically assigned
 # Universally Unique Identifier for this instance.  Created upon initial start.
-
-padas.license=
-# Required - <string>
-# License string should be a pipe '|' delimited string containing
-# version, entitlement, start date, end date, quota, type, and signature
-# Default: none
 
 
 ####################################
@@ -68,12 +70,12 @@ num.stream.threads=1
 
 server.port=8999
 # Optional - <integer>
-# Port number for Manager web interface
+# Port number for REST API
 # Default: 8999
 
 server.ssl.enabled=true
 # Optional - <boolean>
-# Enable SSL for Manager web interface with the server.ssl.* configuration
+# Enable SSL with the server.ssl.* configuration
 # Default: true
 
 server.ssl.key-alias=padas
@@ -96,3 +98,46 @@ server.ssl.key-store-type=PKCS12
 # SSL Key Store type
 # Default: PKCS12
 
+```
+
+### Padas Engine Properties Example (`padas.properties`)
+
+```properties
+bootstrap.servers=localhost:9092
+```
+
+### Padas UI Default Configuration (`default.json`)
+```json
+{
+  "server" : {
+    "host": "0.0.0.0",
+    "port": 9000,
+    "ssl" : {
+      "key": "padas-key.pem",
+      "cert": "padas-cert.pem"
+    }
+  },
+  "api" : {
+    "host": "localhost",
+    "port": 8999
+  }
+}
+```
+
+### Padas UI Local Configuration Example (`local.json`)
+```json
+{
+  "server" : {
+    "host": "192.168.1.150", // UI is listening on this IP only
+    "port": 9000,
+    "ssl" : {
+      "key": "padas-key.pem",
+      "cert": "padas-cert.pem"
+    }
+  },
+  "api" : {
+    "host": "192.168.1.100", // Padas Engine is running on this IP
+    "port": 8999
+  }
+}
+```

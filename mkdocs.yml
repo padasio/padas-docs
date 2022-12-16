@@ -1,5 +1,8 @@
 site_name: PADAS Documentation
 
+plugins:
+  - macros
+
 theme:
   name: material
   custom_dir: overrides
@@ -12,6 +15,7 @@ extra_css:
   - assets/css/extra.css
   - assets/css/padas.css
   - assets/css/padas-utils.css
+  # - assets/css/bootstrap.min.css  
 
 markdown_extensions:
   - tables
@@ -40,6 +44,8 @@ nav:
   - 'Admin Guide':
     - admin-guide.md
     - datamodel-reference.md
+    - config-reference.md
+    - api-reference.md
   - 'About':
     - release-notes.md
 
