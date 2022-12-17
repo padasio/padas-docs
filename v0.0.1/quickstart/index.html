@@ -270,43 +270,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-download-and-define-components" class="md-nav__link">
-    Step 1: Download and define components
+  <a href="#step-1-download" class="md-nav__link">
+    Step 1: Download
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-start-manager" class="md-nav__link">
-    Step 2: Start Manager
+  <a href="#step-2-start-engine" class="md-nav__link">
+    Step 2: Start Engine
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-start-detect-engine" class="md-nav__link">
-    Step 3: Start Detect Engine
+  <a href="#step-3-start-ui" class="md-nav__link">
+    Step 3: Start UI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-start-transform-engine" class="md-nav__link">
-    Step 4: Start Transform Engine
+  <a href="#step-3-create-topics" class="md-nav__link">
+    Step 3: Create Topics
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-generate-sample-event" class="md-nav__link">
-    Step 5: Generate Sample Event
+  <a href="#step-4-configure-padas" class="md-nav__link">
+    Step 4: Configure Padas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-6-view-alerts" class="md-nav__link">
-    Step 6: View Alerts
+  <a href="#step-5-test-play" class="md-nav__link">
+    Step 5: Test &amp; Play
   </a>
   
 </li>
@@ -327,6 +327,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
     </li>
   
 
@@ -365,20 +379,6 @@
           User Guide
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
-        Installation
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -592,43 +592,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-download-and-define-components" class="md-nav__link">
-    Step 1: Download and define components
+  <a href="#step-1-download" class="md-nav__link">
+    Step 1: Download
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-start-manager" class="md-nav__link">
-    Step 2: Start Manager
+  <a href="#step-2-start-engine" class="md-nav__link">
+    Step 2: Start Engine
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-start-detect-engine" class="md-nav__link">
-    Step 3: Start Detect Engine
+  <a href="#step-3-start-ui" class="md-nav__link">
+    Step 3: Start UI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-start-transform-engine" class="md-nav__link">
-    Step 4: Start Transform Engine
+  <a href="#step-3-create-topics" class="md-nav__link">
+    Step 3: Create Topics
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-generate-sample-event" class="md-nav__link">
-    Step 5: Generate Sample Event
+  <a href="#step-4-configure-padas" class="md-nav__link">
+    Step 4: Configure Padas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-6-view-alerts" class="md-nav__link">
-    Step 6: View Alerts
+  <a href="#step-5-test-play" class="md-nav__link">
+    Step 5: Test &amp; Play
   </a>
   
 </li>
@@ -680,157 +680,266 @@ ZooKeeper is <span class="o">[</span>UP<span class="o">]</span>
 <p><br></p>
 <h3 id="overview-of-quickstart">Overview of Quickstart</h3>
 <p>Below diagram shows what will be accomplished with this quick start guide.</p>
-<p><img src="/assets/img/padas_quickstart_setup.png" width="67%"></p>
-<h4 id="step-1-download-and-define-components">Step 1: Download and define components</h4>
+<figure>
+<p>
+  <img src="../assets/img/padas_quickstart_setup.png" class="img-fluid py-5">
+  </p>
+</figure>
+<p>We will play with some mock data such as the following.  Our goal will be to transform sample event data and apply a set of rules to generate alerts.</p>
+<p>Sample input:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<p>We will have a couple of simple rules that will trigger when <code>group_name</code> (soon to be enriched field) matches <code>"evil*"</code> or when <code>action</code> results in <code>failure</code>.</p>
+<p><strong>NOTE</strong>: For the purposes of demo, the goal is carried with multiple tasks, where as a simple <code>FILTER</code> function can be utilized as well.</p>
+<hr />
+<h4 id="step-1-download">Step 1: Download</h4>
 <ol>
-<li><a href="http://padas.io/index.html#download">Download</a> the latest version of Padas Engine and Manager components applicable to your platform.</li>
+<li>
+<p><a href="http://padas.io/index.html#download">Download</a> the latest version of Padas Engine and UI components applicable to your platform.</p>
+<div class="highlight"><pre><span></span><code>wget https://padas.io/assets/downloads/padas-0.0.1.tgz
+wget https://padas.io/assets/downloads/padas-ui-0.0.1-linux-x64.tgz
+</code></pre></div>
+</li>
 <li>
 <p>Use the <code>tar</code> command to decompress the archive file</p>
-<p><div class="highlight"><pre><span></span><code>--&gt; site_name
-tar -xvzf padas-0.0.1.tgz
+<div class="highlight"><pre><span></span><code>tar -xzf padas-0.0.1.tgz
+tar -xzf padas-ui-0.0.1-linux-x64.tgz
 </code></pre></div>
-3. Since we have everything on a single host, make a copy of the extracted folder for manager, transform engine, and detect engine</p>
-<p><div class="highlight"><pre><span></span><code>cp -r padas padas-manager
-cp -r padas padas-transform
-mv padas padas-detect
-</code></pre></div>
-<strong>NOTE</strong>: Last renaming step is not necessary but gives a descriptive name to the folder's functionality.
-4. Edit manager properties (<code>padas-manager/etc/padas.properties</code>) to make sure the <code>padas.instance.role</code> is set to <code>manager</code> and <code>padas.license</code> is set to the license you received.</p>
-<div class="highlight"><pre><span></span><code>vi padas-manager/etc/padas.properties
-...
-</code></pre></div>
-<p>After editing, properties file (<code>padas-manager/etc/padas.properties</code>) entries should be:
-<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">manager</span><span class="w"></span>
-<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
-<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
-<span class="na">padas.license</span><span class="o">=</span><span class="s">&lt;LICENSE KEY SHOULD GO HERE&gt;</span><span class="w"></span>
-</code></pre></div>
-5. Edit transform properties (<code>padas-transform/etc/padas.properties</code>) to make sure the <code>padas.instance.role</code> is set to <code>transform</code>.</p>
-<div class="highlight"><pre><span></span><code>vi padas-transform/etc/padas.properties
-...
-</code></pre></div>
-<p>After editing, properties file (<code>padas-transform/etc/padas.properties</code>) entries should be:
-<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">transform</span><span class="w"></span>
-<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
-<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
-</code></pre></div>
-6. From your current working directory, now you should have 3 PADAS folders, e.g.</p>
-<p><div class="highlight"><pre><span></span><code>ls
-padas-detect   padas-manager   padas-transform
-</code></pre></div>
-Note that you don't have to make any configuration changes to <code>padas-detect</code> folder, as the default behavior is set to Detect Engine with localhost.</p>
+</li>
+<li>
+<p>Once extracted, you should have <code>padas</code> and <code>padas-ui</code> directories.  By default, Padas Engine expects Kafka to be running on <code>localhost</code>.  If that's not the case, edit <code>padas/etc/padas.properties</code> accordingly.</p>
 </li>
 </ol>
 <p>At this stage, make sure you have Confluent Kafka running locally as mentioned in prerequisites.</p>
-<h4 id="step-2-start-manager">Step 2: Start Manager</h4>
+<h4 id="step-2-start-engine">Step 2: Start Engine</h4>
 <ol>
 <li>
-<p>Start manager node on the console.  The script will ask you to accept the license agreement (enter <code>y</code>) and define an administrator user to login; enter the desired password to continue
-<div class="highlight"><pre><span></span><code>cd padas-manager/
+<p>Start engine node on the console.  The script will ask you to accept the license agreement (enter <code>y</code>)
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span> padas/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas start-console
+PADAS SOFTWARE LICENSE AGREEMENT
+...
+Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR <span class="k">in</span> file /&lt;YOUR INSTALL DIR&gt;/padas/etc/license.txt
+Do you agree with this license? <span class="o">[</span>y/n<span class="o">]</span>: y
+INFO  Verifying Kafka broker connection...
+INFO  Successfully verified Kafka Cluster connection.
+INFO  Successfully verified existence of all required topics.
+INFO  Starting web interface at https://&lt;HOSTNAME&gt;:8999 ...
+
+
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@:**@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@:****:@@@@@@@@@@@**:****@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@**********:::**********@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@:***********************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@************************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@**************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@*****************************@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@********************************<span class="p">&amp;</span>@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@#***********************************::@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@**:************************************@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@******************************@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@<span class="p">&amp;</span>*@@@@@@@@@@*************************@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@:**********@@@@@@@@@@@***********************@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@***********:@@@@@@@@@@@@********************o@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@***********@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  **************o@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  **************@@@@@@@@@@@@@********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @:::o:********@@@@@@@@@@@@:********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@o*******@@@@@@@@@@**************o@@@#****8@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@*******:@@@@@@@:***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8
+  @@@@@@@@**********:@**************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*
+  @@@@@@@:*****************************:8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<span class="p">&amp;</span>
+  @@@@@@:***********************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:@
+  @@@@@@o****************************************@@@@@@@@@@@@@@@@@@@@@@@@@:*@@
+  @@@@@@o********************************************:*@@@@@@@@@@@@@@@@@:**@@@
+  @@@@@@@@@******************************@::****************************:@@@@@
+  @@@@@@@@@@*@@:******#@@@@@@@@@*********@@@@@@@@8**:****************@@@@@@@@@
+  @@@@@@@@@*****@@*****:8@@@@@@@@@8*********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@*****@@@:******@@@@@@@@@@@@:*****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@****<span class="p">&amp;</span>@@@@@@*****@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@**@@@****@@@@@@@@#***#@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@******:***@@@@@@@@***@@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@:<span class="p">&amp;</span>@@@@@@@@@@::@@*****:o@@@@@@@o***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@:*****8#@:*#@@@@@@8*@*8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@<span class="p">&amp;</span>@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  ____   _    ____    _    ____
+ <span class="p">|</span>  _ <span class="se">\ </span>/ <span class="se">\ </span> <span class="p">|</span>  _ <span class="se">\ </span> / <span class="se">\ </span> / ___<span class="p">|</span>
+ <span class="p">|</span> <span class="p">|</span>_<span class="o">)</span> / _ <span class="se">\ </span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>/ _ <span class="se">\ \_</span>__ <span class="se">\</span>
+ <span class="p">|</span>  __/ ___ <span class="se">\|</span> <span class="p">|</span>_<span class="p">|</span> / ___ <span class="se">\ </span>___<span class="o">)</span> <span class="p">|</span>
+ <span class="p">|</span>_<span class="p">|</span> /_/   <span class="se">\_\_</span>___/_/   <span class="se">\_\_</span>___/
+
+INFO  Starting App using Java <span class="m">11</span>.0.10 on &lt;HOSTNAME&gt; with PID <span class="m">32965</span> <span class="o">(</span>/&lt;YOUR INSTALL DIR&gt;/padas/libs/padas-0.0.1.jar started by selim <span class="k">in</span> /&lt;YOUR INSTALL DIR&gt;/padas<span class="o">)</span>
+INFO  No active profile set, falling back to default profiles: default
+INFO  Started App <span class="k">in</span> <span class="m">12</span>.536 seconds <span class="o">(</span>JVM running <span class="k">for</span> <span class="m">66</span>.174<span class="o">)</span>
+</code></pre></div></p>
+<p><strong>NOTE</strong>: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
+<div class="highlight"><pre><span></span><code>...
+WARN  Unable to describe required topics <span class="k">for</span> Padas.  Please create these topics <span class="k">in</span> order to run the engine.
+...
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="step-3-start-ui">Step 3: Start UI</h4>
+<ol>
+<li>
+<p>Start UI component on the console.  Default configuration connects to <code>localhost</code> for Padas Engine.
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span> padas-ui/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas-ui start-console
+<span class="o">[</span>HPM<span class="o">]</span> Proxy created: /api  -&gt; https://&lt;PADAS ENGINE HOST&gt;:8999
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>Login</strong>: Go to <a href="http://localhost:9000">http://localhost:9000</a> and login with the credentials used in previous step (e.g. admin)</p>
-<p><img src="/assets/img/login_sample.png" width="67%"></p>
+<p><strong>Initialize User</strong>: Go to <a href="https://localhost:9000">https://localhost:9000</a> and since this is the first time, click the link below and create an administrator user.</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_preinit.png" class="w-50 img-fluid py-5">
+  </p>
+  <p>
+  <img src="../assets/img/padas_ui_init.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
 </li>
 <li>
-<p><strong>Create Topics</strong>: Upon initial login, Manager will go to Topics menu in order to create necessary Kafka topics.  </p>
-<p><img src="/assets/img/topics_pre_sample.png" width="67%">
-<br/>
-Hit <span class="btn btn-padas">Save</span> button to continue with defaults.
-<br/>
-<img src="/assets/img/topics_post_sample.png" width="67%"></p>
-</li>
-<li>
-<p><strong>Create a Rule</strong>: Go to <span class="fw-bold"><i class="bi bi-file-ruled"></i>Rules</span> menu link in order to add a sample rule.  Enter the following values for the required fields:</p>
-<ul>
-<li><strong>Rule Name</strong>: <code>Test Rule</code></li>
-<li><strong>PDL Query</strong>: <code>field1="value"</code></li>
-<li><strong>Datamodel List</strong>: <code>testdm</code></li>
-</ul>
-<p>Other provided fields are optional but feel free to review and add/modify as needed.  A list of rules for MITRE ATT&amp;CK can be found here: <a href="/assets/config/padasRules.json">padasRules.json</a></p>
-<p><br/>
-Hit <span class="btn btn-padas">Save</span> button to continue. </p>
-<p><img src="/assets/img/rules_pre_sample.png" width="67%"></p>
-<p><br/>
-You should be able to view the rule you specified, similar to the following screenshot.</p>
-<p><img src="/assets/img/rules_post_sample.png" width="67%"></p>
-</li>
-<li>
-<p><strong>Add a Transformation</strong>: Go to <span class="fw-bold"><i class="bi bi-filter"></i>Properties</span> and first hit <span class="btn btn-padas">Edit</span>, then select <span class="btn btn-padas"><i class="bi bi-plus-lg"></i>Add New Transformation</span>.  Expand "Input Topic: 0" and enter the following values for the required fields:</p>
-<ul>
-<li><strong>Topic Name</strong>: <code>testtopic</code></li>
-<li><strong>Datamodel Name</strong>: <code>testdm</code></li>
-</ul>
-<p><br/>
-<img src="/assets/img/props_pre_sample.png" width="67%"></p>
-<p><br/>
-You should be able to view the newly added property (Input Topic: testtopic, similar to the following screenshot.</p>
-<p><img src="/assets/img/props_post_sample.png" width="67%"></p>
+<p><strong>Login</strong>: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.</p>
 </li>
 </ol>
-<h4 id="step-3-start-detect-engine">Step 3: Start Detect Engine</h4>
-<ol>
-<li>Start Detect Engine on the console (separate window, since Manager is running on the console as well).  The script will ask you to accept the license agreement (enter <code>y</code>). 
-<div class="highlight"><pre><span></span><code>cd padas-detect/
-</code></pre></div></li>
-</ol>
-<h4 id="step-4-start-transform-engine">Step 4: Start Transform Engine</h4>
+<h4 id="step-3-create-topics">Step 3: Create Topics</h4>
+<p>In addition to required (Padas) topics we will create <code>test_input</code> and <code>test_output</code> topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
 <ol>
 <li>
-<p>Before starting Transform Engine we must first create the specified input topic (i.e. <code>testtopic</code>) in Kafka.  You can do this from <a href="https://docs.confluent.io/platform/current/control-center/topics/create.html">Confluent Control Center</a> or from the console as shown below.</p>
-<div class="highlight"><pre><span></span><code>kafka-topics --create --bootstrap-server localhost:9092 --topic testtopic --partitions <span class="m">1</span> --replication-factor <span class="m">1</span>
-Created topic testtopic.
-</code></pre></div>
+<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.  For this demo, you can simply accept the defaults and click <span class="btn btn-padas">Create Topics</span> button</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read/write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
+<div class="highlight"><pre><span></span><code>bin/padas start-console
+</code></pre></div></p>
 </li>
 <li>
-<p>Start Transform Engine on the console (separate window, since Manager and Detect Engine are running on the console as well).  The script will ask you to accept the license agreement (enter <code>y</code>). 
-<div class="highlight"><pre><span></span><code>cd padas-transform/
+<p><strong>Create Test Topics</strong>: From the console, simply run the following commands to create <code>test_input</code> and <code>test_output</code> test topics with defaults.
+    <div class="highlight"><pre><span></span><code>kafka-topics --bootstrap-server localhost:9092 --create --topic <span class="s2">&quot;test_input&quot;</span>
+kafka-topics --bootstrap-server localhost:9092 --create --topic <span class="s2">&quot;test_output&quot;</span>
 </code></pre></div></p>
 </li>
 </ol>
-<h4 id="step-5-generate-sample-event">Step 5: Generate Sample Event</h4>
-<ol>
-<li>Let's generate a sample event with a simple JSON message.  Note that this JSON will match the PDL (<code>field1="value1"</code>) specified above.
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;{&quot;field1&quot;:&quot;value1&quot;,&quot;field2&quot;:&quot;value1&quot;}&#39;</span> <span class="p">|</span>  kafka-console-producer --bootstrap-server localhost:9092 --topic testtopic
-</code></pre></div></li>
-</ol>
-<h4 id="step-6-view-alerts">Step 6: View Alerts</h4>
+<h4 id="step-4-configure-padas">Step 4: Configure Padas</h4>
+<hr />
+<p><strong>TLDR;</strong>
+Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.</p>
+<ul>
+<li>For <a href="https://localhost:9000/tasks">Tasks</a> upload <a href="../assets/config/PadasQuickStartTasks.json">PadasQuickStartTasks.json</a></li>
+<li>For <a href="https://localhost:9000/pipelines">Pipelines</a> upload <a href="../assets/config/PadasQuickStartPipelines.json">PadasQuickStartPipelines.json</a></li>
+<li>
+<p>For <a href="https://localhost:9000/rules">Rules</a> upload <a href="../assets/config/PadasQuickStartRules.json">PadasQuickStartRules.json</a></p>
+<p><strong>NOTE</strong>: You will need to create the topology manually, please go to step 4 below.</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+</li>
+</ul>
+<hr />
 <ol>
 <li>
-<p>Once the sample event is ingested, PADAS Detect Engine will run the rules for matching datamodels in real-time and populate <code>padas_alerts</code> topic with matching event and alert information.  You can simply view this alert with the following command:</p>
-<div class="highlight"><pre><span></span><code>kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic padas_alerts --from-beginning <span class="p">|</span> jq
+<p><strong>Create Tasks</strong>: We will create 2 tasks.  First one will simply perform some enrichment and add a new field <code>group_name</code> based on a condition.  The second one will run all relevant PDL rules for <code>mydata</code> data model (arbitrary name).  From <a href="https://localhost:9000/tasks">Tasks</a> menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_task_rule_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure></p>
+</li>
+<li>
+<p><strong>Create Pipeline</strong>: Create a pipeline with the above tasks.  From <a href="https://localhost:9000/pipelines">Pipelines</a> menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure></p>
+</li>
+<li>
+<p><strong>Create Rules</strong>: Create couple of rules for <code>mydata</code> data model. with the above tasks.  From <a href="https://localhost:9000/rules">Rules</a> menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure></p>
+</li>
+<li>
+<p><strong>Create Topology</strong>: Create a topology with the above pipeline that reads from <code>test_input</code> topic and writes to <code>test_output</code> topic.  From <a href="https://localhost:9000/topologies">Topologies</a> menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure></p>
+</li>
+<li>
+<p><strong>Restart Node</strong>: Once a new topology is created we need to let Padas Engine know about it by restarting the node.  You can do this from the console (<code>CTRL-C</code> and start, or stop/start the service, etc.) or you can also do this from the UI from <a href="https://localhost:9000/nodes">Nodes</a> menu, click <span class="btn btn-padas">Start</span> button and you should see the state change to <code>RUNNING</code> for this node.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_nodes.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure></p>
+</li>
+</ol>
+<h4 id="step-5-test-play">Step 5: Test &amp; Play</h4>
+<ol>
+<li>
+<p><strong>Generate Data</strong>: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
+    <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;{&quot;user&quot;: &quot;user_1&quot;,&quot;group_id&quot;: 5,&quot;action&quot;: &quot;success&quot;}&#39;</span> <span class="p">|</span>  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
+<span class="nb">echo</span> <span class="s1">&#39;{&quot;user&quot;: &quot;user_1&quot;,&quot;group_id&quot;: 1,&quot;action&quot;: &quot;success&quot;}&#39;</span> <span class="p">|</span>  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
+<span class="nb">echo</span> <span class="s1">&#39;{&quot;user&quot;: &quot;user_1&quot;,&quot;group_id&quot;: 1,&quot;action&quot;: &quot;failure&quot;}&#39;</span> <span class="p">|</span>  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>View output</strong>: Once the sample event is ingested, rules for matching datamodels in real-time and populate <code>padas_alerts</code> topic with matching event and alert information.  You can simply view this alert with the following command:</p>
+<div class="highlight"><pre><span></span><code>kafka-console-consumer --bootstrap-server localhost:9092 --topic test_output --from-beginning <span class="p">|</span> jq
 </code></pre></div>
-<p>Output will be similar to the following.  Note the use of <code>jq</code> above for pretty display of JSON data.
+<p>Output will be similar to the following, this example output is from the last input from above.  Note the use of <code>jq</code> above for pretty display of JSON data.
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-11-28T14:25:23.199+0300&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test Rule&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;references&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;customAnnotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;mitreAnnotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;platforms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mitre_attack&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;analyticType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;datamodelReferences&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;failure&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;evil group&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;padas_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-11-28T14:18:30.309+0300&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testdm&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas.local&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;dest&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;rawdata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;field1\&quot;:\&quot;value1\&quot;,\&quot;field2\&quot;:\&quot;value1\&quot;}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;jsondata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;field1\&quot;:\&quot;value1\&quot;,\&quot;field2\&quot;:\&quot;value1\&quot;}&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test Rule for Evil&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Match for group name that starts with evil&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group_name=\&quot;evil*\&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mydata&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;T1234&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;T2345&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test Rule for Failure&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Match when action is failure&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;action=\&quot;failure\&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mydata&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;T9876&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
