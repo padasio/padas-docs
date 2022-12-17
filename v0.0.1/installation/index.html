@@ -318,14 +318,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#download-the-software" class="md-nav__link">
-    Download the software
+  <a href="#step-1-download" class="md-nav__link">
+    Step 1: Download
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-engine" class="md-nav__link">
+    Step 2: Start Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start-ui" class="md-nav__link">
+    Step 3: Start UI
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-topics" class="md-nav__link">
+    Create Topics
+  </a>
   
 </li>
       
@@ -333,40 +354,6 @@
   <a href="#register-as-a-service" class="md-nav__link">
     Register as a Service
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-for-the-first-time" class="md-nav__link">
-    Start For the First Time
-  </a>
-  
-    <nav class="md-nav" aria-label="Start For the First Time">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manager" class="md-nav__link">
-    Manager
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#engine" class="md-nav__link">
-    Engine
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transform-engine" class="md-nav__link">
-    Transform Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -680,14 +667,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#download-the-software" class="md-nav__link">
-    Download the software
+  <a href="#step-1-download" class="md-nav__link">
+    Step 1: Download
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-engine" class="md-nav__link">
+    Step 2: Start Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start-ui" class="md-nav__link">
+    Step 3: Start UI
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-topics" class="md-nav__link">
+    Create Topics
+  </a>
   
 </li>
       
@@ -695,40 +703,6 @@
   <a href="#register-as-a-service" class="md-nav__link">
     Register as a Service
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-for-the-first-time" class="md-nav__link">
-    Start For the First Time
-  </a>
-  
-    <nav class="md-nav" aria-label="Start For the First Time">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manager" class="md-nav__link">
-    Manager
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#engine" class="md-nav__link">
-    Engine
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transform-engine" class="md-nav__link">
-    Transform Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -841,17 +815,10 @@
 <p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change.</p>
 <hr />
 <h3 id="manual-install-using-tar-archive">Manual Install Using TAR Archive</h3>
-<h4 id="download-the-software">Download the software</h4>
-<ol>
-<li>Download the latest version here: <a href="/assets/downloads/padas-0.0.1.tgz">padas-0.0.1.tgz</a> or via command line:
-<div class="highlight"><pre><span></span><code>curl -O https://www.padas.io/assets/downloads/padas-0.0.1.tgz
-</code></pre></div></li>
-<li>Extract contents of the archive (default <code>/opt</code> is assumed for <code>$PADAS_HOME</code>)
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt
-tar xvf padas-0.0.1.tgz
-</code></pre></div></li>
-</ol>
-<p>You should have these directories:</p>
+<p><strong>IMPORTANT NOTE</strong>: It is recommended to create a separate user to run Padas, other than <code>root</code>.  In our examples, we use <code>padas</code> as both the user and group name.  Following is an example on how to create such user:
+<div class="highlight"><pre><span></span><code>sudo useradd -d /opt/padas -U padas
+</code></pre></div></p>
+<p>Padas directories:</p>
 <table>
 <thead>
 <tr>
@@ -882,8 +849,171 @@ tar xvf padas-0.0.1.tgz
 </tr>
 </tbody>
 </table>
-<p><strong>IMPORTANT NOTE</strong>: It is recommended to create a separate user to run Padas, other than <code>root</code>.  In our examples, we use <code>padas</code> as both the user and group name.  Following is an example on how to create such user:
-<div class="highlight"><pre><span></span><code>sudo useradd -d /opt/padas -U padas
+<h4 id="step-1-download">Step 1: Download</h4>
+<ol>
+<li>
+<p><a href="http://padas.io/index.html#download">Download</a> the latest version of Padas Engine and UI components applicable to your platform.</p>
+<div class="highlight"><pre><span></span><code>wget https://padas.io/assets/downloads/padas-<span class="o">{{</span> current_version <span class="o">}}</span>.tgz
+wget https://padas.io/assets/downloads/padas-ui-<span class="o">{{</span> current_version <span class="o">}}</span>-linux-x64.tgz
+</code></pre></div>
+</li>
+<li>
+<p>Use the <code>tar</code> command to decompress the archive file</p>
+<div class="highlight"><pre><span></span><code>tar -xzf padas-<span class="o">{{</span> current_version <span class="o">}}</span>.tgz
+tar -xzf padas-ui-<span class="o">{{</span> current_version <span class="o">}}</span>-linux-x64.tgz
+</code></pre></div>
+</li>
+<li>
+<p>Once extracted, you should have <code>padas</code> and <code>padas-ui</code> directories.  By default, Padas Engine expects Kafka to be running on <code>localhost</code>.  If that's not the case, edit <code>padas/etc/padas.properties</code> accordingly.</p>
+</li>
+</ol>
+<p>At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
+<h4 id="step-2-start-engine">Step 2: Start Engine</h4>
+<ol>
+<li>
+<p>Start engine node on the console.  The script will ask you to accept the license agreement (enter <code>y</code>)
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span> padas/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas start-console
+PADAS SOFTWARE LICENSE AGREEMENT
+...
+Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR <span class="k">in</span> file /&lt;YOUR INSTALL DIR&gt;/padas/etc/license.txt
+Do you agree with this license? <span class="o">[</span>y/n<span class="o">]</span>: y
+INFO  Verifying Kafka broker connection...
+INFO  Successfully verified Kafka Cluster connection.
+INFO  Successfully verified existence of all required topics.
+INFO  Starting web interface at https://&lt;HOSTNAME&gt;:8999 ...
+
+
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@:**@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@:****:@@@@@@@@@@@**:****@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@**********:::**********@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@:***********************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@************************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@**************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@*****************************@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@********************************<span class="p">&amp;</span>@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@#***********************************::@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@**:************************************@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@******************************@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@<span class="p">&amp;</span>*@@@@@@@@@@*************************@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@:**********@@@@@@@@@@@***********************@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@***********:@@@@@@@@@@@@********************o@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@***********@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  **************o@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  **************@@@@@@@@@@@@@********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @:::o:********@@@@@@@@@@@@:********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@o*******@@@@@@@@@@**************o@@@#****8@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@*******:@@@@@@@:***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8
+  @@@@@@@@**********:@**************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*
+  @@@@@@@:*****************************:8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<span class="p">&amp;</span>
+  @@@@@@:***********************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:@
+  @@@@@@o****************************************@@@@@@@@@@@@@@@@@@@@@@@@@:*@@
+  @@@@@@o********************************************:*@@@@@@@@@@@@@@@@@:**@@@
+  @@@@@@@@@******************************@::****************************:@@@@@
+  @@@@@@@@@@*@@:******#@@@@@@@@@*********@@@@@@@@8**:****************@@@@@@@@@
+  @@@@@@@@@*****@@*****:8@@@@@@@@@8*********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@*****@@@:******@@@@@@@@@@@@:*****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@****<span class="p">&amp;</span>@@@@@@*****@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@**@@@****@@@@@@@@#***#@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@******:***@@@@@@@@***@@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@:<span class="p">&amp;</span>@@@@@@@@@@::@@*****:o@@@@@@@o***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@:*****8#@:*#@@@@@@8*@*8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@<span class="p">&amp;</span>@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  ____   _    ____    _    ____
+ <span class="p">|</span>  _ <span class="se">\ </span>/ <span class="se">\ </span> <span class="p">|</span>  _ <span class="se">\ </span> / <span class="se">\ </span> / ___<span class="p">|</span>
+ <span class="p">|</span> <span class="p">|</span>_<span class="o">)</span> / _ <span class="se">\ </span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>/ _ <span class="se">\ \_</span>__ <span class="se">\</span>
+ <span class="p">|</span>  __/ ___ <span class="se">\|</span> <span class="p">|</span>_<span class="p">|</span> / ___ <span class="se">\ </span>___<span class="o">)</span> <span class="p">|</span>
+ <span class="p">|</span>_<span class="p">|</span> /_/   <span class="se">\_\_</span>___/_/   <span class="se">\_\_</span>___/
+
+INFO  Starting App using Java <span class="m">11</span>.0.10 on &lt;HOSTNAME&gt; with PID <span class="m">32965</span> <span class="o">(</span>/&lt;YOUR INSTALL DIR&gt;/padas/libs/padas-0.0.1.jar started by selim <span class="k">in</span> /&lt;YOUR INSTALL DIR&gt;/padas<span class="o">)</span>
+INFO  No active profile set, falling back to default profiles: default
+INFO  Started App <span class="k">in</span> <span class="m">12</span>.536 seconds <span class="o">(</span>JVM running <span class="k">for</span> <span class="m">66</span>.174<span class="o">)</span>
+</code></pre></div></p>
+<p><strong>NOTE</strong>: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
+<div class="highlight"><pre><span></span><code>...
+WARN  Unable to describe required topics <span class="k">for</span> Padas.  Please create these topics <span class="k">in</span> order to run the engine.
+...
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="step-3-start-ui">Step 3: Start UI</h4>
+<ol>
+<li>
+<p>Start UI component on the console.  Default configuration connects to <code>localhost</code> for Padas Engine.
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span> padas-ui/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas-ui start-console
+<span class="o">[</span>HPM<span class="o">]</span> Proxy created: /api  -&gt; https://&lt;PADAS ENGINE HOST&gt;:8999
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Initialize User</strong>: Go to <a href="https://localhost:9000">https://localhost:9000</a> and since this is the first time, click the link below and create an administrator user.</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_preinit.png" class="w-50 img-fluid py-5">
+  </p>
+  <p>
+  <img src="../assets/img/padas_ui_init.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+</li>
+<li>
+<p><strong>Login</strong>: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.</p>
+</li>
+</ol>
+<hr />
+<h3 id="create-topics">Create Topics</h3>
+<p>In order for Padas to work properly certain topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
+<p><strong>NOTE</strong>: All required topics enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Topic Name</th>
+<th>Description</th>
+<th>Kafka Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padas_nodes</td>
+<td>Up-to-date list of registered Padas Engine instances.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+<tr>
+<td>padas_tasks</td>
+<td>List of transformation and apply tasks.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+<tr>
+<td>padas_pipelines</td>
+<td>List of pipelines that contain task information.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+<tr>
+<td>padas_topologies</td>
+<td>List of topologies that contain pipeline information.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+<tr>
+<td>padas_rules</td>
+<td>List of rules to be utilized by APPLY_RULES task.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.   In this view you can ONLY change replication or partition information.  For further detailed configuration on topics, please refer to <a href="../admin-guide/#topic-properties">Topic Properties</a></p>
+<figure>
+<p>
+    <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
+</p>
+</figure>
+<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
+    <div class="highlight"><pre><span></span><code>bin/padas start-console
 </code></pre></div></p>
 <hr />
 <h3 id="register-as-a-service">Register as a Service</h3>
@@ -894,8 +1024,8 @@ Systemd unit file has been created as <span class="s1">&#39;/opt/padas/libs/pada
 </code></pre></div></li>
 <li>Review the generated service file (<code>libs/padas.service</code>) and edit as necessary (e.g. user &amp; group information, JVM memory options according to your system settings)
 <div class="highlight"><pre><span></span><code><span class="err">[Unit]</span><span class="w"></span>
-<span class="na">Description</span><span class="o">=</span><span class="s">PADAS - Alert Detection for Streaming Events</span><span class="w"></span>
-<span class="na">Documentation</span><span class="o">=</span><span class="s">https://www.padas.io/docs</span><span class="w"></span>
+<span class="na">Description</span><span class="o">=</span><span class="s">PADAS - Engine for Streaming Events</span><span class="w"></span>
+<span class="na">Documentation</span><span class="o">=</span><span class="s">https://docs.padas.io/</span><span class="w"></span>
 <span class="na">After</span><span class="o">=</span><span class="s">network.target</span><span class="w"></span>
 <span class="c">#</span><span class="w"></span>
 <span class="err">[Service]</span><span class="w"></span>
@@ -917,87 +1047,6 @@ Systemd unit file has been created as <span class="s1">&#39;/opt/padas/libs/pada
 </code></pre></div></li>
 </ol>
 <hr />
-<h3 id="start-for-the-first-time">Start For the First Time</h3>
-<p><strong>IMPORTANT NOTE</strong>: You need a running Kafka environment (Kafka broker(s) at the very least).</p>
-<h4 id="manager">Manager</h4>
-<ol>
-<li>Edit <code>etc/padas.properties</code> file to reflect your environment and enter the license key.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>manager</code>.
-<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">manager</span><span class="w"></span>
-<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
-<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
-<span class="na">padas.license</span><span class="o">=</span><span class="s">&lt;ENTER YOUR LICENSE KEY HERE&gt;</span><span class="w"></span>
-</code></pre></div></li>
-<li>Use command-line interface (CLI) to start PADAS:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
-./padas start
-</code></pre></div></li>
-<li>PADAS displays the license agreement and prompts you to accept in order to continue.
-<div class="highlight"><pre><span></span><code>PADAS SOFTWARE LICENSE AGREEMENT
-...
-Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR <span class="k">in</span> file /&lt;YOUR INSTALL DIR&gt;/padas/etc/license.txt
-Do you agree with this license? <span class="o">[</span>y/n<span class="o">]</span>: y
-</code></pre></div></li>
-<li>Create admin username.  This is the user that you log into PADAS Manager with.
-<div class="highlight"><pre><span></span><code>Please enter an administrator username? <span class="o">[</span>admin<span class="o">]</span>:
-</code></pre></div></li>
-<li>Create the password for the user that you just created.
-<div class="highlight"><pre><span></span><code>Password must contain at least <span class="m">8</span> total printable ASCII characters.
-Please enter a new password:
-Please repeat the password:
-Successfully saved password.
-</code></pre></div></li>
-<li>By default, Manager web interface starts on tcp/9000 port.  Open a browser and access PADAS Manager (e.g. http://localhost:9000).  For any custom configurations please go to <a href="/docs/admin-guide.html#anchor1">Admin Guide</a></li>
-<li>Once logged in, unless the topics are created separately, Manager will prompt you to create the required Kafka topics.
-    <img src="/assets/img/topics_pre_sample.png" width="67%">
-    <br/>
-    <strong>IMPORTANT NOTE</strong>: Number of partitions for each topic needs to be determined based on the expected event data load, performance requirements and your Kafka cluster setup.  Please consult your Kafka administrator or PADAS representative for assistance.  Once set, number of partitions can not be changed (the topic needs to be deleted and re-created).</li>
-<li>
-<p>Go to <span class="fw-bold"><i class="bi bi-file-ruled"></i>Rules</span> menu link and click <span class="btn btn-padas">Edit</span> button in order to add rules. You can upload our out-of-the-box MITRE ATT&amp;CK compatible rules, <a href="/assets/config/padasRules.json">padasRules.json</a>, that work with Winlogbeat eventlog from <code>winlogbeat-sysmon</code> and <code>winlogbeat-security</code> datamodels in <code>padas_events</code></p>
-<p><img src="/assets/img/rules_upload_sample.png" width="67%">
-<br/>
-9. Go to <span class="fw-bold"><i class="bi bi-filter"></i>Properties</span> menu link and click <span class="btn btn-padas">Edit</span> button in order to add properties.  You can upload out-of-the-box transformations for Winlogbeat, <a href="/assets/config/padas_transformation.properties">padas_transformation.properties</a>, which are configured for getting <code>winlogbeat-sysmon</code> and <code>winlogbeat-security</code> topics transformed into <code>padas_events</code></p>
-<p><img src="/assets/img/transform_upload_sample.png" width="67%">
-<br/></p>
-</li>
-</ol>
-<h4 id="engine">Engine</h4>
-<ol>
-<li>Edit <code>etc/padas.properties</code> file to reflect your environment.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>detect</code> (default setting).
-<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">detect</span><span class="w"></span>
-<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
-<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
-</code></pre></div></li>
-<li>Use command-line interface (CLI) to start PADAS:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
-./padas start
-</code></pre></div></li>
-<li>PADAS displays the license agreement and prompts you to accept in order to continue.
-<div class="highlight"><pre><span></span><code>PADAS SOFTWARE LICENSE AGREEMENT
-...
-Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR <span class="k">in</span> file /&lt;YOUR INSTALL DIR&gt;/padas/etc/license.txt
-Do you agree with this license? <span class="o">[</span>y/n<span class="o">]</span>: y
-</code></pre></div></li>
-</ol>
-<h4 id="transform-engine">Transform Engine</h4>
-<ol>
-<li>Edit <code>etc/padas.properties</code> file to reflect your environment.  Note that <code>padas.instance.role</code> <strong>MUST</strong> be <code>transform</code>.
-<div class="highlight"><pre><span></span><code><span class="na">padas.instance.role</span><span class="o">=</span><span class="s">detect</span><span class="w"></span>
-<span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">localhost:9092</span><span class="w"></span>
-<span class="na">schema.registry.url</span><span class="o">=</span><span class="s">http://localhost:8081</span><span class="w"></span>
-</code></pre></div></li>
-<li>Use command-line interface (CLI) to start PADAS:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$PADAS_HOME</span>/bin
-./padas start
-</code></pre></div></li>
-<li>PADAS displays the license agreement and prompts you to accept in order to continue.
-<div class="highlight"><pre><span></span><code>PADAS SOFTWARE LICENSE AGREEMENT
-...
-Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR <span class="k">in</span> file /&lt;YOUR INSTALL DIR&gt;/padas/etc/license.txt
-Do you agree with this license? <span class="o">[</span>y/n<span class="o">]</span>: y
-</code></pre></div></li>
-</ol>
-<p><br></p>
-<hr />
 <h3 id="padas-command-line-interface">PADAS Command Line Interface</h3>
 <p>A wrapper script is provided to manage PADAS service: <code>$PADAS_HOME/bin/padas</code>
 <div class="highlight"><pre><span></span><code>Welcome to Padas Command Line Interface <span class="o">(</span>CLI<span class="o">)</span>.
@@ -1011,10 +1060,6 @@ Usage:
     stop                      Stop Padas service
     start-console             Start Padas on the console
 </code></pre></div></p>
-<p>Example outputs when components are started for the first time.</p>
-<p>Manager:</p>
-<p>Detect Engine:</p>
-<p>Transform Engine:</p>
 <hr />
 <h3 id="uninstall">Uninstall</h3>
 <ol>

@@ -640,9 +640,10 @@
 <p><strong>NOTE</strong>: You need to separately install the correct version of Java before you start the installation process.</p>
 <p>JVM Heap Options can be set via <code>PADAS_HEAP_OPTS</code> environment variable.  Default value is: <code>-Xmx1G -Xms1G</code></p>
 <p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change.</p>
+<hr />
 <h3 id="topic-properties">Topic Properties</h3>
 <p>Following Kafka topics are required for PADAS to operate properly.</p>
-<p><strong>NOTE</strong>: While it's possible to create these topics either via REST API or from Padas UI, it is highly recommended to review <a href="https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html">Topic Configuration</a> and tune settings for each Padas topic (specially for <code>partitions</code> and <code>replication_factor</code>) according to expected volume and performance requirements.</p>
+<p><strong>NOTE</strong>: While it's possible to create these topics either via REST API or from Padas UI, it is <strong>highly recommended</strong> to review <a href="https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html">Topic Configuration</a> and tune settings for each Padas topic (specially for <code>partitions</code> and <code>replication_factor</code>) according to expected volume and performance requirements.</p>
 <p><strong>NOTE</strong>: All required topics enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
 <table>
 <thead>
@@ -680,8 +681,10 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="configuration-properties">Configuration Properties</h3>
 <p>For any PADAS instance all configuration is read from <code>$PADAS_HOME/etc/padas.properties</code> file; and details regarding the properties settings can be found in <a href="../config-reference/">Configuration File Reference</a>, also available with any installation at <code>$PADAS_HOME/etc/padas.properties.spec</code></p>
+<hr />
 <h3 id="logging">Logging</h3>
 <p>Padas Engine utilizes <a href="https://logback.qos.ch/manual/configuration.html">Logback</a> for logging application activity.  By default, <code>$PADAS_HOME/etc/logback.xml</code> file is used; log files are created based on the following settings and can be changed according to your requirements.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -736,6 +739,7 @@
     <span class="nt">&lt;/root&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
+<hr />
 <h3 id="integrate-to-external-systems">Integrate to External Systems</h3>
 <p>It is possible to integrate any external system either as a <a href="https://docs.confluent.io/platform/current/clients/producer.html">Kafka Producer</a> (source, generating and ingesting event data) or <a href="https://docs.confluent.io/platform/current/clients/consumer.html">Kafka Consumer</a> (sink, consuming <code>padas_alerts</code> topic for further analysis/alerting).  <a href="https://www.confluent.io/hub/">Confluent Hub</a> can be utilized to implement any specific source and/or sink connector for integration. </p>
 <h4 id="winlogbeat-elastic-stack">Winlogbeat (Elastic Stack)</h4>
@@ -756,7 +760,7 @@
 </ul>
 <h4 id="splunk">Splunk</h4>
 <p><a href="https://www.splunk.com">Splunk</a> can act as a Kafka Consumer for further analysis of Padas Alerts.  Padas and Splunk integration can be accomplished seamlessly with <a href="https://www.confluent.io/hub/splunk/kafka-connect-splunk">Splunk Sink Connector</a> and <a href="https://github.com/seynur/TA_padas">Technology Add-on for Padas</a>.  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.</p>
-<p>An example configuration for Splunk Sink Connector can be found here: <a href="/assets/config/splunk-sink-connector-example.json">splunk-sink-connector-example.json</a>
+<p>An example configuration for Splunk Sink Connector can be found here: <a href="../assets/config/splunk-sink-connector-example.json">splunk-sink-connector-example.json</a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SplunkSinkConnectorConnector_Padas&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

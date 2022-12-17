@@ -291,22 +291,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-create-topics" class="md-nav__link">
-    Step 3: Create Topics
+  <a href="#step-4-create-topics" class="md-nav__link">
+    Step 4: Create Topics
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-configure-padas" class="md-nav__link">
-    Step 4: Configure Padas
+  <a href="#step-5-configure-padas" class="md-nav__link">
+    Step 5: Configure Padas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-test-play" class="md-nav__link">
-    Step 5: Test &amp; Play
+  <a href="#step-6-test-play" class="md-nav__link">
+    Step 6: Test &amp; Play
   </a>
   
 </li>
@@ -613,22 +613,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-create-topics" class="md-nav__link">
-    Step 3: Create Topics
+  <a href="#step-4-create-topics" class="md-nav__link">
+    Step 4: Create Topics
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-configure-padas" class="md-nav__link">
-    Step 4: Configure Padas
+  <a href="#step-5-configure-padas" class="md-nav__link">
+    Step 5: Configure Padas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-test-play" class="md-nav__link">
-    Step 5: Test &amp; Play
+  <a href="#step-6-test-play" class="md-nav__link">
+    Step 6: Test &amp; Play
   </a>
   
 </li>
@@ -700,21 +700,21 @@ ZooKeeper is <span class="o">[</span>UP<span class="o">]</span>
 <ol>
 <li>
 <p><a href="http://padas.io/index.html#download">Download</a> the latest version of Padas Engine and UI components applicable to your platform.</p>
-<div class="highlight"><pre><span></span><code>wget https://padas.io/assets/downloads/padas-0.0.1.tgz
-wget https://padas.io/assets/downloads/padas-ui-0.0.1-linux-x64.tgz
+<div class="highlight"><pre><span></span><code>wget https://padas.io/assets/downloads/padas-<span class="o">{{</span> current_version <span class="o">}}</span>.tgz
+wget https://padas.io/assets/downloads/padas-ui-<span class="o">{{</span> current_version <span class="o">}}</span>-linux-x64.tgz
 </code></pre></div>
 </li>
 <li>
 <p>Use the <code>tar</code> command to decompress the archive file</p>
-<div class="highlight"><pre><span></span><code>tar -xzf padas-0.0.1.tgz
-tar -xzf padas-ui-0.0.1-linux-x64.tgz
+<div class="highlight"><pre><span></span><code>tar -xzf padas-<span class="o">{{</span> current_version <span class="o">}}</span>.tgz
+tar -xzf padas-ui-<span class="o">{{</span> current_version <span class="o">}}</span>-linux-x64.tgz
 </code></pre></div>
 </li>
 <li>
 <p>Once extracted, you should have <code>padas</code> and <code>padas-ui</code> directories.  By default, Padas Engine expects Kafka to be running on <code>localhost</code>.  If that's not the case, edit <code>padas/etc/padas.properties</code> accordingly.</p>
 </li>
 </ol>
-<p>At this stage, make sure you have Confluent Kafka running locally as mentioned in prerequisites.</p>
+<p>At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
 <h4 id="step-2-start-engine">Step 2: Start Engine</h4>
 <ol>
 <li>
@@ -813,7 +813,7 @@ WARN  Unable to describe required topics <span class="k">for</span> Padas.  Plea
 <p><strong>Login</strong>: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.</p>
 </li>
 </ol>
-<h4 id="step-3-create-topics">Step 3: Create Topics</h4>
+<h4 id="step-4-create-topics">Step 4: Create Topics</h4>
 <p>In addition to required (Padas) topics we will create <code>test_input</code> and <code>test_output</code> topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
 <ol>
 <li>
@@ -823,7 +823,7 @@ WARN  Unable to describe required topics <span class="k">for</span> Padas.  Plea
   <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
   </p>
 </figure></p>
-<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read/write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
+<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
 <div class="highlight"><pre><span></span><code>bin/padas start-console
 </code></pre></div></p>
 </li>
@@ -834,7 +834,7 @@ kafka-topics --bootstrap-server localhost:9092 --create --topic <span class="s2"
 </code></pre></div></p>
 </li>
 </ol>
-<h4 id="step-4-configure-padas">Step 4: Configure Padas</h4>
+<h4 id="step-5-configure-padas">Step 5: Configure Padas</h4>
 <hr />
 <p><strong>TLDR;</strong>
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.</p>
@@ -900,7 +900,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
     </figure></p>
 </li>
 </ol>
-<h4 id="step-5-test-play">Step 5: Test &amp; Play</h4>
+<h4 id="step-6-test-play">Step 6: Test &amp; Play</h4>
 <ol>
 <li>
 <p><strong>Generate Data</strong>: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
@@ -948,9 +948,9 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 </ol>
 <h4 id="next-steps">Next Steps</h4>
 <ul>
-<li><a href="/docs/installation.html">Install</a> in production.</li>
-<li><a href="/docs/user-guide.html">Utilize PADAS</a> with out-of-the-box <a href="/assets/config/padasRules.json">padasRules.json</a></li>
-<li><a href="/docs/admin-guide.html#integrate-to-external-systems">Integrations</a> with ingest pipelines (<a href="/assets/config/sysmonconfig-export-exclude-winlogbeat.xml">Sample Sysmon Config with Winlogbeat</a>) and ready-to-use transformations (<a href="/assets/config/padas_transformation.properties">Winlogbeat Sysmon and Security</a>)</li>
+<li><a href="../installation/">Install</a> in production.</li>
+<li><a href="../user-guide/">Utilize PADAS</a> with out-of-the-box <a href="../assets/config/PadasRules_sample.json">PadasRules_sample.json</a></li>
+<li><a href="../admin-guide/#integrate-to-external-systems">Integrations</a> with ingest pipelines (<a href="../assets/config/sysmonconfig-export-exclude-winlogbeat.xml">Sample Sysmon Config with Winlogbeat</a>) and ready-to-use transformations (<a href="../assets/config/padas_transformation.properties">Winlogbeat Sysmon and Security</a>)</li>
 </ul>
 
 
