@@ -1,7 +1,6 @@
 ---
 title: Quick Start
 layout: documentation
-padas_version: 0.0.1
 ---
 
 Use Padas to perform streaming event data transformations and apply specific rules to filter out sample data.  This quick start guide assumes all components (Confluent Kafka and Padas) will be installed on the same machine.  In production, it is recommended to separate out these components on different nodes/hosts.
@@ -26,176 +25,210 @@ Use Padas to perform streaming event data transformations and apply specific rul
 
 Below diagram shows what will be accomplished with this quick start guide.
 
- <img src="/assets/img/padas_quickstart_setup.png" width="67%">
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_quickstart_setup.png" class="img-fluid py-5">
+  </p>
+</figure>
 
-#### Step 1: Download and define components
-1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and Manager components applicable to your platform.
+We will play with some mock data such as the following.  Our goal will be to transform sample event data and apply a set of rules to generate alerts.
+
+Sample input:
+```json
+{
+  "user": "user_1",
+  "group_id": 5,
+  "action": "success"
+}
+```
+
+We will have a couple of simple rules that will trigger when `group_name` (soon to be enriched field) matches `"evil*"` or when `action` results in `failure`.
+
+**NOTE**: For the purposes of demo, the goal is carried with multiple tasks, where as a simple `FILTER` function can be utilized as well.
+
+---
+
+#### Step 1: Download
+1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and UI components applicable to your platform.
+
+    ```bash 
+    wget https://padas.io/assets/downloads/padas-{{ current_version }}.tgz
+    wget https://padas.io/assets/downloads/padas-ui-{{ current_version }}-linux-x64.tgz
+    ```
+
 2. Use the `tar` command to decompress the archive file
 
     ```sh
-    --> site_name
-    tar -xvzf padas-{{ padas_version }}.tgz
-    ```
-3. Since we have everything on a single host, make a copy of the extracted folder for manager, transform engine, and detect engine
-
-    ```sh
-    cp -r padas padas-manager
-    cp -r padas padas-transform
-    mv padas padas-detect
-    ```
-    **NOTE**: Last renaming step is not necessary but gives a descriptive name to the folder's functionality.
-4. Edit manager properties (`padas-manager/etc/padas.properties`) to make sure the `padas.instance.role` is set to `manager` and `padas.license` is set to the license you received.
-
-    ```sh
-    vi padas-manager/etc/padas.properties
-    ...
+  
+    tar -xzf padas-{{ current_version }}.tgz
+    tar -xzf padas-ui-{{ current_version }}-linux-x64.tgz
     ```
 
-    After editing, properties file (`padas-manager/etc/padas.properties`) entries should be:
-    ```properties
-    padas.instance.role=manager
-    bootstrap.servers=localhost:9092
-    schema.registry.url=http://localhost:8081
-    padas.license=<LICENSE KEY SHOULD GO HERE>
-    ```
-5. Edit transform properties (`padas-transform/etc/padas.properties`) to make sure the `padas.instance.role` is set to `transform`.
-
-    ```sh
-    vi padas-transform/etc/padas.properties
-    ...
-    ```
-
-    After editing, properties file (`padas-transform/etc/padas.properties`) entries should be:
-    ```properties
-    padas.instance.role=transform
-    bootstrap.servers=localhost:9092
-    schema.registry.url=http://localhost:8081
-    ```
-6. From your current working directory, now you should have 3 PADAS folders, e.g.
-
-    ```sh
-    ls
-    padas-detect   padas-manager   padas-transform
-    ```
-    Note that you don't have to make any configuration changes to `padas-detect` folder, as the default behavior is set to Detect Engine with localhost.
+3. Once extracted, you should have `padas` and `padas-ui` directories.  By default, Padas Engine expects Kafka to be running on `localhost`.  If that's not the case, edit `padas/etc/padas.properties` accordingly.
 
 At this stage, make sure you have Confluent Kafka running locally as mentioned in prerequisites.
 
-#### Step 2: Start Manager
-1. Start manager node on the console.  The script will ask you to accept the license agreement (enter `y`) and define an administrator user to login; enter the desired password to continue
-```
-cd padas-manager/
-```
---8<-- "padas_manager_start_console.md"
-
-2. **Login**: Go to [http://localhost:9000](http://localhost:9000) and login with the credentials used in previous step (e.g. admin)
-
-    <img src="/assets/img/login_sample.png" width="67%">
-
-3. **Create Topics**: Upon initial login, Manager will go to Topics menu in order to create necessary Kafka topics.  
-
-    <img src="/assets/img/topics_pre_sample.png" width="67%">
-    <br/>
-    Hit <span class="btn btn-padas">Save</span> button to continue with defaults.
-    <br/>
-    <img src="/assets/img/topics_post_sample.png" width="67%">
-
-4. **Create a Rule**: Go to <span class="fw-bold"><i class="bi bi-file-ruled"></i>Rules</span> menu link in order to add a sample rule.  Enter the following values for the required fields:
-    - **Rule Name**: `Test Rule`
-    - **PDL Query**: `field1="value"`
-    - **Datamodel List**: `testdm`
-
-    Other provided fields are optional but feel free to review and add/modify as needed.  A list of rules for MITRE ATT&CK can be found here: [padasRules.json](/assets/config/padasRules.json)
-
-    <br/>
-    Hit <span class="btn btn-padas">Save</span> button to continue. 
-
-    <img src="/assets/img/rules_pre_sample.png" width="67%">
-
-    <br/>
-    You should be able to view the rule you specified, similar to the following screenshot.
-
-    <img src="/assets/img/rules_post_sample.png" width="67%">
-
-5. **Add a Transformation**: Go to <span class="fw-bold"><i class="bi bi-filter"></i>Properties</span> and first hit <span class="btn btn-padas">Edit</span>, then select <span class="btn btn-padas"><i class="bi bi-plus-lg"></i>Add New Transformation</span>.  Expand "Input Topic: 0" and enter the following values for the required fields:
-    - **Topic Name**: `testtopic`
-    - **Datamodel Name**: `testdm`
-
-    <br/>
-    <img src="/assets/img/props_pre_sample.png" width="67%">
-
-    <br/>
-    You should be able to view the newly added property (Input Topic: testtopic, similar to the following screenshot.
-
-    <img src="/assets/img/props_post_sample.png" width="67%">
-
-#### Step 3: Start Detect Engine
-1. Start Detect Engine on the console (separate window, since Manager is running on the console as well).  The script will ask you to accept the license agreement (enter `y`). 
-```
-cd padas-detect/
-```
---8<-- "padas_detect_start_console.md"
-
-#### Step 4: Start Transform Engine
-1. Before starting Transform Engine we must first create the specified input topic (i.e. `testtopic`) in Kafka.  You can do this from [Confluent Control Center](https://docs.confluent.io/platform/current/control-center/topics/create.html) or from the console as shown below.
-
-    ```sh
-    kafka-topics --create --bootstrap-server localhost:9092 --topic testtopic --partitions 1 --replication-factor 1
-    Created topic testtopic.
+#### Step 2: Start Engine
+1. Start engine node on the console.  The script will ask you to accept the license agreement (enter `y`)
+    ```bash
+    cd padas/
     ```
+    --8<-- "padas_engine_start_console.md"
+
+    **NOTE**: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
+    ```bash
+    ...
+    WARN  Unable to describe required topics for Padas.  Please create these topics in order to run the engine.
+    ...
+    ```
+
+#### Step 3: Start UI
+1. Start UI component on the console.  Default configuration connects to `localhost` for Padas Engine.
+    ```bash
+    cd padas-ui/
+    ```
+    --8<-- "padas_ui_start_console.md"
+
+2. **Initialize User**: Go to [https://localhost:9000](https://localhost:9000) and since this is the first time, click the link below and create an administrator user.
+
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_preinit.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_init.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+3. **Login**: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.
+
+#### Step 3: Create Topics
+In addition to required (Padas) topics we will create `test_input` and `test_output` topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.
+
+1. **Create Padas Topics**: After initial login, from the left menu, click on [Topics](https://localhost:9000/topics).  For this demo, you can simply accept the defaults and click <span class="btn btn-padas">Create Topics</span> button
+
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+    **IMPORTANT NOTE**: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read/write to these topics.  Stop the running Padas Engine via `CTRL-C`, and start it again.  You'll need to logout/login from the UI as well.
+    ```bash
+    bin/padas start-console
+    ```
+
+2. **Create Test Topics**: From the console, simply run the following commands to create `test_input` and `test_output` test topics with defaults.
+    ```bash
+    kafka-topics --bootstrap-server localhost:9092 --create --topic "test_input"
+    kafka-topics --bootstrap-server localhost:9092 --create --topic "test_output"
+    ```
+
+#### Step 4: Configure Padas
+
+---
+
+**TLDR;**
+Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.
+
+  - For [Tasks](https://localhost:9000/tasks) upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
+  - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
+  - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
     
-2. Start Transform Engine on the console (separate window, since Manager and Detect Engine are running on the console as well).  The script will ask you to accept the license agreement (enter `y`). 
-```
-cd padas-transform/
-```
---8<-- "padas_transform_start_console.md"
+    **NOTE**: You will need to create the topology manually, please go to step 4 below.
 
-#### Step 5: Generate Sample Event
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+  
+---
 
-1. Let's generate a sample event with a simple JSON message.  Note that this JSON will match the PDL (`field1="value1"`) specified above.
-```sh
-echo '{"field1":"value1","field2":"value1"}' |  kafka-console-producer --bootstrap-server localhost:9092 --topic testtopic
-```
+1. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all relevant PDL rules for `mydata` data model (arbitrary name).  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_task_rule_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
 
-#### Step 6: View Alerts
+2. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
 
-1. Once the sample event is ingested, PADAS Detect Engine will run the rules for matching datamodels in real-time and populate `padas_alerts` topic with matching event and alert information.  You can simply view this alert with the following command:
+3. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
 
-    ```sh
-    kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic padas_alerts --from-beginning | jq
+4. **Create Topology**: Create a topology with the above pipeline that reads from `test_input` topic and writes to `test_output` topic.  From [Topologies](https://localhost:9000/topologies) menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+4. **Restart Node**: Once a new topology is created we need to let Padas Engine know about it by restarting the node.  You can do this from the console (`CTRL-C` and start, or stop/start the service, etc.) or you can also do this from the UI from [Nodes](https://localhost:9000/nodes) menu, click <span class="btn btn-padas">Start</span> button and you should see the state change to `RUNNING` for this node.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_nodes.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+#### Step 5: Test & Play
+
+1. **Generate Data**: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
+    ```bash
+    echo '{"user": "user_1","group_id": 5,"action": "success"}' |  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
+    echo '{"user": "user_1","group_id": 1,"action": "success"}' |  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
+    echo '{"user": "user_1","group_id": 1,"action": "failure"}' |  kafka-console-producer --bootstrap-server localhost:9092 --topic test_input
     ```
 
-    Output will be similar to the following.  Note the use of `jq` above for pretty display of JSON data.
+2. **View output**: Once the sample event is ingested, rules for matching datamodels in real-time and populate `padas_alerts` topic with matching event and alert information.  You can simply view this alert with the following command:
+
+    ```bash
+    kafka-console-consumer --bootstrap-server localhost:9092 --topic test_output --from-beginning | jq
+    ```
+
+    Output will be similar to the following, this example output is from the last input from above.  Note the use of `jq` above for pretty display of JSON data.
     ```json
     {
-      "timestamp": "2021-11-28T14:25:23.199+0300",
-      "name": "Test Rule",
-      "description": "",
-      "references": null,
-      "customAnnotations": null,
-      "mitreAnnotations": null,
-      "platforms": {
-        "string": ""
-      },
-      "domain": "mitre_attack",
-      "analyticType": {
-        "string": ""
-      },
-      "severity": {
-        "string": ""
-      },
-      "datamodelReferences": null,
-      "events": [
+      "user": "user_1",
+      "group_id": 1,
+      "action": "failure",
+      "group_name": "evil group",
+      "padas_rules": [
         {
-          "timestamp": "2021-11-28T14:18:30.309+0300",
-          "datamodel": "testdm",
-          "source": "unknown",
-          "host": "padas.local",
-          "src": null,
-          "dest": null,
-          "user": null,
-          "rawdata": "{\"field1\":\"value1\",\"field2\":\"value1\"}",
-          "jsondata": "{\"field1\":\"value1\",\"field2\":\"value1\"}"
+          "id": 1,
+          "name": "Test Rule for Evil",
+          "description": "Match for group name that starts with evil",
+          "pdl": "group_name=\"evil*\"",
+          "datamodel": "mydata",
+          "annotations": [
+            "T1234",
+            "T2345"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Test Rule for Failure",
+          "description": "Match when action is failure",
+          "pdl": "action=\"failure\"",
+          "datamodel": "mydata",
+          "annotations": [
+            "T9876"
+          ]
         }
       ]
     }

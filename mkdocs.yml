@@ -37,8 +37,8 @@ nav:
   - 'Get Started':
     - introduction.md
     - quickstart.md
-  - 'User Guide':
     - installation.md
+  - 'User Guide':
     - user-guide.md
     - pdl-reference.md
   - 'Admin Guide':
@@ -54,6 +54,7 @@ extra:
     - icon: fontawesome/brands/twitter 
       link: https://twitter.com/padasio
   generator: false
+  current_version: 0.0.1
   version:
     provider: mike
 

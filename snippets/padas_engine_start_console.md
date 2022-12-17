@@ -1,21 +1,15 @@
-```sh
+```bash
 bin/padas start-console
-PADAS Software License Agreement
+PADAS SOFTWARE LICENSE AGREEMENT
 ...
-Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR in file /<YOUR INSTALL DIR>/padas-manager/etc/license.txt
+Displayed Padas Software License Agreement contents can also be found at https://padas.io/legal/eula.html OR in file /<YOUR INSTALL DIR>/padas/etc/license.txt
 Do you agree with this license? [y/n]: y
-INFO  Starting PADAS Manager...
-INFO  Validating license string...    
-This appears to be your first time running this version of Padas.
-Padas Manager requires an administrator account to run. Please create credentials.
-Please enter an administrator username? [admin]:
-Password must contain at least 8 total printable ASCII characters.
-Please enter a new password:
-Please repeat the password:
-Successfully saved password.
 INFO  Verifying Kafka broker connection...
-INFO  Verifying Schema Registry connection...
-INFO  Starting web interface...
+INFO  Successfully verified Kafka Cluster connection.
+INFO  Successfully verified existence of all required topics.
+INFO  Starting web interface at https://<HOSTNAME>:8999 ...
+
+
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@:**@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -54,12 +48,14 @@ INFO  Starting web interface...
   @@@@@@@@@@@@@@@:*****8#@:*#@@@@@@8*@*8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@&@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
   ____   _    ____    _    ____
-|  _ \ / \  |  _ \  / \  / ___|
-| |_) / _ \ | | | |/ _ \ \___ \
-|  __/ ___ \| |_| / ___ \ ___) |
-|_| /_/   \_\____/_/   \_\____/
-INFO  Starting Manager using Java 11.0.10 on padas.local with PID 96539 (/<YOUR INSTALL DIR>/padas-manager/libs/padas-manager-0.0.2.jar started by user1 in /<YOUR INSTALL DIR>)
+ |  _ \ / \  |  _ \  / \  / ___|
+ | |_) / _ \ | | | |/ _ \ \___ \
+ |  __/ ___ \| |_| / ___ \ ___) |
+ |_| /_/   \_\____/_/   \_\____/
+
+INFO  Starting App using Java 11.0.10 on <HOSTNAME> with PID 32965 (/<YOUR INSTALL DIR>/padas/libs/padas-0.0.1.jar started by selim in /<YOUR INSTALL DIR>/padas)
 INFO  No active profile set, falling back to default profiles: default
-INFO  Started Manager in 7.973 seconds (JVM running for 118.08)
+INFO  Started App in 12.536 seconds (JVM running for 66.174)
 ```

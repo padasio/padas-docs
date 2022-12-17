@@ -1,6 +1,5 @@
 ---
 title: Installation
-latest_version: 0.0.1
 ---
 ### System Requirements
 
@@ -21,14 +20,14 @@ latest_version: 0.0.1
 ### Manual Install Using TAR Archive
 
 #### Download the software
-1. Download the latest version here: [padas-{{ latest_version }}.tgz](/assets/downloads/padas-{{ latest_version }}.tgz) or via command line:
+1. Download the latest version here: [padas-{{ current_version }}.tgz](/assets/downloads/padas-{{ current_version }}.tgz) or via command line:
 ```bash
-curl -O https://www.padas.io/assets/downloads/padas-{{ latest_version }}.tgz
+curl -O https://www.padas.io/assets/downloads/padas-{{ current_version }}.tgz
 ```
 2. Extract contents of the archive (default `/opt` is assumed for `$PADAS_HOME`)
 ```bash
 cd /opt
-tar xvf padas-{{ latest_version }}.tgz
+tar xvf padas-{{ current_version }}.tgz
 ```
 
 You should have these directories:
@@ -59,7 +58,7 @@ After=network.target
 Type=simple
 User=padas
 Group=padas
-ExecStart=java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ latest_version }}.jar
+ExecStart=java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ current_version }}.jar
 TimeoutStopSec=180
 Restart=no
 #
