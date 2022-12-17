@@ -5,15 +5,21 @@ title: Admin Guide
 ### JVM Settings
 --8<-- "sysreq_java.md"
 
+---
+
 ### Topic Properties
 Following Kafka topics are required for PADAS to operate properly.
 
-**NOTE**: While it's possible to create these topics either via REST API or from Padas UI, it is highly recommended to review [Topic Configuration](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) and tune settings for each Padas topic (specially for `partitions` and `replication_factor`) according to expected volume and performance requirements.
+**NOTE**: While it's possible to create these topics either via REST API or from Padas UI, it is **highly recommended** to review [Topic Configuration](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) and tune settings for each Padas topic (specially for `partitions` and `replication_factor`) according to expected volume and performance requirements.
 
 --8<-- "props_topics.md"
 
+---
+
 ### Configuration Properties
 For any PADAS instance all configuration is read from `$PADAS_HOME/etc/padas.properties` file; and details regarding the properties settings can be found in [Configuration File Reference](config-reference.md), also available with any installation at `$PADAS_HOME/etc/padas.properties.spec`
+
+---
 
 ### Logging
 Padas Engine utilizes [Logback](https://logback.qos.ch/manual/configuration.html) for logging application activity.  By default, `$PADAS_HOME/etc/logback.xml` file is used; log files are created based on the following settings and can be changed according to your requirements.
@@ -72,6 +78,8 @@ Padas Engine utilizes [Logback](https://logback.qos.ch/manual/configuration.html
 </configuration>
 ```
 
+---
+
 ### Integrate to External Systems
 It is possible to integrate any external system either as a [Kafka Producer](https://docs.confluent.io/platform/current/clients/producer.html) (source, generating and ingesting event data) or [Kafka Consumer](https://docs.confluent.io/platform/current/clients/consumer.html) (sink, consuming `padas_alerts` topic for further analysis/alerting).  [Confluent Hub](https://www.confluent.io/hub/) can be utilized to implement any specific source and/or sink connector for integration. 
 
@@ -92,7 +100,7 @@ It is possible to integrate any external system either as a [Kafka Producer](htt
 #### Splunk
 [Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and [Technology Add-on for Padas](https://github.com/seynur/TA_padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.
 
-An example configuration for Splunk Sink Connector can be found here: [splunk-sink-connector-example.json](/assets/config/splunk-sink-connector-example.json)
+An example configuration for Splunk Sink Connector can be found here: [splunk-sink-connector-example.json](../assets/config/splunk-sink-connector-example.json)
 ```json
 {
   "name": "SplunkSinkConnectorConnector_Padas",

@@ -48,61 +48,13 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 ---
 
-#### Step 1: Download
-1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and UI components applicable to your platform.
+--8<-- "installation_step_download.md"
 
-    ```bash 
-    wget https://padas.io/assets/downloads/padas-{{ current_version }}.tgz
-    wget https://padas.io/assets/downloads/padas-ui-{{ current_version }}-linux-x64.tgz
-    ```
+--8<-- "installation_step_engine.md"
 
-2. Use the `tar` command to decompress the archive file
+--8<-- "installation_step_ui.md"
 
-    ```sh
-  
-    tar -xzf padas-{{ current_version }}.tgz
-    tar -xzf padas-ui-{{ current_version }}-linux-x64.tgz
-    ```
-
-3. Once extracted, you should have `padas` and `padas-ui` directories.  By default, Padas Engine expects Kafka to be running on `localhost`.  If that's not the case, edit `padas/etc/padas.properties` accordingly.
-
-At this stage, make sure you have Confluent Kafka running locally as mentioned in prerequisites.
-
-#### Step 2: Start Engine
-1. Start engine node on the console.  The script will ask you to accept the license agreement (enter `y`)
-    ```bash
-    cd padas/
-    ```
-    --8<-- "padas_engine_start_console.md"
-
-    **NOTE**: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
-    ```bash
-    ...
-    WARN  Unable to describe required topics for Padas.  Please create these topics in order to run the engine.
-    ...
-    ```
-
-#### Step 3: Start UI
-1. Start UI component on the console.  Default configuration connects to `localhost` for Padas Engine.
-    ```bash
-    cd padas-ui/
-    ```
-    --8<-- "padas_ui_start_console.md"
-
-2. **Initialize User**: Go to [https://localhost:9000](https://localhost:9000) and since this is the first time, click the link below and create an administrator user.
-
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_preinit.png" class="w-50 img-fluid py-5">
-      </p>
-      <p>
-      <img src="../assets/img/padas_ui_init.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
-3. **Login**: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.
-
-#### Step 3: Create Topics
+#### Step 4: Create Topics
 In addition to required (Padas) topics we will create `test_input` and `test_output` topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.
 
 1. **Create Padas Topics**: After initial login, from the left menu, click on [Topics](https://localhost:9000/topics).  For this demo, you can simply accept the defaults and click <span class="btn btn-padas">Create Topics</span> button
@@ -113,7 +65,7 @@ In addition to required (Padas) topics we will create `test_input` and `test_out
       </p>
     </figure>
 
-    **IMPORTANT NOTE**: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read/write to these topics.  Stop the running Padas Engine via `CTRL-C`, and start it again.  You'll need to logout/login from the UI as well.
+    **IMPORTANT NOTE**: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via `CTRL-C`, and start it again.  You'll need to logout/login from the UI as well.
     ```bash
     bin/padas start-console
     ```
@@ -124,7 +76,7 @@ In addition to required (Padas) topics we will create `test_input` and `test_out
     kafka-topics --bootstrap-server localhost:9092 --create --topic "test_output"
     ```
 
-#### Step 4: Configure Padas
+#### Step 5: Configure Padas
 
 ---
 
@@ -186,7 +138,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
       </p>
     </figure>
 
-#### Step 5: Test & Play
+#### Step 6: Test & Play
 
 1. **Generate Data**: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
     ```bash
@@ -234,8 +186,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
     }
     ```
 
-
 #### Next Steps
-- <a href="/docs/installation.html">Install</a> in production.
-- <a href="/docs/user-guide.html">Utilize PADAS</a> with out-of-the-box [padasRules.json](/assets/config/padasRules.json)
-- <a href="/docs/admin-guide.html#integrate-to-external-systems">Integrations</a> with ingest pipelines ([Sample Sysmon Config with Winlogbeat](/assets/config/sysmonconfig-export-exclude-winlogbeat.xml)) and ready-to-use transformations ([Winlogbeat Sysmon and Security](/assets/config/padas_transformation.properties))
+- [Install](installation.md) in production.
+- [Utilize PADAS](user-guide.md) with out-of-the-box [PadasRules_sample.json](../assets/config/PadasRules_sample.json)
+- [Integrations](admin-guide.md#integrate-to-external-systems) with ingest pipelines ([Sample Sysmon Config with Winlogbeat](../assets/config/sysmonconfig-export-exclude-winlogbeat.xml)) and ready-to-use transformations ([Winlogbeat Sysmon and Security](../assets/config/padas_transformation.properties))
