@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#version-001" class="md-skip">
           Skip to content
         </a>
       
@@ -124,39 +124,6 @@
     </div>
     
     
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     
     
   </nav>
@@ -402,6 +369,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-reference/" class="md-nav__link">
+        Configuration File Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        REST API Reference
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -472,13 +467,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#version-001" class="md-nav__link">
@@ -554,13 +542,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#version-001" class="md-nav__link">
     Version 0.0.1
   </a>
@@ -611,68 +592,57 @@
 
   <h1>Release Notes</h1>
 
-<h3 id="_1"><a name="anchor1"></a></h3>
 <h3 id="version-001">Version 0.0.1</h3>
-<p><br /></p>
 <h4 id="whats-new">What's New?</h4>
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Feature</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.features %}
-    <tr>
-      <td>{{ item.feature }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feature name</td>
+<td>Feature description</td>
+</tr>
+</tbody>
 </table>
-
-<p><br /></p>
 <h4 id="known-issues">Known Issues</h4>
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Date Filed</th>
-      <th scope="col">Issue Number</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.known_issues %}
-    <tr>
-      <td>{{ item.date }}</td>
-      <td>{{ item.number }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
+<table>
+<thead>
+<tr>
+<th>Date Filed</th>
+<th>Issue Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11.11.2022</td>
+<td>PAD-102</td>
+<td>Issue description</td>
+</tr>
+</tbody>
 </table>
-
-<p><br /></p>
 <h4 id="fixed-issues">Fixed Issues</h4>
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Date Fixed</th>
-      <th scope="col">Issue Number</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.fixed_issues %}
-    <tr>
-      <td>{{ item.date }}</td>
-      <td>{{ item.number }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
+<table>
+<thead>
+<tr>
+<th>Date Fixed</th>
+<th>Issue Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12.12.2022</td>
+<td>PAD-102</td>
+<td>Issue description</td>
+</tr>
+</tbody>
 </table>
+<hr />
 
 
 
@@ -693,7 +663,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../datamodel-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Datamodel Reference" rel="prev">
+        <a href="../api-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: REST API Reference" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -702,7 +672,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Datamodel Reference
+              REST API Reference
             </div>
           </div>
         </a>

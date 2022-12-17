@@ -125,39 +125,6 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
     
   </nav>
   
@@ -482,6 +449,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-reference/" class="md-nav__link">
+        Configuration File Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        REST API Reference
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -655,9 +650,206 @@ Properties view provides configuration entries for Detect and Transform Engine c
 <p><strong>NOTE</strong>: You can click <span class="btn btn-padas"><i class="bi bi-plus-lg"></i> Add New Transformation</span> button to add new input topics for analysis.  The input topic <em>must</em> exist prior to starting PADAS Transform Engine.</p>
 <p><strong>NOTE</strong>: After any configuration changes, you will need to restart the corresponding component(s) (i.e. Detect and/or Transform Engine(s)).  PADAS instances read and load the configuration upon starting.</p>
 <p><br /></p>
-<p>{% include docs/props_detect.md %}</p>
+<p><span class="fw-bold">Detect Engine Properties</span></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Display Name</th>
+      <th scope="col">Property Name</th>
+      <th scope="col">Required</th>
+      <th scope="col">Default Value</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Omit Raw Data</td>
+      <td><code>alerts.topic.omit.rawdata</code></td>
+      <td>yes</td>
+      <td><code>false</code></td>
+      <td>Define whether to omit raw data when generating PADAS Alerts.</td>
+    </tr>
+    <tr>
+      <td>Omit Json Data</td>
+      <td><code>alerts.topic.omit.jsondata</code></td>
+      <td>yes</td>
+      <td><code>false</code></td>
+      <td>Define whether to omit JSON data when generating PADAS Alerts.</td>
+    </tr>
+    <tr>
+      <td>Event Datetime Pattern</td>
+      <td><code>event.datetime.pattern</code></td>
+      <td>yes</td>
+      <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
+      <td>Timestamp pattern to extract from Padas Events.  It is recommended use the default value.</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><br /><br /></p>
-<p>{% include docs/props_transform.md %}</p>
+<p><span class="fw-bold">Transform Engine Properties (for each Input Topic)</span>
+<br />
+<span class="fst-italic text-muted">N starts with 0 and incremented by 1 (e.g. 0,1,2,3, etc.)</span></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Display Name</th>
+      <th scope="col">Property Name</th>
+      <th scope="col">Required</th>
+      <th scope="col">Default Value</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Topic Name</td>
+      <td><code>input.topic.N.name</code></td>
+      <td>yes</td>
+      <td></td>
+      <td>Define whether to omit raw data when generating PADAS Alerts.</td>
+    </tr>
+    <tr>
+      <td>Enabled</td>
+      <td><code>input.topic.N.enabled</code></td>
+      <td>no</td>
+      <td><code>true</code></td>
+      <td>Defines whether this transformation is enabled or not</td>
+    </tr>
+    <tr>
+      <td>Raw Data Field</td>
+      <td><code>input.topic.N.rawdata.field</code></td>
+      <td>no</td>
+      <td>event value</td>
+      <td>Defines the extracted field that has the raw event data.  If undefined, all event value is used.</td>
+    </tr>
+    <tr>
+      <td>Omit Raw Data</td>
+      <td><code>input.topic.N.omit.rawdata</code></td>
+      <td>no</td>
+      <td><code>false</code></td>
+      <td>Defines whether to omit raw data when populating PADAS Events</td>
+    </tr>
+    <tr>
+      <td>Extraction</td>
+      <td><code>input.topic.N.extraction</code></td>
+      <td>no</td>
+      <td><code>json</code></td>
+      <td>Defines how to extract fields from input topic.  Available values are <code>json</code> and <code>regex</code>.  If <code>regex</code> is specified, Regex definition is used for extraction.</td>
+    </tr>
+    <tr>
+      <td>Regex</td>
+      <td><code>input.topic.N.regex</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines a regular expression on how to extract fields from the topic's value.  Applicable only when extraction is set to regex.
+      For regular expressions, only named-capturing groups are allowed currently for field extractions.  Please refer to <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html" target="_blank">Java Regex Pattern</a> for details.
+      <br /><br />
+      Example for apache: <br />
+      <code>^(?&lt;host&gt;[^ ]*) [^ ]* (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] "(?&lt;method&gt;\S+)(?: +(?&lt;path&gt;[^\"]*?)(?: +\S*)?)?" (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*)(?: "(?&lt;referer&gt;[^\"]*)" "(?&lt;agent&gt;[^\"]*)")?$
+      </code>
+      </td>
+    </tr>
+    <tr>
+      <td>Timestamp Field</td>
+      <td><code>input.topic.N.timestamp.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the extracted field to be used as the timestamp of the event.  If left empty or unspecified, current time is used.</td>
+    </tr>
+    <tr>
+      <td>Timestamp Pattern</td>
+      <td><code>input.topic.N.timestamp.pattern</code></td>
+      <td>no</td>
+      <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
+      <td>Defines the pattern for timestamp field, if specified.</td>
+    </tr>
+    <tr>
+      <td>Host Name</td>
+      <td><code>input.topic.N.host.name</code></td>
+      <td>no</td>
+      <td>current hostname</td>
+      <td>Defines the hostname for this event (static).  This setting is only applicable if <code>host.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Host Field</td>
+      <td><code>input.topic.N.host.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as hostname for this event (dynamic).  This setting overwrites <code>host.name</code></td>
+    </tr>
+    <tr>
+      <td>Source Name</td>
+      <td><code>input.topic.N.source.name</code></td>
+      <td>no</td>
+      <td>input topic name</td>
+      <td>Defines the source for this event (static).  This setting is only applicable if <code>source.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Source Field</td>
+      <td><code>input.topic.N.source.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as source for this event (dynamic).  This setting overwrites <code>source.name</code></td>
+    </tr>
+    <tr>
+      <td>Datamodel Name</td>
+      <td><code>input.topic.N.datamodel.name</code></td>
+      <td>no</td>
+      <td>input topic name</td>
+      <td>Defines the datamodel for this event (static).  This setting is only applicable if <code>datamodel.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Datamodel Field</td>
+      <td><code>input.topic.N.datamodel.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as datamodel for this event (dynamic).  This setting overwrites <code>datamodel.name</code></td>
+    </tr>
+    <tr>
+      <td>Event src Value</td>
+      <td><code>input.topic.N.src.value</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the source host/IP address for this event (static).  This setting is only applicable if <code>src.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Event src Field</td>
+      <td><code>input.topic.N.src.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as source host/IP address for this event (dynamic).  This setting overwrites <code>src.value</code></td>
+    </tr>
+    <tr>
+      <td>Event dest Value</td>
+      <td><code>input.topic.N.dest.value</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the destination host/IP address for this event (static).  This setting is only applicable if <code>dest.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Event dest Field</td>
+      <td><code>input.topic.N.dest.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as destination host/IP address for this event (dynamic).  This setting overwrites <code>dest.value</code></td>
+    </tr>
+    <tr>
+      <td>Event user Value</td>
+      <td><code>input.topic.N.user.value</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the user associated with this event (static).  This setting is only applicable if <code>user.field</code> is NOT specified.</td>
+    </tr>
+    <tr>
+      <td>Event user Field</td>
+      <td><code>input.topic.N.user.field</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Defines the field to be used as the user identifer for this event (dynamic).  This setting overwrites <code>user.value</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <p><br/></p>
 <p><strong>Properties View Sample</strong>
 <br/></p>
@@ -671,7 +863,148 @@ Rules view provides configuration entries for Detect Engine rules that are appli
 <p><strong>NOTE</strong>: You can click <span class="btn btn-padas"><i class="bi bi-plus-lg"></i> Add New Rule</span> button to add new detection rule.</p>
 <p><strong>NOTE</strong>: Any change in detection rules is effective immediately (updates <code>padas_rules</code> topic) and does NOT require any restart/refresh.</p>
 <p><br /></p>
-<p>{% include docs/props_rules.md %}</p>
+<p><span class="fw-bold">Detection Rules Configuration</span></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Display Name</th>
+      <th scope="col">JSON Field Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Required</th>
+      <th scope="col">Default Value</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rule Name</td>
+      <td><code>name</code></td>
+      <td><code>string</code></td>
+      <td>yes</td>
+      <td></td>
+      <td>Rule name(e.g. Attack Detection - Successful Local Account Login).</td>
+    </tr>
+    <tr>
+      <td>Rule Description</td>
+      <td><code>description</code></td>
+      <td><code>string</code></td>
+      <td>yes</td>
+      <td></td>
+      <td>A brief description for this rule. (e.g. The successful use of Pass The Hash for lateral movement between workstations).</td>
+    </tr>
+    <tr>
+      <td>PDL Query</td>
+      <td><code>pdl</code></td>
+      <td><code>string</code></td>
+      <td>yes</td>
+      <td></td>
+      <td>PDL Query to match the event. (e.g. <code>event_id=4624 AND event_data.TargetUserName!='ANONYMOUS LOGON'</code>). Go to <a href="/docs/pdl-reference.html">PDL Reference</a> for details.</td>
+    </tr>
+    <tr>
+      <td>Enabled</td>
+      <td><code>enabled</code></td>
+      <td><code>boolean</code></td>
+      <td>yes</td>
+      <td><code>true</code></td>
+      <td>Defines whether this rule is enabled and active.</td>
+    </tr>
+    <tr>
+      <td>Datamodel List</td>
+      <td><code>datamodelList</code></td>
+      <td><code>string array</code></td>
+      <td>yes</td>
+      <td></td>
+      <td>Comma separated list of Datamodels where this rule will be applicable to.  These MUST match the datamodels in Padas Events (<code>padas_events</code>) topic, probably populated via Padas Transformation(s). (e.g. <code>sysmon, wineventlog</code>).</td>
+    </tr>
+    <tr>
+      <td colspan=6>Additional/Optional Configuation <i class="bi bi-chevron-down"></i> </td>
+    </tr>
+    <tr>
+      <td>Omit Raw Data from alerts</td>
+      <td><code>omitRawdataFromAlerts</code></td>
+      <td><code>boolean</code></td>
+      <td>yes</td>
+      <td><code>false</code></td>
+      <td>Defines whether to omit raw data from generated alert(s), i.e. <code>padas_alerts</code> topic.</td>
+    </tr>
+    <tr>
+      <td>Omit JSON Data from alerts</td>
+      <td><code>omitJsondataFromAlerts</code></td>
+      <td><code>boolean</code></td>
+      <td>yes</td>
+      <td><code>false</code></td>
+      <td>Defines whether to omit JSON data from generated alert(s), i.e. <code>padas_alerts</code> topic.</td>
+    </tr>
+    <tr>
+      <td>References</td>
+      <td><code>references</code></td>
+      <td><code>string array</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Comma separated list of references for this rule.</td>
+    </tr>
+    <tr>
+      <td>Platform</td>
+      <td><code>platforms</code></td>
+      <td><code>string</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Applicable platform(s) for this rule. (e.g. <code>Windows</code>)</td>
+    </tr>
+    <tr>
+      <td>Domain</td>
+      <td><code>domain</code></td>
+      <td><code>string</code></td>
+      <td>yes</td>
+      <td><code>mitre_attack</code></td>
+      <td>Applicable domain for this rule. (e.g. mitre_attack)</td>
+    </tr>
+    <tr>
+      <td>Severity</td>
+      <td><code>severity</code></td>
+      <td><code>string</code></td>
+      <td>no</td>
+      <td></td>
+      <td>String representing severity of this detection (e.g. <code>medium</code>)</td>
+    </tr>
+    <tr>
+      <td>Custom Annotations</td>
+      <td><code>customAnnotations</code></td>
+      <td><code>string array</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Please enter any custom annotations (e.g. <code>CIS20, KillChain, NIST</code>, etc.) as a comma separated list pertinent to this rule</td>
+    </tr>
+    <tr>
+      <td colspan=6>MITRE ATT&amp;CK Annotations <i class="bi bi-chevron-down"></i></td>
+    </tr>
+    <tr>
+      <td>(sub)Technique ID List</td>
+      <td><code>mitreAnnotations</code></td>
+      <td><code>string array</code></td>
+      <td>no</td>
+      <td></td>
+      <td>MITRE ATT&amp;CK Technique and Subtechnique IDs as a comma separated list. (e.g. <code>T1550, T1550.001, T1550.002</code>).</td>
+    </tr>
+    <tr>
+      <td>Analytic Type</td>
+      <td><code>analyticType</code></td>
+      <td><code>string</code></td>
+      <td>no</td>
+      <td></td>
+      <td>Applicable analytic type for this rule according to MITRE Cyber Analytics Repository (e.g. <code>Situational Awareness</code>)</td>
+    </tr>
+    <tr>
+      <td>Datamodel References</td>
+      <td><code>datamodelReferences[] PadasDatamodelReference</code></td>
+      <td><code>string</code></td>
+      <td>no</td>
+      <td></td>
+      <td>List of datamodel reference triplets (object|action|field) separated by commas. (e.g. <code>process|create|command_line, process|create|exe</code>)</td>
+    </tr>                                                                                 
+  </tbody>
+</table>
+
 <p><br /></p>
 <p><strong>Rules View Sample</strong>
 <br/>
