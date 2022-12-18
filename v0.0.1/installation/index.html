@@ -310,11 +310,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-install-using-tar-archive" class="md-nav__link">
-    Manual Install Using TAR Archive
+  <a href="#install-using-tar-archive" class="md-nav__link">
+    Install Using TAR Archive
   </a>
   
-    <nav class="md-nav" aria-label="Manual Install Using TAR Archive">
+    <nav class="md-nav" aria-label="Install Using TAR Archive">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -367,13 +367,6 @@
         <li class="md-nav__item">
   <a href="#uninstall" class="md-nav__link">
     Uninstall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    Docker
   </a>
   
 </li>
@@ -659,11 +652,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-install-using-tar-archive" class="md-nav__link">
-    Manual Install Using TAR Archive
+  <a href="#install-using-tar-archive" class="md-nav__link">
+    Install Using TAR Archive
   </a>
   
-    <nav class="md-nav" aria-label="Manual Install Using TAR Archive">
+    <nav class="md-nav" aria-label="Install Using TAR Archive">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -716,13 +709,6 @@
         <li class="md-nav__item">
   <a href="#uninstall" class="md-nav__link">
     Uninstall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    Docker
   </a>
   
 </li>
@@ -814,11 +800,11 @@
 <p>JVM Heap Options can be set via <code>PADAS_HEAP_OPTS</code> environment variable.  Default value is: <code>-Xmx1G -Xms1G</code></p>
 <p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change.</p>
 <hr />
-<h3 id="manual-install-using-tar-archive">Manual Install Using TAR Archive</h3>
+<h3 id="install-using-tar-archive">Install Using TAR Archive</h3>
 <p><strong>IMPORTANT NOTE</strong>: It is recommended to create a separate user to run Padas, other than <code>root</code>.  In our examples, we use <code>padas</code> as both the user and group name.  Following is an example on how to create such user:
 <div class="highlight"><pre><span></span><code>sudo useradd -d /opt/padas -U padas
 </code></pre></div></p>
-<p>Padas directories:</p>
+<p>Padas installation folder structure:</p>
 <table>
 <thead>
 <tr>
@@ -868,6 +854,7 @@ tar -xzf padas-ui-<span class="o">{{</span> current_version <span class="o">}}</
 </li>
 </ol>
 <p>At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
+<p><strong>NOTE:</strong> You can install these components in a distributed environment.  For possible configuration options, please refer to <a href="../config-reference/">Configuration File Reference</a>.</p>
 <h4 id="step-2-start-engine">Step 2: Start Engine</h4>
 <ol>
 <li>
@@ -968,7 +955,7 @@ WARN  Unable to describe required topics <span class="k">for</span> Padas.  Plea
 </ol>
 <hr />
 <h3 id="create-topics">Create Topics</h3>
-<p>In order for Padas to work properly certain topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
+<p>The following Kafka topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
 <p><strong>NOTE</strong>: All required topics enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
 <table>
 <thead>
@@ -1006,24 +993,24 @@ WARN  Unable to describe required topics <span class="k">for</span> Padas.  Plea
 </tr>
 </tbody>
 </table>
-<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.   In this view you can ONLY change replication or partition information.  For further detailed configuration on topics, please refer to <a href="../admin-guide/#topic-properties">Topic Properties</a></p>
+<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.   In this view you can ONLY change replication or partition information.  For further detailed configuration on topics, please refer to <a href="../admin-guide/#topic-properties">Topic Properties</a> and/or consult your Kafka administrator.</p>
 <figure>
 <p>
     <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
 </p>
 </figure>
-<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
+<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to <strong>restart</strong> the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
     <div class="highlight"><pre><span></span><code>bin/padas start-console
 </code></pre></div></p>
 <hr />
 <h3 id="register-as-a-service">Register as a Service</h3>
 <ol>
 <li>Run Padas to create a service file. (Note: following examples assume <code>$PADAS_HOME</code> to be <code>/opt/padas</code> directory)
-<div class="highlight"><pre><span></span><code>bin/padas set-service
+    <div class="highlight"><pre><span></span><code>bin/padas set-service
 Systemd unit file has been created as <span class="s1">&#39;/opt/padas/libs/padas.service&#39;</span>
 </code></pre></div></li>
 <li>Review the generated service file (<code>libs/padas.service</code>) and edit as necessary (e.g. user &amp; group information, JVM memory options according to your system settings)
-<div class="highlight"><pre><span></span><code><span class="err">[Unit]</span><span class="w"></span>
+    <div class="highlight"><pre><span></span><code><span class="err">[Unit]</span><span class="w"></span>
 <span class="na">Description</span><span class="o">=</span><span class="s">PADAS - Engine for Streaming Events</span><span class="w"></span>
 <span class="na">Documentation</span><span class="o">=</span><span class="s">https://docs.padas.io/</span><span class="w"></span>
 <span class="na">After</span><span class="o">=</span><span class="s">network.target</span><span class="w"></span>
@@ -1040,10 +1027,13 @@ Systemd unit file has been created as <span class="s1">&#39;/opt/padas/libs/pada
 <span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
 </code></pre></div></li>
 <li>Copy the service file under system
-<div class="highlight"><pre><span></span><code>sudo cp /opt/padas/libs/padas.service /etc/systemd/system/
+    <div class="highlight"><pre><span></span><code>sudo cp /opt/padas/libs/padas.service /etc/systemd/system/
 </code></pre></div></li>
 <li>Reload systemd process
-<div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
+    <div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
+</code></pre></div></li>
+<li>You can control the service (start/stop) via <code>systemctl</code> or from <code>$PADAS_HOME/bin/padas</code> script, which internally utilizes <code>systemctl</code>.
+    <div class="highlight"><pre><span></span><code>/opt/padas/bin/padas start
 </code></pre></div></li>
 </ol>
 <hr />
@@ -1063,13 +1053,16 @@ Usage:
 <hr />
 <h3 id="uninstall">Uninstall</h3>
 <ol>
-<li>Remove Padas directory.  For example:
-<div class="highlight"><pre><span></span><code>rm -rf /opt/padas
+<li>Stop Padas service(s).
+    <div class="highlight"><pre><span></span><code>/opt/padas/bin/padas stop
+</code></pre></div></li>
+<li>Remove any system service definition.  For example
+    <div class="highlight"><pre><span></span><code>rm /etc/systemd/system/padas.service
+</code></pre></div></li>
+<li>Remove Padas installation directory.  For example:
+    <div class="highlight"><pre><span></span><code>rm -rf /opt/padas
 </code></pre></div></li>
 </ol>
-<hr />
-<h3 id="docker">Docker</h3>
-<p><em>TBD</em></p>
 
 
 

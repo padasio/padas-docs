@@ -647,21 +647,21 @@
 <p>A Manager UI can be configured to connect to a single Engine component.  Engine components can be scaled up or down as needed with group assignments to distribute work-load.</p>
 <figure>
 <p>
-  <img src="/assets/img/padas_design_details.png" class="img-fluid py-5">
+  <img src="../assets/img/padas_design_details.png" class="img-fluid py-5">
   </p>
 </figure>
 <h3 id="basic-concepts">Basic Concepts</h3>
 <p>Let's take a closer look at Padas configuration and engine's processing concepts.  At a high-level, Padas Engine reads an input topic, processes data (pipelines and tasks) and writes to one or more output topics.</p>
 <figure>
 <p>
-  <img src="/assets/img/padas_topology_pipeline_task.png" class="img-fluid py-5">
+  <img src="../assets/img/padas_topology_pipeline_task.png" class="img-fluid py-5">
   </p>
 </figure>
 <h4 id="topology">Topology</h4>
 <p>A topology is simply a group of one or more ordered pipelines where it reads from a single input topic and writes to one or more output topic(s).  Both input and output topic(s) are mandatory requirements for a topology that Padas engine runs.  A topology consists of one or more ordered pipelines where an output from one pipeline becomes an input for the next pipeline definition.</p>
-<p>It's possible to define any number of topologies per Padas Engine, where each topology starts a different processing task within one or more threads.  For more detailed architectural descriptions please refer to <a href="https://docs.confluent.io/platform/current/streams/architecture.html#processor-topology">Confluent Documentation</a>.</p>
+<p>It's possible to define any number of topologies per Padas Engine, where each topology starts a different processing task within one or more threads.  For more detailed architectural description on Kafka streams processor topology please refer to <a href="https://docs.confluent.io/platform/current/streams/architecture.html#processor-topology">Confluent Documentation</a>.</p>
 <h4 id="pipeline">Pipeline</h4>
-<p>A pipeline consists of one or more ordered tasks where an output from one task becomes an input for the next task definition.  A pipeline is a logical grouping of tasks for specific goals.  For example, in terms of processing takss, a single pipeline with 12 different tasks is the same as having 3 consecutive pipelines with 4 different tasks each.</p>
+<p>A pipeline consists of one or more ordered tasks where an output from one task becomes an input for the next task definition.  A pipeline is a logical grouping of tasks for specific goals.  For example, in terms of processing tasks, a single pipeline with 12 different tasks is the same as having 3 consecutive pipelines with 4 different tasks each.</p>
 <h4 id="task">Task</h4>
 <p>A task is the single unit of work performed on event data.  Each task has the following built-in functions that can perform processing on an event:</p>
 <ul>
@@ -671,8 +671,7 @@
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
 <li><code>EVAL</code>: Add, remove or rename fields within <code>JSON</code> data.  Both input and output are <code>JSON</code>.</li>
 <li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
-<li><code>APPLY_RULES</code>: Apply predefined rules (see below for <a href="#rule">Rule</a>) to matching events tagged with specific data models.  This requires events to have <code>datamodels</code> field (an array of strings).</li>
-<li><code>CONVERT_TO_CSV</code>: Convert existing <code>JSON</code> event into <code>CSV</code>.</li>
+<li><code>APPLY_RULES</code>: Apply predefined rules that are tagged with specific data models to events.  It's possible to provide a PDL condition for events to match certain datamodels.</li>
 </ul>
 <h4 id="rule">Rule</h4>
 <p>A rule is a PDL query that matches an event.  The goal is to associate a rule with a specific data model and assign one or more annotations (e.g. MITRE ATT&amp;CK technique IDs) for further processing by other analytics systems.</p>
