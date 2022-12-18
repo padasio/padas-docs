@@ -9,7 +9,7 @@ theme:
   # features:
   #   - header.autohide
   logo: assets/img/padas_logo_color.png
-  favicon: assets/img/padas_logo_color.ico
+  favicon: assets/img/padas_logo_color.ico  
 
 extra_css:
   - assets/css/extra.css

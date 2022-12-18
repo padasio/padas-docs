@@ -1,0 +1,1 @@
+A rule is a PDL query that matches an event.  The goal is to associate a rule with a specific data model and assign one or more annotations (e.g. MITRE ATT&amp;CK technique IDs) for further processing by other analytics systems.

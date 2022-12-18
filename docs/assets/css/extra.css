@@ -6,7 +6,9 @@
   --md-primary-fg-color:        #353637;
   --md-primary-fg-color--light: #f1f3f5;
   --md-primary-fg-color--dark:  #353637;
+  --md-primary-bg-color: #f1f3f5;
   --md-accent-fg-color: #24d4f7;
+  --md-accent-bg-color: #24d4f7;
 }
 
 .padas {
