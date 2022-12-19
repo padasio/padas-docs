@@ -63,6 +63,8 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 --8<-- "props_task.md"
 
+---
+
 ### Rules
 
 --8<-- "description_rule.md"
