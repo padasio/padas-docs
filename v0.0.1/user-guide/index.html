@@ -347,15 +347,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-function-definition" class="md-nav__link">
-    FILTER Function Definition
+  <a href="#filter-definition" class="md-nav__link">
+    FILTER Definition
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract-function-definition" class="md-nav__link">
-    EXTRACT Function Definition
+  <a href="#extract-definition" class="md-nav__link">
+    EXTRACT Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_csv-definition" class="md-nav__link">
+    PARSE_CSV Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_kv-definition" class="md-nav__link">
+    PARSE_KV Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamp-definition" class="md-nav__link">
+    TIMESTAMP Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-definition" class="md-nav__link">
+    EVAL Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appy_rules-definition" class="md-nav__link">
+    APPY_RULES Definition
   </a>
   
 </li>
@@ -640,15 +675,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-function-definition" class="md-nav__link">
-    FILTER Function Definition
+  <a href="#filter-definition" class="md-nav__link">
+    FILTER Definition
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract-function-definition" class="md-nav__link">
-    EXTRACT Function Definition
+  <a href="#extract-definition" class="md-nav__link">
+    EXTRACT Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_csv-definition" class="md-nav__link">
+    PARSE_CSV Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_kv-definition" class="md-nav__link">
+    PARSE_KV Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamp-definition" class="md-nav__link">
+    TIMESTAMP Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-definition" class="md-nav__link">
+    EVAL Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appy_rules-definition" class="md-nav__link">
+    APPY_RULES Definition
   </a>
   
 </li>
@@ -742,6 +812,7 @@
   <img src="../assets/img/padas_ui_upload_config.png" class="img-fluid py-5 w-50">
   </p>
 </figure>
+<hr />
 <h3 id="topologies">Topologies</h3>
 <p>A topology is simply a group of one or more ordered pipelines where it reads from a single input topic and writes to one or more output topic(s).  Both input and output topic(s) are mandatory requirements for a topology that Padas engine runs.  A topology consists of one or more ordered pipelines where an output from one pipeline becomes an input for the next pipeline definition.</p>
 <p>It's possible to define any number of topologies per Padas Engine, where each topology starts a different processing task within one or more threads.  For more detailed architectural description on Kafka streams processor topology please refer to <a href="https://docs.confluent.io/platform/current/streams/architecture.html#processor-topology">Confluent Documentation</a>.</p>
@@ -793,6 +864,7 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="pipelines">Pipelines</h3>
 <p>A pipeline consists of one or more ordered tasks where an output from one task becomes an input for the next task definition.  A pipeline is a logical grouping of tasks for specific goals.  For example, in terms of processing tasks, a single pipeline with 12 different tasks is the same as having 3 consecutive pipelines with 4 different tasks each.</p>
 <figure>
@@ -827,15 +899,16 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="tasks">Tasks</h3>
 <p>A task is the single unit of work performed on event data.  Each task has the following built-in functions that can perform processing on an event:</p>
 <ul>
-<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="/pdl-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-reference/">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
 <li><code>EXTRACT</code>: Extract any event input with provided Regular Expression defition (named groups). The output is <code>JSON</code>.</li>
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
-<li><code>EVAL</code>: Add, remove or rename fields within <code>JSON</code> data.  Both input and output are <code>JSON</code>.</li>
 <li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
+<li><code>EVAL</code>: Add, remove or rename fields within <code>JSON</code> data.  Both input and output are <code>JSON</code>.</li>
 <li><code>APPLY_RULES</code>: Apply predefined rules that are tagged with specific data models to events.  It's possible to provide a PDL condition for events to match certain datamodels.</li>
 </ul>
 <figure>
@@ -874,7 +947,8 @@
 </tr>
 </tbody>
 </table>
-<h5 id="filter-function-definition"><code>FILTER</code> Function Definition</h5>
+<h5 id="filter-definition"><code>FILTER</code> Definition</h5>
+<p>This function allows filtering (keep or drop) an event if it matches the specified regular expression (<code>regex</code>) or PDL query (<code>pdl</code>).  Event is not transformed and kept the same.</p>
 <table>
 <thead>
 <tr>
@@ -901,7 +975,8 @@
 </tr>
 </tbody>
 </table>
-<h5 id="extract-function-definition"><code>EXTRACT</code> Function Definition</h5>
+<h5 id="extract-definition"><code>EXTRACT</code> Definition</h5>
+<p>This function allows usage of named capturing groups in regular expression to extract fields from event data.  The output is in <code>JSON</code> formatted event with named groups as fields.</p>
 <table>
 <thead>
 <tr>
@@ -924,6 +999,161 @@
 <tr>
 <td>Raw Field Name</td>
 <td>If raw data is to be kept, this will be the field to store it in. <code>_raw</code> is the default.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parse_csv-definition"><code>PARSE_CSV</code> Definition</h5>
+<p>This function allows parsing CSV formatted data with any delimiter.  The output is <code>JSON</code> formatted event with specified field names.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field Names</td>
+<td>Comma separated list of field names for the CSV data.</td>
+<td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_parsecsv_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Delimiter</td>
+<td>Field separator for the CSV items.  Default is comma <code>,</code>.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Keep Raw</td>
+<td>Boolean to keep raw data in a separate field.  If set to <code>true</code> a field name should be provided.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Raw Field Name</td>
+<td>If raw data is to be kept, this will be the field to store it in. <code>_raw</code> is the default.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parse_kv-definition"><code>PARSE_KV</code> Definition</h5>
+<p>This function allows parsing key-value pairs within event data with any delimiter.  Left side of the delimiter becomes the field name and right side becomes the field value.  The output is <code>JSON</code> formatted event.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delimiter</td>
+<td>Field separator for the Key-Value items.  Default is comma <code>=</code>.</td>
+<td align="center" rowspan="3"><img src="../assets/img/padas_ui_task_parsekv_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Keep Raw</td>
+<td>Boolean to keep raw data in a separate field.  If set to <code>true</code> a field name should be provided.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Raw Field Name</td>
+<td>If raw data is to be kept, this will be the field to store it in. <code>_raw</code> is the default.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="timestamp-definition"><code>TIMESTAMP</code> Definition</h5>
+<p>This function extracts event timestamp from the given field with the provided format. The output is time in milliseconds in a new field (if specified).  The timestamp information is utilized by stream processing.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field</td>
+<td>JSON data field name that holds the timestamp value to be parsed.</td>
+<td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_timestamp_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Pattern to extract field data timestamp information based on <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">Java SE Patterns for Formatting and Parsing</a>. Default pattern is <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Add New Field</td>
+<td>Boolean to add a new field for extracted timestamp, represented in milliseconds.  Default is <code>true</code>.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Time Field Name</td>
+<td>Field name to add if the above is set to <code>true</code>. Default is <code>_time</code>.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="eval-definition"><code>EVAL</code> Definition</h5>
+<p>This function allows data enrichment via various additional mini-functionality.  Input must be <code>JSON</code> since fields and conditions require this in order to process event data.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Condition</td>
+<td>Matching PDL query in order to execute the EVAL action specified. Empty or null query matches all events.</td>
+<td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_eval_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Action</td>
+<td>Must be on of <code>add</code>, <code>alias</code>, <code>regex</code>, <code>remove</code>, <code>rename</code>.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Field</td>
+<td>Field name to implement the action.<br/><code>add</code>: new field name<br/><code>alias</code>: existing field name to create an alias for<br/><code>regex</code>: existing field to apply regular expression.<br/><code>remove</code>: existing field to remove<br/><code>rename</code>: existing field to rename</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Each action represents different value. <br/><code>add</code>: new field value<br/><code>alias</code>: new alias field name<br/><code>regex</code>: named capturing regular expression where matched fields are added.<br/><code>remove</code>: N/A<br/><code>rename</code>: new field name</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="appy_rules-definition"><code>APPY_RULES</code> Definition</h5>
+<p>This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with <code>padas_rules</code> object array that contain matching rule information as well as the event data.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Condition</td>
+<td>Matching PDL query in order to associate the event with the Data model, so that matching rules can be evaluated.</td>
+<td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_rules_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Data model</td>
+<td>Rules with this matching data model will be evaluated against the event.</td>
+<td align="center" style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Match All</td>
+<td>If set to <code>true</code>, all rules for this data model are evaluated.  If set to <code>false</code>, first match wins and evaluation stops.</td>
 <td align="center" style="padding:0">&#8288;</td>
 </tr>
 </tbody>
@@ -974,7 +1204,44 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="test">Test</h3>
+<p>Test view allows a simple interface to play with sample data and verify configurations.</p>
+<p>Description of fields and state details can be found below.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test Function</td>
+<td>Functionality to test, can be a Task, Pipeline or Rule.</td>
+</tr>
+<tr>
+<td>Tasks/Pipelines/Rules</td>
+<td>Based on the above choice, this selection lists available/configured options.</td>
+</tr>
+<tr>
+<td>Event Data</td>
+<td>Copy/paste your sample event data here.</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>Output will be displayed under this section.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example Test View</strong>:</p>
+<figure>
+<p>
+  <img src="../assets/img/padas_ui_test_example.png" class="img-fluid py-5 w-75">
+  </p>
+</figure>
+<hr />
+<hr />
 <h2 id="management-configurations">Management Configurations</h2>
 <h3 id="users">Users</h3>
 <p>As an administrator user, you can view and edit all configuration items including user account settings. Currently there are 2 roles available for a user: <code>admin</code> and <code>user</code>, where <code>user</code> has read-only access to configurations.  "Users" view can be accessed via "Settings --&gt; Users" menu.</p>
