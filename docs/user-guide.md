@@ -21,6 +21,8 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
+---
+
 ### Topologies
 
 --8<-- "description_topology.md"
@@ -33,6 +35,8 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 --8<-- "props_topology.md"
 
+---
+
 ### Pipelines
 
 --8<-- "description_pipeline.md"
@@ -44,6 +48,8 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 </figure>
 
 --8<-- "props_pipeline.md"
+
+---
 
 ### Tasks
 
@@ -69,7 +75,17 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 --8<-- "props_rule.md"
 
+---
+
 ### Test
+
+Test view allows a simple interface to play with sample data and verify configurations.
+
+--8<-- "props_test.md"
+
+---
+
+---
 
 ## Management Configurations
 
