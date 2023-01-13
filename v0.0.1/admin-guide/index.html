@@ -752,31 +752,32 @@
 <p><em>PADAS configurations</em>:</p>
 <ul>
 <li>
-<p><a href="/assets/config/PadasTasks_transform_winlogbeat_sysmon.json">Winlogbeat Sysmon Transformation</a>: This Tasks configuration converts Winlogbeat Sysmon formatted data to <a href="">Padas Endpoint Datamodel</a> so that any pertinen rule can be applied, such as <a href="/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json">Apply Rules Configuration</a>. </p>
+<p><a href="/assets/config/PadasTasks_transform_winlogbeat_sysmon.json">Winlogbeat Sysmon Transformation</a>: This is a set of configuration items (<a href="../user-guide/#tasks">Tasks</a>) that convert Winlogbeat Sysmon formatted data to <a href="../datamodel-reference/">Padas Datamodel</a> so that any pertinent rule can be applied, such as <a href="/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json">Apply Rules Configuration</a> task. </p>
 </li>
 <li>
-<p><a href="/assets/config/PadasRules_sample.json">Out-of-the-box PADAS Rules</a>: This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via <a href="/docs/user-guide.html#rules">Rules view</a> to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query.</p>
+<p><a href="/assets/config/PadasRules_sample.json">Out-of-the-box PADAS Rules</a>: This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via <a href="../user-guide/#rules">Rules view</a> to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.</p>
 </li>
 </ul>
 <h4 id="splunk">Splunk</h4>
-<p><a href="https://www.splunk.com">Splunk</a> can act as a Kafka Consumer for further analysis of Padas Alerts.  Padas and Splunk integration can be accomplished seamlessly with <a href="https://www.confluent.io/hub/splunk/kafka-connect-splunk">Splunk Sink Connector</a> and <a href="https://github.com/seynur/TA_padas">Technology Add-on for Padas</a>.  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.</p>
-<p>An example configuration for Splunk Sink Connector can be found here: <a href="../assets/config/splunk-sink-connector-example.json">splunk-sink-connector-example.json</a>
+<p><a href="https://www.splunk.com">Splunk</a> can act as a Kafka Consumer for further analysis of Padas Alerts (populated via <code>APPLY_RULES</code> task function) or any other topic.  Padas and Splunk integration can be accomplished seamlessly with <a href="https://www.confluent.io/hub/splunk/kafka-connect-splunk">Splunk Sink Connector</a> and alerts can utilize <a href="https://github.com/seynur/TA_padas">Technology Add-on for Padas</a>.  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.</p>
+<p>An example configuration for Splunk Sink Connector can be found here: <a href="/assets/config/splunk-sink-connector-example.json">splunk-sink-connector-example.json</a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SplunkSinkConnectorConnector_Padas&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;connector.class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.splunk.kafka.connect.SplunkSinkConnector&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;value.converter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;io.confluent.connect.avro.AvroConverter&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;value.converter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org.apache.kafka.connect.storage.StringConverter&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;topics&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas_alerts&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;splunk.hec.token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e8de5f0e-97b1-4485-b416-9391cbf89392&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;splunk.hec.uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://splunk-server:8088&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;splunk.indexes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;splunk.sourcetypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas:alert&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;splunk.hec.ssl.validate.certs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;value.converter.schema.registry.url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://confluent-kafka-schema-registry-server:8081&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;splunk.hec.ssl.validate.certs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<p>If the Splunk installation has <a href="https://splunkbase.splunk.com/app/4617/">MITRE ATT&amp;CK App for Splunk</a>, then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.</p>
+<p>If the Splunk installation has <a href="https://splunkbase.splunk.com/app/4617/">MITRE ATT&amp;CK App for Splunk</a>, then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.  Please refer to <a href="https://seynur.github.io/DA-ESS-MitreContent/">app documentation</a> for details.</p>
+<!-- "value.converter": "io.confluent.connect.avro.AvroConverter",
+"value.converter.schema.registry.url": "http://confluent-kafka-schema-registry-server:8081" -->
 
 
 
