@@ -93,30 +93,31 @@ It is possible to integrate any external system either as a [Kafka Producer](htt
 
 *PADAS configurations*:
 
-- [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This Tasks configuration converts Winlogbeat Sysmon formatted data to [Padas Endpoint Datamodel]() so that any pertinen rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json). 
+- [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This is a set of configuration items ([Tasks](user-guide.md#tasks)) that convert Winlogbeat Sysmon formatted data to [Padas Datamodel](datamodel-reference.md) so that any pertinent rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) task. 
 
-- [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](/docs/user-guide.html#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query.
+- [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](user-guide.md#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.
 
 #### Splunk
-[Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and [Technology Add-on for Padas](https://github.com/seynur/TA_padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.
+[Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts (populated via `APPLY_RULES` task function) or any other topic.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and alerts can utilize [Technology Add-on for Padas](https://github.com/seynur/TA_padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.
 
-An example configuration for Splunk Sink Connector can be found here: [splunk-sink-connector-example.json](../assets/config/splunk-sink-connector-example.json)
+An example configuration for Splunk Sink Connector can be found here: [splunk-sink-connector-example.json](/assets/config/splunk-sink-connector-example.json)
 ```json
 {
   "name": "SplunkSinkConnectorConnector_Padas",
   "config": {
     "connector.class": "com.splunk.kafka.connect.SplunkSinkConnector",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
     "topics": "padas_alerts",
     "splunk.hec.token": "e8de5f0e-97b1-4485-b416-9391cbf89392",
     "splunk.hec.uri": "https://splunk-server:8088",
     "splunk.indexes": "padas",
     "splunk.sourcetypes": "padas:alert",
-    "splunk.hec.ssl.validate.certs": "false",
-    "value.converter.schema.registry.url": "http://confluent-kafka-schema-registry-server:8081"
+    "splunk.hec.ssl.validate.certs": "false"
   }
 }
 ```
 
-If the Splunk installation has [MITRE ATT&amp;CK App for Splunk](https://splunkbase.splunk.com/app/4617/), then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.
+If the Splunk installation has [MITRE ATT&amp;CK App for Splunk](https://splunkbase.splunk.com/app/4617/), then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.  Please refer to [app documentation](https://seynur.github.io/DA-ESS-MitreContent/) for details.
 
+<!-- "value.converter": "io.confluent.connect.avro.AvroConverter",
+"value.converter.schema.registry.url": "http://confluent-kafka-schema-registry-server:8081" -->

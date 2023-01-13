@@ -62,6 +62,8 @@ The following Kafka topics must be created for keeping centralized configuration
 
 ### Register as a Service
 
+**NOTE**: Following steps are applicable for both Engine and UI components.  For UI, simply use `bin/padas-ui` as the command.
+
 1. Run Padas to create a service file. (Note: following examples assume `$PADAS_HOME` to be `/opt/padas` directory)
     ```bash
     bin/padas set-service
