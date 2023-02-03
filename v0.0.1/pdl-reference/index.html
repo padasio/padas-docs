@@ -352,8 +352,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-json-values" class="md-nav__link">
-    Supported JSON Values
+  <a href="#supported-json-data-types" class="md-nav__link">
+    Supported JSON Data Types
   </a>
   
 </li>
@@ -571,8 +571,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-json-values" class="md-nav__link">
-    Supported JSON Values
+  <a href="#supported-json-data-types" class="md-nav__link">
+    Supported JSON Data Types
   </a>
   
 </li>
@@ -765,11 +765,12 @@
 </tr>
 </tbody>
 </table>
-<h4 id="supported-json-values">Supported JSON Values</h4>
-<p>PDL comparisons work on <strong>String</strong> and <strong>Integer</strong> JSON values.  <strong>String</strong> comparisons MUST be defined in quotes <code>"</code> within PDL query definition.</p>
+<h4 id="supported-json-data-types">Supported JSON Data Types</h4>
+<p>PDL comparisons work on <strong>String</strong>, <strong>Integer</strong>, and <strong>Boolean</strong> JSON value data types.  <strong>String</strong> comparisons MUST be defined in quotes <code>"</code> within PDL query definition.</p>
 <p><strong>Examples:</strong></p>
-<p>PDL query with <code>field1="123"</code> will compare <code>"123"</code> as a <strong>String</strong> JSON value.</p>
-<p>PDL query with <code>field2=123</code> will compare <code>123</code> as an <strong>Integer</strong> JSON value.</p>
+<p>PDL query with <code>field1="123"</code> will compare <code>"123"</code> as a <strong>String</strong> JSON data type.</p>
+<p>PDL query with <code>field2=123</code> will compare <code>123</code> as an <strong>Integer</strong> JSON data type.</p>
+<p>PDL query with <code>field3=true</code> will compare <code>true</code> as an <strong>Boolean</strong> JSON data type.</p>
 <h4 id="wildcard-support">Wildcard Support</h4>
 <p>PDL supports a single wildcard <code>*</code> with Equals operator (<code>=</code>) for <strong>String</strong> JSON values.  Following are valid PDL query examples with wildcard usage:</p>
 <div class="highlight"><pre><span></span><code>field1=&quot;val*1&quot;
