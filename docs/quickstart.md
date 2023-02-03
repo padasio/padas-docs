@@ -8,7 +8,7 @@ Use Padas to perform streaming event data transformations and apply specific rul
 ### Prerequisites
 - Internet connectivity
 - Supported [Operating System](/installation.html#operating-systems)
-- A supported version of [Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Java 8 and Java 11 are supported in this version.
+- A supported version of [Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Java 11 and later versions are supported in this version.
 - Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  
 - You should have at least Kafka and Zookeeper services up and running.
     ```sh

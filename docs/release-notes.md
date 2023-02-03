@@ -6,24 +6,26 @@ latest_version: 0.0.1
 
 ### Version 0.0.1
 
+**Release Date**: 15.02.2023
+
 #### What's New?
 
 | Feature                       | Description |
 | ----------------------        | ----------------------       
-| Feature name	                | Feature description
+| Initial release               | This is the initial release of Padas.
 
 
 #### Known Issues
 
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
-| 11.11.2022    | PAD-102	          | Issue description
+| N/A    | N/A          | -
 
 
 #### Fixed Issues
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
-| 12.12.2022    | PAD-102	          | Issue description
+| N/A    | N/A	          | -
 
 ---

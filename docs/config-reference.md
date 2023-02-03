@@ -61,7 +61,6 @@ padas.log.dir=/opt/padas/var/logs
 num.stream.threads=1
 # Optional - <integer>
 # Number of threads to run in parallel for this streaming instance.  
-# This setting is only applicable for 'detect' and 'transform' roles
 # Default: 1
 
 ####################################
