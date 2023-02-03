@@ -635,11 +635,11 @@
   <h1>Admin Guide</h1>
 
 <h3 id="jvm-settings">JVM Settings</h3>
-<p>Java 17 is the recommended version in this version of Padas. Java 11 and Java 8 are also supported.  From a security perspective, we recommend the latest released patch version as older freely available versions may have disclosed security vulnerabilities.</p>
+<p>Java 17 is the recommended version in this version of Padas. Java 11 and later versions are also supported.  From a security perspective, we recommend the latest released patch version as older freely available versions may have disclosed security vulnerabilities.</p>
 <p>For more information regarding Confluent Platform, please visit <a href="https://docs.confluent.io/platform/current/installation/versions-interoperability.html#java">here</a>.</p>
 <p><strong>NOTE</strong>: You need to separately install the correct version of Java before you start the installation process.</p>
 <p>JVM Heap Options can be set via <code>PADAS_HEAP_OPTS</code> environment variable.  Default value is: <code>-Xmx1G -Xms1G</code></p>
-<p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change.</p>
+<p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change in JVM heap options.</p>
 <hr />
 <h3 id="topic-properties">Topic Properties</h3>
 <p>Following Kafka topics are required for PADAS to operate properly.</p>
