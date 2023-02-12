@@ -1,0 +1,1 @@
+A pipeline consists of one or more ordered tasks where an output from one task becomes an input for the next task definition.  A pipeline is a logical grouping of tasks for specific goals.  For example, in terms of processing tasks, a single pipeline with 12 different tasks is the same as having 3 consecutive pipelines with 4 different tasks each.

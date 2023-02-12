@@ -20,7 +20,7 @@ article > section > .row {
 
 
 a {
-  color: #24d4f7;
+  color: #24d4f7 !important;
   transition: ease-in-out color .15s;
 }
 
@@ -98,7 +98,7 @@ a:hover {
   color: #f1f3f5;
   transition: ease-in-out color .15s;
 }
-.navbar-padas a:hover {
+.navbar-padas a:hover, a::after {
   color: #24d4f7;
   text-decoration: none;
 }

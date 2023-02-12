@@ -1,35 +1,16 @@
-<div class="grid cards" markdown>
+=== ":material-cube-unfolded:{.padas} Introduction"
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+    [:material-cube-unfolded:{.padas} **Introduction**](introduction.md): This review provides information on Padas architecture and basic concepts to quickly get started on your preferred platform.
 
-    ---
+=== ":material-contain-start:{.padas} Quick Start"
 
-    Review PADAS design and architectural considerations and quickly get started on your preferred platform.
+    [:material-contain-start:{.padas} **Quick Start**](quickstart.md): Get up and running with this quick start tutorial to build a simple topology to transform and filter sample data.
 
-    [:octicons-arrow-right-24: Getting started](get-started.md)
+=== ":material-cog:{.padas} Installation"
 
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
+    [:material-cog:{.padas} **Installation**](installation.md): This section provides details on system requirements and how to install and run PADAS in production environments.
 
-    ---
+=== ":fontawesome-solid-user-gear:{.padas} Using Padas"
 
-    Focus on your content and generate a responsive and searchable static site
+    [:fontawesome-solid-user-gear:{.padas} **Using Padas**](user-guide.md): This guide provides information on how to utilize PADAS Manager for configuring transformations and rules.
 
-    [:octicons-arrow-right-24: Reference](#)
-
--   :material-format-font:{ .lg .middle } __Made to measure__
-
-    ---
-
-    Change the colors, fonts, language, icons, logo and more with a few lines
-
-    [:octicons-arrow-right-24: Customization](#)
-
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
-
-    ---
-
-    Material for MkDocs is licensed under MIT and available on [GitHub]
-
-    [:octicons-arrow-right-24: License](#)
-
-</div>

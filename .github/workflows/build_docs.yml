@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10
+          python-version: 3.x
           architecture: x64      
           cache: 'pip'          
           cache-dependency-path: './requirements.txt'
@@ -40,4 +40,4 @@ jobs:
         
       - name: Deploy with mike
         run: |
-          mike deploy --push ${{ steps.extract_branch.outputs.branch }}
+          mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }} latest

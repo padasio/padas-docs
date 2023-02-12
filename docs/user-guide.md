@@ -1,88 +1,130 @@
 ---
 title: User Guide
 ---
-## User Guide
 
-<br>
+This guide provides information on Padas User Interface menu and configuration items.
 
-### Account Settings
-<br>
-You can view and edit current user's account settings (Display Name, Email address and password) via this view.
+## Streaming Configurations
+Following sections describe how to configure Padas to run streaming tasks in order to transform events and/or apply a set of filtering rules to generate alerts.  Please refer to [Introduction](introduction.md) before moving forward in order to understand engins'e processing concepts.
 
-<br/>
-<img src="/assets/img/account_settings.png" width="67%">
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_topology_pipeline_task.png" class="img-fluid py-5">
+  </p>
+</figure>
 
----
+All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the ability to bulk upload or download configurations in JSON format.
 
-### About Overview
-<br>
-Overview provides information regarding license information and registered nodes.  Note that licensing quota is based on number of Detect nodes with an expiration date.
-
-Registered Node Information table provides details on actively running PADAS instances (other than this manager).
-
-<br/>
-<img src="/assets/img/overview_sample.png" width="67%">
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_upload_config.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
 
 ---
 
-### Topics
-<br>
-Upon initial login, PADAS Manager checks whether all required topics are created and available.  If any one of the required topics is missing, you'll be redirected to Topics view in order to view and update existing settings. This is a simple interface to create required Kafka topics through PADAS Manager interface.
+### Topologies
 
-**Important Note**: Number of partitions can NOT be changed/updated once a topic is created.  This value depends on your data volume and scalability requirements.  If you need to change/update this value for any reason, the topic will need to be deleted and created again with new values.  For more information regarding topics, please refer to [Topic Properties](/docs/admin-guide.html#anchor3)
+--8<-- "description_topology.md"
 
-If you need more control over topic creation, please consult your Kafka/PADAS administrator; you can also refer to [Confluent Documentation](https://docs.confluent.io/platform/current/control-center/topics/overview.html).
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_topologies.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
 
-<br/>
-<img src="/assets/img/topics_pre_sample.png" width="67%">
+--8<-- "props_topology.md"
 
 ---
 
-### Properties
-<br>
-Properties view provides configuration entries for Detect and Transform Engine components.  You can click <span class="btn btn-padas">Edit</span> button to enter in edit mode and make changes.  Following table provides information on the form fields.
+### Pipelines
 
-**NOTE**: You can upload (click <span class="btn btn-padas"><i class="bi bi-chevron-right"></i> Upload Properties from File</span> button) and/or download (click <span class="btn btn-padas"><i class="bi bi-download"></i> Download Properties </span> button) properties as a file.  A sample properties file for Winlogbeat transformations can be found here: [Winlogbeat Sysmon and Security](/assets/config/padas_transformation.properties)
+--8<-- "description_pipeline.md"
 
-**NOTE**: You can click <span class="btn btn-padas"><i class="bi bi-plus-lg"></i> Add New Transformation</span> button to add new input topics for analysis.  The input topic *must* exist prior to starting PADAS Transform Engine.
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_pipelines.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
 
-**NOTE**: After any configuration changes, you will need to restart the corresponding component(s) (i.e. Detect and/or Transform Engine(s)).  PADAS instances read and load the configuration upon starting.
+--8<-- "props_pipeline.md"
 
-<br />
+---
 
-{% include docs/props_detect.md %}
+### Tasks
 
-<br /><br />
+--8<-- "description_task.md"
 
-{% include docs/props_transform.md %}
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_tasks.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
 
-<br/>
-
-**Properties View Sample**
-<br/>
-
-<img src="/assets/img/props_pre_sample.png" width="67%">
-
-<br/>
+--8<-- "props_task.md"
 
 ---
 
 ### Rules
-<br>
-Rules view provides configuration entries for Detect Engine rules that are applicable to various data models (as specified in transformations or `padas_events` topic).  Relevant schema for PADAS topics can be found [here](/docs/admin-guide.html#topic-properties).
 
-**NOTE**: You can upload (click <span class="btn btn-padas"><i class="bi bi-chevron-right"></i> Upload Rules from File</span> button) and/or download (click <span class="btn btn-padas"><i class="bi bi-download"></i> Download Rules</span> button) rules as a JSON file.  An out-of-the-box JSON rule file is provided for Winlogbeat according to MITRE ATT&amp;CK framework and can be found here: [padasRules.json](/assets/config/padasRules.json)
+--8<-- "description_rule.md"
 
-**NOTE**: You can click <span class="btn btn-padas"><i class="bi bi-plus-lg"></i> Add New Rule</span> button to add new detection rule.
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_rules.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
 
-**NOTE**: Any change in detection rules is effective immediately (updates `padas_rules` topic) and does NOT require any restart/refresh.
+--8<-- "props_rule.md"
 
-<br />
+---
 
-{% include docs/props_rules.md %}
+### Test
 
-<br />
+Test view allows a simple interface to play with sample data and verify configurations.
 
-**Rules View Sample**
-<br/>
-<img src="/assets/img/rules_pre_sample.png" width="67%">
+--8<-- "props_test.md"
+
+---
+
+---
+
+## Management Configurations
+
+### Users
+As an administrator user, you can view and edit all configuration items including user account settings. Currently there are 2 roles available for a user: `admin` and `user`, where `user` has read-only access to configurations.  "Users" view can be accessed via "Settings --> Users" menu.
+
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_users.png" class="img-fluid py-5 w-75">
+  </p>
+</figure>
+
+---
+
+### Nodes
+Node Information table provides details on registered Padas engine instances.
+
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_nodes.png" class="img-fluid py-5 w-75">
+  </p>
+</figure>
+
+--8<-- "props_node.md"
+
+
+---
+
+### Topics
+
+Topics view displays information on required Padas topics for storing configuration items.  Details can be found in [Topic Properties](admin-guide.md#topic-properties) section in Admin Guide.
+
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_topics_post.png" class="img-fluid py-5 w-75">
+  </p>
+</figure>
+
+---
+

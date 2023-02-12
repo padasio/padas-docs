@@ -2,7 +2,6 @@
 title: Overview
 ---
 
-## PADAS Overview
 --8<-- "whatispadas.md"
 
 <figure markdown>
@@ -11,7 +10,11 @@ title: Overview
   </p>
 </figure>
 
+<p>&nbsp;</p>
+
+### Quick Links
+
 --8<-- "overview_cards.md"
 
---8<-- "overview_cards.html"
+
 

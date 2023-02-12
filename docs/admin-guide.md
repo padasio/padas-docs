@@ -1,122 +1,28 @@
 ---
 title: Admin Guide
 ---
-## Admin Guide
-
-<br>
 
 ### JVM Settings
 --8<-- "sysreq_java.md"
 
-<br>
+---
 
 ### Topic Properties
-Following Kafka topics are required for PADAS to operate properly.  Upon initial access to Padas Manager, Topics View allows changing partition and replication counts.
+Following Kafka topics are required for PADAS to operate properly.
 
-**NOTE**: For production, it is highly recommended to review [Topic Configuration](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) and tune settings for each Padas topic according to expected volume and performance requirements.
+**NOTE**: While it's possible to create these topics either via REST API or from Padas UI, it is **highly recommended** to review [Topic Configuration](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) and tune settings for each Padas topic (specially for `partitions` and `replication_factor`) according to expected volume and performance requirements.
 
-{% include docs/props_topics.md %}
+--8<-- "props_topics.md"
 
-<br>
+---
 
 ### Configuration Properties
-For any PADAS instance all configuration is read from `$PADAS_HOME/etc/padas.properties` file; and details regarding the properties settings can be found in [padas.properties.spec](/assets/config/padas.properties.spec), also available with any installation at `$PADAS_HOME/etc/padas.properties.spec`
+For any PADAS instance all configuration is read from `$PADAS_HOME/etc/padas.properties` file; and details regarding the properties settings can be found in [Configuration File Reference](config-reference.md), also available with any installation at `$PADAS_HOME/etc/padas.properties.spec`
 
-At a minimum, following settings are required for any PADAS instance:
-```
-####################################
-# SETTINGS FOR ALL INSTANCES
-####################################
-
-####################################
-# Required Settings
-# These settings must be defined for each instance regardless of its role.
-####################################
-
-padas.instance.role=detect
-# Required - detect | transform | manager
-# Defines PADAS Component to run for this instance
-# Default: detect
-
-bootstrap.servers=localhost:9092
-# Required - <string>
-# Kafka bootstrap server list with port information.  Multiple servers can be separated by comma.
-# Default: localhost:9092
-
-schema.registry.url=http://localhost:8081
-# Required - <string>
-# Confluent Schema Registry URL
-# Default: http://localhost:8081
-```
-
-<br />
-
-For Manager instance, license entry is required and the following settings are also applicable:
-```
-####################################
-# SETTINGS FOR MANAGER
-# Following settings are only used by manager instance
-####################################
-
-####################################
-# Required Settings
-####################################
-
-padas.license=
-# Required - <string>
-# This setting is only used by 'manager' role.
-# License string should be a pipe '|' delimeted string containing 
-# version, entitlement, startdate, enddate, quota, type, and signature
-# Default: none
-
-####################################
-# Web Settings
-####################################
-server.port=9000
-# Optional - <integer>
-# Port number for Manager web interface
-# Default: 9000
-
-server.ssl.enabled=true
-# Optional - <boolean>
-# Enable SSL for Manager web interface with the server.ssl.* configuration
-# Default: true
-
-server.ssl.key-alias=padas_ssl_cert
-# Optional - <string>
-# SSL Key alias for certificate
-# Default: padas_ssl_cert
-
-server.ssl.key-password=password
-# Optional - <string>
-# SSL Key password
-# Default: password
-
-server.ssl.key-store-password=password
-# Optional - <string>
-# SSL Key Store password
-# Default: password
-
-server.ssl.key-store=classpath:ssl-server.jks
-# Optional - <string>
-# SSL Key Store path, this should be the full path (e.g. /opt/padas/etc/certs/my.jks)
-# Default: reads from built-in classpath
-
-server.ssl.key-store-provider=SUN
-# Optional - <string>
-# SSL Key Store provider
-# Default: SUN
-
-server.ssl.key-store-type=JKS
-# Optional - <string>
-# SSL Key Store type
-# Default: padas_ssl_cert
-```
-
-<br>
+---
 
 ### Logging
-PADAS utilizes [Logback](https://logback.qos.ch/manual/configuration.html) for logging application activity.  By default, `$PADAS_HOME/etc/logback.xml` file is used; log files are created based on the following settings and can be changed according to your requirements.
+Padas Engine utilizes [Logback](https://logback.qos.ch/manual/configuration.html) for logging application activity.  By default, `$PADAS_HOME/etc/logback.xml` file is used; log files are created based on the following settings and can be changed according to your requirements.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -172,12 +78,10 @@ PADAS utilizes [Logback](https://logback.qos.ch/manual/configuration.html) for l
 </configuration>
 ```
 
-<br>
+---
 
 ### Integrate to External Systems
 It is possible to integrate any external system either as a [Kafka Producer](https://docs.confluent.io/platform/current/clients/producer.html) (source, generating and ingesting event data) or [Kafka Consumer](https://docs.confluent.io/platform/current/clients/consumer.html) (sink, consuming `padas_alerts` topic for further analysis/alerting).  [Confluent Hub](https://www.confluent.io/hub/) can be utilized to implement any specific source and/or sink connector for integration. 
-
-<br />
 
 #### Winlogbeat (Elastic Stack)
 [Winlogbeat (OSS)](https://www.elastic.co/downloads/beats/winlogbeat-oss) can be utilized as a Kafka Producer to ingest Windows event data.  You can find relevant example information below.
@@ -189,14 +93,12 @@ It is possible to integrate any external system either as a [Kafka Producer](htt
 
 *PADAS configurations*:
 
-- [Winlogbeat Sysmon and Security](/assets/config/padas_transformation.properties): This example properties file is for PADAS and can be uploaded via [Properties view](/docs/user-guide.html#properties) to quickly start transformations on Winlogbeat generated events as specified with the above examples.
+- [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This is a set of configuration items ([Tasks](user-guide.md#tasks)) that convert Winlogbeat Sysmon formatted data to [Padas Datamodel](datamodel-reference.md) so that any pertinent rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) task. 
 
-- [Out-of-the-box PADAS Rules](/assets/config/padasRules.json): This JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](/docs/user-guide.html#rules) to quickly get started.  For any other input, it's recommended to review the applicable data model and PDL query of each rule for accuracy.
-
-<br />
+- [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](user-guide.md#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.
 
 #### Splunk
-[Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and [Technology Add-on for Padas](https://github.com/seynur/TA-padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.
+[Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts (populated via `APPLY_RULES` task function) or any other topic.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and alerts can utilize [Technology Add-on for Padas](https://github.com/seynur/TA_padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.
 
 An example configuration for Splunk Sink Connector can be found here: [splunk-sink-connector-example.json](/assets/config/splunk-sink-connector-example.json)
 ```json
@@ -204,17 +106,18 @@ An example configuration for Splunk Sink Connector can be found here: [splunk-si
   "name": "SplunkSinkConnectorConnector_Padas",
   "config": {
     "connector.class": "com.splunk.kafka.connect.SplunkSinkConnector",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
     "topics": "padas_alerts",
     "splunk.hec.token": "e8de5f0e-97b1-4485-b416-9391cbf89392",
     "splunk.hec.uri": "https://splunk-server:8088",
     "splunk.indexes": "padas",
     "splunk.sourcetypes": "padas:alert",
-    "splunk.hec.ssl.validate.certs": "false",
-    "value.converter.schema.registry.url": "http://confluent-kafka-schema-registry-server:8081"
+    "splunk.hec.ssl.validate.certs": "false"
   }
 }
 ```
 
-If the Splunk installation has [MITRE ATT&amp;CK App for Splunk](https://splunkbase.splunk.com/app/4617/), then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.
+If the Splunk installation has [MITRE ATT&amp;CK App for Splunk](https://splunkbase.splunk.com/app/4617/), then any alert with MITRE ATT&amp;CK annotations are automatically integrated also.  Please refer to [app documentation](https://seynur.github.io/DA-ESS-MitreContent/) for details.
 
+<!-- "value.converter": "io.confluent.connect.avro.AvroConverter",
+"value.converter.schema.registry.url": "http://confluent-kafka-schema-registry-server:8081" -->

@@ -1,74 +1,31 @@
 ---
 title: Release Notes
+layout: documentation
+latest_version: 0.0.1
 ---
-
-### <a name="anchor1"></a>
 
 ### Version 0.0.1
 
-<br />
+**Release Date**: 15.02.2023
 
 #### What's New?
 
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Feature</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.features %}
-    <tr>
-      <td>{{ item.feature }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+| Feature                       | Description |
+| ----------------------        | ----------------------       
+| Initial release               | This is the initial release of Padas.
 
-<br />
 
 #### Known Issues
 
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Date Filed</th>
-      <th scope="col">Issue Number</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.known_issues %}
-    <tr>
-      <td>{{ item.date }}</td>
-      <td>{{ item.number }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+| Date Filed    | Issue Number      | Description |
+| ------------- | ----------------  | ----------------------       
+| 12.02.2023    | PADAS-34          | After session token expiration the user is not redirected to login page and needs to manually refresh the page.
 
-<br />
 
 #### Fixed Issues
 
-<table class="table table-striped w-75">
-  <thead>
-    <tr>
-      <th scope="col">Date Fixed</th>
-      <th scope="col">Issue Number</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for item in site.data.release_notes_100.fixed_issues %}
-    <tr>
-      <td>{{ item.date }}</td>
-      <td>{{ item.number }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+| Date Fixed    | Issue Number      | Description |
+| ------------- | ----------------  | ----------------------       
+| N/A    | N/A	          | -
+
+---
