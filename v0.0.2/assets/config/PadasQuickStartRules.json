@@ -1,1 +1,0 @@
-[{"id":1,"name":"Test Rule for Evil","description":"Match for group name that starts with evil","datamodel":"mydata","pdl":"group_name=\"evil*\"","annotations":["T1234","T2345"],"enabled":true},{"id":2,"name":"Test Rule for Failure","description":"Match when action is failure","datamodel":"mydata","pdl":"action=\"failure\"","annotations":["T9876"],"enabled":true}]
