@@ -19,6 +19,7 @@ latest_version: 0.0.1
 
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
+| 01.02.2023    | PADAS-16          | Bulk upload overwrites existing entries based on IDs
 | 12.02.2023    | PADAS-34          | After session token expiration the user is not redirected to login page and needs to manually refresh the page.
 
 
