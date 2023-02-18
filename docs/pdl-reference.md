@@ -22,7 +22,7 @@ PDL supports the following operators and keywords when comparing events to the q
 --8<-- "pdl_operators.md"
 
 #### Supported JSON Data Types
-PDL comparisons work on **String**, **Integer**, and **Boolean** JSON value data types.  **String** comparisons MUST be defined in quotes `"` within PDL query definition.
+PDL comparisons work on **String**, **Integer**, **Boolean**, and **Array** JSON value data types.  **String** comparisons MUST be defined in quotes `"` within PDL query definition.  **Array** comparisons are limited to **Equals** (`=`), **Not Equals** (`!=`), and **Contains** (`?=`) operators.
 
 **Examples:**
 
@@ -31,6 +31,8 @@ PDL query with `field1="123"` will compare `"123"` as a **String** JSON data typ
 PDL query with `field2=123` will compare `123` as an **Integer** JSON data type.
 
 PDL query with `field3=true` will compare `true` as an **Boolean** JSON data type.
+
+PDL query with `field4=[5,6,7]` will compare `[5,6,7]` as an **Array** JSON data type and expect `field4` to be an array as well.
 
 #### Wildcard Support
 PDL supports a single wildcard `*` with Equals operator (`=`) for **String** JSON values.  Following are valid PDL query examples with wildcard usage:
