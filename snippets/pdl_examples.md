@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table>
   <thead>
     <tr>
       <th scope="col">JSON Event Data</th>

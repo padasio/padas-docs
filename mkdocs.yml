@@ -40,7 +40,10 @@ nav:
     - installation.md
   - 'User Guide':
     - user-guide.md
-    - pdl-reference.md
+    - 'PDL Reference':
+      - pdl-quick-reference.md
+      - pdl-expression.md
+      - pdl-correlation.md
   - 'Admin Guide':
     - admin-guide.md
     - datamodel-reference.md

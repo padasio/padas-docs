@@ -12,8 +12,7 @@ latest_version: 0.0.2
 
 | Feature                       | Description |
 | ----------------------        | ----------------------       
-| Simple Rules: PDL             | Update Padas Rules functionality in order to be usable by Meta Rules (correlation).
-| Meta Rules: PDL               | Introduce Padas Meta Rules for running correlations.
+| PDL Expression Improvements   | Update PDL expression to support formatting, event transformation, and correlation.
 
 
 #### Known Issues
