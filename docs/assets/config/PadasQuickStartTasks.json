@@ -1,1 +1,20 @@
-[{"id":1,"name":"Test Eval","description":"Map group id to name","function":"EVAL","definition":{"eval":[{"condition":"group_id=1","action":"add","field":"group_name","value":"evil group"},{"condition":"group_id IN [2,5,7]","action":"add","field":"group_name","value":"some other group"}]}},{"id":2,"name":"Test Rules","description":"Apply rules for mydata","function":"APPLY_RULES","definition":{"datamodels":[{"datamodel":"mydata","matchAll":true}]}}]
+[
+  {
+    "id": 1,
+    "name": "Test Eval",
+    "description": "Map group id to name",
+    "function": "PDL_EXPRESSION",
+    "definition": {
+      "pdl": "eval group_name=if(group_id=1,\"evil group\",\"some other group\")"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Test Rules",
+    "description": "Apply rules for mydata",
+    "function": "APPLY_RULES",
+    "definition": {
+      "rules" : ["test_rule_for_evil", "test_rule_for_failure"]
+    }
+  }
+]

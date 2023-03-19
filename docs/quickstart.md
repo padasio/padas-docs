@@ -86,9 +86,8 @@ Upload the configurations from the corresponding menus.  Each of the views provi
   - For [Tasks](https://localhost:9000/tasks) upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
   - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
   - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
+  - For [Topologies](https://localhost:9000/topologies) upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
     
-    **NOTE**: You will need to create the topology manually, please go to step 4 below.
-
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
@@ -96,13 +95,15 @@ Upload the configurations from the corresponding menus.  Each of the views provi
     </figure>
   
 ---
+Following steps will guide you through how to manually create these configuration items instead of uploading.
 
-1. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all relevant PDL rules for `mydata` data model (arbitrary name).  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
+1. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
       </p>
       <p>
+      <!-- TODO: INSERT NEW SCREENSHOT HERE -->
       <img src="../assets/img/padas_ui_task_rule_create.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
@@ -160,29 +161,36 @@ Upload the configurations from the corresponding menus.  Each of the views provi
       "group_id": 1,
       "action": "failure",
       "group_name": "evil group",
-      "padas_rules": [
-        {
-          "id": 1,
-          "name": "Test Rule for Evil",
-          "description": "Match for group name that starts with evil",
-          "pdl": "group_name=\"evil*\"",
-          "datamodel": "mydata",
-          "annotations": [
-            "T1234",
-            "T2345"
-          ]
-        },
-        {
-          "id": 2,
-          "name": "Test Rule for Failure",
-          "description": "Match when action is failure",
-          "pdl": "action=\"failure\"",
-          "datamodel": "mydata",
-          "annotations": [
-            "T9876"
-          ]
-        }
-      ]
+      "padasRule": 
+      {
+        "id": "test_rule_for_evil",
+        "name": "Test Rule for Evil",
+        "description": "Match for group name that starts with evil",
+        "pdl": "group_name=\"evil*\"",
+        "datamodel": "mydata",
+        "annotations": [
+          "T1234",
+          "T2345"
+        ]
+      }
+    }
+
+    {
+      "user": "user_1",
+      "group_id": 1,
+      "action": "failure",
+      "group_name": "evil group",
+      "padasRule": 
+      {
+        "id": "test_rule_for_failure",
+        "name": "Test Rule for Failure",
+        "description": "Match when action is failure",
+        "pdl": "action=\"failure\"",
+        "datamodel": "mydata",
+        "annotations": [
+          "T9876"
+        ]
+      }
     }
     ```
 
