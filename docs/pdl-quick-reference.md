@@ -10,7 +10,7 @@ In order to understand how PADAS works, please review [Getting Started](/docs/ge
 PDL is a domain-specific language designed for data processing, with features including querying, evaluation, filtering, renaming, and correlation of streaming event data.  A PDL expression consists of a combination of zero to many expressions and zero or one correlation statement separated by a pipe '`|`' character.  PDL syntax requires fields to be available in JSON object that it compares against and supports nested JSON objects/fields with dotted notation (e.g. `field.subfield.anothersubfield` etc.)
 
 ## Syntax
-PDL can contain one or more expressions and zero or one correlation statement separated by a pipe `|` character.  Output from an expression or correlation statement becomes the input for the expression that comes after the pipe `|`.  Below are some generic structure examples.
+PDL can contain one or more expressions and zero or one correlation statement separated by a pipe `|` character.  Output from an expression or correlation statement becomes the input for the expression that comes after the pipe `|`.  Below grammar represents some generic grammar usage.
 ```
 <expression> | <expression> | ...
 <correlation> | <expression> | <expression> | ...
@@ -31,5 +31,3 @@ Field names can not have spaces in them and currently following features are pro
 
 ## PDL Examples
 --8<-- "pdl_examples.md"
-
-TODO: Update examples
