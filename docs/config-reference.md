@@ -58,10 +58,10 @@ padas.log.dir=/opt/padas/var/logs
 # Directory for logs
 # Default: ${padas.home}/var/logs
 
-num.stream.threads=1
+num.stream.threads=10
 # Optional - <integer>
 # Number of threads to run in parallel for this streaming instance.  
-# Default: 1
+# Default: 10
 
 ####################################
 # SETTINGS FOR REST API
