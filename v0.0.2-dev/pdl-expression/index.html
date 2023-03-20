@@ -1,0 +1,1500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/img/padas_logo_color.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+    
+    
+      
+        <title>PDL Expressions - PADAS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas-utils.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#expressions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PADAS Documentation" class="md-header__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PADAS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PDL Expressions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PADAS Documentation" class="md-nav__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    PADAS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Get Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        User Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          PDL Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PDL Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          PDL Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-quick-reference/" class="md-nav__link">
+        PDL Quick Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PDL Expressions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PDL Expressions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-json-data-types" class="md-nav__link">
+    Supported JSON Data Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-support" class="md-nav__link">
+    Wildcard Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-arguments" class="md-nav__link">
+    Grouped arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-examples" class="md-nav__link">
+    Query Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    Eval
+  </a>
+  
+    <nav class="md-nav" aria-label="Eval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-examples" class="md-nav__link">
+    Eval Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions_1" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-examples" class="md-nav__link">
+    Fields Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename" class="md-nav__link">
+    Rename
+  </a>
+  
+    <nav class="md-nav" aria-label="Rename">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators_1" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-examples" class="md-nav__link">
+    Rename Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatten" class="md-nav__link">
+    Flatten
+  </a>
+  
+    <nav class="md-nav" aria-label="Flatten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators_2" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatten-examples" class="md-nav__link">
+    Flatten Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-correlation/" class="md-nav__link">
+        PDL Correlation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Admin Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Admin Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Admin Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin-guide/" class="md-nav__link">
+        Admin Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datamodel-reference/" class="md-nav__link">
+        Datamodel Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-reference/" class="md-nav__link">
+        Configuration File Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        REST API Reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-json-data-types" class="md-nav__link">
+    Supported JSON Data Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-support" class="md-nav__link">
+    Wildcard Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-arguments" class="md-nav__link">
+    Grouped arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-examples" class="md-nav__link">
+    Query Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    Eval
+  </a>
+  
+    <nav class="md-nav" aria-label="Eval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-examples" class="md-nav__link">
+    Eval Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions_1" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-examples" class="md-nav__link">
+    Fields Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename" class="md-nav__link">
+    Rename
+  </a>
+  
+    <nav class="md-nav" aria-label="Rename">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators_1" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-examples" class="md-nav__link">
+    Rename Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatten" class="md-nav__link">
+    Flatten
+  </a>
+  
+    <nav class="md-nav" aria-label="Flatten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-operators_2" class="md-nav__link">
+    Syntax and Operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatten-examples" class="md-nav__link">
+    Flatten Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>PDL Expressions</h1>
+
+<h2 id="expressions">Expressions</h2>
+<p>Expressions are run per streaming event and the following expressions are available in PDL.</p>
+<ul>
+<li>Query</li>
+<li>Eval</li>
+<li>Fields</li>
+<li>Rename</li>
+<li>Flatten</li>
+</ul>
+<h3 id="query">Query</h3>
+<h4 id="description">Description</h4>
+<p>The query expression is used to filter data based on a specified condition. If the query matches (evaluates to <code>true</code>), then the event data is returned. </p>
+<h4 id="syntax-and-operators">Syntax and Operators</h4>
+<p>Query syntax consists of field name and value comparisons that may include boolean operators and grouping with paranthesis.  Note that all operators are case sensitive.</p>
+<p>Following are supported syntax for query expression:</p>
+<ul>
+<li><code>NOT &lt;query&gt;</code></li>
+<li><code>&lt;query&gt; AND|OR &lt;query&gt;</code></li>
+<li><code>&lt;fieldName&gt; &lt;comparisonOperator&gt; &lt;fieldvalue&gt;</code></li>
+</ul>
+<p><em>Comparison Operators</em></p>
+<ul>
+<li><code>IN</code>: Returns <code>true</code> if the field value exists within the provided array. Note that all array values must be one value type (either <strong>String</strong> or <strong>Integer</strong>).</li>
+<li><code>=</code>: <strong>Equals</strong>, returns <code>true</code> if the value is an exact match. A single wildcard <code>*</code> is also accepted for string values. </li>
+<li><code>!=</code>: <strong>Not Equals</strong>, returns <code>true</code> if the value does not match.</li>
+<li><code>?=</code>: <strong>Contains</strong>, checks whether the string value contains the text.  For arrays, it checks for the array item.</li>
+<li><code>&gt;</code>: <strong>Greater than</strong>, returns <code>true</code> if query comparison value is greater than event field value. </li>
+<li><code>&lt;</code>: <strong>Less than</strong>, returns <code>true</code> if query comparison value is less than event field value.</li>
+<li><code>&gt;=</code>: <strong>Greater than or equals</strong>, returns <code>true</code> if query comparison value is greater than or equals to the event field value.</li>
+<li><code>&lt;=</code>: <strong>Less than or equals</strong>, returns <code>true</code> if query comparison value is less than or equals to the event field value.</li>
+</ul>
+<p><em>Boolean Operators</em></p>
+<ul>
+<li><code>NOT</code>: Negates the result of following (grouped) query</li>
+<li><code>AND</code>: Expects both sides of the expression to be <code>true</code>. </li>
+<li><code>OR</code>: Expects at least one side of the expression to be <code>true</code>. </li>
+</ul>
+<h4 id="supported-json-data-types">Supported JSON Data Types</h4>
+<p>PDL comparisons work on <strong>String</strong>, <strong>Number</strong>, <strong>Boolean</strong>, and <strong>Array</strong> JSON value data types.  <strong>String</strong> comparisons MUST be defined in quotes <code>"</code> within PDL query definition.  <strong>Array</strong> comparisons are limited to <strong>Equals</strong> (<code>=</code>), <strong>Not Equals</strong> (<code>!=</code>), and <strong>Contains</strong> (<code>?=</code>) operators.</p>
+<p>Examples:</p>
+<ul>
+<li>PDL query with <code>field1="123"</code> will compare <code>"123"</code> as a <strong>String</strong> JSON data type.</li>
+<li>PDL query with <code>field2=123</code> will compare <code>123</code> as a <strong>Number</strong> JSON data type.</li>
+<li>PDL query with <code>field3=true</code> will compare <code>true</code> as an <strong>Boolean</strong> JSON data type.</li>
+<li>PDL query with <code>field4=[5,6,7]</code> will compare <code>[5,6,7]</code> as an <strong>Array</strong> JSON data type and expect <code>field4</code> to be an array as well.</li>
+</ul>
+<h4 id="wildcard-support">Wildcard Support</h4>
+<p>PDL supports a single wildcard <code>*</code> with Equals operator (<code>=</code>) for <strong>String</strong> JSON values.  Following are valid PDL query examples with wildcard usage:</p>
+<div class="highlight"><pre><span></span><code>field1=&quot;val*1&quot;
+field1=&quot;val*&quot;
+field1=&quot;*ue1&quot;
+field1=&quot;*&quot;
+</code></pre></div>
+<h4 id="grouped-arguments">Grouped arguments</h4>
+<p>Sometimes the syntax must display arguments as a group to show that the set of arguments are used together. Parenthesis <code>( )</code> are used to group arguments.</p>
+<p>For example in this syntax:
+<code>(field1="val1" OR field2=123) AND field3="value3"</code></p>
+<p>The grouped argument is <code>(field1="val1" OR field2=123)</code> and its results are evaluated as a whole.</p>
+<h4 id="query-examples">Query Examples</h4>
+<p>The following table provides descriptions and examples of available operators based on the following JSON value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="s2">&quot;value2 text2 value2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field4&quot;</span><span class="p">:[</span><span class="s2">&quot;item1&quot;</span><span class="p">,</span><span class="s2">&quot;item2&quot;</span><span class="p">,</span><span class="s2">&quot;item3&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Operator/Keyword</th>
+<th>Example (evaluates to <code>true</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NOT</code></td>
+<td><code>NOT (field1 = "valueXXX")</code></td>
+</tr>
+<tr>
+<td><code>AND</code></td>
+<td><code>field1="value1" AND field3=123</code></td>
+</tr>
+<tr>
+<td><code>OR</code></td>
+<td><code>field1="xyz" OR field3=123</code></td>
+</tr>
+<tr>
+<td><code>IN</code></td>
+<td><code>field3 IN [111, 222, 123, 444]</code></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td><code>field1="value1"</code><br/><code>field1="val*"</code><br/><code>field1="*"</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td><code>field3 != 456</code>  <br/><code>field4 != ["other1","item3"]</code></td>
+</tr>
+<tr>
+<td><code>?=</code></td>
+<td><code>field2 ?= "text2"</code> <br/><code>field4 ?= "item2"</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>field3 &gt; 100</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>field3 &lt; 200</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>field3 &gt;= 123</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>field3 &lt;= 123</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="eval">Eval</h3>
+<h4 id="description_1">Description</h4>
+<p>The eval expression is used to modify or compute one or more fields in the data (separated by comma <code>,</code> character).  The expression must start with <code>eval</code> keyword.</p>
+<h4 id="syntax-and-functions">Syntax and Functions</h4>
+<p>Eval expression requires the <code>eval</code> keyword followed by a field name and an assignment with <code>=</code> character.  Right side of the assignment can be an <code>if</code> function or a calculated field value using literals (string, number) or field names.
+<div class="highlight"><pre><span></span><code>... <span class="p">|</span> <span class="nb">eval</span> &lt;fieldName&gt;<span class="o">=</span>&lt;ifFunction&gt;
+... <span class="p">|</span> <span class="nb">eval</span> &lt;fieldName&gt;<span class="o">=</span>&lt;fieldValue&gt; &lt;arithmeticFunction&gt; &lt;fieldValue&gt;
+</code></pre></div></p>
+<p>The following list provides available evaluation expression functionality and operators:</p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Supported Function and Syntax</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  if(&lt;query&gt;, &lt;true evaluationExpression&gt; , &lt;false evaluationExpression&gt;)
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        If <code>&lt;query&gt;</code> expression matches the event (see <a href="/pdl-reference#query">query</a> for details), returns the value of <code>&lt;true evaluationExpression&gt;</code>, otherwise the function returns the <code>&lt;false evaluationExpression</code>&gt;.
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  &lt;fieldValue&gt; &lt;evaluationOperator&gt; &lt;fieldValue&gt;
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        Where <code>&lt;fieldValue&gt;</code> can be a String or Number literal as well as a field name from JSON even data.  The following are the list of supported <code>&lt;evaluationOperator&gt;</code> values:
+        <br/>
+        <ul>
+          <li><code>+</code>: Addition for numbers and concatenation for string values.</li>
+          <li><code>-</code>: Substraction for number fields only.</li>
+          <li><code>*</code>: Multiplication for number fields only.</li>
+          <li><code>/</code>: Division for number fields only.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+<h4 id="eval-examples">Eval Examples</h4>
+<p>The following table provides examples of available functionality based on the following JSON value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Expression</th>
+      <th scope="col">Expected Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  eval myfield=field2 - 3
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;myfield&quot;</span><span class="p">:</span><span class="mi">120</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  eval myfield=if(field2 &lt; 150, field1 + &quot;xyz&quot;, &quot;N/A&quot;), mytag=&quot;sometag&quot;
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;myfield&quot;</span><span class="p">:</span><span class="s2">&quot;value1xyz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;mytag&quot;</span><span class="p">:</span><span class="s2">&quot;sometag&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+<h3 id="fields">Fields</h3>
+<h4 id="description_2">Description</h4>
+<p>The fields expression is used to keep or remove fields from the data. </p>
+<h4 id="syntax-and-functions_1">Syntax and Functions</h4>
+<div class="highlight"><pre><span></span><code>... <span class="p">|</span> fields &lt;fieldsFunction&gt; &lt;fieldName&gt;, ...
+</code></pre></div>
+<p>Supported functions are:</p>
+<ul>
+<li><code>keep</code>: to keep the list of fields only</li>
+<li><code>remove</code>: to remove the list of fields and keep the rest</li>
+</ul>
+<h4 id="fields-examples">Fields Examples</h4>
+<p>The following table provides examples of available functionality based on the following JSON value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Expression</th>
+      <th scope="col">Expected Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  fields remove field2, field3.subfield1
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  fields keep field2, field3.subfield1
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+<h3 id="rename">Rename</h3>
+<h4 id="description_3">Description</h4>
+<p>The rename expression is used to rename one or more fields in the data. This command is useful for giving fields more meaningful names, such as "processId" instead of "pid".</p>
+<h4 id="syntax-and-operators_1">Syntax and Operators</h4>
+<div class="highlight"><pre><span></span><code>... <span class="p">|</span> rename &lt;fieldName&gt; AS &lt;fieldName&gt;
+</code></pre></div>
+<p><em>Operators</em></p>
+<ul>
+<li><code>AS</code>: This operator is used to define the new name of the field.</li>
+</ul>
+<h4 id="rename-examples">Rename Examples</h4>
+<p>The following table provides examples of available functionality based on the following JSON value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Expression</th>
+      <th scope="col">Expected Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  rename field1 AS myField
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;myField&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  rename field2 AS myField2, field3.subfield1 AS mySubfield
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;myField2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;mySubfield&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+<h3 id="flatten">Flatten</h3>
+<h4 id="description_4">Description</h4>
+<p>The flatten expression is used to flatten nested JSON event data. </p>
+<h4 id="syntax-and-operators_2">Syntax and Operators</h4>
+<p>This expression does not have any functions/operators and expects JSON input.</p>
+<div class="highlight"><pre><span></span><code>... <span class="p">|</span> flatten
+</code></pre></div>
+<h4 id="flatten-examples">Flatten Examples</h4>
+<p>The following table provides examples of available functionality with sample JSON value:</p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">JSON Input</th>
+      <th scope="col">Expression</th>
+      <th scope="col">Expected Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  <span class="p">|</span> flatten
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  <span class="p">|</span> flatten
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3_subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field3_subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../pdl-quick-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PDL Quick Reference" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              PDL Quick Reference
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pdl-correlation/" class="md-footer__link md-footer__link--next" aria-label="Next: PDL Correlation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              PDL Correlation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - Padas Inc. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/padasinc" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
