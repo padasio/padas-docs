@@ -26,7 +26,9 @@
 --padas-dark:  #353637;
 --padas-color: #24d4f7;
 }
-
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 body{
   font-family: "Roboto",sans-serif;
   font-size: 1rem;
@@ -184,6 +186,7 @@ table {
 <li><a href="#_testing_a_task_post_apitesttasksid">Testing a Task: <code>POST /api/test/tasks/{id}</code></a></li>
 <li><a href="#_testing_a_pipeline_post_apitestpipelinesid">Testing a Pipeline: <code>POST /api/test/pipelines/{id}</code></a></li>
 <li><a href="#_testing_a_pdl_post_apitestpdl">Testing a PDL: <code>POST /api/test/pdl</code></a></li>
+<li><a href="#_testing_a_pdl_syntax_post_apitestpdlsyntax">Testing a PDL Syntax: <code>POST /api/test/pdl/syntax</code></a></li>
 </ul>
 </li>
 <li><a href="#_end">End</a></li>
@@ -742,8 +745,8 @@ X-Frame-Options: DENY
 Content-Length: 441
 
 {
-  "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjQ0NX0.NFjodLYcL4o15e7SrN8TbyJ2dmBq4mtdtQKMEQl3UPM",
-  "refresh_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1OTQ0NX0.2GcfTfr8jevZLtvJKjGY_EsA9r7qp1-Opvpbe3sK8Pk"
+  "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMjg4OH0.qWGw-rIsxC7qlQSE9tmCejnadtvrGzDtf6r_iQxlMBw",
+  "refresh_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzNTg4OX0.-IcUZqlUNDpg8mOYCJG0jo3VJVpdhht2OPUdfsGHoGo"
 }</code></pre>
 </div>
 </div>
@@ -831,7 +834,7 @@ A failed access attempt returns <code>403</code> response code.</p>
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/token/refresh HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1OTQ1Nn0.9VSEz5E08svrxALRmh6k6sG8BADPb5hpXud6IXDlqvs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzNTg5OX0.1Njh2Di5DYNvL4AuQZMZV62qBakH6wFdk23iSYxat_k
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -850,8 +853,8 @@ X-Frame-Options: DENY
 Content-Length: 452
 
 {
-  "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS90b2tlbi9yZWZyZXNoIiwiZXhwIjoxNjc4OTU2NDU2fQ.ENuOy16DykevsAQJHJy8vEdldAsD03N7dA2iSogT_K0",
-  "refresh_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1OTQ1Nn0.9VSEz5E08svrxALRmh6k6sG8BADPb5hpXud6IXDlqvs"
+  "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS90b2tlbi9yZWZyZXNoIiwiZXhwIjoxNjc5MzMyODk5fQ.-HtOz9jN78yloby9HB5Vgdevp6evEYPosV_t3cIz4cI",
+  "refresh_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzNTg5OX0.1Njh2Di5DYNvL4AuQZMZV62qBakH6wFdk23iSYxat_k"
 }</code></pre>
 </div>
 </div>
@@ -866,7 +869,7 @@ Host: localhost:8999</code></pre>
 <div class="listingblock">
 <div class="title">response example (failure)</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 403 Forbidden
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 401 Unauthorized
 ERROR: JWT verification error.
 Content-Type: application/json
 X-Content-Type-Options: nosniff
@@ -943,7 +946,7 @@ Content-Length: 49
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/engine/state HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjM4Nn0.uLdBELyAPGHtr5oiWe2m9VLPQTME0CDUCv_Hl0vofvA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMjkxMH0.COy9Sb1r9QmYLlN4Cke-m5zWdDSED2Yp_EWcHXrtKgU
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1017,7 +1020,7 @@ Content-Length: 34
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/engine/stop HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjM4Nn0.uLdBELyAPGHtr5oiWe2m9VLPQTME0CDUCv_Hl0vofvA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMjkxMH0.COy9Sb1r9QmYLlN4Cke-m5zWdDSED2Yp_EWcHXrtKgU
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1044,7 +1047,7 @@ Content-Length: 34
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/engine/stop HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjM4Nn0.uLdBELyAPGHtr5oiWe2m9VLPQTME0CDUCv_Hl0vofvA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMjkxMH0.COy9Sb1r9QmYLlN4Cke-m5zWdDSED2Yp_EWcHXrtKgU
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1118,7 +1121,7 @@ Content-Length: 34
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/engine/start HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjM4Nn0.uLdBELyAPGHtr5oiWe2m9VLPQTME0CDUCv_Hl0vofvA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMjkxMH0.COy9Sb1r9QmYLlN4Cke-m5zWdDSED2Yp_EWcHXrtKgU
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1655,7 +1658,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/users HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Content-Length: 156
 Host: localhost:8999
 
@@ -1701,7 +1704,7 @@ Content-Length: 141
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/users HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Content-Length: 156
 Host: localhost:8999
 
@@ -1818,7 +1821,7 @@ Content-Length: 172
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/users HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1942,7 +1945,7 @@ Content-Length: 151
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/users/testadmin HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -1975,7 +1978,7 @@ Content-Length: 147
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/users/nosuchuserxxx HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2143,7 +2146,7 @@ Content-Length: 119
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/users/newuser HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Content-Length: 157
 Host: localhost:8999
 
@@ -2188,7 +2191,7 @@ Content-Length: 142
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/users/newuser HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Content-Length: 157
 Host: localhost:8999
 
@@ -2253,7 +2256,7 @@ Content-Length: 119
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/users/newuser HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2274,7 +2277,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/users/testadmin HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY1Nn0.g7VYERrWUtagbyG0_khbMj4HK9z0ZLt3jK1jpMejyig
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE2MX0.BdpuJxBr96cgYYse1_bhQVnGmygacsmqyHlJ49MiIic
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2379,7 +2382,7 @@ Content-Length: 148
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/nodes HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU3M30.VLRUsSQ01mtA0WK3ZX3IGfNoT5T4UAVIyrH9AIuieX4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA3N30.-xz-5QtkF33ibTnTOabTJR5GzQEX4lDRShH6lhavCHs
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2395,7 +2398,7 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 1622
+Content-Length: 1767
 
 [ {
   "uuid" : "06932443-fb2a-4b48-a171-11337a349a81",
@@ -2451,6 +2454,11 @@ Content-Length: 1622
   "uuid" : "c7fc00b9-2308-4b0c-9ac6-f07d6839d11f",
   "host" : "myhost",
   "rest" : "https://myhost:8999",
+  "group" : "default"
+}, {
+  "uuid" : "d7169eb8-7710-4085-aa36-1ab2c8267842",
+  "host" : "seynur.local",
+  "rest" : "https://seynur.local:8999",
   "group" : "default"
 }, {
   "uuid" : "d983cef3-fa9b-4dec-9901-4c8393fdede4",
@@ -2545,7 +2553,7 @@ Content-Length: 1622
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/nodes/d983cef3-fa9b-4dec-9901-4c8393fdede4 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU3M30.VLRUsSQ01mtA0WK3ZX3IGfNoT5T4UAVIyrH9AIuieX4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA3N30.-xz-5QtkF33ibTnTOabTJR5GzQEX4lDRShH6lhavCHs
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2574,8 +2582,8 @@ Content-Length: 143
 <div class="listingblock">
 <div class="title">request example (failure)</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/nodes/802d8b81-51b3-46a4-8dbb-c4c97d5d29b1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU3M30.VLRUsSQ01mtA0WK3ZX3IGfNoT5T4UAVIyrH9AIuieX4
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/nodes/26ba1f51-dc7f-40fc-ab0e-b592e56200fe HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA3N30.-xz-5QtkF33ibTnTOabTJR5GzQEX4lDRShH6lhavCHs
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2629,7 +2637,7 @@ Content-Length: 116
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/nodes/d983cef3-fa9b-4dec-9901-4c8393fdede4 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU3M30.VLRUsSQ01mtA0WK3ZX3IGfNoT5T4UAVIyrH9AIuieX4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA3N30.-xz-5QtkF33ibTnTOabTJR5GzQEX4lDRShH6lhavCHs
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2649,8 +2657,8 @@ X-Frame-Options: DENY</code></pre>
 <div class="listingblock">
 <div class="title">request example (failure)</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/nodes/9346db56-b86b-4ae1-bd98-02c74774235c HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU3M30.VLRUsSQ01mtA0WK3ZX3IGfNoT5T4UAVIyrH9AIuieX4
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/nodes/ec076100-a3b1-4d01-bcd5-49c76535b9e6 HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA3N30.-xz-5QtkF33ibTnTOabTJR5GzQEX4lDRShH6lhavCHs
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2798,7 +2806,7 @@ Content-Length: 186
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/tasks HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 200
 Host: localhost:8999
 
@@ -2846,7 +2854,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/tasks HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 200
 Host: localhost:8999
 
@@ -2954,7 +2962,7 @@ Content-Length: 172
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/tasks HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -2963,7 +2971,7 @@ Host: localhost:8999</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 945
+Content-Length: 622
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -2973,6 +2981,14 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
 
 [ {
+  "id" : 2,
+  "name" : "Test Rules",
+  "description" : "Apply rules for mydata",
+  "function" : "APPLY_RULES",
+  "definition" : {
+    "rules" : [ "test_rule_for_evil", "test_rule_for_failure" ]
+  }
+}, {
   "id" : 100,
   "name" : "MyTest name",
   "description" : "MyTest description text goes here",
@@ -2990,24 +3006,6 @@ X-Frame-Options: DENY
     "type" : "regex",
     "value" : "dest",
     "action" : "keep"
-  }
-}, {
-  "id" : 103,
-  "name" : "transform:endpoint:process exec name",
-  "description" : "Rename extracted process and parent process exec fields for EndpointProcess",
-  "function" : "EVAL",
-  "definition" : {
-    "eval" : [ {
-      "condition" : "ProcessExec=\"*\"",
-      "action" : "rename",
-      "field" : "ProcessExec",
-      "value" : "process_exec"
-    }, {
-      "condition" : "ParentProcessExec=\"*\"",
-      "action" : "rename",
-      "field" : "ParentProcessExec",
-      "value" : "parent_process_exec"
-    } ]
   }
 } ]</code></pre>
 </div>
@@ -3102,7 +3100,7 @@ X-Frame-Options: DENY
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/tasks/100 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -3136,7 +3134,7 @@ X-Frame-Options: DENY
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/tasks/109 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -3279,7 +3277,7 @@ Content-Length: 116
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/tasks/100 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 207
 Host: localhost:8999
 
@@ -3326,7 +3324,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/tasks/109 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 200
 Host: localhost:8999
 
@@ -3392,7 +3390,7 @@ Content-Length: 152
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/tasks/100 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -3413,7 +3411,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/tasks/109 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -3552,7 +3550,7 @@ Content-Length: 117
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/tasks HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 353
 Host: localhost:8999
 
@@ -3579,7 +3577,7 @@ Host: localhost:8999
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 945
+Content-Length: 771
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -3589,6 +3587,14 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
 
 [ {
+  "id" : 2,
+  "name" : "Test Rules",
+  "description" : "Apply rules for mydata",
+  "function" : "APPLY_RULES",
+  "definition" : {
+    "rules" : [ "test_rule_for_evil", "test_rule_for_failure" ]
+  }
+}, {
   "id" : 100,
   "name" : "MyTest name",
   "description" : "MyTest description text goes here",
@@ -3597,6 +3603,12 @@ X-Frame-Options: DENY
     "field" : "somefield",
     "format" : "%H%M%S"
   }
+}, {
+  "id" : 101,
+  "name" : "MyTest name2",
+  "description" : "MyTest description text goes here",
+  "function" : "PARSE_KV",
+  "definition" : { }
 }, {
   "id" : 102,
   "name" : "MyTest name3",
@@ -3607,24 +3619,6 @@ X-Frame-Options: DENY
     "value" : "dest",
     "action" : "keep"
   }
-}, {
-  "id" : 103,
-  "name" : "transform:endpoint:process exec name",
-  "description" : "Rename extracted process and parent process exec fields for EndpointProcess",
-  "function" : "EVAL",
-  "definition" : {
-    "eval" : [ {
-      "condition" : "ProcessExec=\"*\"",
-      "action" : "rename",
-      "field" : "ProcessExec",
-      "value" : "process_exec"
-    }, {
-      "condition" : "ParentProcessExec=\"*\"",
-      "action" : "rename",
-      "field" : "ParentProcessExec",
-      "value" : "parent_process_exec"
-    } ]
-  }
 } ]</code></pre>
 </div>
 </div>
@@ -3633,7 +3627,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/tasks HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYwOH0.86VDLF3smw-T97xXLUHoTZrVRYnHL8Hp_OrJGuOXO5E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzExM30.dalNXVPZ0iPI5yyCf-v4e3F_j4I0Z2quW1MHKAND0ek
 Content-Length: 412
 Host: localhost:8999
 
@@ -3792,7 +3786,7 @@ Content-Length: 146
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/pipelines HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 120
 Host: localhost:8999
 
@@ -3832,7 +3826,7 @@ Content-Length: 120
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/pipelines HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 120
 Host: localhost:8999
 
@@ -3931,7 +3925,7 @@ Content-Length: 176
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/pipelines HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -4047,7 +4041,7 @@ Content-Length: 249
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/pipelines/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -4077,7 +4071,7 @@ Content-Length: 120
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/pipelines/109 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -4210,7 +4204,7 @@ Content-Length: 120
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/pipelines/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 127
 Host: localhost:8999
 
@@ -4249,7 +4243,7 @@ Content-Length: 127
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/pipelines/109 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 122
 Host: localhost:8999
 
@@ -4311,7 +4305,7 @@ Content-Length: 156
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/pipelines/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -4332,7 +4326,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/pipelines/109 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -4461,7 +4455,7 @@ Content-Length: 121
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/pipelines HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 245
 Host: localhost:8999
 
@@ -4515,7 +4509,7 @@ Content-Length: 370
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/pipelines HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU4NH0.1JS0546rEJRMubN1ODB1ssDR6HbHCRmLntdsSI1RAO4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzA4OH0.uvSRNUEyG3yYxDoHv4ldbjpL2kS_0lAxfdVEVom8DEk
 Content-Length: 304
 Host: localhost:8999
 
@@ -4709,7 +4703,7 @@ Content-Length: 150
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/topologies HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 225
 Host: localhost:8999
 
@@ -4757,7 +4751,7 @@ Content-Length: 225
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/topologies HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 225
 Host: localhost:8999
 
@@ -4880,7 +4874,7 @@ Content-Length: 176
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/topologies HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5015,7 +5009,7 @@ Content-Length: 229
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/topologies/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5049,7 +5043,7 @@ Content-Length: 225
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/topologies/222 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5222,7 +5216,7 @@ Content-Length: 120
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/topologies/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 232
 Host: localhost:8999
 
@@ -5269,7 +5263,7 @@ Content-Length: 232
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/topologies/222 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 234
 Host: localhost:8999
 
@@ -5335,7 +5329,7 @@ Content-Length: 156
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/topologies/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5356,7 +5350,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/topologies/222 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5525,7 +5519,7 @@ Content-Length: 121
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/topologies HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 465
 Host: localhost:8999
 
@@ -5590,7 +5584,7 @@ Content-Length: 465
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/topologies HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjY0NX0.7W29wLQDTxpe4ZGZoif2pTQaDoAPYoDDydNkn4e2Wcs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzE1MH0.uRhMdlGzwSaEZNevUccoO_fOGLVpW6-hvC_LTkrvEZk
 Content-Length: 524
 Host: localhost:8999
 
@@ -5782,7 +5776,7 @@ Content-Length: 151
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/rules HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 239
 Host: localhost:8999
 
@@ -5828,7 +5822,7 @@ Content-Length: 239
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/rules HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 239
 Host: localhost:8999
 
@@ -5945,7 +5939,7 @@ Content-Length: 172
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/rules HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -5961,7 +5955,7 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 1434
+Content-Length: 1919
 
 [ {
   "id" : "some_test_rule:myyour123",
@@ -6019,6 +6013,22 @@ Content-Length: 1434
   "pdl" : "asdf=12 AND asdf=\"adsf\"",
   "annotations" : [ "T1101" ],
   "enabled" : false
+}, {
+  "id" : "test_rule_for_evil",
+  "name" : "Test Rule for Evil",
+  "description" : "Match for group name that starts with evil",
+  "datamodel" : "mydata",
+  "pdl" : "group_name=\"evil*\"",
+  "annotations" : [ "T1234", "T2345" ],
+  "enabled" : true
+}, {
+  "id" : "test_rule_for_failure",
+  "name" : "Test Rule for Failure",
+  "description" : "Match when action is failure",
+  "datamodel" : "mydata",
+  "pdl" : "action=\"failure\"",
+  "annotations" : [ "T9876" ],
+  "enabled" : true
 } ]</code></pre>
 </div>
 </div>
@@ -6122,7 +6132,7 @@ Content-Length: 1434
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/rules/100 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -6155,7 +6165,7 @@ Content-Length: 239
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/rules/x1099 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -6318,7 +6328,7 @@ Content-Length: 116
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/rules/100 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 246
 Host: localhost:8999
 
@@ -6363,7 +6373,7 @@ Content-Length: 246
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/rules/x1099 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 241
 Host: localhost:8999
 
@@ -6428,7 +6438,7 @@ Content-Length: 152
 <div class="title">request example (success)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/rules/100 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -6449,7 +6459,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="title">request example (failure)</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/rules/x1099 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Host: localhost:8999</code></pre>
 </div>
 </div>
@@ -6608,7 +6618,7 @@ Content-Length: 117
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/rules HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 488
 Host: localhost:8999
 
@@ -6643,7 +6653,7 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 1434
+Content-Length: 1919
 
 [ {
   "id" : "some_test_rule:myyour123",
@@ -6701,6 +6711,22 @@ Content-Length: 1434
   "pdl" : "asdf=12 AND asdf=\"adsf\"",
   "annotations" : [ "T1101" ],
   "enabled" : false
+}, {
+  "id" : "test_rule_for_evil",
+  "name" : "Test Rule for Evil",
+  "description" : "Match for group name that starts with evil",
+  "datamodel" : "mydata",
+  "pdl" : "group_name=\"evil*\"",
+  "annotations" : [ "T1234", "T2345" ],
+  "enabled" : true
+}, {
+  "id" : "test_rule_for_failure",
+  "name" : "Test Rule for Failure",
+  "description" : "Match when action is failure",
+  "datamodel" : "mydata",
+  "pdl" : "action=\"failure\"",
+  "annotations" : [ "T9876" ],
+  "enabled" : true
 } ]</code></pre>
 </div>
 </div>
@@ -6709,7 +6735,7 @@ Content-Length: 1434
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bulk/rules HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjU5NX0.eN-Sxcnmwsk55erk7zfUkQ6SJym_VXMldijAYh4YzEs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEwMH0.A3La5BJm-ZBweY5U_bdkP2SvSoKnF3K9OdEts5XP5rI
 Content-Length: 547
 Host: localhost:8999
 
@@ -6818,7 +6844,7 @@ Request body contains the payload for the given test.  For example, for a Rule t
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/rules/myruleid1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 68
 Host: localhost:8999
 
@@ -6857,7 +6883,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/rules/myruleid1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 72
 Host: localhost:8999
 
@@ -6939,7 +6965,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/tasks/100 HTTP/1.1
 Content-Type: text/plain;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 81
 Host: localhost:8999
 
@@ -6979,7 +7005,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/tasks/100 HTTP/1.1
 Content-Type: text/plain;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 88
 Host: localhost:8999
 
@@ -7009,7 +7035,7 @@ X-Frame-Options: DENY
     "no_such_field" : "20-05-2022 11:45:09",
     "dest" : "10.20.30.40",
     "bytes" : 456,
-    "_time" : 1678956034658
+    "_time" : 1679332539723
   }
 }</code></pre>
 </div>
@@ -7066,7 +7092,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/pipelines/100 HTTP/1.1
 Content-Type: text/plain;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 57
 Host: localhost:8999
 
@@ -7103,7 +7129,7 @@ X-Frame-Options: DENY
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/pipelines/177 HTTP/1.1
 Content-Type: text/plain;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 57
 Host: localhost:8999
 
@@ -7180,7 +7206,7 @@ Content-Length: 120
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/pdl HTTP/1.1
 Content-Type: text/plain;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3ODk1NjYzNH0.x3ZdNF0PkFMGJe7Q-Zqka0q8qx0X5Qcdie6SqOiHBIY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
 Content-Length: 83
 Host: localhost:8999
 
@@ -7209,6 +7235,83 @@ X-Frame-Options: DENY
     "dest" : "10.20.30.40",
     "bytes" : 456
   }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_testing_a_pdl_syntax_post_apitestpdlsyntax"><a class="link" href="#_testing_a_pdl_syntax_post_apitestpdlsyntax">Testing a PDL Syntax: <code>POST /api/test/pdl/syntax</code></a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 108. request headers</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains Bearer access token.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 109. response fields</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result of this syntax test as JSON value.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">request example (success)</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/test/pdl/syntax HTTP/1.1
+Content-Type: text/plain;charset=UTF-8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY3OTMzMzEzOX0.gc3gLCEqkcK3QYChXBt6SYeJhFgd2ghpslYpNQaSNcc
+Content-Length: 55
+Host: localhost:8999
+
+{
+  "pdl" : "bytes &gt; 400 AND field1=\"value string\""
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response example (success)</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 21
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+  "result" : true
 }</code></pre>
 </div>
 </div>
