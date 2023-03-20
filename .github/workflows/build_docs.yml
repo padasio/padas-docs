@@ -38,6 +38,14 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
         
+      - name: Deploy with mike if it is DEV
+        if: [[${{ steps.extract_branch.outputs.branch }}==*"-dev"]]
+        run: |
+          mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }}
+
       - name: Deploy with mike
+        if: [[${{ steps.extract_branch.outputs.branch }}!=*"-dev"]]
         run: |
           mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }} latest
+
+
