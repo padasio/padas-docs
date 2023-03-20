@@ -61,16 +61,12 @@ This function extracts event timestamp from the given field with the provided fo
 | Time Field Name | Field name to add if the above is set to `true`. Default is `_time`.| &#8288 {: style="padding:0"} | 
 
 
-##### `EVAL` Definition
-This function allows data enrichment via various additional mini-functionality.  Input must be `JSON` since fields and conditions require this in order to process event data.
+##### `PDL_EXPRESSION` Definition
+This function allows data transformation and enrichment via PDL expressions.  Input must be `JSON` since fields and conditions require this in order to process event data.
 
 | Field       | Description                                           | Example |
 | -------     | ----------------------------------------------------- | :---: |
-| Condition   | Matching PDL query in order to execute the EVAL action specified. Empty or null query matches all events. | <img src="../assets/img/padas_ui_task_eval_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  | 
-| Action      | Must be on of `add`, `alias`, `regex`, `remove`, `rename`.| &#8288 {: style="padding:0"} | 
-| Field | Field name to implement the action.<br/>`add`: new field name<br/>`alias`: existing field name to create an alias for<br/>`regex`: existing field to apply regular expression.<br/>`remove`: existing field to remove<br/>`rename`: existing field to rename| &#8288 {: style="padding:0"} | 
-| Value | Each action represents different value. <br/>`add`: new field value<br/>`alias`: new alias field name<br/>`regex`: named capturing regular expression where matched fields are added.<br/>`remove`: N/A<br/>`rename`: new field name| &#8288 {: style="padding:0"} | 
-
+| pdl   | PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data.<br/>Please see [PDL Expression](/pdl-expression) for syntax and usage. | <img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  | 
 
 ##### `APPY_RULES` Definition
 This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with `padas_rules` object array that contain matching rule information as well as the event data.
