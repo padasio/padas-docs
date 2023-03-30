@@ -37,9 +37,12 @@ nav:
   - 'Get Started':
     - introduction.md
     - quickstart.md
+  - 'Install':
+    - system-requirements.md
     - installation.md
   - 'User Guide':
-    - user-guide.md
+    - stream-config.md
+    - management-config.md
     - 'PDL Reference':
       - pdl-quick-reference.md
       - pdl-expression.md
@@ -48,7 +51,9 @@ nav:
     - admin-guide.md
     - datamodel-reference.md
     - config-reference.md
+  - 'APIs':
     - api-reference.md
+    - api-reference-task-definition.md
   - 'About':
     - release-notes.md
 

@@ -1,23 +1,6 @@
 ---
-title: Installation
+title: Install Using TAR Archive
 ---
-### System Requirements
-
-#### Hardware
---8<-- "sysreq_hardware.md"
-
-#### Software
---8<-- "sysreq_confluent.md"
-
-#### Operating Systems
---8<-- "sysreq_os.md"
-
-#### Java
---8<-- "sysreq_java.md"
-
----
-
-### Install Using TAR Archive
 
 **IMPORTANT NOTE**: It is recommended to create a separate user to run Padas, other than `root`.  In our examples, we use `padas` as both the user and group name.  Following is an example on how to create such user:
 ```bash
