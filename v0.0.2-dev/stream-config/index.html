@@ -978,12 +978,12 @@
 <h3 id="tasks">Tasks</h3>
 <p>A task is the single unit of work performed on event data.  Each task has the following built-in functions that can perform processing on an event:</p>
 <ul>
-<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="pdl-reference.md">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-reference.md">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
 <li><code>EXTRACT</code>: Extract any event input with provided Regular Expression defition (named groups). The output is <code>JSON</code>.</li>
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
 <li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
-<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="pdl-reference.md">PDL</a> expressions.</li>
+<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-reference.md">PDL</a> expressions.</li>
 <li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events.</li>
 </ul>
 <figure>
@@ -1185,7 +1185,7 @@
 <tbody>
 <tr>
 <td>pdl</td>
-<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data.<br/>Please see <a href="/pdl-expression">PDL Expression</a> for syntax and usage.</td>
+<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
 <td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"></td>
 </tr>
 </tbody>
@@ -1253,7 +1253,7 @@
 </tr>
 <tr>
 <td>PDL</td>
-<td>PDL query to match the streaming data.  Please refer to <a href="pdl-reference.md">PDL Reference</a> for details.<br/>Sample rules can also be found as <a href="../assets/config/PadasRules_sample.json">PadasRules_sample.json</a></td>
+<td>PDL query to match the streaming data.  Please refer to <a href="../pdl-reference.md">PDL Reference</a> for details.<br/>Sample rules can also be found as <a href="../assets/config/PadasRules_sample.json">PadasRules_sample.json</a></td>
 </tr>
 <tr>
 <td>Annotations</td>
