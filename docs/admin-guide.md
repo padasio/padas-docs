@@ -93,7 +93,7 @@ It is possible to integrate any external system either as a [Kafka Producer](htt
 
 *PADAS configurations*:
 
-- [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This is a set of configuration items ([Tasks](user-guide.md#tasks)) that convert Winlogbeat Sysmon formatted data to [Padas Datamodel](datamodel-reference.md) so that any pertinent rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) task. 
+- [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This is a set of configuration items ([Tasks](user-guide.md#tasks)) that convert Winlogbeat Sysmon formatted data to [Padas Datamodel](datamodel-reference.md) so that any pertinent rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) task (before using Apply Rules Configuration task, add [this rule sets](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) from [Rules](user-guide.md#rules)).
 
 - [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](user-guide.md#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.
 

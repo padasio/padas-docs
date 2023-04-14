@@ -1,294 +1,59 @@
 [
   {
-    "id": 100,
+    "id": 1,
     "name": "transform:winlogbeat:sysmon with necessary fields",
     "description": "Transform winlogbeat sysmon events to keep relevant fields only",
-    "function": "PARSE_JSON",
+    "function": "PDL_EXPRESSION",
     "definition": {
-      "flatten": false,
-      "fieldsToKeep": "event.code,event.created,winlog.event_data,winlog.computer_name,message",
-      "keepRaw": false
+      "pdl": "| fields keep event.code,event.created,winlog.event_data,winlog.computer_name,message"
     }
   },
   {
-    "id": 101,
-    "name": "transform:winlogbeat:sysmon to match padas data model",
-    "description": "Transform and add fields to sysmon event to match Padas data model",
-    "function": "EVAL",
+    "id":101,
+    "name":"transform:winlogbeat:sysmon to match padas data model",
+    "description":"Transform and add fields to sysmon event to match Padas data model",
+    "function":"PDL_EXPRESSION",
     "definition": {
-      "eval": [
-        {
-          "action": "alias",
-          "field": "event.created",
-          "value": "timestamp"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.computer_name",
-          "value": "hostname"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.event_data.User",
-          "value": "user"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.event_data.ParentCommandLine",
-          "value": "parent_process"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"1\"",
-          "field": "winlog.event_data.ParentImage",
-          "value": "parent_process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"7\"",
-          "field": "winlog.event_data.Image",
-          "value": "parent_process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\" OR event.code=\"10\"",
-          "field": "winlog.event_data.SourceImage",
-          "value": "parent_process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"1\"",
-          "field": "winlog.event_data.ParentProcessGuid",
-          "value": "parent_process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"7\"",
-          "field": "winlog.event_data.ProcessGuid",
-          "value": "parent_process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\"",
-          "field": "winlog.event_data.SourceProcessGuid",
-          "value": "parent_process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"10\"",
-          "field": "winlog.event_data.SourceProcessGUID",
-          "value": "parent_process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"1\"",
-          "field": "winlog.event_data.ParentProcessId",
-          "value": "parent_process_id"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"7\"",
-          "field": "winlog.event_data.ProcessId",
-          "value": "parent_process_id"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\" OR event.code=\"10\"",
-          "field": "winlog.event_data.SourceProcessId",
-          "value": "parent_process_id"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"1\"",
-          "field": "winlog.event_data.CommandLine",
-          "value": "process"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"5\"",
-          "field": "winlog.event_data.Image",
-          "value": "process"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"1\" OR event.code=\"2\" OR event.code=\"5\" OR event.code=\"9\" OR event.code=\"11\" OR event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\" OR event.code=\"15\" OR event.code=\"17\" OR event.code=\"18\" OR event.code=\"23\" OR event.code=\"24\" OR event.code=\"25\" OR event.code=\"26\"",
-          "field": "winlog.event_data.Image",
-          "value": "process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"6\" OR event.code=\"7\"",
-          "field": "winlog.event_data.ImageLoaded",
-          "value": "process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\" OR event.code=\"10\"",
-          "field": "winlog.event_data.TargetImage",
-          "value": "process_path"
-        },
-        {
-          "action": "alias",
-          "condition": "NOT (event.code=\"8\" OR event.code=\"10\")",
-          "field": "winlog.event_data.ProcessGuid",
-          "value": "process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\"",
-          "field": "winlog.event_data.TargetProcessGuid",
-          "value": "process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"10\"",
-          "field": "winlog.event_data.TargetProcessGUID",
-          "value": "process_guid"
-        },
-        {
-          "action": "alias",
-          "condition": "NOT (event.code=\"8\" OR event.code=\"10\")",
-          "field": "winlog.event_data.ProcessId",
-          "value": "process_id"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"8\" OR event.code=\"10\"",
-          "field": "winlog.event_data.TargetProcessId",
-          "value": "process_id"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code!=\"3\"",
-          "field": "winlog.computer_name",
-          "value": "dest"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"3\"",
-          "field": "winlog.event_data.DestinationHostname",
-          "value": "dest"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.event_data.CreationUtcTime",
-          "value": "file_creation_time"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.event_data.TargetFilename",
-          "value": "file_name"
-        },
-        {
-          "action": "alias",
-          "field": "winlog.event_data.TargetFilename",
-          "value": "file_path"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"",
-          "field": "winlog.event_data.TargetObject",
-          "value": "registry_key"
-        },
-        {
-          "action": "add",
-          "condition": "(event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\") AND winlog.event_data.TargetObject=\"HKLM\\System\\*\"",
-          "field": "registry_hive",
-          "value": "HKEY_LOCAL_MACHINE\\\\System"
-        },
-        {
-          "action": "add",
-          "condition": "(event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\") AND winlog.event_data.TargetObject=\"HKU\\*\"",
-          "field": "registry_hive",
-          "value": "HKEY_CURRENT_USER"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"",
-          "field": "winlog.event_data.Details",
-          "value": "registry_value_data"
-        },
-        {
-          "action": "alias",
-          "condition": "event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"",
-          "field": "winlog.event_data.RegistryValueType",
-          "value": "registry_value_type"
-        },
-        {
-          "action": "add",
-          "condition": "event.code=\"1\" OR event.code=\"3\" OR event.code=\"6\" OR event.code=\"8\" OR event.code=\"9\" OR event.code=\"10\" OR event.code=\"15\" OR event.code=\"17\" OR event.code=\"18\" OR event.code=\"24\" OR event.code=\"25\"",
-          "field": "action",
-          "value": "allowed"
-        },
-        {
-          "action": "add",
-          "condition": "event.code=\"5\"",
-          "field": "action",
-          "value": "blocked"
-        },
-        {
-          "action": "add",
-          "condition": "event.code=\"11\" OR (event.code=\"12\" AND winlog.event_data.EventType=\"CreateKey\") OR event.code=\"19\" OR ((event.code=\"20\" OR event.code=\"21\") AND winlog.event_data.Operation=\"Created\")",
-          "field": "action",
-          "value": "create"
-        },
-        {
-          "action": "add",
-          "condition": "event.code=\"11\" OR (event.code=\"12\" AND winlog.event_data.EventType=\"DeleteKey\") OR ((event.code=\"20\" OR event.code=\"21\") AND winlog.event_data.Operation=\"Deleted\") OR event.code=\"23\" OR event.code=\"26\"",
-          "field": "action",
-          "value": "delete"
-        },
-        {
-          "action": "add",
-          "condition": "event.code=\"2\" OR event.code=\"13\" OR event.code=\"14\"",
-          "field": "action",
-          "value": "modify"
-        }
-      ]
+        "pdl":"eval parent_process_path = if(event.code=\"1\", winlog.event_data.ParentImage, \"\")
+              | eval parent_process_path = if((event.code=\"7\"), winlog.event_data.Image, \"\")
+              | eval process = if(event.code=\"5\", winlog.event_data.Image, \"\")
+              | eval process_path = if((event.code=\"1\" OR event.code=\"2\" OR event.code=\"5\" OR event.code=\"9\" OR event.code=\"11\" OR event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\" OR event.code=\"15\" OR event.code=\"17\" OR event.code=\"18\" OR event.code=\"23\" OR event.code=\"24\" OR event.code=\"25\" OR event.code=\"26\"), winlog.event_data.Image, \"\")
+              | eval parent_process_path = if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.SourceImage, \"\")
+              | eval parent_process_guid = if((event.code=\"1\"), winlog.event_data.ParentProcessGuid, if((event.code=\"7\"), winlog.event_data.ProcessGuid, if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.SourceProcessGuid, \"\")))
+              | eval parent_process_id = if((event.code=\"1\"), winlog.event_data.ParentProcessId, if((event.code=\"7\"), winlog.event_data.ProcessId, if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.SourceProcessId, \"\")))
+              | eval process_id = if((NOT (event.code=\"8\" OR event.code=\"10\")), winlog.event_data.ProcessId, if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.TargetProcessId, \"\"))
+              | eval process = if((event.code=\"1\"), winlog.event_data.CommandLine, \"\")
+              | eval process_path = if((event.code=\"6\" OR event.code=\"7\"), winlog.event_data.ImageLoaded, if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.TargetImage, \"\"))
+              | eval process_guid = if((event.code=\"8\" OR event.code=\"10\"), winlog.event_data.TargetProcessGuid, winlog.event_data.ProcessGuid)
+              | eval dest = if((event.code=\"3\"), winlog.event_data.DestinationHostname, winlog.event_data.computer_name)
+              | eval registry_key = if((event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"), winlog.event_data.TargetObject, \"\")
+              | eval registry_hive = if(((event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\") AND winlog.event_data.TargetObject=\"HKLM\\\\System\\\\*\"), HKEY_LOCAL_MACHINE\\\\System, if((event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\") AND winlog.event_data.TargetObject=\"HKU\\\\*\"), HKEY_CURRENT_USER, \"\"))
+              | eval registry_value_data = if((event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"), winlog.event_data.Details, \"\")
+              | eval registry_value_type = if((event.code=\"12\" OR event.code=\"13\" OR event.code=\"14\"), winlog.event_data.RegistryValueType, \"\")
+              | eval action=if((event.code=\"1\" OR event.code=\"3\" OR event.code=\"6\" OR event.code=\"8\" OR event.code=\"9\" OR event.code=\"10\" OR event.code=\"15\" OR event.code=\"17\" OR event.code=\"18\" OR event.code=\"24\" OR event.code=\"25\"), \"allowed\", if((event.code=\"5\"), \"blocked\", if((event.code=\"11\" OR (event.code=\"12\" AND winlog.event_data.EventType=\"CreateKey\") OR event.code=\"19\" OR ((event.code=\"20\" OR event.code=\"21\") AND winlog.event_data.Operation=\"Created\")), \"create\", if((event.code=\"11\" OR (event.code=\"12\" AND winlog.event_data.EventType=\"DeleteKey\") OR ((event.code=\"20\" OR event.code=\"21\") AND winlog.event_data.Operation=\"Deleted\") OR event.code=\"23\" OR event.code=\"26\"), \"delete\", if((event.code=\"2\" OR event.code=\"13\" OR event.code=\"14\"), \"modify\", \"\")))))
+              | rename file_name AS winlog.event_data.TargetFilename, file_path AS winlog.event_data.TargetFilename,  timestamp AS event.created, hostname AS winlog.computer_name, user AS winlog.event_data.User, parent_process AS winlog.event_data.ParentCommandLine, file_creation_time AS winlog.event_data.CreationUtcTime
+              | fields keep process, process_path, parent_process_path, parent_process_guid, parent_process_id, process_id, process, process_path, process_guid, dest, registry_key, registry_hive, registry_value_data, registry_value_type, action, file_name, file_path, timestamp, hostname, user, parent_process, file_creation_time"
     }
   },
   {
     "id": 102,
     "name": "transform:winlogbeat:extract process exec",
     "description": "Extract process exec field from EndpointProcess fields",
-    "function": "EVAL",
+    "function": "PDL_EXPRESSION",
     "definition": {
-      "eval": [
-        {
-          "condition": "process_path=\"*\"",
-          "action": "regex",
-          "field": "process_path",
-          "value": "(.*\\\\)(?<ProcessExec>(.*(\\.\\w*)$|(\\w+)$))"
-        },
-        {
-          "condition": "parent_process_path=\"*\"",
-          "action": "regex",
-          "field": "parent_process_path",
-          "value": "(.*\\\\)(?<ParentProcessExec>(.*(\\.\\w*)$|(\\w+)$))"
-        }
-      ]
+      "pdl": "eval process_path = if((process_path=\"*\"), (.*\\\\)(?<ProcessExec>(.*(\\.\\w*)$|(\\w+)$)), \"\")
+              | eval parent_process_path = if((parent_process_path=\"*\"), (.*\\)(?<ParentProcessExec>(.*(\\.\\w*)$|(\\w+)$)), \"\")"
     }
   },
   {
     "id": 103,
     "name": "transform:endpoint:process exec name",
     "description": "Rename extracted process and parent process exec fields for EndpointProcess",
-    "function": "EVAL",
+    "function": "PDL_EXPRESSION",
     "definition": {
-      "eval": [
-        {
-          "condition": "ProcessExec=\"*\"",
-          "action": "rename",
-          "field": "ProcessExec",
-          "value": "process_exec"
-        },
-        {
-          "condition": "ParentProcessExec=\"*\"",
-          "action": "rename",
-          "field": "ParentProcessExec",
-          "value": "parent_process_exec"
-        }
-      ]
-    }
+      "pdl": "eval process_exec = if(ProcessExec=\"*\", ProcessExec, \"\")
+              | eval parent_process_exec = if(ParentProcessExec=\"*\", ParentProcessExec, \"\")"
+            }
+
   }
 ]

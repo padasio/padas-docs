@@ -37,6 +37,7 @@ nav:
   - 'Get Started':
     - introduction.md
     - quickstart.md
+    - sigmav2-quickstart.md
   - 'Install':
     - system-requirements.md
     - installation.md
@@ -47,6 +48,7 @@ nav:
       - pdl-quick-reference.md
       - pdl-expression.md
       - pdl-correlation.md
+      - sigma-pdl.md
   - 'Admin Guide':
     - admin-guide.md
     - datamodel-reference.md

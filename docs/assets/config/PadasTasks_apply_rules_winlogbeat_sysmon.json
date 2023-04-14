@@ -5,18 +5,11 @@
     "description": "Endpoint rules",
     "function": "APPLY_RULES",
     "definition": {
-      "datamodels": [
-        {
-          "condition": "event.code=\"1\"",
-          "datamodel": "EndpointProcess",
-          "matchAll": true
-        },
-        {
-          "condition": "event.code=\"3\"",
-          "datamodel": "EndpointListeningPort",
-          "matchAll": true
-        }
-      ]
+      "rules": [
+        "endpointprocess",
+        "endpointlisteningport"
+      ],
+      "matchAll": true
     }
   }
 ]

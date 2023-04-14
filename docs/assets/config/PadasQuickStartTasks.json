@@ -14,7 +14,8 @@
     "description": "Apply rules for mydata",
     "function": "APPLY_RULES",
     "definition": {
-      "rules" : ["test_rule_for_evil", "test_rule_for_failure"]
+      "rules" : ["test_rule_for_evil", "test_rule_for_failure"],
+      "matchAll": true
     }
   }
 ]
