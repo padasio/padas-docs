@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fields" class="md-skip">
+        <a href="#field-mapping-padas-sigma" class="md-skip">
           Skip to content
         </a>
       
@@ -477,13 +477,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
-    Fields
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#field-mapping-padas-sigma" class="md-nav__link">
     Field Mapping (Padas : Sigma)
   </a>
@@ -542,15 +535,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#simple-rule" class="md-nav__link">
-    Simple Rule
+  <a href="#simple-rule-examples" class="md-nav__link">
+    Simple Rule Examples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#meta-rule" class="md-nav__link">
-    Meta Rule
+  <a href="#meta-rule-examples" class="md-nav__link">
+    Meta Rule Examples
   </a>
   
 </li>
@@ -798,13 +791,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
-    Fields
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#field-mapping-padas-sigma" class="md-nav__link">
     Field Mapping (Padas : Sigma)
   </a>
@@ -863,15 +849,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#simple-rule" class="md-nav__link">
-    Simple Rule
+  <a href="#simple-rule-examples" class="md-nav__link">
+    Simple Rule Examples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#meta-rule" class="md-nav__link">
-    Meta Rule
+  <a href="#meta-rule-examples" class="md-nav__link">
+    Meta Rule Examples
   </a>
   
 </li>
@@ -903,11 +889,8 @@
 
   <h1>Sigma Rule Reference</h1>
 
-<h3 id="fields">Fields</h3>
-<p>Padas Rule is needed 5 basic keys that are created by different fields in Simple/Meta Rules. <br> These are <code>id</code>, <code>name</code>, <code>description</code>, <code>datamodel</code>, <code>annotations</code>, <code>pdl</code>. </p>
-<hr />
 <h3 id="field-mapping-padas-sigma">Field Mapping (Padas : Sigma)</h3>
-<p>Mapping of Padas vs. Sigma Rule can be seen below table. There is a tiny difference between Simple and Meta mapping. Padas creates PDL with <code>detection</code> field from Simple Rule but <code>action</code> field from Meta.</p>
+<p>The table below provides field mapping information of Padas <a href="/stream-config/#rules">Rule</a> vs. Sigma Rule. There is a tiny difference between Simple and Meta mapping. Padas creates PDL with <code>detection</code> field from Simple Rule but <code>action</code> field from Meta.</p>
 <table>
   <thead>
     <tr>
@@ -935,9 +918,9 @@
     description : description
     datamodel   : &quot;padas_alert&quot;
     annotations : tags
-    pdl         : type, fieled, group-by, timespan, condition, ordered, aliases *
+    pdl         : type, field, group-by, timespan, condition, ordered, aliases *
 </code></pre></div>
-<small>* This will be explained under [ Conversion of Fields / pdl / Meta Rule ] section </small>
+<small>* See below for details. </small>
       </td>
     </tr>
   </tbody>
@@ -946,43 +929,31 @@
 <hr />
 <h3 id="conversion-of-fields">Conversion of Fields</h3>
 <h4 id="id">id</h4>
-<p>It is directly coming from the <strong>id</strong> field as <code>str</code>. If there is no id in the Sigma Rule, it uses the <strong>title</strong> field. Also, uses the <strong>name</strong> field as the last option. This rule of the field is same in both Simple and Meta Rules.
-<br></p>
+<p>The first matching Sigma field ise used from the following list, in order of precedence: <code>id</code>, <code>title</code>, <code>name</code></p>
 <h4 id="name">name</h4>
-<p>It is directly coming from the <strong>title</strong> field as <code>str</code>. If there is no title in the Sigma Rule, it uses the <strong>name</strong> field. This rule of the field is same in both Simple and Meta Rules.
-<br></p>
+<p>The first matching Sigma field ise used from the following list, in order of precedence: <code>title</code>, <code>name</code></p>
 <h4 id="description">description</h4>
-<p>It is directly coming from the <strong>description</strong> field as <code>str</code> in both Simple and Meta Rules.
-<br></p>
+<p>The <code>description</code> Sigma field is used.</p>
 <h4 id="datamodel">datamodel</h4>
-<p>It is coming from logsource field as <code>str</code> in <strong>Simple Rule</strong>, and created as <code>str</code> for <strong>Meta Rule</strong>.
-    <br> 
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align: center;" scope="col">Simple Rule</th>
-              <th style="text-align: center;" scope="col">Meta Rule</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle">
-                <div class="highlight"><pre><span></span><code>category + &quot;_&quot; + product + &quot;_&quot; + service
-</code></pre></div>
-              </td>
-              <td class="align-middle">
-                <div class="highlight"><pre><span></span><code>&quot;padas_alert&quot;
-</code></pre></div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-<br></p>
+<p>For Simple Rules, <code>logsource</code> Sigma field is used.  For Meta Rules <code>padas_alert</code> is assigned for this value.  Following table shows the subfields used to construct <code>datamodel</code> field in Padas Rule.</p>
+<table>
+<thead>
+<tr>
+<th>Simple Rule</th>
+<th>Meta Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category + "_" + product + "_" + service</code></td>
+<td><code>padas_alert</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="annotations">annotations</h4>
-<p>It is directly coming from <strong>tags</strong> field as <code>list</code> in both Simple and Meta Rules.
-<br></p>
+<p>The <code>tags</code> Sigma field is used.</p>
 <h4 id="pdl">pdl</h4>
-<p>This field is completely different for Simple and Meta Rules, but the "condition" field works similarly for both. <code>condition</code> field gives information about modifiers, conditions, etc. and their relationships for desired fields. There are some modifiers for field conditions rules. They and their PDL equivalents can be found in below table.</p>
+<p>This field is where the actual conversion happens to make it meaningful for Padas. The <code>condition</code> field works similarly for both Simple and Meta rules as it gives information about modifiers, conditions, etc. and their relationships for desired fields. There are some modifiers for field conditions rules. The following table provides information regarding Simple Rule modifier conversion.</p>
 <table>
   <thead>
     <tr>
@@ -1070,8 +1041,7 @@
 </table>
 
 <p><br></p>
-<h6 id="simple-rule">Simple Rule</h6>
-<p><code>detection</code> is the field where fields in the Simple Rule, their relationships and conditions are kept in. <code>condition</code> field under the <code>detection</code> gives the whole rule in a simple way. You can see some examples without modifiers in the below table. </p>
+<h6 id="simple-rule-examples">Simple Rule Examples</h6>
 <table>
   <thead>
     <tr>
@@ -1266,71 +1236,37 @@
   </tbody>     
 </table>
 <p><br></p>
-<h6 id="meta-rule">Meta Rule</h6>
-<p><code>action: correlation</code> is the unique key-value pair that indicates if it is Meta Rule. <code>type</code>, <code>fieled</code>, <code>group-by</code>, <code>timespan</code>, <code>condition</code>, <code>ordered</code>, <code>aliases</code> fields are used in this process.</p>
-<p>Which function (<code>event_count</code>, <code>value_count</code>, <code>temporal</code>) will be used, is indicacted from <code>type</code> field by conversion <code>sigma_v2_to_padas.py</code> script. Functions meanings are same as in the Sigma rules. Detailed information can be found in below table.</p>
+<h6 id="meta-rule-examples">Meta Rule Examples</h6>
+<p>Sigma Meta Rule with <code>action: correlation</code> fields are converted only.  The following table provides information on Sigma Meta Rule functions and their corresponding <a href="../pdl-correlation/">PDL correlation</a>.</p>
 <table>
-  <thead>
-    <tr>
-      <th style="text-align: center;" scope="col">Function</th>
-      <th style="text-align: center;" scope="col">Meaning</th>
-        <th style="text-align: center;" scope="col">Usage</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>  event_count
-</code></pre></div>
-      </td>
-      <td class="align-middle">
-        Counts events with conditions.
-      </td>
-     <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>| event_count &lt;condition&gt;
-</code></pre></div>
-      </td>
-    </tr>
-  </tbody>  
-    <tbody>
-    <tr>
-      <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>  value_count
-</code></pre></div>
-      </td>
-      <td class="align-middle">
-        Counts a specific field with conditions.
-      </td>
-     <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>| value_count(&lt;fieldname&gt;) &lt;condition&gt;
-</code></pre></div>
-      </td>
-    </tr>
-  </tbody>
-      <tbody>
-    <tr>
-      <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>  temporal
-</code></pre></div>
-      </td>
-      <td class="align-middle">
-        Counts events in specific conditions.
-      </td>
-     <td class="align-middle">
-        <div class="highlight"><pre><span></span><code>| temporal(&lt;fieldname&gt;, [&lt;value&gt;,&lt;value&gt;, ...], ordered_boolean)
-</code></pre></div>
-      </td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th>Sigma Meta Rule Function</th>
+<th>PDL Correlation Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_count</code></td>
+<td><code>| event_count &lt;condition&gt;</code></td>
+</tr>
+<tr>
+<td><code>value_count</code></td>
+<td><code>| value_count(&lt;fieldname&gt;) &lt;condition&gt;</code></td>
+</tr>
+<tr>
+<td><code>temporal</code></td>
+<td><code>| temporal(&lt;fieldname&gt;, [&lt;value&gt;,&lt;value&gt;, ...], ordered_boolean)</code></td>
+</tr>
+</tbody>
 </table>
-
-<p>The <code>field</code> field is appeared only with <code>value_count</code> function in the rule. It keeps the <code>&lt;fieldname&gt;</code> for <code>value_count</code>function. On the other hand <code>group-by</code>, <code>timespan</code>, <code>condition</code>, <code>ordered</code>, <code>aliases</code> fields can be found with all <code>type</code> Meta rules. PDL can be written with information about which fields will be grouped (<code>group-by</code>), under what conditions (<code>condition</code>), how long the events will be received (<code>timespan</code>), whether there will be a temporal ordering (<code>ordered</code>), and the matching status of the fields (<code>aliases</code>). You can see some examples without modifiers in the below table. </p>
+<p>The following table provides some examples on Sigma Meta Rule to PDL Expression/Correlation conversions.</p>
 <table>
   <thead>
     <tr>
       <th style="text-align: center;" scope="col">#</th>
       <th style="text-align: center;" scope="col">Meta Rule</th>
-      <th style="text-align: center;" scope="col">Padas Rule</th>
+      <th style="text-align: center;" scope="col">PDL Expression/Correlation</th>
     </tr>
   </thead>
   <tbody>
@@ -1359,7 +1295,8 @@
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="s2">&quot;padas_alert&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas_rule IN [\&quot;5638f7c0-ac70-491d-8465-2a65075e0d86\&quot;, \&quot;5638f7c0-ac70-491d-8465-2a65075e0d87\&quot;] | event_count timespan=1h group_by ComputerName where _count&gt;=100 AND _count&lt;=200&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;padas_rule IN [\&quot;5638f7c0-ac70-491d-8465-2a65075e0d86\&quot;, \&quot;5638f7c0-ac70-491d-8465-2a65075e0d87\&quot;] </span>
+<span class="s2">            | event_count timespan=1h group_by ComputerName where padasAggregation.eventCount&gt;=100 AND padasAggregation.eventCount&lt;=200&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 </code></pre></div>
       </td>
@@ -1390,7 +1327,7 @@
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="s2">&quot;padas_alert&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value_count(User) timespan=1d group_by ComputerName, WorkstationName where _count&gt;= 100&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value_count(User) timespan=1d group_by ComputerName, WorkstationName where padasAggregation.valueCount&gt;= 100&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 </code></pre></div>
       </td>
@@ -1467,7 +1404,9 @@
 <span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;datamodel&quot;</span><span class="p">:</span><span class="s2">&quot;padas_alert&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eval internal_ip=if(padas_rule=\&quot;internal_error\&quot;, destination.ip, if(padas_rule=\&quot;new_network_connection\&quot;, source.ip, \&quot;\&quot;)) | eval remote_ip=if(padas_rule=\&quot;internal_error\&quot;, source.ip, if(padas_rule=\&quot;new_network_connection\&quot;, destination.ip, \&quot;\&quot;)) | temporal(ordered=true) [padasRule=\&quot;select01\&quot; || padasRule=\&quot;select02\&quot;] timespan=10s group_by internal_ip, remote_ip&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;pdl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eval internal_ip=if(padas_rule=\&quot;internal_error\&quot;, destination.ip, if(padas_rule=\&quot;new_network_connection\&quot;, source.ip, \&quot;\&quot;)) </span>
+<span class="s2">                | eval remote_ip=if(padas_rule=\&quot;internal_error\&quot;, source.ip, if(padas_rule=\&quot;new_network_connection\&quot;, destination.ip, \&quot;\&quot;)) </span>
+<span class="s2">                | temporal(ordered=true) [padasRule=\&quot;select01\&quot; || padasRule=\&quot;select02\&quot;] timespan=10s group_by internal_ip, remote_ip&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
