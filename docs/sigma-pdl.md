@@ -1,12 +1,9 @@
 ---
 title: Sigma Rule Reference
 ---
-### Fields
-Padas Rule is needed 5 basic keys that are created by different fields in Simple/Meta Rules. <br> These are `id`, `name`, `description`, `datamodel`, `annotations`, `pdl`. 
 
----
 ### Field Mapping (Padas : Sigma)
-Mapping of Padas vs. Sigma Rule can be seen below table. There is a tiny difference between Simple and Meta mapping. Padas creates PDL with `detection` field from Simple Rule but `action` field from Meta.
+The table below provides field mapping information of Padas [Rule](/stream-config/#rules) vs. Sigma Rule. There is a tiny difference between Simple and Meta mapping. Padas creates PDL with `detection` field from Simple Rule but `action` field from Meta.
 
 <table>
   <thead>
@@ -37,10 +34,10 @@ Mapping of Padas vs. Sigma Rule can be seen below table. There is a tiny differe
             description : description
             datamodel   : "padas_alert"
             annotations : tags
-            pdl         : type, fieled, group-by, timespan, condition, ordered, aliases *
+            pdl         : type, field, group-by, timespan, condition, ordered, aliases *
           
         ````
-<small>* This will be explained under [ Conversion of Fields / pdl / Meta Rule ] section </small>
+<small>* See below for details. </small>
       </td>
     </tr>
   </tbody>
@@ -49,45 +46,28 @@ Mapping of Padas vs. Sigma Rule can be seen below table. There is a tiny differe
 ---
 ### Conversion of Fields
 #### id   
-It is directly coming from the **id** field as `str`. If there is no id in the Sigma Rule, it uses the **title** field. Also, uses the **name** field as the last option. This rule of the field is same in both Simple and Meta Rules.
-<br>
+The first matching Sigma field ise used from the following list, in order of precedence: `id`, `title`, `name`
+
 #### name   
-It is directly coming from the **title** field as `str`. If there is no title in the Sigma Rule, it uses the **name** field. This rule of the field is same in both Simple and Meta Rules.
-<br>
+The first matching Sigma field ise used from the following list, in order of precedence: `title`, `name`
+
 #### description 
-It is directly coming from the **description** field as `str` in both Simple and Meta Rules.
-<br>
+The `description` Sigma field is used.
+
 #### datamodel 
-It is coming from logsource field as `str` in **Simple Rule**, and created as `str` for **Meta Rule**.
-    <br> 
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align: center;" scope="col">Simple Rule</th>
-              <th style="text-align: center;" scope="col">Meta Rule</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle">
-                ```
-                category + "_" + product + "_" + service
-                ```
-              </td>
-              <td class="align-middle">
-                ```
-                "padas_alert"
-                ```
-              </td>
-            </tr>
-          </tbody>
-        </table>
-<br>
+For Simple Rules, `logsource` Sigma field is used.  For Meta Rules `padas_alert` is assigned for this value.  Following table shows the subfields used to construct `datamodel` field in Padas Rule.
+
+| Simple Rule                                | Meta Rule |
+| ------------------------------------------ | ------------- |
+| `category + "_" + product + "_" + service` | `padas_alert` |
+
+
 #### annotations  
-It is directly coming from **tags** field as `list` in both Simple and Meta Rules.
-<br>
+The `tags` Sigma field is used.
+
 #### pdl 
-This field is completely different for Simple and Meta Rules, but the "condition" field works similarly for both. `condition` field gives information about modifiers, conditions, etc. and their relationships for desired fields. There are some modifiers for field conditions rules. They and their PDL equivalents can be found in below table.
+This field is where the actual conversion happens to make it meaningful for Padas. The `condition` field works similarly for both Simple and Meta rules as it gives information about modifiers, conditions, etc. and their relationships for desired fields. There are some modifiers for field conditions rules. The following table provides information regarding Simple Rule modifier conversion.
+
 <table>
   <thead>
     <tr>
@@ -182,8 +162,8 @@ This field is completely different for Simple and Meta Rules, but the "condition
 </table>
 
 <br>
-###### Simple Rule
+###### Simple Rule Examples
 --8<-- "sigma_pdl_simple.md"
 <br>
-###### Meta Rule
+###### Meta Rule Examples
 --8<-- "sigma_pdl_meta.md"

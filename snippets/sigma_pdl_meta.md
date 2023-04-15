@@ -1,77 +1,21 @@
 
-`action: correlation` is the unique key-value pair that indicates if it is Meta Rule. `type`, `fieled`, `group-by`, `timespan`, `condition`, `ordered`, `aliases` fields are used in this process.
+Sigma Meta Rule with `action: correlation` fields are converted only.  The following table provides information on Sigma Meta Rule functions and their corresponding [PDL correlation](pdl-correlation.md).
 
-Which function (`event_count`, `value_count`, `temporal`) will be used, is indicacted from `type` field by conversion `sigma_v2_to_padas.py` script. Functions meanings are same as in the Sigma rules. Detailed information can be found in below table.
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center;" scope="col">Function</th>
-      <th style="text-align: center;" scope="col">Meaning</th>
-        <th style="text-align: center;" scope="col">Usage</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="align-middle">
-        ```
-          event_count
-        ```
-      </td>
-      <td class="align-middle">
-        Counts events with conditions.
-      </td>
-     <td class="align-middle">
-        ````
-        | event_count <condition>
-        ````
-      </td>
-    </tr>
-  </tbody>  
-    <tbody>
-    <tr>
-      <td class="align-middle">
-        ```
-          value_count
-        ```
-      </td>
-      <td class="align-middle">
-        Counts a specific field with conditions.
-      </td>
-     <td class="align-middle">
-        ````
-        | value_count(<fieldname>) <condition>
-        ````
-      </td>
-    </tr>
-  </tbody>
-      <tbody>
-    <tr>
-      <td class="align-middle">
-        ```
-          temporal
-        ```
-      </td>
-      <td class="align-middle">
-        Counts events in specific conditions.
-      </td>
-     <td class="align-middle">
-        ````
-        | temporal(<fieldname>, [<value>,<value>, ...], ordered_boolean)
-        ````
-      </td>
-    </tr>
-  </tbody>
-</table>  
-
-The `field` field is appeared only with `value_count` function in the rule. It keeps the `<fieldname>` for `value_count`function. On the other hand `group-by`, `timespan`, `condition`, `ordered`, `aliases` fields can be found with all `type` Meta rules. PDL can be written with information about which fields will be grouped (`group-by`), under what conditions (`condition`), how long the events will be received (`timespan`), whether there will be a temporal ordering (`ordered`), and the matching status of the fields (`aliases`). You can see some examples without modifiers in the below table. 
+| Sigma Meta Rule Function | PDL Correlation Usage | 
+| ------------------------ | --------------------- |
+| `event_count`            | `| event_count <condition>` | 
+| `value_count`            | `| value_count(<fieldname>) <condition>` |
+| `temporal`               | `| temporal(<fieldname>, [<value>,<value>, ...], ordered_boolean)` |
 
 
+
+The following table provides some examples on Sigma Meta Rule to PDL Expression/Correlation conversions.
 <table>
   <thead>
     <tr>
       <th style="text-align: center;" scope="col">#</th>
       <th style="text-align: center;" scope="col">Meta Rule</th>
-      <th style="text-align: center;" scope="col">Padas Rule</th>
+      <th style="text-align: center;" scope="col">PDL Expression/Correlation</th>
     </tr>
   </thead>
   <tbody>
@@ -102,7 +46,8 @@ The `field` field is appeared only with `value_count` function in the rule. It k
             "description":"",
             "datamodel":"padas_alert",
             "annotations": [""],
-            "pdl": "padas_rule IN [\"5638f7c0-ac70-491d-8465-2a65075e0d86\", \"5638f7c0-ac70-491d-8465-2a65075e0d87\"] | event_count timespan=1h group_by ComputerName where _count>=100 AND _count<=200",
+            "pdl": "padas_rule IN [\"5638f7c0-ac70-491d-8465-2a65075e0d86\", \"5638f7c0-ac70-491d-8465-2a65075e0d87\"] 
+                    | event_count timespan=1h group_by ComputerName where padasAggregation.eventCount>=100 AND padasAggregation.eventCount<=200",
             "enabled": false
 
                 
@@ -137,7 +82,7 @@ The `field` field is appeared only with `value_count` function in the rule. It k
             "description":"",
             "datamodel":"padas_alert",
             "annotations": [""],
-            "pdl": "value_count(User) timespan=1d group_by ComputerName, WorkstationName where _count>= 100",
+            "pdl": "value_count(User) timespan=1d group_by ComputerName, WorkstationName where padasAggregation.valueCount>= 100",
             "enabled": false
         ```
       </td>
@@ -216,7 +161,9 @@ The `field` field is appeared only with `value_count` function in the rule. It k
                     "description":"",
                     "datamodel":"padas_alert",
                     "annotations": [""],
-                    "pdl": "eval internal_ip=if(padas_rule=\"internal_error\", destination.ip, if(padas_rule=\"new_network_connection\", source.ip, \"\")) | eval remote_ip=if(padas_rule=\"internal_error\", source.ip, if(padas_rule=\"new_network_connection\", destination.ip, \"\")) | temporal(ordered=true) [padasRule=\"select01\" || padasRule=\"select02\"] timespan=10s group_by internal_ip, remote_ip",
+                    "pdl": "eval internal_ip=if(padas_rule=\"internal_error\", destination.ip, if(padas_rule=\"new_network_connection\", source.ip, \"\")) 
+                        | eval remote_ip=if(padas_rule=\"internal_error\", source.ip, if(padas_rule=\"new_network_connection\", destination.ip, \"\")) 
+                        | temporal(ordered=true) [padasRule=\"select01\" || padasRule=\"select02\"] timespan=10s group_by internal_ip, remote_ip",
                     "enabled": false
                 }
             }

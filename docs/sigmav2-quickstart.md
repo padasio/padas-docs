@@ -5,17 +5,17 @@ layout: documentation
 
 ### What is Sigma
 
-Sigma rules are a simple, yet powerful way for security teams to detect and respond to threats using SIEM tools. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.
+[Sigma](https://github.com/SigmaHQ/sigma) rules are a simple, yet powerful way for security teams to detect and respond to threats using SIEM systems. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.
 
 Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture. 
 
-While Sigma rules are platform-agnostic and can be used with various SIEM systems, it is also possible to convert them to other formats, such as Padas rules. Padas is a new open-source tool that allows users to convert Sigma rules into various formats, including Padas. With this conversion capability, security teams can expand their detection capabilities and use Sigma rules with a broader range of security products. Padas can help reduce the time and effort required to write and maintain detection rules manually, enabling security teams to focus on more critical tasks such as threat analysis and response. Overall, the ability to convert Sigma rules to Padas rules offers significant benefits for security teams looking to enhance their detection and response capabilities.
+While Sigma rules are platform-agnostic and can be used with various SIEM systems, it is also possible to convert them to other formats, such as Padas rules by utilizing [PDL](pdl-quick-reference.md). Padas [Sigma converter script](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) is a new open-source tool that allows users to convert Sigma rules into Padas PDL. The ability to convert Sigma rules to Padas rules offers significant benefits for security teams looking to enhance their detection and response capabilities.
 
 ### Sigma to Padas
 
-Please see [PADAS](/quickstart.md) Quick Start that clerifies install and using Padas, **before** starting Sigma to Padas Quick Start. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be same as Padas Quick Start.
+Please see [Quick Start](/quickstart.md) **before** going through the steps below. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be the same as Padas Quick Start.
 
-This conversion tool is easy to use designed for Sigma version 2. More info about this version, you can check its GitHub [repository](https://github.com/SigmaHQ/sigma).
+This conversion tool is designed to be used with [Sigma Specification version 2](https://github.com/SigmaHQ/sigma-specification/tree/version_2).
 
 ### Prerequisites
 - Python (version 3 or above)
@@ -23,8 +23,7 @@ This conversion tool is easy to use designed for Sigma version 2. More info abou
 ### Overview of Quickstart
 
 #### Step 1: Download
-1. [Download](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) the latest version of padas-tools from official [Padas](https://github.com/padasinc) github. If you don't know how to download it, you can check this [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) official GitHub documentation.
-
+1. [Download](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) the latest version of the script in padas-tools repository.
 
 2. If it is downloaded as compressed, it is needed to uncompress properly such as `unzip` command or using verious zip tools. Else, skip this step.
 
@@ -34,32 +33,35 @@ At this stage, make sure you have downloaded proper Python version.
 
 
 #### Step 2: Start Padas
-* You need to follow [PADAS](/quickstart.md) Quick Start to step 5.
+* You need to complete [Quick Start](/quickstart.md); step 6 is optional.
 
 #### Step 3: Converting Sigma to Padas Rules
 
-* There are `sigma_v2_to_padas.py`, `test/expected_output.json`, `test/input_sigma_rule.yml`, `test/test_to_rules.py` files under `sigma_v2_to_padas` directory that you download previously from GitHub. 
+Following files should be available with your download under `sigma_v2_to_padas` directory:
 
-    <br>
-    1. `sigma_v2_to_padas.py` is the converter script. This gives proper Sigma v2 (yml) to Padas (json) conversion.
-    <br>
-    **Usage : ** `python3 path/sigma_v2_to_padas.py input_path/input.yml output_path/ouput.json` on terminal.
-    
-    <br>
-    2. If you want to `test`your conversions, you can try `test/test_to_rules.py` script. This utilizes to check if `test/input_sigma_rule.yml` file converted as `test/expected_output.json`. You can add your own Sigma v2 rules in `test/input_sigma_rule.yml` and their properly converted outputs in `test/expected_output.json`.
-    <br>
-    **Usage : ** `python3 path/test/test_to_rules.py` on terminal.
+- `sigma_v2_to_padas.py`
+- `test/expected_output.json`
+- `test/input_sigma_rule.yml`
+- `test/test_to_rules.py`
+
+<br/>
+1. Convert: `sigma_v2_to_padas.py` is the converter script. This gives proper Sigma v2 (yml) to Padas (json) conversion.
+<br>
+**Usage : ** `python3 path/sigma_v2_to_padas.py input_path/input.yml output_path/ouput.json`
+
+<br>
+2. Test: You can try `test/test_to_rules.py` script for testing. This script checks if `test/input_sigma_rule.yml` file is converted as `test/expected_output.json`. You can add your own Sigma v2 rules in `test/input_sigma_rule.yml` and their properly converted outputs in `test/expected_output.json`.
+<br>
+    **Usage : ** `python3 path/test/test_to_rules.py`
 
 #### Step 4: Create Rules
-At this stage, make sure you have Confluent Kafka and Padas is running. 
-<br> 
 
-1. **Create Rule** : You can add your converted rules either manually or uploading json file from [Rules](https://localhost:3000/rules) menu.
+1. **Create Rule** : You can add your converted rules either manually by copying the generated PDL or uploading the JSON file from [Rules](https://localhost:3000/rules) menu.
 
     <br>
-    *Adding manually* : 
+    __*Adding manually*__ : 
     <br> 
-    Click <span class="btn btn-padas">New Rule</span> button and fill in the details. 
+    Click <span class="btn btn-padas">New Rule</span> button and fill in the details from generated JSON file.
 
 
     <figure markdown>
@@ -68,7 +70,7 @@ At this stage, make sure you have Confluent Kafka and Padas is running.
       </p>
     </figure>
 
-    *Upload json file* : 
+    __*Uploading JSON*__ : 
     <br>
 
     1. Click top of the <span class="btn btn-padas">Upload</span> button.
@@ -83,4 +85,4 @@ At this stage, make sure you have Confluent Kafka and Padas is running.
 
 #### Step 5: Test & Play
 
-** Test : ** You can test your rules as [PADAS](/quickstart.md) Quick Start - step 6.
+** Test : ** You can generate some matching data and test your rules as described in Quick Start [Step 6](/quickstart/#step-6-test-play).

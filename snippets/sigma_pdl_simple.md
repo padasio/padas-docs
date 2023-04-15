@@ -1,5 +1,4 @@
 
-`detection` is the field where fields in the Simple Rule, their relationships and conditions are kept in. `condition` field under the `detection` gives the whole rule in a simple way. You can see some examples without modifiers in the below table. 
 <table>
   <thead>
     <tr>
