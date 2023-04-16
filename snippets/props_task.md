@@ -24,7 +24,7 @@ This function allows usage of named capturing groups in regular expression to ex
 
 | Field       | Description                                           | Example |
 | -------     | ----------------------------------------------------- | :---: |
-| Regex       | Named group capturing Regular Expression to match the event.  Captured named groups will be JSON field names. | <img src="../assets/img/padas_ui_task_extract_example.png" class="img-fluid py-5 w-75"> {: rowspan=3} |
+| Regex       | Named group capturing [Regular Expression](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) to match the event.  Captured named groups will be JSON field names. | <img src="../assets/img/padas_ui_task_extract_example.png" class="img-fluid py-5 w-75"> {: rowspan=3} |
 | Keep Raw    | Boolean to keep raw data in a separate field.  If set to `true` a field name should be provided.| &#8288 {: style="padding:0"} |
 | Raw Field Name | If raw data is to be kept, this will be the field to store it in. `_raw` is the default.| &#8288 {: style="padding:0"} |
 
@@ -77,4 +77,4 @@ This function applies pre-defined rules (PDL queries) in order to generate event
 | Name  | Name the of the pre-defined rule. | &#8288 {: style="padding:0"} |
 | Decsription  | Decsription the of the pre-defined rule. | &#8288 {: style="padding:0"} |
 | Data model  | Rules with this matching data model will be evaluated against the event. | &#8288 {: style="padding:0"} |
-| Match All   | If set to `Match all rules`, all rules for this data model are evaluated.  If set to `First match wins`, first match wins and evaluation stops. | &#8288 {: style="padding:0"} | 
+| Match All   | If set to `Match all rules`, all rules for this data model are evaluated.  If set to `First match wins`, first match wins and evaluation stops. | &#8288 {: style="padding:0"} |
