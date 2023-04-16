@@ -87,13 +87,13 @@ Upload the configurations from the corresponding menus.  Each of the views provi
   - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
   - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
   - For [Topologies](https://localhost:9000/topologies) upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
-    
+
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
-  
+
 ---
 Following steps will guide you through how to manually create these configuration items instead of uploading.
 
@@ -104,7 +104,7 @@ Following steps will guide you through how to manually create these configuratio
       </p>
       <p>
       <!-- TODO: INSERT NEW SCREENSHOT HERE -->
-      <img src="../assets/img/padas_ui_task_rule_create.png" class="w-50 img-fluid py-5">
+      <img src="../assets/img/padas_ui_task_apply_rules_create.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
 
@@ -161,7 +161,7 @@ Following steps will guide you through how to manually create these configuratio
       "group_id": 1,
       "action": "failure",
       "group_name": "evil group",
-      "padasRule": 
+      "padasRule":
       {
         "id": "test_rule_for_evil",
         "name": "Test Rule for Evil",
@@ -180,7 +180,7 @@ Following steps will guide you through how to manually create these configuratio
       "group_id": 1,
       "action": "failure",
       "group_name": "evil group",
-      "padasRule": 
+      "padasRule":
       {
         "id": "test_rule_for_failure",
         "name": "Test Rule for Failure",
