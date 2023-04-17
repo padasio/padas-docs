@@ -81,7 +81,7 @@ Padas Engine utilizes [Logback](https://logback.qos.ch/manual/configuration.html
 ---
 
 ### Integrate to External Systems
-It is possible to integrate any external system either as a [Kafka Producer](https://docs.confluent.io/platform/current/clients/producer.html) (source, generating and ingesting event data) or [Kafka Consumer](https://docs.confluent.io/platform/current/clients/consumer.html) (sink, consuming `padas_alerts` topic for further analysis/alerting).  [Confluent Hub](https://www.confluent.io/hub/) can be utilized to implement any specific source and/or sink connector for integration. 
+It is possible to integrate any external system either as a [Kafka Producer](https://docs.confluent.io/platform/current/clients/producer.html) (source, generating and ingesting event data) or [Kafka Consumer](https://docs.confluent.io/platform/current/clients/consumer.html) (sink, consuming `padas_alerts` topic for further analysis/alerting).  [Confluent Hub](https://www.confluent.io/hub/) can be utilized to implement any specific source and/or sink connector for integration.
 
 #### Winlogbeat (Elastic Stack)
 [Winlogbeat (OSS)](https://www.elastic.co/downloads/beats/winlogbeat-oss) can be utilized as a Kafka Producer to ingest Windows event data.  You can find relevant example information below.
@@ -95,7 +95,7 @@ It is possible to integrate any external system either as a [Kafka Producer](htt
 
 - [Winlogbeat Sysmon Transformation](/assets/config/PadasTasks_transform_winlogbeat_sysmon.json): This is a set of configuration items ([Tasks](user-guide.md#tasks)) that convert Winlogbeat Sysmon formatted data to [Padas Datamodel](datamodel-reference.md) so that any pertinent rule can be applied, such as [Apply Rules Configuration](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) task (before using Apply Rules Configuration task, add [this rule set](/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json) from [Rules](user-guide.md#rules)).
 
-- [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](stream-config.md#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.
+- [Out-of-the-box PADAS Rules](/assets/config/PadasRules_sample.json): This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via [Rules view](stream-config.md/#rules) to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.
 
 #### Splunk
 [Splunk](https://www.splunk.com) can act as a Kafka Consumer for further analysis of Padas Alerts (populated via `APPLY_RULES` task function) or any other topic.  Padas and Splunk integration can be accomplished seamlessly with [Splunk Sink Connector](https://www.confluent.io/hub/splunk/kafka-connect-splunk) and alerts can utilize [Technology Add-on for Padas](https://github.com/seynur/TA_padas).  Splunk Sink Connector needs to be installed on Confluent Kafka and TA-Padas will need to be installed on Splunk Search Head(s).  Please follow the instructions within the links on how to properly install.

@@ -8,29 +8,40 @@ Description of fields and state details can be found below.
 | Event Data            | Copy/paste your sample event data here. |
 | Result                | Output will be displayed under this section. |
 
-**Example Tests**
-##### Rule
+---
+
+#### Rule
+---
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_rule_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### Task
+---
+
+#### Task
+---
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_task_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### Pipeline
+---
+
+#### Pipeline
+---
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_pipeline_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### PDL
+---
+
+#### PDL
+---
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_pdl_example.png" class="img-fluid py-5 w-75">

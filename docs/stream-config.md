@@ -83,5 +83,3 @@ Test view allows a simple interface to play with sample data and verify configur
 --8<-- "props_test.md"
 
 ---
-
-

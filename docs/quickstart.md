@@ -96,7 +96,17 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 ---
 Following steps will guide you through how to manually create these configuration items instead of uploading.
 
-1. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
+1. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+2. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
@@ -107,20 +117,10 @@ Following steps will guide you through how to manually create these configuratio
       </p>
     </figure>
 
-2. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
+3. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
-3. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
-      </p>
-      <p>
-      <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
 

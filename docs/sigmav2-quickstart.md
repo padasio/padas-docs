@@ -7,13 +7,13 @@ layout: documentation
 
 [Sigma](https://github.com/SigmaHQ/sigma) rules are a simple, yet powerful way for security teams to detect and respond to threats using SIEM systems. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.
 
-Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture. 
+Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture.
 
 While Sigma rules are platform-agnostic and can be used with various SIEM systems, it is also possible to convert them to other formats, such as Padas rules by utilizing [PDL](pdl-quick-reference.md). Padas [Sigma converter script](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) is a new open-source tool that allows users to convert Sigma rules into Padas PDL. The ability to convert Sigma rules to Padas rules offers significant benefits for security teams looking to enhance their detection and response capabilities.
 
 ### Sigma to Padas
 
-Please see [Quick Start](/quickstart.md) **before** going through the steps below. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be the same as Padas Quick Start.
+Please see [Quick Start](quickstart.md) **before** going through the steps below. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be the same as Padas Quick Start.
 
 This conversion tool is designed to be used with [Sigma Specification version 2](https://github.com/SigmaHQ/sigma-specification/tree/version_2).
 
@@ -27,13 +27,13 @@ This conversion tool is designed to be used with [Sigma Specification version 2]
 
 2. If it is downloaded as compressed, it is needed to uncompress properly such as `unzip` command or using verious zip tools. Else, skip this step.
 
-3. You should see `sigma_v2_to_padas` directory. 
+3. You should see `sigma_v2_to_padas` directory.
 
 At this stage, make sure you have downloaded proper Python version.
 
 
 #### Step 2: Start Padas
-* You need to complete [Quick Start](/quickstart.md); step 6 is optional.
+* You need to complete [Quick Start](quickstart.md); step 6 is optional.
 
 #### Step 3: Converting Sigma to Padas Rules
 
@@ -56,11 +56,11 @@ Following files should be available with your download under `sigma_v2_to_padas`
 
 #### Step 4: Create Rules
 
-1. **Create Rule** : You can add your converted rules either manually by copying the generated PDL or uploading the JSON file from [Rules](https://localhost:3000/rules) menu.
+1. **Create Rule** : You can add your converted rules either manually by copying the generated PDL or uploading the JSON file from [Rules](https://localhost:9000/rules) menu.
 
     <br>
-    __*Adding manually*__ : 
-    <br> 
+    __*Adding manually*__ :
+    <br>
     Click <span class="btn btn-padas">New Rule</span> button and fill in the details from generated JSON file.
 
 
@@ -70,7 +70,7 @@ Following files should be available with your download under `sigma_v2_to_padas`
       </p>
     </figure>
 
-    __*Uploading JSON*__ : 
+    __*Uploading JSON*__ :
     <br>
 
     1. Click top of the <span class="btn btn-padas">Upload</span> button.
@@ -85,4 +85,4 @@ Following files should be available with your download under `sigma_v2_to_padas`
 
 #### Step 5: Test & Play
 
-** Test : ** You can generate some matching data and test your rules as described in Quick Start [Step 6](/quickstart/#step-6-test-play).
+** Test : ** You can generate some matching data and test your rules as described in Quick Start [Step 6](quickstart.md#step-6-test-play).
