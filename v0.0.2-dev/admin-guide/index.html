@@ -940,7 +940,7 @@
 </code></pre></div>
 <hr />
 <h3 id="integrate-to-external-systems">Integrate to External Systems</h3>
-<p>It is possible to integrate any external system either as a <a href="https://docs.confluent.io/platform/current/clients/producer.html">Kafka Producer</a> (source, generating and ingesting event data) or <a href="https://docs.confluent.io/platform/current/clients/consumer.html">Kafka Consumer</a> (sink, consuming <code>padas_alerts</code> topic for further analysis/alerting).  <a href="https://www.confluent.io/hub/">Confluent Hub</a> can be utilized to implement any specific source and/or sink connector for integration. </p>
+<p>It is possible to integrate any external system either as a <a href="https://docs.confluent.io/platform/current/clients/producer.html">Kafka Producer</a> (source, generating and ingesting event data) or <a href="https://docs.confluent.io/platform/current/clients/consumer.html">Kafka Consumer</a> (sink, consuming <code>padas_alerts</code> topic for further analysis/alerting).  <a href="https://www.confluent.io/hub/">Confluent Hub</a> can be utilized to implement any specific source and/or sink connector for integration.</p>
 <h4 id="winlogbeat-elastic-stack">Winlogbeat (Elastic Stack)</h4>
 <p><a href="https://www.elastic.co/downloads/beats/winlogbeat-oss">Winlogbeat (OSS)</a> can be utilized as a Kafka Producer to ingest Windows event data.  You can find relevant example information below.</p>
 <p><em>Winlogbeat examples</em>:
@@ -954,7 +954,7 @@
 <p><a href="/assets/config/PadasTasks_transform_winlogbeat_sysmon.json">Winlogbeat Sysmon Transformation</a>: This is a set of configuration items (<a href="user-guide.md#tasks">Tasks</a>) that convert Winlogbeat Sysmon formatted data to <a href="../datamodel-reference/">Padas Datamodel</a> so that any pertinent rule can be applied, such as <a href="/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json">Apply Rules Configuration</a> task (before using Apply Rules Configuration task, add <a href="/assets/config/PadasTasks_apply_rules_winlogbeat_sysmon.json">this rule set</a> from <a href="user-guide.md#rules">Rules</a>).</p>
 </li>
 <li>
-<p><a href="/assets/config/PadasRules_sample.json">Out-of-the-box PADAS Rules</a>: This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via <a href="../stream-config/#rules">Rules view</a> to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.</p>
+<p><a href="/assets/config/PadasRules_sample.json">Out-of-the-box PADAS Rules</a>: This sample JSON configuration contains MITRE ATT&amp;CK relevant rules, which are tested and verified with the above example configurations.  You can upload this file via <a href="stream-config.md/#rules">Rules view</a> to quickly get started.  For any other input, it's recommended to perform transformations to match the applicable data model and PDL query to achieve standardization.</p>
 </li>
 </ul>
 <h4 id="splunk">Splunk</h4>

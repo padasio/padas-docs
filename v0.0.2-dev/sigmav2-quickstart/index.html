@@ -863,10 +863,10 @@
 
 <h3 id="what-is-sigma">What is Sigma</h3>
 <p><a href="https://github.com/SigmaHQ/sigma">Sigma</a> rules are a simple, yet powerful way for security teams to detect and respond to threats using SIEM systems. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.</p>
-<p>Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture. </p>
+<p>Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture.</p>
 <p>While Sigma rules are platform-agnostic and can be used with various SIEM systems, it is also possible to convert them to other formats, such as Padas rules by utilizing <a href="../pdl-quick-reference/">PDL</a>. Padas <a href="https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas">Sigma converter script</a> is a new open-source tool that allows users to convert Sigma rules into Padas PDL. The ability to convert Sigma rules to Padas rules offers significant benefits for security teams looking to enhance their detection and response capabilities.</p>
 <h3 id="sigma-to-padas">Sigma to Padas</h3>
-<p>Please see <a href="/quickstart.md">Quick Start</a> <strong>before</strong> going through the steps below. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be the same as Padas Quick Start.</p>
+<p>Please see <a href="../quickstart/">Quick Start</a> <strong>before</strong> going through the steps below. In this section, only converting Sigma rules to Padas will be explained. After conversion, rest of steps will be the same as Padas Quick Start.</p>
 <p>This conversion tool is designed to be used with <a href="https://github.com/SigmaHQ/sigma-specification/tree/version_2">Sigma Specification version 2</a>.</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
@@ -882,13 +882,13 @@
 <p>If it is downloaded as compressed, it is needed to uncompress properly such as <code>unzip</code> command or using verious zip tools. Else, skip this step.</p>
 </li>
 <li>
-<p>You should see <code>sigma_v2_to_padas</code> directory. </p>
+<p>You should see <code>sigma_v2_to_padas</code> directory.</p>
 </li>
 </ol>
 <p>At this stage, make sure you have downloaded proper Python version.</p>
 <h4 id="step-2-start-padas">Step 2: Start Padas</h4>
 <ul>
-<li>You need to complete <a href="/quickstart.md">Quick Start</a>; step 6 is optional.</li>
+<li>You need to complete <a href="../quickstart/">Quick Start</a>; step 6 is optional.</li>
 </ul>
 <h4 id="step-3-converting-sigma-to-padas-rules">Step 3: Converting Sigma to Padas Rules</h4>
 <p>Following files should be available with your download under <code>sigma_v2_to_padas</code> directory:</p>
@@ -909,17 +909,17 @@
 <h4 id="step-4-create-rules">Step 4: Create Rules</h4>
 <ol>
 <li>
-<p><strong>Create Rule</strong> : You can add your converted rules either manually by copying the generated PDL or uploading the JSON file from <a href="https://localhost:3000/rules">Rules</a> menu.</p>
+<p><strong>Create Rule</strong> : You can add your converted rules either manually by copying the generated PDL or uploading the JSON file from <a href="https://localhost:9000/rules">Rules</a> menu.</p>
 <p><br>
-<strong><em>Adding manually</em></strong> : 
-<br> 
+<strong><em>Adding manually</em></strong> :
+<br>
 Click <span class="btn btn-padas">New Rule</span> button and fill in the details from generated JSON file.</p>
 <p><figure markdown>
   <p>
   <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
   </p>
 </figure></p>
-<p><strong><em>Uploading JSON</em></strong> : 
+<p><strong><em>Uploading JSON</em></strong> :
 <br></p>
 <ol>
 <li>Click top of the <span class="btn btn-padas">Upload</span> button.</li>
@@ -934,7 +934,7 @@ Click <span class="btn btn-padas">New Rule</span> button and fill in the details
 </li>
 </ol>
 <h4 id="step-5-test-play">Step 5: Test &amp; Play</h4>
-<p><strong> Test : </strong> You can generate some matching data and test your rules as described in Quick Start <a href="/quickstart/#step-6-test-play">Step 6</a>.</p>
+<p><strong> Test : </strong> You can generate some matching data and test your rules as described in Quick Start <a href="../quickstart/#step-6-test-play">Step 6</a>.</p>
 
 
 
