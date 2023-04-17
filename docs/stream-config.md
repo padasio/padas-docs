@@ -76,7 +76,7 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 ---
 
-### Test
+### Test View and Examples
 
 Test view allows a simple interface to play with sample data and verify configurations.
 

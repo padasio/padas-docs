@@ -9,28 +9,28 @@ Description of fields and state details can be found below.
 | Result                | Output will be displayed under this section. |
 
 **Example Tests**
-##### `RULE`
+##### Rule
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_rule_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### `TASK`
+##### Task
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_task_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### `PIPELINE`
+##### Pipeline
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_pipeline_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
 
-##### `PDL`
+##### PDL
 <figure markdown>
   <p>
   <img src="../assets/img/padas_ui_test_pdl_example.png" class="img-fluid py-5 w-75">

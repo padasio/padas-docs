@@ -12,5 +12,5 @@
 
 === ":fontawesome-solid-user-gear:{.padas} Using Padas"
 
-    [:fontawesome-solid-user-gear:{.padas} **Using Padas**](user-guide.md): This guide provides information on how to utilize PADAS Manager for configuring transformations and rules.
+    [:fontawesome-solid-user-gear:{.padas} **Using Padas**](stream-config.md): This guide provides information on how to utilize PADAS Manager for configuring transformations and rules.
 

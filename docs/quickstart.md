@@ -7,8 +7,7 @@ Use Padas to perform streaming event data transformations and apply specific rul
 
 ### Prerequisites
 - Internet connectivity
-- Supported [Operating System](/installation.html#operating-systems)
-- A supported version of [Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Java 11 and later versions are supported in this version.
+- Review [System Requirements](system-requirements.md)
 - Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  
 - You should have at least Kafka and Zookeeper services up and running.
     ```sh
@@ -196,5 +195,5 @@ Following steps will guide you through how to manually create these configuratio
 
 #### Next Steps
 - [Install](installation.md) in production.
-- [Utilize PADAS](user-guide.md) with out-of-the-box [PadasRules_sample.json](../assets/config/PadasRules_sample.json)
-- [Integrations](admin-guide.md#integrate-to-external-systems) with ingest pipelines ([Sample Sysmon Config with Winlogbeat](../assets/config/sysmonconfig-export-exclude-winlogbeat.xml)) and ready-to-use transformations ([Winlogbeat Sysmon and Security](../assets/config/padas_transformation.properties))
+- [Utilize PADAS](stream-config.md) with out-of-the-box [PadasRules_sample.json](../assets/config/PadasRules_sample.json)
+- [Integrations](admin-guide.md#integrate-to-external-systems) with ingest pipelines ([Sample Sysmon Config with Winlogbeat](../assets/config/sysmonconfig-export-exclude-winlogbeat.xml)).
