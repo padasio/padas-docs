@@ -7,8 +7,7 @@ Use Padas to perform streaming event data transformations and apply specific rul
 
 ### Prerequisites
 - Internet connectivity
-- Supported [Operating System](/installation.html#operating-systems)
-- A supported version of [Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Java 11 and later versions are supported in this version.
+- Review [System Requirements](system-requirements.md)
 - Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  
 - You should have at least Kafka and Zookeeper services up and running.
     ```sh
@@ -86,41 +85,42 @@ Upload the configurations from the corresponding menus.  Each of the views provi
   - For [Tasks](https://localhost:9000/tasks) upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
   - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
   - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
-    
-    **NOTE**: You will need to create the topology manually, please go to step 4 below.
+  - For [Topologies](https://localhost:9000/topologies) upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
 
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
-  
+
 ---
+Following steps will guide you through how to manually create these configuration items instead of uploading.
 
-1. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all relevant PDL rules for `mydata` data model (arbitrary name).  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
-      </p>
-      <p>
-      <img src="../assets/img/padas_ui_task_rule_create.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
-2. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
-3. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+1. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
       </p>
       <p>
       <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+2. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
+      </p>
+      <p>
+      <!-- TODO: INSERT NEW SCREENSHOT HERE -->
+      <img src="../assets/img/padas_ui_task_apply_rules_create.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+3. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
       </p>
     </figure>
 
@@ -160,33 +160,40 @@ Upload the configurations from the corresponding menus.  Each of the views provi
       "group_id": 1,
       "action": "failure",
       "group_name": "evil group",
-      "padas_rules": [
-        {
-          "id": 1,
-          "name": "Test Rule for Evil",
-          "description": "Match for group name that starts with evil",
-          "pdl": "group_name=\"evil*\"",
-          "datamodel": "mydata",
-          "annotations": [
-            "T1234",
-            "T2345"
-          ]
-        },
-        {
-          "id": 2,
-          "name": "Test Rule for Failure",
-          "description": "Match when action is failure",
-          "pdl": "action=\"failure\"",
-          "datamodel": "mydata",
-          "annotations": [
-            "T9876"
-          ]
-        }
-      ]
+      "padasRule":
+      {
+        "id": "test_rule_for_evil",
+        "name": "Test Rule for Evil",
+        "description": "Match for group name that starts with evil",
+        "pdl": "group_name=\"evil*\"",
+        "datamodel": "mydata",
+        "annotations": [
+          "T1234",
+          "T2345"
+        ]
+      }
+    }
+
+    {
+      "user": "user_1",
+      "group_id": 1,
+      "action": "failure",
+      "group_name": "evil group",
+      "padasRule":
+      {
+        "id": "test_rule_for_failure",
+        "name": "Test Rule for Failure",
+        "description": "Match when action is failure",
+        "pdl": "action=\"failure\"",
+        "datamodel": "mydata",
+        "annotations": [
+          "T9876"
+        ]
+      }
     }
     ```
 
 #### Next Steps
 - [Install](installation.md) in production.
-- [Utilize PADAS](user-guide.md) with out-of-the-box [PadasRules_sample.json](../assets/config/PadasRules_sample.json)
-- [Integrations](admin-guide.md#integrate-to-external-systems) with ingest pipelines ([Sample Sysmon Config with Winlogbeat](../assets/config/sysmonconfig-export-exclude-winlogbeat.xml)) and ready-to-use transformations ([Winlogbeat Sysmon and Security](../assets/config/padas_transformation.properties))
+- [Utilize PADAS](stream-config.md) with out-of-the-box [PadasRules_sample.json](../assets/config/PadasRules_sample.json)
+- [Integrations](admin-guide.md#integrate-to-external-systems) with ingest pipelines ([Sample Sysmon Config with Winlogbeat](../assets/config/sysmonconfig-export-exclude-winlogbeat.xml)).

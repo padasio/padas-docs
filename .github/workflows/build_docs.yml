@@ -40,4 +40,7 @@ jobs:
         
       - name: Deploy with mike
         run: |
-          mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }} latest
+          if [[ "${{steps.extract_branch.outputs.branch}}" == *"dev"* ]]; then mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }}; else mike deploy --push --update-aliases ${{ steps.extract_branch.outputs.branch }} latest; fi        
+
+
+

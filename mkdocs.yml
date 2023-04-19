@@ -37,24 +37,34 @@ nav:
   - 'Get Started':
     - introduction.md
     - quickstart.md
+    - sigmav2-quickstart.md
+  - 'Install':
+    - system-requirements.md
     - installation.md
   - 'User Guide':
-    - user-guide.md
-    - pdl-reference.md
+    - stream-config.md
+    - management-config.md
+    - 'PDL Reference':
+      - pdl-quick-reference.md
+      - pdl-expression.md
+      - pdl-correlation.md
+      - sigma-pdl.md
   - 'Admin Guide':
     - admin-guide.md
     - datamodel-reference.md
     - config-reference.md
+  - 'APIs':
     - api-reference.md
+    - api-reference-task-definition.md
   - 'About':
     - release-notes.md
 
 extra:
   social:
     - icon: fontawesome/brands/twitter 
-      link: https://twitter.com/padasio
+      link: https://twitter.com/padasinc
   generator: false
-  current_version: 0.0.1
+  current_version: 0.0.2
   version:
     provider: mike
 
