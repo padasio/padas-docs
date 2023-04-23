@@ -6,7 +6,7 @@ latest_version: 0.0.2
 
 ### Version 0.0.2
 
-**(Target) Release Date**: 15.04.2023
+**Release Date**: 17.04.2023
 
 #### What's New?
 
