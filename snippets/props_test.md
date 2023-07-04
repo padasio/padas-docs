@@ -27,7 +27,15 @@ Description of fields and state details can be found below.
   <img src="../assets/img/padas_ui_test_task_example.png" class="img-fluid py-5 w-75">
   </p>
 </figure>
+---
 
+Since PADAS is a data streaming platform, it will be enough to enter a single line like in the image when testing PARSE_CSV fuction.
+
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_test_task_parseCSV_example.png" class="img-fluid py-5 w-75">
+  </p>
+</figure>
 ---
 
 #### Pipeline

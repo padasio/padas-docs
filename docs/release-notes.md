@@ -1,31 +1,34 @@
 ---
 title: Release Notes
 layout: documentation
-latest_version: 0.0.2
+latest_version: 0.0.3
 ---
 
-### Version 0.0.2
+### Version 0.0.3
 
-**Release Date**: 17.04.2023
+**Release Date**: 03.07.2023
 
 #### What's New?
 
 | Feature                       | Description |
 | ----------------------        | ----------------------       
-| PDL Expression Improvements   | Update PDL expression to support formatting, event transformation, and correlation.
+| PDL Lookup Functionality      | Upload CSV or JSON lookup files to enrich streaming event data.
 
 
 #### Known Issues
 
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------    
-| N/A    | N/A	          | -   
+| 17.06.2023    | PADAS-103	        | Default and optional values should not be required in the forms.   
+| 23.04.2023    | PADAS-78	        | UI lookup definition CRUD functionality is missing.
+| 14.04.2023    | PADAS-71	        | After initial login, check for required topics is not performed. 
 
 
 #### Fixed Issues
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
-| 12.02.2023    | PADAS-34          | After session token expiration the user is not redirected to login page and needs to manually refresh the page.
+| 15.05.2023    | PADAS-79          | Initial user registration form should display "loading" gif.
+| 14.06.2023    | PADAS-87          | PDL Expression Task form removes '\n' when a multi-line expression is provided.
 
 ---
