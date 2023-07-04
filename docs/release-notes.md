@@ -20,6 +20,8 @@ latest_version: 0.0.3
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------    
 | 17.06.2023    | PADAS-103	        | Default and optional values should not be required in the forms.   
+| 23.04.2023    | PADAS-78	        | UI lookup definition CRUD functionality is missing.
+| 14.04.2023    | PADAS-71	        | After initial login, check for required topics is not performed. 
 
 
 #### Fixed Issues
