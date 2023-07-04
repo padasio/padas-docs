@@ -1,0 +1,20 @@
+[
+    {
+        "id":"endpointlisteningport",
+        "name":"EndpointListeningPort",
+        "description":"EndpointListeningPort",
+        "datamodel":"EndpointListeningPort",
+        "pdl":"event.code=\"3\"",
+        "annotations":[],
+        "enabled":true
+    },
+    {
+        "id":"endpointprocess",
+        "name":"EndpointProcess",
+        "description":"EndpointProcess",
+        "datamodel":"EndpointProcess",
+        "pdl":"event.code=\"1\"",
+        "annotations":[],
+        "enabled":true
+    }
+]
