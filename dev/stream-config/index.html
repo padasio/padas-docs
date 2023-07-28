@@ -462,6 +462,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lookups" class="md-nav__link">
+    Lookups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#test-view-and-examples" class="md-nav__link">
     Test View and Examples
   </a>
@@ -914,6 +921,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lookups" class="md-nav__link">
+    Lookups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#test-view-and-examples" class="md-nav__link">
     Test View and Examples
   </a>
@@ -1281,7 +1295,7 @@
 <tbody>
 <tr>
 <td>pdl</td>
-<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
+<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
 <td align="center" rowspan="4"><img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"></td>
 </tr>
 </tbody>
@@ -1368,6 +1382,33 @@
 <tr>
 <td>Enabled</td>
 <td>Set to <code>true</code> when enabled, <code>false</code> otherwise.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="lookups">Lookups</h3>
+<p>Lookups enrich your event data by incorporating field-value combinations from lookup tables. Padas uses lookups to compare field-value combinations in your event data with those in external lookup tables. If Padas finds matching field-value combinations in the lookup table, it appends the corresponding field-value combinations from the table to the events in your PDL search results. This process enhances the data and provides you with additional context and insights for analysis.</p>
+<figure>
+<p>
+  <img src="../assets/img/padas_ui_lookups.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
+<p>Description of fields can be found below.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Unique identifier.  This ID is also used as a key when updating/deleting the lookups.</td>
+</tr>
+<tr>
+<td>File</td>
+<td>A file name of the uploaded lookup.</td>
 </tr>
 </tbody>
 </table>
