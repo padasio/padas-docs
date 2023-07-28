@@ -76,6 +76,20 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 ---
 
+### Lookups
+
+--8<-- "description_lookup.md"
+
+<figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_lookups.png" class="img-fluid py-5 w-50">
+  </p>
+</figure>
+
+--8<-- "props_lookup.md"
+
+---
+
 ### Test View and Examples
 
 Test view allows a simple interface to play with sample data and verify configurations.
