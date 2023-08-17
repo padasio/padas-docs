@@ -66,7 +66,7 @@ This function allows data transformation and enrichment via PDL expressions.  In
 
 | Field       | Description                                           | Example |
 | -------     | ----------------------------------------------------- | :---: |
-| pdl   | PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data.<br/>Please see [PDL Expression](../pdl-expression) for syntax and usage. | <img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  |
+| pdl   | PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see [PDL Expression](../pdl-expression) for syntax and usage. | <img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  |
 
 ##### `APPY_RULES` Definition
 This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with `padas_rules` object array that contain matching rule information as well as the event data.

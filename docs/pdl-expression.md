@@ -10,8 +10,9 @@ Expressions are run per streaming event and the following expressions are availa
 - Fields
 - Rename
 - Flatten
+- Lookup
 
-### Query 
+### Query
 --8<-- "pdl_query_details.md"
 
 ### Eval
@@ -26,3 +27,5 @@ Expressions are run per streaming event and the following expressions are availa
 ### Flatten
 --8<-- "pdl_flatten_details.md"
 
+### Lookup
+--8<-- "pdl_lookup_details.md"
