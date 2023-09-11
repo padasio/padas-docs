@@ -1,0 +1,11 @@
+[
+  {
+    "id":1,
+    "name":"Test Pipeline",
+    "description":"Quickstart pipeline",
+    "tasks":[
+      1,
+      2
+    ]
+  }
+]
