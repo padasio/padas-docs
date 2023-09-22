@@ -5,12 +5,13 @@ title: PDL Expressions
 ## Expressions
 Expressions are run per streaming event and the following expressions are available in PDL.
 
-- Query
-- Eval
-- Fields
-- Rename
-- Flatten
-- Lookup
+- query
+- eval
+- fields
+- rename
+- flatten
+- lookup
+- rex
 
 ### Query
 --8<-- "pdl_query_details.md"
@@ -29,3 +30,6 @@ Expressions are run per streaming event and the following expressions are availa
 
 ### Lookup
 --8<-- "pdl_lookup_details.md"
+
+### Rex
+--8<-- "pdl_rex_details.md"
