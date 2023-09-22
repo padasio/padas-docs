@@ -1228,6 +1228,7 @@
 <li><code>=</code>: <strong>Equals</strong>, returns <code>true</code> if the value is an exact match. A single wildcard <code>*</code> is also accepted for string values. </li>
 <li><code>!=</code>: <strong>Not Equals</strong>, returns <code>true</code> if the value does not match.</li>
 <li><code>?=</code>: <strong>Contains</strong>, checks whether the string value contains the text.  For arrays, it checks for the array item.</li>
+<li><code>~=</code>: <strong>Regex</strong>, checks whether the string value matches the given Regular Expression.</li>
 <li><code>&gt;</code>: <strong>Greater than</strong>, returns <code>true</code> if query comparison value is greater than event field value. </li>
 <li><code>&lt;</code>: <strong>Less than</strong>, returns <code>true</code> if query comparison value is less than event field value.</li>
 <li><code>&gt;=</code>: <strong>Greater than or equals</strong>, returns <code>true</code> if query comparison value is greater than or equals to the event field value.</li>
@@ -1304,6 +1305,10 @@ field1=&quot;*&quot;
 <tr>
 <td><code>?=</code></td>
 <td><code>field2 ?= "text2"</code> <br/><code>field4 ?= "item2"</code></td>
+</tr>
+<tr>
+<td><code>~=</code></td>
+<td><code>field2 ~= "\stext"</code> <br/><code>field4 ~= "\d\stext\d\s"</code></td>
 </tr>
 <tr>
 <td><code>&gt;</code></td>
