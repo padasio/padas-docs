@@ -715,6 +715,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#parse-csv" class="md-nav__link">
+    Parse CSV
+  </a>
+  
+    <nav class="md-nav" aria-label="Parse CSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions_2" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-examples_1" class="md-nav__link">
+    Fields Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1247,6 +1281,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#parse-csv" class="md-nav__link">
+    Parse CSV
+  </a>
+  
+    <nav class="md-nav" aria-label="Parse CSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-and-functions_2" class="md-nav__link">
+    Syntax and Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields-examples_1" class="md-nav__link">
+    Fields Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1279,6 +1347,7 @@
 <li>flatten</li>
 <li>lookup</li>
 <li>rex</li>
+<li>parse_csv</li>
 </ul>
 <h3 id="query">Query</h3>
 <h4 id="description">Description</h4>
@@ -1854,6 +1923,92 @@ field1=&quot;*&quot;
 </code></pre></div>
       </td>
       <td>Regular expression is applied to <code>field1.subfield2</code> nested field value, which is <code>"sub value2"</code>.  The regular expression skips the first word including the following space character and captures the remaining word as <code>field1subfield3</code>.
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+<h3 id="parse-csv">Parse CSV</h3>
+<h4 id="description_7">Description</h4>
+<p>The <code>parse_csv</code> expression is used to properly parse the values of a specific CSV encoded field from the given eventdata.  Newly parsed fields are added to the event. Some example values that can be parsed:</p>
+<ul>
+<li><code>value1, value2, value3</code></li>
+<li><code>value1, value2, 123</code> (Last one is parsed as Integer in JSON)</li>
+<li><code>"value 1", "value 2", value 3</code> (Quoted values for Strings and quotes are optional.)</li>
+<li><code>"value 1"| "value 2"| value 3</code> (Using custom delimiters, e.g. <code>|</code> in this example)</li>
+</ul>
+<h4 id="syntax-and-functions_2">Syntax and Functions</h4>
+<div class="highlight"><pre><span></span><code>... <span class="p">|</span> parse_csv &lt;fieldName&gt; <span class="nv">header</span><span class="o">=</span>&lt;headerValue&gt; <span class="o">[</span><span class="nv">delimiter</span><span class="o">=</span>&lt;delimiterValue&gt;<span class="o">]</span>
+</code></pre></div>
+<p>Arguements:</p>
+<ul>
+<li><code>fieldName</code>: Field name to parse.</li>
+<li><code>headerValue</code>: Must be a comma separated String in quotes (e.g. <code>"myfield1, myfield2, myfield3"</code>).  Represents the header values to be used as new field names for the parsed CSV encoded data.</li>
+<li><code>delimiterValue</code>: Must be a String in quotes (e.g. <code>";"</code>).  Delimiter value to use for CSV encoded data.  Default is <code>","</code></li>
+</ul>
+<h4 id="fields-examples_1">Fields Examples</h4>
+<p>The following table provides examples of available functionality based on the following JSON value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="s2">&quot;subvalue1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="s2">&quot;sub value2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa; 123 ; ccc&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxx, 456 , yyy&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Expression</th>
+      <th scope="col">Expected Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  parse_csv field2 <span class="nv">header</span><span class="o">=</span><span class="s2">&quot;csvField1, csvField2, csvField3&quot;</span> <span class="nv">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span>
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="s2">&quot;subvalue1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="s2">&quot;sub value2&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa; 123 ; ccc&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxx, 456 , yyy&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ccc&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code>  parse_csv field4 <span class="nv">header</span><span class="o">=</span><span class="s2">&quot;csvField1, csvField2, csvField3&quot;</span> 
+</code></pre></div>
+      </td>
+      <td class="align-middle">
+        <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="s2">&quot;subvalue1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="s2">&quot;sub value2&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa; 123 ; ccc&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxx, 456 , yyy&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;csvField3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
       </td>
     </tr>
   </tbody>
