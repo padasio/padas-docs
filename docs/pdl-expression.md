@@ -12,6 +12,7 @@ Expressions are run per streaming event and the following expressions are availa
 - flatten
 - lookup
 - rex
+- parse_csv
 
 ### Query
 --8<-- "pdl_query_details.md"
@@ -33,3 +34,6 @@ Expressions are run per streaming event and the following expressions are availa
 
 ### Rex
 --8<-- "pdl_rex_details.md"
+
+### Parse CSV
+--8<-- "pdl_parsecsv_details.md"
