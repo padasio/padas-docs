@@ -3,8 +3,8 @@ The `parse_csv` expression is used to properly parse the values of a specific CS
 
 - `value1, value2, value3`
 - `value1, value2, 123` (Last one is parsed as Integer in JSON)
-- `"value 1", "value 2", value 3` (Quoted values for Strings and quotes are optional.)
-- `"value 1"| "value 2"| value 3` (Using custom delimiters, e.g. `|` in this example)
+- `"value 1", "value 2", value 3` (Optional quoted values for Strings.)
+- `"value 1"| "value 2"| value 3` (Using custom delimiters, e.g. `|`)
 
 #### Syntax and Functions
 
@@ -12,7 +12,7 @@ The `parse_csv` expression is used to properly parse the values of a specific CS
 ... | parse_csv <fieldName> header=<headerValue> [delimiter=<delimiterValue>]
 ```
 
-Arguements:
+Arguments:
 
 - `fieldName`: Field name to parse.
 - `headerValue`: Must be a comma separated String in quotes (e.g. `"myfield1, myfield2, myfield3"`).  Represents the header values to be used as new field names for the parsed CSV encoded data.

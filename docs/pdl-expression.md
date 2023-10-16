@@ -13,6 +13,7 @@ Expressions are run per streaming event and the following expressions are availa
 - lookup
 - rex
 - parse_csv
+- parse_kv
 
 ### Query
 --8<-- "pdl_query_details.md"
@@ -37,3 +38,6 @@ Expressions are run per streaming event and the following expressions are availa
 
 ### Parse CSV
 --8<-- "pdl_parsecsv_details.md"
+
+### Parse KV
+--8<-- "pdl_parsekv_details.md"
