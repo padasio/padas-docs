@@ -1408,15 +1408,15 @@
 <h2 id="expressions">Expressions</h2>
 <p>Expressions are run per streaming event and the following expressions are available in PDL.</p>
 <ul>
-<li>query</li>
-<li>eval</li>
-<li>fields</li>
-<li>rename</li>
-<li>flatten</li>
-<li>lookup</li>
-<li>rex</li>
-<li>parse_csv</li>
-<li>parse_kv</li>
+<li><a href="#query">query</a></li>
+<li><a href="#eval">eval</a></li>
+<li><a href="#fields">fields</a></li>
+<li><a href="#rename">rename</a></li>
+<li><a href="#flatten">flatten</a></li>
+<li><a href="#lookup">lookup</a></li>
+<li><a href="#rex">rex</a></li>
+<li><a href="#parse-csv">parse_csv</a></li>
+<li><a href="#parse-kv">parse_kv</a></li>
 </ul>
 <h3 id="query">Query</h3>
 <h4 id="description">Description</h4>
@@ -2009,7 +2009,7 @@ field1=&quot;*&quot;
 <h4 id="syntax-and-functions_2">Syntax and Functions</h4>
 <div class="highlight"><pre><span></span><code>... <span class="p">|</span> parse_csv &lt;fieldName&gt; <span class="nv">header</span><span class="o">=</span>&lt;headerValue&gt; <span class="o">[</span><span class="nv">delimiter</span><span class="o">=</span>&lt;delimiterValue&gt;<span class="o">]</span>
 </code></pre></div>
-<p>Arguments:</p>
+<p><em>Arguments</em></p>
 <ul>
 <li><code>fieldName</code>: Field name to parse.</li>
 <li><code>headerValue</code>: Must be a comma separated String in quotes (e.g. <code>"myfield1, myfield2, myfield3"</code>).  Represents the header values to be used as new field names for the parsed CSV encoded data.</li>
@@ -2095,7 +2095,7 @@ field1=&quot;*&quot;
 <h4 id="syntax-and-functions_3">Syntax and Functions</h4>
 <div class="highlight"><pre><span></span><code>... <span class="p">|</span> parse_kv &lt;fieldName&gt; <span class="o">[</span><span class="nv">delimiter</span><span class="o">=</span>&lt;delimiterValue&gt;<span class="o">]</span>
 </code></pre></div>
-<p>Arguments:</p>
+<p><em>Arguments</em></p>
 <ul>
 <li><code>fieldName</code>: Field name to parse.</li>
 <li><code>delimiterValue</code>: Must be a String in quotes (e.g. <code>":"</code>).  Delimiter value to use for KV encoded data.  Default is <code>"="</code></li>
