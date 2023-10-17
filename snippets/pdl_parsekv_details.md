@@ -12,7 +12,7 @@ The `parse_kv` expression is used to properly parse the values of a specific Key
 ... | parse_kv <fieldName> [delimiter=<delimiterValue>]
 ```
 
-Arguments:
+_Arguments_
 
 - `fieldName`: Field name to parse.
 - `delimiterValue`: Must be a String in quotes (e.g. `":"`).  Delimiter value to use for KV encoded data.  Default is `"="`

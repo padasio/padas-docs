@@ -12,7 +12,7 @@ The `parse_csv` expression is used to properly parse the values of a specific CS
 ... | parse_csv <fieldName> header=<headerValue> [delimiter=<delimiterValue>]
 ```
 
-Arguments:
+_Arguments_
 
 - `fieldName`: Field name to parse.
 - `headerValue`: Must be a comma separated String in quotes (e.g. `"myfield1, myfield2, myfield3"`).  Represents the header values to be used as new field names for the parsed CSV encoded data.

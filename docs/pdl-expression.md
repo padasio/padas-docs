@@ -5,15 +5,15 @@ title: PDL Expressions
 ## Expressions
 Expressions are run per streaming event and the following expressions are available in PDL.
 
-- query
-- eval
-- fields
-- rename
-- flatten
-- lookup
-- rex
-- parse_csv
-- parse_kv
+- [query](#query)
+- [eval](#eval)
+- [fields](#fields)
+- [rename](#rename)
+- [flatten](#flatten)
+- [lookup](#lookup)
+- [rex](#rex)
+- [parse_csv](#parse-csv)
+- [parse_kv](#parse-kv)
 
 ### Query
 --8<-- "pdl_query_details.md"
