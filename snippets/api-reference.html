@@ -109,6 +109,11 @@ table {
 <li><a href="#_refresh_token_get_apitokenrefresh">Refresh Token: <code>GET /api/token/refresh</code></a></li>
 </ul>
 </li>
+<li><a href="#_config">Config</a>
+<ul class="sectlevel2">
+<li><a href="#_read_get_apiconfigserde">Read: <code>GET /api/config/serde</code></a></li>
+</ul>
+</li>
 <li><a href="#_engine">Engine</a>
 <ul class="sectlevel2">
 <li><a href="#_state_get_apienginestate">State: <code>GET /api/engine/state</code></a></li>
@@ -904,6 +909,82 @@ Content-Length: 49
 </div>
 </div>
 <div class="sect1">
+<h2 id="_config"><a class="link" href="#_config">Config</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This REST endpoint provides information on engine configuration values.</p>
+</div>
+<div class="sect2">
+<h3 id="_read_get_apiconfigserde"><a class="link" href="#_read_get_apiconfigserde">Read: <code>GET /api/config/serde</code></a></h3>
+<div class="paragraph">
+<p>Read available/supported Serializer and Deserializer information for any consumer, producer or stream process in relation to a topic.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. response fields</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>serde</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the list of supported SerDe strings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>serializer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the list of supported Serializer strings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deserializer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the list of supported Deserializer strings.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">request example (success)</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/config/serde HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4OTk5L2FwaS9sb2dpbiIsImV4cCI6MTY5ODQ3OTg1MH0.11m_KMS3WocCZttrKb9zezzzpMe3X9qazmAR9YrkuMQ
+Host: localhost:8999</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response example (success)</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 1670
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+  "serde" : [ "org.apache.kafka.common.serialization.Serdes$FloatSerde", "org.apache.kafka.common.serialization.Serdes$ByteArraySerde", "org.apache.kafka.common.serialization.Serdes$BytesSerde", "org.apache.kafka.common.serialization.Serdes$ByteBufferSerde", "org.apache.kafka.common.serialization.Serdes$DoubleSerde", "org.apache.kafka.common.serialization.Serdes$IntegerSerde", "org.apache.kafka.common.serialization.Serdes$LongSerde", "org.apache.kafka.common.serialization.Serdes$StringSerde", "org.apache.kafka.common.serialization.Serdes$UUIDSerde" ],
+  "serializer" : [ "org.apache.kafka.common.serialization.FloatSerializer", "org.apache.kafka.common.serialization.ByteArraySerializer", "org.apache.kafka.common.serialization.BytesSerializer", "org.apache.kafka.common.serialization.ByteBufferSerializer", "org.apache.kafka.common.serialization.DoubleSerializer", "org.apache.kafka.common.serialization.IntegerSerializer", "org.apache.kafka.common.serialization.LongSerializer", "org.apache.kafka.common.serialization.StringSerializer", "org.apache.kafka.common.serialization.UUIDSerializer" ],
+  "deserializer" : [ "org.apache.kafka.common.serialization.FloatDeserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer", "org.apache.kafka.common.serialization.BytesDeserializer", "org.apache.kafka.common.serialization.ByteBufferDeserializer", "org.apache.kafka.common.serialization.DoubleDeserializer", "org.apache.kafka.common.serialization.IntegerDeserializer", "org.apache.kafka.common.serialization.LongDeserializer", "org.apache.kafka.common.serialization.StringDeserializer", "org.apache.kafka.common.serialization.UUIDDeserializer" ]
+}</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_engine"><a class="link" href="#_engine">Engine</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -915,7 +996,7 @@ Content-Length: 49
 <p>Read current state based on <a href="https://docs.confluent.io/platform/current/streams/javadocs/javadoc/org/apache/kafka/streams/KafkaStreams.State.html" class="bare">https://docs.confluent.io/platform/current/streams/javadocs/javadoc/org/apache/kafka/streams/KafkaStreams.State.html</a></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. request headers</caption>
+<caption class="title">Table 10. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -934,7 +1015,7 @@ Content-Length: 49
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. response fields</caption>
+<caption class="title">Table 11. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -989,7 +1070,7 @@ Content-Length: 30
 <p>Stop the engine.  If it&#8217;s already stopped it should return the same result.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. request headers</caption>
+<caption class="title">Table 12. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1008,7 +1089,7 @@ Content-Length: 30
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. response fields</caption>
+<caption class="title">Table 13. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1090,7 +1171,7 @@ Content-Length: 34
 <p>Start the engine.  The engine must be in <code>NOT_RUNNING</code> state.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. request headers</caption>
+<caption class="title">Table 14. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1109,7 +1190,7 @@ Content-Length: 34
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. response fields</caption>
+<caption class="title">Table 15. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1173,7 +1254,7 @@ Content-Length: 34
 <p>Create a new topic.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. request headers</caption>
+<caption class="title">Table 16. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1192,7 +1273,7 @@ Content-Length: 34
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. request fields</caption>
+<caption class="title">Table 17. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1229,7 +1310,7 @@ Content-Length: 34
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. response fields</caption>
+<caption class="title">Table 18. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1349,7 +1430,7 @@ Content-Length: 306
 <p>Read all topic names as a list without details.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. request headers</caption>
+<caption class="title">Table 19. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1399,7 +1480,7 @@ Content-Length: 916
 <p>Read one topic information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. request headers</caption>
+<caption class="title">Table 20. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1418,7 +1499,7 @@ Content-Length: 916
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. /api/topics/{name}</caption>
+<caption class="title">Table 21. /api/topics/{name}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1437,7 +1518,7 @@ Content-Length: 916
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. response fields</caption>
+<caption class="title">Table 22. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1566,7 +1647,7 @@ Content-Length: 117
 <p>Delete a specific topic.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 22. /api/topics/{name}</caption>
+<caption class="title">Table 23. /api/topics/{name}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1641,7 +1722,7 @@ Content-Length: 118
 <p>Bulk update/create a list of topics.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 23. request headers</caption>
+<caption class="title">Table 24. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1660,7 +1741,7 @@ Content-Length: 118
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 24. request fields</caption>
+<caption class="title">Table 25. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1697,7 +1778,7 @@ Content-Length: 118
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 25. response fields</caption>
+<caption class="title">Table 26. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1827,7 +1908,7 @@ Content-Length: 266
 <p>Write messages to the topic.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 26. request headers</caption>
+<caption class="title">Table 27. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1846,7 +1927,7 @@ Content-Length: 266
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 27. /api/topics/{name}/produce</caption>
+<caption class="title">Table 28. /api/topics/{name}/produce</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1865,7 +1946,7 @@ Content-Length: 266
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 28. request fields</caption>
+<caption class="title">Table 29. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1907,7 +1988,7 @@ Content-Length: 266
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 29. response fields</caption>
+<caption class="title">Table 30. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2020,7 +2101,7 @@ Content-Length: 139
 <p>Create a consumer for reading messages from a topic.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 30. request headers</caption>
+<caption class="title">Table 31. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2039,7 +2120,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 31. /api/topics/{name}/consume</caption>
+<caption class="title">Table 32. /api/topics/{name}/consume</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2058,7 +2139,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 32. request fields</caption>
+<caption class="title">Table 33. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2100,7 +2181,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 33. response fields</caption>
+<caption class="title">Table 34. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2205,7 +2286,7 @@ Content-Length: 139
 <p>Read/Consume messages from a topic where the consumer is created with <code>POST</code> request.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 34. request headers</caption>
+<caption class="title">Table 35. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2224,7 +2305,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 35. /api/topics/{name}/consume</caption>
+<caption class="title">Table 36. /api/topics/{name}/consume</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2243,7 +2324,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 36. request fields</caption>
+<caption class="title">Table 37. request fields</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2262,7 +2343,7 @@ Content-Length: 139
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 37. response fields</caption>
+<caption class="title">Table 38. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2348,7 +2429,7 @@ X-Frame-Options: DENY
 <p>Create a new user.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 38. request headers</caption>
+<caption class="title">Table 39. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2367,7 +2448,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 39. request fields</caption>
+<caption class="title">Table 40. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2414,7 +2495,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 40. response fields</caption>
+<caption class="title">Table 41. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2554,7 +2635,7 @@ Content-Length: 172
 <p>Read all users.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 41. request headers</caption>
+<caption class="title">Table 42. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2573,7 +2654,7 @@ Content-Length: 172
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 42. response fields</caption>
+<caption class="title">Table 43. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2664,7 +2745,7 @@ Content-Length: 151
 <p>Read one user information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 43. request headers</caption>
+<caption class="title">Table 44. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2683,7 +2764,7 @@ Content-Length: 151
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 44. /api/users/{username}</caption>
+<caption class="title">Table 45. /api/users/{username}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2702,7 +2783,7 @@ Content-Length: 151
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 45. response fields</caption>
+<caption class="title">Table 46. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2817,7 +2898,7 @@ Content-Length: 119
 <p>Update a specific user.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 46. request headers</caption>
+<caption class="title">Table 47. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2836,7 +2917,7 @@ Content-Length: 119
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 47. /api/users/{username}</caption>
+<caption class="title">Table 48. /api/users/{username}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2855,7 +2936,7 @@ Content-Length: 119
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 48. request fields</caption>
+<caption class="title">Table 49. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2902,7 +2983,7 @@ Content-Length: 119
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 49. response fields</caption>
+<caption class="title">Table 50. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3041,7 +3122,7 @@ Content-Length: 119
 <p>Delete a specific user.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 50. /api/users/{username}</caption>
+<caption class="title">Table 51. /api/users/{username}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3125,7 +3206,7 @@ Content-Length: 148
 <p>Read all nodes.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 51. request headers</caption>
+<caption class="title">Table 52. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3144,7 +3225,7 @@ Content-Length: 148
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 52. response fields</caption>
+<caption class="title">Table 53. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3222,7 +3303,7 @@ Content-Length: 147
 <p>Read one user information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 53. request headers</caption>
+<caption class="title">Table 54. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3241,7 +3322,7 @@ Content-Length: 147
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 54. /api/nodes/{id}</caption>
+<caption class="title">Table 55. /api/nodes/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3260,7 +3341,7 @@ Content-Length: 147
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 55. response fields</caption>
+<caption class="title">Table 56. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3362,7 +3443,7 @@ Content-Length: 116
 <p>Delete a specific node.  The ID must match the UUID of the node that is receiving the request.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 56. /api/nodes/{id}</caption>
+<caption class="title">Table 57. /api/nodes/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3446,7 +3527,7 @@ Content-Length: 186
 <p>Create a new task.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 57. request headers</caption>
+<caption class="title">Table 58. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3465,7 +3546,7 @@ Content-Length: 186
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 58. request fields</caption>
+<caption class="title">Table 59. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3507,7 +3588,7 @@ Content-Length: 186
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 59. response fields</caption>
+<caption class="title">Table 60. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3645,7 +3726,7 @@ Content-Length: 172
 <p>Read all tasks.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 60. request headers</caption>
+<caption class="title">Table 61. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3664,7 +3745,7 @@ Content-Length: 172
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 61. response fields</caption>
+<caption class="title">Table 62. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3746,7 +3827,7 @@ X-Frame-Options: DENY
 <p>Read one task information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 62. request headers</caption>
+<caption class="title">Table 63. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3765,7 +3846,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 63. /api/tasks/{id}</caption>
+<caption class="title">Table 64. /api/tasks/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3784,7 +3865,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 64. response fields</caption>
+<caption class="title">Table 65. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3895,7 +3976,7 @@ Content-Length: 116
 <p>Update a specific task.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 65. request headers</caption>
+<caption class="title">Table 66. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3914,7 +3995,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 66. /api/tasks/{id}</caption>
+<caption class="title">Table 67. /api/tasks/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3933,7 +4014,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 67. request fields</caption>
+<caption class="title">Table 68. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3975,7 +4056,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 68. response fields</caption>
+<caption class="title">Table 69. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4112,7 +4193,7 @@ Content-Length: 152
 <p>Delete a specific task.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 69. /api/tasks/{id}</caption>
+<caption class="title">Table 70. /api/tasks/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4187,7 +4268,7 @@ Content-Length: 117
 <p>Bulk update/create a list of tasks.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 70. request headers</caption>
+<caption class="title">Table 71. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4206,7 +4287,7 @@ Content-Length: 117
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 71. request fields</caption>
+<caption class="title">Table 72. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4248,7 +4329,7 @@ Content-Length: 117
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 72. response fields</caption>
+<caption class="title">Table 73. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4409,7 +4490,7 @@ Content-Length: 146
 <p>Create a new pipeline.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 73. request headers</caption>
+<caption class="title">Table 74. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4428,7 +4509,7 @@ Content-Length: 146
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 74. request fields</caption>
+<caption class="title">Table 75. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4465,7 +4546,7 @@ Content-Length: 146
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 75. response fields</caption>
+<caption class="title">Table 76. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4586,7 +4667,7 @@ Content-Length: 176
 <p>Read all pipelines.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 76. request headers</caption>
+<caption class="title">Table 77. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4605,7 +4686,7 @@ Content-Length: 176
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 77. response fields</caption>
+<caption class="title">Table 78. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4678,7 +4759,7 @@ Content-Length: 124
 <p>Read one pipeline information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 78. request headers</caption>
+<caption class="title">Table 79. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4697,7 +4778,7 @@ Content-Length: 124
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 79. /api/pipelines/{id}</caption>
+<caption class="title">Table 80. /api/pipelines/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4716,7 +4797,7 @@ Content-Length: 124
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 80. response fields</caption>
+<caption class="title">Table 81. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4818,7 +4899,7 @@ Content-Length: 120
 <p>Update a specific pipeline.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 81. request headers</caption>
+<caption class="title">Table 82. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4837,7 +4918,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 82. /api/pipelines/{id}</caption>
+<caption class="title">Table 83. /api/pipelines/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4856,7 +4937,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 83. request fields</caption>
+<caption class="title">Table 84. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4893,7 +4974,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 84. response fields</caption>
+<caption class="title">Table 85. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5013,7 +5094,7 @@ Content-Length: 156
 <p>Delete a specific pipeline.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 85. /api/pipelines/{id}</caption>
+<caption class="title">Table 86. /api/pipelines/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5088,7 +5169,7 @@ Content-Length: 121
 <p>Bulk update/create a list of pipelines.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 86. request headers</caption>
+<caption class="title">Table 87. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5107,7 +5188,7 @@ Content-Length: 121
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 87. request fields</caption>
+<caption class="title">Table 88. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5144,7 +5225,7 @@ Content-Length: 121
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 88. response fields</caption>
+<caption class="title">Table 89. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5291,7 +5372,7 @@ Content-Length: 150
 <p>Create a new topology.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 89. request headers</caption>
+<caption class="title">Table 90. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5310,7 +5391,7 @@ Content-Length: 150
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 90. request fields</caption>
+<caption class="title">Table 91. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5367,7 +5448,7 @@ Content-Length: 150
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 91. response fields</caption>
+<caption class="title">Table 92. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5520,7 +5601,7 @@ Content-Length: 176
 <p>Read all topologies.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 92. request headers</caption>
+<caption class="title">Table 93. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5539,7 +5620,7 @@ Content-Length: 176
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 93. response fields</caption>
+<caption class="title">Table 94. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5636,7 +5717,7 @@ Content-Length: 229
 <p>Read one topology information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 94. request headers</caption>
+<caption class="title">Table 95. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5655,7 +5736,7 @@ Content-Length: 229
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 95. /api/topologies/{id}</caption>
+<caption class="title">Table 96. /api/topologies/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5674,7 +5755,7 @@ Content-Length: 229
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 96. response fields</caption>
+<caption class="title">Table 97. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5800,7 +5881,7 @@ Content-Length: 120
 <p>Update a specific topology.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 97. request headers</caption>
+<caption class="title">Table 98. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5819,7 +5900,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 98. /api/topologies/{id}</caption>
+<caption class="title">Table 99. /api/topologies/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5838,7 +5919,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 99. request fields</caption>
+<caption class="title">Table 100. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5895,7 +5976,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 100. response fields</caption>
+<caption class="title">Table 101. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6047,7 +6128,7 @@ Content-Length: 156
 <p>Delete a specific topology.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 101. /api/topologies/{id}</caption>
+<caption class="title">Table 102. /api/topologies/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6122,7 +6203,7 @@ Content-Length: 121
 <p>Bulk update/create a list of topologies.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 102. request headers</caption>
+<caption class="title">Table 103. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6141,7 +6222,7 @@ Content-Length: 121
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 103. request fields</caption>
+<caption class="title">Table 104. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6198,7 +6279,7 @@ Content-Length: 121
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 104. response fields</caption>
+<caption class="title">Table 105. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6389,7 +6470,7 @@ Content-Length: 151
 <p>Create a new rule.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 105. request headers</caption>
+<caption class="title">Table 106. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6408,7 +6489,7 @@ Content-Length: 151
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 106. request fields</caption>
+<caption class="title">Table 107. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6455,7 +6536,7 @@ Content-Length: 151
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 107. response fields</caption>
+<caption class="title">Table 108. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6592,7 +6673,7 @@ Content-Length: 172
 <p>Read all rules.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 108. request headers</caption>
+<caption class="title">Table 109. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6611,7 +6692,7 @@ Content-Length: 172
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 109. response fields</caption>
+<caption class="title">Table 110. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6696,7 +6777,7 @@ Content-Length: 215
 <p>Read one rule information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 110. request headers</caption>
+<caption class="title">Table 111. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6715,7 +6796,7 @@ Content-Length: 215
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 111. /api/rules/{id}</caption>
+<caption class="title">Table 112. /api/rules/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6734,7 +6815,7 @@ Content-Length: 215
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 112. response fields</caption>
+<caption class="title">Table 113. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6848,7 +6929,7 @@ Content-Length: 116
 <p>Update a specific rule.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 113. request headers</caption>
+<caption class="title">Table 114. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6867,7 +6948,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 114. /api/rules/{id}</caption>
+<caption class="title">Table 115. /api/rules/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6886,7 +6967,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 115. request fields</caption>
+<caption class="title">Table 116. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -6933,7 +7014,7 @@ Content-Length: 116
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 116. response fields</caption>
+<caption class="title">Table 117. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7069,7 +7150,7 @@ Content-Length: 152
 <p>Delete a specific rule.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 117. /api/rules/{id}</caption>
+<caption class="title">Table 118. /api/rules/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7144,7 +7225,7 @@ Content-Length: 117
 <p>Bulk update/create a list of rules.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 118. request headers</caption>
+<caption class="title">Table 119. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7163,7 +7244,7 @@ Content-Length: 117
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 119. request fields</caption>
+<caption class="title">Table 120. request fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7210,7 +7291,7 @@ Content-Length: 117
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 120. response fields</caption>
+<caption class="title">Table 121. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7379,7 +7460,7 @@ Content-Length: 146
 <p>Create a new lookup.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 121. request headers</caption>
+<caption class="title">Table 122. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7398,7 +7479,7 @@ Content-Length: 146
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 122. request parameters</caption>
+<caption class="title">Table 123. request parameters</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7417,7 +7498,7 @@ Content-Length: 146
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 123. request parts</caption>
+<caption class="title">Table 124. request parts</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7436,7 +7517,7 @@ Content-Length: 146
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 124. response fields</caption>
+<caption class="title">Table 125. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7551,7 +7632,7 @@ Content-Length: 174
 <p>Read all lookups.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 125. request headers</caption>
+<caption class="title">Table 126. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7570,7 +7651,7 @@ Content-Length: 174
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 126. response fields</caption>
+<caption class="title">Table 127. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7639,7 +7720,7 @@ Content-Length: 184
 <p>Read one lookup information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 127. request headers</caption>
+<caption class="title">Table 128. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7658,7 +7739,7 @@ Content-Length: 184
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 128. /api/lookups/{id}</caption>
+<caption class="title">Table 129. /api/lookups/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7677,7 +7758,7 @@ Content-Length: 184
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 129. response fields</caption>
+<caption class="title">Table 130. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7775,7 +7856,7 @@ Content-Length: 118
 <p>Update a specific lookup.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 130. request headers</caption>
+<caption class="title">Table 131. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7794,7 +7875,7 @@ Content-Length: 118
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 131. /api/lookups/{id}</caption>
+<caption class="title">Table 132. /api/lookups/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7813,7 +7894,7 @@ Content-Length: 118
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 132. request parts</caption>
+<caption class="title">Table 133. request parts</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7832,7 +7913,7 @@ Content-Length: 118
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 133. response fields</caption>
+<caption class="title">Table 134. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -7932,7 +8013,7 @@ Content-Length: 154
 <p>Delete a specific lookup.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 134. /api/lookups/{id}</caption>
+<caption class="title">Table 135. /api/lookups/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8017,7 +8098,7 @@ Request body contains the payload for the given test.  For example, for a Rule t
 <p><code>id</code> represents the rule to be tested for the given payload.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 135. request headers</caption>
+<caption class="title">Table 136. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8036,7 +8117,7 @@ Request body contains the payload for the given test.  For example, for a Rule t
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 136. response fields</caption>
+<caption class="title">Table 137. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8138,7 +8219,7 @@ X-Frame-Options: DENY
 <p><code>id</code> represents the task to be tested for the given payload.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 137. request headers</caption>
+<caption class="title">Table 138. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8157,7 +8238,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 138. response fields</caption>
+<caption class="title">Table 139. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8265,7 +8346,7 @@ X-Frame-Options: DENY
 <p><code>id</code> represents the pipeline to be tested for the given payload.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 139. request headers</caption>
+<caption class="title">Table 140. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8284,7 +8365,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 140. response fields</caption>
+<caption class="title">Table 141. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8378,7 +8459,7 @@ Content-Length: 120
 <div class="sect2">
 <h3 id="_testing_a_pdl_post_apitestpdl"><a class="link" href="#_testing_a_pdl_post_apitestpdl">Testing a PDL: <code>POST /api/test/pdl</code></a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 141. request headers</caption>
+<caption class="title">Table 142. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8397,7 +8478,7 @@ Content-Length: 120
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 142. response fields</caption>
+<caption class="title">Table 143. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8459,7 +8540,7 @@ X-Frame-Options: DENY
 <div class="sect2">
 <h3 id="_testing_a_pdl_syntax_post_apitestpdlsyntax"><a class="link" href="#_testing_a_pdl_syntax_post_apitestpdlsyntax">Testing a PDL Syntax: <code>POST /api/test/pdl/syntax</code></a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 143. request headers</caption>
+<caption class="title">Table 144. request headers</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8478,7 +8559,7 @@ X-Frame-Options: DENY
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 144. response fields</caption>
+<caption class="title">Table 145. response fields</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8547,7 +8628,7 @@ X-Frame-Options: DENY
 <div id="footer">
 <div id="footer-text">
 Version 0.0.5<br>
-Last updated 2023-08-07 17:55:16 +0300
+Last updated 2023-10-28 10:46:48 +0300
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
