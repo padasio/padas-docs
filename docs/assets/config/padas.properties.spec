@@ -17,13 +17,6 @@ padas.uuid=
 # N/A - Automatically assigned
 # Universally Unique Identifier for this instance.  Created upon initial start.
 
-padas.license=
-# Required - <string>
-# License string should be a pipe '|' delimited string containing
-# version, entitlement, start date, end date, quota, type, and signature
-# Default: none
-
-
 ####################################
 # Optional Settings
 ####################################
@@ -46,21 +39,20 @@ padas.group=default
 ####################################
 # Advanced Settings
 ####################################
-padas.state.dir=/opt/padas/var/padas-streams-global-stores
+padas.config.store=rocksdb
 # Optional - <string>
-# State store directory to keep local RocksDB data
-# Default: ${padas.home}/var/padas-streams-global-stores
+# Configuration store setting, possible options: rocksdb, kafka
+# Default: rocksdb
 
-padas.log.dir=/opt/padas/var/logs
+padas.config.location=/opt/padas/var/config
 # Optional - <string>
-# Directory for logs
-# Default: ${padas.home}/var/logs
+# State store directory to keep local RocksDB data.  If it is a clustered RocksDB, provide the URL (e.g. "http://localhost:2379")
+# Default: ${padas.home}/var/config
 
-num.stream.threads=1
+num.stream.threads=10
 # Optional - <integer>
 # Number of threads to run in parallel for this streaming instance.  
-# This setting is only applicable for 'detect' and 'transform' roles
-# Default: 1
+# Default: 10
 
 ####################################
 # SETTINGS FOR REST API
