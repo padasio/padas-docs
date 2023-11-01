@@ -983,7 +983,6 @@
 <span class="c1"># N/A - Automatically assigned</span>
 <span class="c1"># Universally Unique Identifier for this instance.  Created upon initial start.</span>
 
-
 <span class="c1">####################################</span>
 <span class="c1"># Optional Settings</span>
 <span class="c1">####################################</span>
@@ -1006,15 +1005,15 @@
 <span class="c1">####################################</span>
 <span class="c1"># Advanced Settings</span>
 <span class="c1">####################################</span>
-<span class="na">padas.state.dir</span><span class="o">=</span><span class="s">/opt/padas/var/padas-streams-global-stores</span>
+<span class="na">padas.config.store</span><span class="o">=</span><span class="s">rocksdb</span>
 <span class="c1"># Optional - &lt;string&gt;</span>
-<span class="c1"># State store directory to keep local RocksDB data</span>
-<span class="c1"># Default: ${padas.home}/var/padas-streams-global-stores</span>
+<span class="c1"># Configuration store setting, possible options: rocksdb, kafka</span>
+<span class="c1"># Default: rocksdb</span>
 
-<span class="na">padas.log.dir</span><span class="o">=</span><span class="s">/opt/padas/var/logs</span>
+<span class="na">padas.config.location</span><span class="o">=</span><span class="s">/opt/padas/var/config</span>
 <span class="c1"># Optional - &lt;string&gt;</span>
-<span class="c1"># Directory for logs</span>
-<span class="c1"># Default: ${padas.home}/var/logs</span>
+<span class="c1"># State store directory to keep local RocksDB data.  If it is a clustered RocksDB, provide the URL (e.g. &quot;http://localhost:2379&quot;)</span>
+<span class="c1"># Default: ${padas.home}/var/config</span>
 
 <span class="na">num.stream.threads</span><span class="o">=</span><span class="s">10</span>
 <span class="c1"># Optional - &lt;integer&gt;</span>
@@ -1027,12 +1026,12 @@
 
 <span class="na">server.port</span><span class="o">=</span><span class="s">8999</span>
 <span class="c1"># Optional - &lt;integer&gt;</span>
-<span class="c1"># Port number for REST API</span>
+<span class="c1"># Port number for Manager web interface</span>
 <span class="c1"># Default: 8999</span>
 
 <span class="na">server.ssl.enabled</span><span class="o">=</span><span class="s">true</span>
 <span class="c1"># Optional - &lt;boolean&gt;</span>
-<span class="c1"># Enable SSL with the server.ssl.* configuration</span>
+<span class="c1"># Enable SSL for Manager web interface with the server.ssl.* configuration</span>
 <span class="c1"># Default: true</span>
 
 <span class="na">server.ssl.key-alias</span><span class="o">=</span><span class="s">padas</span>

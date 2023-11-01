@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#version-004" class="md-skip">
+        <a href="#version-005" class="md-skip">
           Skip to content
         </a>
       
@@ -849,11 +849,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#version-004" class="md-nav__link">
-    Version 0.0.4
+  <a href="#version-005" class="md-nav__link">
+    Version 0.0.5
   </a>
   
-    <nav class="md-nav" aria-label="Version 0.0.4">
+    <nav class="md-nav" aria-label="Version 0.0.5">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -923,11 +923,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#version-004" class="md-nav__link">
-    Version 0.0.4
+  <a href="#version-005" class="md-nav__link">
+    Version 0.0.5
   </a>
   
-    <nav class="md-nav" aria-label="Version 0.0.4">
+    <nav class="md-nav" aria-label="Version 0.0.5">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -973,8 +973,8 @@
 
   <h1>Release Notes</h1>
 
-<h3 id="version-004">Version 0.0.4</h3>
-<p><strong>Release Date</strong>: 11.09.2023</p>
+<h3 id="version-005">Version 0.0.5</h3>
+<p><strong>Release Date</strong>: 06.11.2023</p>
 <h4 id="whats-new">What's New?</h4>
 <table>
 <thead>
@@ -985,8 +985,32 @@
 </thead>
 <tbody>
 <tr>
-<td>Topics initialization REST API</td>
-<td>New API endpoint that describes all required topics and returns <code>true</code> or <code>false</code>.</td>
+<td>PDL Expression commands for field extraction.</td>
+<td>New PDL commands perform additional field extractions on specific JSON fields: <code>rex</code>, <code>parse_csv</code>, <code>parse_kv</code></td>
+</tr>
+<tr>
+<td>PDL Operator for regex based query matching.</td>
+<td>New operator, <code>~=</code>, allows query matching based on regular expression patterns.</td>
+</tr>
+<tr>
+<td>Topics UI and API update</td>
+<td>Topics UI and API allow Create, Read, Delete operations on Kafka topics.</td>
+</tr>
+<tr>
+<td>Produce messages to a topic.</td>
+<td>Produce a message to a given topic from UI.</td>
+</tr>
+<tr>
+<td>Consume messages from a topic.</td>
+<td>Subscribe and consume messages from a topic to visualize streaming event activity.</td>
+</tr>
+<tr>
+<td>Embedded configuration without topic creation.</td>
+<td>No need to create topics upon initial installation.  Padas configuration attribute <code>padas.config.store</code> supports both local (<code>rocksdb</code>) and compacted topic (<code>kafka</code>) based setup.</td>
+</tr>
+<tr>
+<td>Define SerDe information for Topology topics.</td>
+<td>When creating Topologies, it's possible to specify SerDe (Serializer/Deserializer) information for both key and value.</td>
 </tr>
 </tbody>
 </table>
@@ -1001,14 +1025,9 @@
 </thead>
 <tbody>
 <tr>
-<td>14.04.2023</td>
-<td>PADAS-71</td>
-<td>After initial login, check for required topics is not performed.</td>
-</tr>
-<tr>
-<td>26.07.2023</td>
-<td>PADAS-137</td>
-<td>For <code>PARSE_KV</code>, <code>PARSE_CSV</code>, and <code>EXTRACT</code> Task definitions, <code>field</code> option is unused.  This option performs extraction/parsing on a specific field value.</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1023,29 +1042,24 @@
 </thead>
 <tbody>
 <tr>
-<td>07.07.2023</td>
-<td>PADAS-78</td>
-<td>UI lookup definition CRUD functionality is missing.</td>
+<td>20.09.2023</td>
+<td>PADAS-71</td>
+<td>After initial login, check for required topics is not performed.</td>
 </tr>
 <tr>
-<td>28.08.2023</td>
-<td>PADAS-135</td>
-<td>Error occurs when running multiple topologies.</td>
+<td>29.09.2023</td>
+<td>PADAS-137</td>
+<td>For <code>PARSE_KV</code>, <code>PARSE_CSV</code>, and <code>EXTRACT</code> Task definitions, <code>field</code> option is unused.  This option performs extraction/parsing on a specific field value.</td>
 </tr>
 <tr>
-<td>04.09.2023</td>
-<td>PADAS-161</td>
-<td>Updated JSON Schema for FILTER Task REST API to make <code>action</code> field mandatory.</td>
+<td>20.09.2023</td>
+<td>PADAS-164</td>
+<td>The engine does not start if there are no topics.</td>
 </tr>
 <tr>
-<td>12.07.2023</td>
-<td>PADAS-103</td>
-<td>Default and optional values should not be required in the forms.</td>
-</tr>
-<tr>
-<td>11.09.2023</td>
-<td>N/A multiple</td>
-<td>Created and updated unit and integration tests to cover multiple scenarios.</td>
+<td>30.10.2023</td>
+<td>PADAS-172</td>
+<td>UI fails to start with emtpy <code>local.json</code> configuration file.</td>
 </tr>
 </tbody>
 </table>
