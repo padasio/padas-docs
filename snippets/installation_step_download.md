@@ -1,4 +1,3 @@
-#### Step 1: Download
 1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and UI components applicable to your platform.
 
     ```bash 

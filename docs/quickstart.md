@@ -8,8 +8,8 @@ Use Padas to perform streaming event data transformations and apply specific rul
 ### Prerequisites
 - Internet connectivity
 - Review [System Requirements](system-requirements.md)
-- Confluent Kafka must be installed and running (locally) as described in [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart).  
-- You should have at least Kafka and Zookeeper services up and running.
+- Kafka (Apache, Confluent Community, etc.) must be installed and running (locally) (e.g. [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart)).  
+- You should have at least Kafka Broker and Controller (or Zookeeper) services up and running.
     ```sh
     confluent local services status
     ...
@@ -46,38 +46,27 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 **NOTE**: For the purposes of demo, the goal is carried with multiple tasks, where as a simple `FILTER` function can be utilized as well.
 
 ---
-
+#### Step 1: Download
 --8<-- "installation_step_download.md"
 
+---
+
+#### Step 2: Start Engine
 --8<-- "installation_step_engine.md"
 
+---
+
+#### Step 3: Start UI
 --8<-- "installation_step_ui.md"
 
-#### Step 4: Create Topics
-In addition to required (Padas) topics we will create `test_input` and `test_output` topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.
+---
 
-1. **Create Padas Topics**: After initial login, from the left menu, click on [Topics](https://localhost:9000/topics).  For this demo, you can simply accept the defaults and click <span class="btn btn-padas">Create Topics</span> button
-
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
-    **IMPORTANT NOTE**: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via `CTRL-C`, and start it again.  You'll need to logout/login from the UI as well.
-    ```bash
-    bin/padas start-console
-    ```
-
-2. **Create Test Topics**: From the console, simply run the following commands to create `test_input` and `test_output` test topics with defaults.
-    ```bash
-    kafka-topics --bootstrap-server localhost:9092 --create --topic "test_input"
-    kafka-topics --bootstrap-server localhost:9092 --create --topic "test_output"
-    ```
-
-#### Step 5: Configure Padas
+#### Step 4: Configuration & Namespaces
+--8<-- "installation_step_configuration.md"
 
 ---
+
+#### Step 5: Configure Padas
 
 **TLDR;**
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.
@@ -192,6 +181,8 @@ Following steps will guide you through how to manually create these configuratio
       }
     }
     ```
+
+---
 
 #### Next Steps
 - [Install](installation.md) in production.

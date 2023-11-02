@@ -1,0 +1,1 @@
+By default, all configuration is stored locally and the user does not have to take any action other than editing desired configuation from Padas UI.

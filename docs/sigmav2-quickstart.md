@@ -5,11 +5,11 @@ layout: documentation
 
 ### What is Sigma
 
-[Sigma](https://github.com/SigmaHQ/sigma) rules are a simple, yet powerful way for security teams to detect and respond to threats using SIEM systems. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.
+[Sigma](https://github.com/SigmaHQ/sigma) rules are platform-agnostic and utilizing these rules is a simple, yet powerful way for security teams to detect and respond to threats using SIEM systems. They are written in a YAML-based format and allow teams to identify suspicious patterns and behaviors across multiple systems and data sources, providing a unified view of security events.
 
 Sigma rules offer several advantages over traditional detection rules, including platform-agnosticism, easy customization, and easy modification. They can be used with various SIEM systems, allowing teams to standardize their detection capabilities across their security stack and improve their overall security posture.
 
-While Sigma rules are platform-agnostic and can be used with various SIEM systems, it is also possible to convert them to other formats, such as Padas rules by utilizing [PDL](pdl-quick-reference.md). Padas [Sigma converter script](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) is a new open-source tool that allows users to convert Sigma rules into Padas PDL. The ability to convert Sigma rules to Padas rules offers significant benefits for security teams looking to enhance their detection and response capabilities.
+[Sigma v2 to Padas converter script](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas) is an open-source tool that allows users to convert Sigma rules into Padas [PDL](pdl-quick-reference.md). Utilizing PDL with real-time streaming event data offers significant benefits for security teams looking to enhance their detection and response capabilities.
 
 ### Sigma to Padas
 

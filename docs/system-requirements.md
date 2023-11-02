@@ -5,7 +5,7 @@ title: System Requirements
 --8<-- "sysreq_hardware.md"
 
 ### Software
---8<-- "sysreq_confluent.md"
+--8<-- "sysreq_kafka.md"
 
 ### Operating Systems
 --8<-- "sysreq_os.md"
