@@ -1277,8 +1277,8 @@
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
 <li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
-<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions.</li>
-<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events.</li>
+<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions. The input must be <code>JSON</code>.</li>
+<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
 </ul>
 <figure>
 <p>
@@ -1524,7 +1524,7 @@
 </table>
 <hr />
 <h3 id="rules">Rules</h3>
-<p>A rule is a PDL query that matches an event.  The goal is to associate a rule with a specific data model and assign one or more annotations (e.g. MITRE ATT&amp;CK technique IDs) for further processing by other analytics systems.</p>
+<p>A rule is a PDL <a href="../pdl-expression/">Expression</a> or <a href="../pdl-correlation/">Correlation</a> that performs query matching and/or aggregations on input events.  A rule can have additional annotations (e.g. MITRE ATT&amp;CK Technique IDs) for further processing by other analytics systems.  We've also created a tool for security practitioners to convert existing Sigma Rules to PDL (see <a href="https://github.com/padasio/padas-tools">padas-tools</a> repo for details).</p>
 <figure>
 <p>
   <img src="../assets/img/padas_ui_rules.png" class="img-fluid py-5 w-50">

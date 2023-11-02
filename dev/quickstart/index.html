@@ -328,8 +328,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-create-topics" class="md-nav__link">
-    Step 4: Create Topics
+  <a href="#step-4-configuration-namespaces" class="md-nav__link">
+    Step 4: Configuration &amp; Namespaces
   </a>
   
 </li>
@@ -996,8 +996,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-create-topics" class="md-nav__link">
-    Step 4: Create Topics
+  <a href="#step-4-configuration-namespaces" class="md-nav__link">
+    Step 4: Configuration &amp; Namespaces
   </a>
   
 </li>
@@ -1050,8 +1050,8 @@
 <ul>
 <li>Internet connectivity</li>
 <li>Review <a href="../system-requirements/">System Requirements</a></li>
-<li>Confluent Kafka must be installed and running (locally) as described in <a href="https://docs.confluent.io/platform/current/quickstart">Quick Start for Confluent Platform</a>.  </li>
-<li>You should have at least Kafka and Zookeeper services up and running.
+<li>Kafka (Apache, Confluent Community, etc.) must be installed and running (locally) (e.g. <a href="https://docs.confluent.io/platform/current/quickstart">Quick Start for Confluent Platform</a>).  </li>
+<li>You should have at least Kafka Broker and Controller (or Zookeeper) services up and running.
     <div class="highlight"><pre><span></span><code>confluent<span class="w"> </span><span class="nb">local</span><span class="w"> </span>services<span class="w"> </span>status
 ...
 Kafka<span class="w"> </span>is<span class="w"> </span><span class="o">[</span>UP<span class="o">]</span>
@@ -1097,6 +1097,7 @@ tar<span class="w"> </span>-xzf<span class="w"> </span>padas-ui-<span class="o">
 </li>
 </ol>
 <p>At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
+<hr />
 <h4 id="step-2-start-engine">Step 2: Start Engine</h4>
 <ol>
 <li>
@@ -1163,13 +1164,14 @@ INFO<span class="w">  </span>Starting<span class="w"> </span>App<span class="w">
 INFO<span class="w">  </span>No<span class="w"> </span>active<span class="w"> </span>profile<span class="w"> </span>set,<span class="w"> </span>falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>default<span class="w"> </span>profiles:<span class="w"> </span>default
 INFO<span class="w">  </span>Started<span class="w"> </span>App<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">12</span>.536<span class="w"> </span>seconds<span class="w"> </span><span class="o">(</span>JVM<span class="w"> </span>running<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">66</span>.174<span class="o">)</span>
 </code></pre></div></p>
-<p><strong>NOTE</strong>: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
+<p><strong>NOTE</strong>: If Padas is configured to utilize Kafka (<code>padas.config.store=kafka</code> in properties file) to store configurations you will need to create the required topics (configuration namespaces).  If not, you will receive a warning as following on the console.  </p>
 <div class="highlight"><pre><span></span><code>...
 WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </span>describe<span class="w"> </span>required<span class="w"> </span>topics<span class="w"> </span><span class="k">for</span><span class="w"> </span>Padas.<span class="w">  </span>Please<span class="w"> </span>create<span class="w"> </span>these<span class="w"> </span>topics<span class="w"> </span><span class="k">in</span><span class="w"> </span>order<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>engine.
 ...
-</code></pre></div></p>
+</code></pre></div>
 </li>
 </ol>
+<hr />
 <h4 id="step-3-start-ui">Step 3: Start UI</h4>
 <ol>
 <li>
@@ -1195,29 +1197,11 @@ WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </
 <p><strong>Login</strong>: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.</p>
 </li>
 </ol>
-<h4 id="step-4-create-topics">Step 4: Create Topics</h4>
-<p>In addition to required (Padas) topics we will create <code>test_input</code> and <code>test_output</code> topics for demo purposes.  You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
-<ol>
-<li>
-<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.  For this demo, you can simply accept the defaults and click <span class="btn btn-padas">Create Topics</span> button</p>
-<p><figure markdown>
-  <p>
-  <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
-  </p>
-</figure></p>
-<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to restart the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
-<div class="highlight"><pre><span></span><code>bin/padas<span class="w"> </span>start-console
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Create Test Topics</strong>: From the console, simply run the following commands to create <code>test_input</code> and <code>test_output</code> test topics with defaults.
-    <div class="highlight"><pre><span></span><code>kafka-topics<span class="w"> </span>--bootstrap-server<span class="w"> </span>localhost:9092<span class="w"> </span>--create<span class="w"> </span>--topic<span class="w"> </span><span class="s2">&quot;test_input&quot;</span>
-kafka-topics<span class="w"> </span>--bootstrap-server<span class="w"> </span>localhost:9092<span class="w"> </span>--create<span class="w"> </span>--topic<span class="w"> </span><span class="s2">&quot;test_output&quot;</span>
-</code></pre></div></p>
-</li>
-</ol>
-<h4 id="step-5-configure-padas">Step 5: Configure Padas</h4>
 <hr />
+<h4 id="step-4-configuration-namespaces">Step 4: Configuration &amp; Namespaces</h4>
+<p>By default, all configuration is stored locally and the user does not have to take any action other than editing desired configuation from Padas UI.</p>
+<hr />
+<h4 id="step-5-configure-padas">Step 5: Configure Padas</h4>
 <p><strong>TLDR;</strong>
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.</p>
 <ul>
@@ -1337,6 +1321,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 </code></pre></div></p>
 </li>
 </ol>
+<hr />
 <h4 id="next-steps">Next Steps</h4>
 <ul>
 <li><a href="../installation/">Install</a> in production.</li>

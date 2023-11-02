@@ -416,22 +416,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-topics" class="md-nav__link">
-    Create Topics
+  <a href="#step-4-configuration-namespaces" class="md-nav__link">
+    Step 4: Configuration &amp; Namespaces
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#register-as-a-service" class="md-nav__link">
-    Register as a Service
+  <a href="#step-5-register-as-a-service" class="md-nav__link">
+    Step 5: Register as a Service
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#padas-command-line-interface" class="md-nav__link">
-    PADAS Command Line Interface
+  <a href="#command-line-interface" class="md-nav__link">
+    Command Line Interface
   </a>
   
 </li>
@@ -961,22 +961,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-topics" class="md-nav__link">
-    Create Topics
+  <a href="#step-4-configuration-namespaces" class="md-nav__link">
+    Step 4: Configuration &amp; Namespaces
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#register-as-a-service" class="md-nav__link">
-    Register as a Service
+  <a href="#step-5-register-as-a-service" class="md-nav__link">
+    Step 5: Register as a Service
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#padas-command-line-interface" class="md-nav__link">
-    PADAS Command Line Interface
+  <a href="#command-line-interface" class="md-nav__link">
+    Command Line Interface
   </a>
   
 </li>
@@ -1039,6 +1039,7 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <h4 id="step-1-download">Step 1: Download</h4>
 <ol>
 <li>
@@ -1059,6 +1060,7 @@ tar<span class="w"> </span>-xzf<span class="w"> </span>padas-ui-<span class="o">
 </ol>
 <p>At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
 <p><strong>NOTE:</strong> You can install these components in a distributed environment.  For possible configuration options, please refer to <a href="../config-reference/">Configuration File Reference</a>.</p>
+<hr />
 <h4 id="step-2-start-engine">Step 2: Start Engine</h4>
 <ol>
 <li>
@@ -1125,13 +1127,14 @@ INFO<span class="w">  </span>Starting<span class="w"> </span>App<span class="w">
 INFO<span class="w">  </span>No<span class="w"> </span>active<span class="w"> </span>profile<span class="w"> </span>set,<span class="w"> </span>falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>default<span class="w"> </span>profiles:<span class="w"> </span>default
 INFO<span class="w">  </span>Started<span class="w"> </span>App<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">12</span>.536<span class="w"> </span>seconds<span class="w"> </span><span class="o">(</span>JVM<span class="w"> </span>running<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">66</span>.174<span class="o">)</span>
 </code></pre></div></p>
-<p><strong>NOTE</strong>: Unless you created all required topics, you should receive a warning as following on the console.  We'll create these topics on the next steps.
+<p><strong>NOTE</strong>: If Padas is configured to utilize Kafka (<code>padas.config.store=kafka</code> in properties file) to store configurations you will need to create the required topics (configuration namespaces).  If not, you will receive a warning as following on the console.  </p>
 <div class="highlight"><pre><span></span><code>...
 WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </span>describe<span class="w"> </span>required<span class="w"> </span>topics<span class="w"> </span><span class="k">for</span><span class="w"> </span>Padas.<span class="w">  </span>Please<span class="w"> </span>create<span class="w"> </span>these<span class="w"> </span>topics<span class="w"> </span><span class="k">in</span><span class="w"> </span>order<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>engine.
 ...
-</code></pre></div></p>
+</code></pre></div>
 </li>
 </ol>
+<hr />
 <h4 id="step-3-start-ui">Step 3: Start UI</h4>
 <ol>
 <li>
@@ -1158,9 +1161,11 @@ WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </
 </li>
 </ol>
 <hr />
-<h3 id="create-topics">Create Topics</h3>
-<p>The following Kafka topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Confluent Control Center) and below steps simply provide one way of doing so.</p>
-<p><strong>NOTE</strong>: All required topics enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
+<h3 id="step-4-configuration-namespaces">Step 4: Configuration &amp; Namespaces</h3>
+<p>By default, all configuration is stored locally and the user does not have to take any action other than editing desired configuation from Padas UI.</p>
+<p>This section is only applicable if <code>padas.config.store=kafka</code> is set in <code>padas.properties</code> file.  The following Kafka topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Padas UI, Confluent Control Center) and below steps simply provide one way of doing so.</p>
+<p><strong>NOTE</strong>: While it's possible to create these topics either via REST API or from Padas UI, it is <strong>highly recommended</strong> to review <a href="https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html">Topic Configuration</a> and tune settings for each Padas topic (specially for <code>partitions</code> and <code>replication_factor</code>) according to expected volume and performance requirements.</p>
+<p><strong>NOTE</strong>: All required topics must enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
 <table>
 <thead>
 <tr>
@@ -1195,19 +1200,23 @@ WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </
 <td>List of rules to be utilized by APPLY_RULES task.</td>
 <td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
 </tr>
+<tr>
+<td>padas_lookups</td>
+<td>List of lookup files for data enrichment.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
 </tbody>
 </table>
-<p><strong>Create Padas Topics</strong>: After initial login, from the left menu, click on <a href="https://localhost:9000/topics">Topics</a>.   In this view you can ONLY change replication or partition information.  For further detailed configuration on topics, please refer to <a href="../admin-guide/#topic-properties">Topic Properties</a> and/or consult your Kafka administrator.</p>
 <figure>
 <p>
     <img src="../assets/img/padas_ui_topics_pre.png" class="w-50 img-fluid py-5">
 </p>
 </figure>
-<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to <strong>restart</strong> the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code>, and start it again.  You'll need to logout/login from the UI as well.
+<p><strong>IMPORTANT NOTE</strong>: If you created the required topics from Padas UI, you will need to <strong>restart</strong> the Padas Engine so that it can read from and write to these topics.  Stop the running Padas Engine via <code>CTRL-C</code> or <code>/opt/padas/bin/padas stop</code>, and start it again.  You'll need to logout/login from the UI as well.
     <div class="highlight"><pre><span></span><code>bin/padas<span class="w"> </span>start-console
 </code></pre></div></p>
 <hr />
-<h3 id="register-as-a-service">Register as a Service</h3>
+<h3 id="step-5-register-as-a-service">Step 5: Register as a Service</h3>
 <p><strong>NOTE</strong>: Following steps are applicable for both Engine and UI components.  For UI, simply use <code>bin/padas-ui</code> as the command.</p>
 <ol>
 <li>Run Padas to create a service file. (Note: following examples assume <code>$PADAS_HOME</code> to be <code>/opt/padas</code> directory)
@@ -1224,7 +1233,7 @@ Systemd<span class="w"> </span>unit<span class="w"> </span>file<span class="w"> 
 <span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
 <span class="na">User</span><span class="o">=</span><span class="s">padas</span>
 <span class="na">Group</span><span class="o">=</span><span class="s">padas</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-0.0.5.jar</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">java -Xmx1G -Xms1G -Dconfig.file=/opt/padas/etc/padas.properties -Dlogging.config=/opt/padas/etc/logback.xml -jar /opt/padas/libs/padas-{{ current_version }}.jar</span>
 <span class="na">TimeoutStopSec</span><span class="o">=</span><span class="s">180</span>
 <span class="na">Restart</span><span class="o">=</span><span class="s">no</span>
 <span class="c1">#</span>
@@ -1242,8 +1251,8 @@ Systemd<span class="w"> </span>unit<span class="w"> </span>file<span class="w"> 
 </code></pre></div></li>
 </ol>
 <hr />
-<h3 id="padas-command-line-interface">PADAS Command Line Interface</h3>
-<p>A wrapper script is provided to manage PADAS service: <code>$PADAS_HOME/bin/padas</code>
+<h3 id="command-line-interface">Command Line Interface</h3>
+<p>Comman Lince Interface (CLI) is a wrapper script is provided to manage PADAS service: <code>$PADAS_HOME/bin/padas</code>
 <div class="highlight"><pre><span></span><code>Welcome<span class="w"> </span>to<span class="w"> </span>Padas<span class="w"> </span>Command<span class="w"> </span>Line<span class="w"> </span>Interface<span class="w"> </span><span class="o">(</span>CLI<span class="o">)</span>.
 
 Usage:

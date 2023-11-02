@@ -993,9 +993,9 @@
 </tbody>
 </table>
 <h3 id="software">Software</h3>
-<p>PADAS requires <a href="https://www.confluent.io">Confluent Platform</a> in order to operate properly.  Namely, the following Confluent Platform components must be running:</p>
+<p>PADAS requires a running Kafka platform (e.g. <a href="https://kafka.apache.org">Apache Kafka</a> or <a href="https://www.confluent.io">Confluent Platform</a> in order to operate properly.  Namely, the following Kafka components must be running:</p>
 <ul>
-<li>ZooKeeper</li>
+<li>Kafka Controller (or Zookeeper)</li>
 <li>Kafka Broker</li>
 </ul>
 <p>Version Compatibility</p>
@@ -1003,13 +1003,15 @@
 <thead>
 <tr>
 <th>Padas</th>
+<th>Apache Kafka</th>
 <th>Confluent Platform</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0.0.x</td>
-<td>6.x &amp; 7.x</td>
+<td>0.0.5</td>
+<td>3.x</td>
+<td>7.x</td>
 </tr>
 </tbody>
 </table>

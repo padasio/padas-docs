@@ -1025,9 +1025,8 @@
 <p>Padas has 2 main components:</p>
 <ol>
 <li><strong>Manager UI</strong>: All configuration changes (CRUD - Create, Read, Update, Delete operations) can be performed through Manager web interface.  This is an optional but recommended component to manage configurations through Engine API.</li>
-<li><strong>Engine</strong>: Reads configurations from existing Padas topics and runs assigned (based on <code>group</code> setting) and enabled topologies.  Each topology reads from a single source topic, runs one or more pipeline(s), and writes the resulting outputs to one or more output topic(s).  Each pipeline consists of one or more task(s) where each task can perform a filter, transform, enrichment, or detection (rules) function.  Please see below for details on concepts.</li>
+<li><strong>Engine</strong>: Reads configurations from existing Padas namespaces (local or topics) and runs assigned (based on <code>group</code> setting) and enabled topologies.  Each topology reads from a single source topic, runs one or more pipeline(s), and writes the resulting outputs to one or more output topic(s).  Each pipeline consists of one or more task(s) where each task can perform a filter, transform, enrichment, or detection (rules) function.  Engine components can be scaled up or down as needed with group assignments to distribute work-load.  Please see below for details on concepts.</li>
 </ol>
-<p>A Manager UI can be configured to connect to a single Engine component.  Engine components can be scaled up or down as needed with group assignments to distribute work-load.</p>
 <figure>
 <p>
   <img src="../assets/img/padas_design_details.png" class="img-fluid py-5">
@@ -1053,11 +1052,11 @@
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
 <li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
-<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions.</li>
-<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events.</li>
+<li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions. The input must be <code>JSON</code>.</li>
+<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
 </ul>
 <h4 id="rule">Rule</h4>
-<p>A rule is a PDL query that matches an event.  The goal is to associate a rule with a specific data model and assign one or more annotations (e.g. MITRE ATT&amp;CK technique IDs) for further processing by other analytics systems.</p>
+<p>A rule is a PDL <a href="../pdl-expression/">Expression</a> or <a href="../pdl-correlation/">Correlation</a> that performs query matching and/or aggregations on input events.  A rule can have additional annotations (e.g. MITRE ATT&amp;CK Technique IDs) for further processing by other analytics systems.  We've also created a tool for security practitioners to convert existing Sigma Rules to PDL (see <a href="https://github.com/padasio/padas-tools">padas-tools</a> repo for details).</p>
 
 
 

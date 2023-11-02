@@ -1025,9 +1025,9 @@
 <p><strong>NOTE</strong>: When using <code>systemctl</code> to start the service, you'll need to edit <code>padas.service</code> file to make a change in JVM heap options.</p>
 <hr />
 <h3 id="topic-properties">Topic Properties</h3>
-<p>Following Kafka topics are required for PADAS to operate properly.</p>
+<p>This section is only applicable if <code>padas.config.store=kafka</code> is set in <code>padas.properties</code> file.  The following Kafka topics must be created for keeping centralized configuration entries. You can create these topics according to your preference (e.g. Padas UI, Confluent Control Center) and below steps simply provide one way of doing so.</p>
 <p><strong>NOTE</strong>: While it's possible to create these topics either via REST API or from Padas UI, it is <strong>highly recommended</strong> to review <a href="https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html">Topic Configuration</a> and tune settings for each Padas topic (specially for <code>partitions</code> and <code>replication_factor</code>) according to expected volume and performance requirements.</p>
-<p><strong>NOTE</strong>: All required topics enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
+<p><strong>NOTE</strong>: All required topics must enable <a href="https://kafka.apache.org/documentation.html#compaction">log compaction</a> since they keep relevant configuration entries.  Proper retention policy should be implemented in order to avoid any loss of configuration.</p>
 <table>
 <thead>
 <tr>
@@ -1060,6 +1060,11 @@
 <tr>
 <td>padas_rules</td>
 <td>List of rules to be utilized by APPLY_RULES task.</td>
+<td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
+</tr>
+<tr>
+<td>padas_lookups</td>
+<td>List of lookup files for data enrichment.</td>
 <td><code>cleanup.policy: compact</code><br/><code>retention.bytes: -1</code></td>
 </tr>
 </tbody>
