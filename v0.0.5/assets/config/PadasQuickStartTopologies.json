@@ -1,0 +1,16 @@
+[
+  {
+    "id":1,
+    "name":"Test topology",
+    "description":"Read mock data input and write to test output",
+    "pipelines":[
+        1
+      ],
+    "enabled":true,
+    "group":"default",
+    "input":"test_input",
+    "output":[
+      "test_output"
+      ]
+  }
+]

@@ -1,0 +1,1582 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../admin-guide/">
+      
+      
+        <link rel="next" href="../config-reference/">
+      
+      
+      <link rel="icon" href="../assets/img/padas_logo_color.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Datamodel Reference - PADAS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas.css">
+    
+      <link rel="stylesheet" href="../assets/css/padas-utils.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datamodel-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PADAS Documentation" class="md-header__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PADAS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Datamodel Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PADAS Documentation" class="md-nav__button md-logo" aria-label="PADAS Documentation" data-md-component="logo">
+      
+  <img src="../assets/img/padas_logo_color.png" alt="logo">
+
+    </a>
+    PADAS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Get Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sigmav2-quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Converting Sigma Rules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Install
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Using TAR Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stream Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../management-config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PDL Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            PDL Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-quick-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDL Quick Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDL Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl-correlation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDL Correlation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sigma-pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sigma Rule Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Admin Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Admin Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admin Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Datamodel Reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Datamodel Reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datamodel-reference" class="md-nav__link">
+    Datamodel Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Datamodel Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-listening-port" class="md-nav__link">
+    Endpoint Listening Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-process" class="md-nav__link">
+    Endpoint Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-service" class="md-nav__link">
+    Endpoint Service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-file" class="md-nav__link">
+    Endpoint File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-registry" class="md-nav__link">
+    Endpoint Registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration File Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Engine REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference-task-definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Task Definition REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datamodel-reference" class="md-nav__link">
+    Datamodel Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Datamodel Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-listening-port" class="md-nav__link">
+    Endpoint Listening Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-process" class="md-nav__link">
+    Endpoint Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-service" class="md-nav__link">
+    Endpoint Service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-file" class="md-nav__link">
+    Endpoint File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-registry" class="md-nav__link">
+    Endpoint Registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Datamodel Reference</h1>
+
+<h2 id="datamodel-reference">Datamodel Reference</h2>
+<p>This is a reference guide for the Padas Datamodels, which can be used as a convention for easy integration with <a href="/assets/config/padasRules_sample.json">out-of-the-box PADAS rules</a> as well as <a href="../admin-guide/#integrate-to-external-systems">integrations with external systems</a>.</p>
+<p>The sections below provide detailed field information regarding these datamodels.</p>
+<p><br></p>
+<h4 id="endpoint-listening-port">Endpoint Listening Port</h4>
+<p>Datamodel Name: <code>EndpointListeningPort</code></p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dest</code></td>
+<td>string</td>
+<td>The endpoint on which the port is listening.</td>
+<td><code>10.10.1.1</code></td>
+</tr>
+<tr>
+<td><code>dest_port</code></td>
+<td>string</td>
+<td>Network port listening on the endpoint</td>
+<td><code>80</code></td>
+</tr>
+<tr>
+<td><code>process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the process assigned by the operating system.</td>
+<td><code>456</code></td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>string</td>
+<td>The "remote" system connected to the listening port (if applicable).</td>
+<td><code>192.168.1.10</code></td>
+</tr>
+<tr>
+<td><code>src_port</code></td>
+<td>string</td>
+<td>The "remote" port connected to the listening port (if applicable).</td>
+<td><code>4567</code></td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>string</td>
+<td>The status of the listening port     listening</td>
+<td><code>established</code></td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td>string</td>
+<td>The network transport protocol associated with the listening port</td>
+<td><code>tcp</code><br><code>udp</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td>The user account associated with the listening port.</td>
+<td><code>LOCALSYSTEM</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="endpoint-process">Endpoint Process</h4>
+<p>Datamodel Name: <code>EndpointProcess</code></p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td>The action taken by the endpoint</td>
+<td><code>access</code><br><code>create</code><br><code>terminate</code><br><code>allowed</code><br><code>blocked</code></td>
+</tr>
+<tr>
+<td><code>access_level</code></td>
+<td>string</td>
+<td>Permissions level at which the target process is accessed.</td>
+<td><code>0x40</code></td>
+</tr>
+<tr>
+<td><code>call_trace</code></td>
+<td>string</td>
+<td>The stack trace showing the context of a process open/access call.</td>
+<td><code>C:\Windows\SYSTEM32\ntdll.dll+a5594</code><br><code>C:\Windows\system32\KERNELBASE.dll+1e865</code></td>
+</tr>
+<tr>
+<td><code>dest</code></td>
+<td>string</td>
+<td>The endpoint for which the process was spawned.</td>
+<td><code>10.10.1.1</code></td>
+</tr>
+<tr>
+<td><code>parent_process</code></td>
+<td>string</td>
+<td>All of the arguments passed to the parent process upon execution.</td>
+<td><code>C:\path\example.exe /flag1</code></td>
+</tr>
+<tr>
+<td><code>parent_process_exec</code></td>
+<td>string</td>
+<td>The executable name of the parent process</td>
+<td><code>example.exe</code></td>
+</tr>
+<tr>
+<td><code>parent_process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the parent process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>parent_process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the parent process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>parent_process_path</code></td>
+<td>string</td>
+<td>The file path of the executable associated with this parent process.</td>
+<td><code>C:\path\to\example.exe</code></td>
+</tr>
+<tr>
+<td><code>process</code></td>
+<td>string</td>
+<td>All of the arguments passed to the process upon execution.</td>
+<td><code>C:\path\example.exe /flag1</code></td>
+</tr>
+<tr>
+<td><code>process_current_directory</code></td>
+<td>string</td>
+<td>The absolute path to the current working directory of the process.</td>
+<td><code>c:\windows\system32\</code></td>
+</tr>
+<tr>
+<td><code>process_exec</code></td>
+<td>string</td>
+<td>The executable name of the process</td>
+<td><code>example.exe</code></td>
+</tr>
+<tr>
+<td><code>process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>process_hash</code></td>
+<td>string</td>
+<td>The digests of the contents of the file located at processPath by using md5, sha1, etc.</td>
+<td><code>5eb63bbbe01eeed093cb22bb8f5acdc3</code></td>
+</tr>
+<tr>
+<td><code>process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>process_integrity_level</code></td>
+<td>string</td>
+<td>The Windows integrity level associated with the process. MUST be one of: <code>low</code>, <code>medium</code>, <code>high</code>, or <code>system</code>.</td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td><code>process_path</code></td>
+<td>string</td>
+<td>The file path of the executable associated with this process.</td>
+<td><code>C:\path\to\example.exe</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td>The user account that spawned the process.</td>
+<td><code>LOCALUSER</code></td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>The unique identifier of the user account which spawned the process. For Windows, this is the security identifier, <code>sid</code></td>
+<td><code>S-1-5-18</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="endpoint-service">Endpoint Service</h4>
+<p>Datamodel Name: <code>EndpointService</code></p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td>The action performed on the service.</td>
+<td><code>create</code><br><code>delete</code><br><code>pause</code><br><code>start</code><br><code>stop</code></td>
+</tr>
+<tr>
+<td><code>dest</code></td>
+<td>string</td>
+<td>The endpoint on which the service is installed.</td>
+<td><code>10.10.1.1</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>The name of the service.</td>
+<td><code>RpcSs</code></td>
+</tr>
+<tr>
+<td><code>parent_process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the parent process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>process</code></td>
+<td>string</td>
+<td>All of the arguments passed to the process upon execution.</td>
+<td><code>C:\path\example.exe /flag1</code></td>
+</tr>
+<tr>
+<td><code>process_exec</code></td>
+<td>string</td>
+<td>The executable name of the process</td>
+<td><code>example.exe</code></td>
+</tr>
+<tr>
+<td><code>process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>process_hash</code></td>
+<td>string</td>
+<td>The digests of the contents of the file located at processPath by using md5, sha1, etc.</td>
+<td><code>2aae6c35c94fcfb415dbe95f408b9ce91ee846ed</code></td>
+</tr>
+<tr>
+<td><code>process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>process_path</code></td>
+<td>string</td>
+<td>The file path of the executable associated with this process.</td>
+<td><code>C:\path\to\example.exe</code></td>
+</tr>
+<tr>
+<td><code>start_mode</code></td>
+<td>string</td>
+<td>The start mode for the service.</td>
+<td><code>disabled</code><br><code>manual</code><br><code>auto</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>The status of the service.</td>
+<td><code>started</code><br><code>stopped</code><br><code>warning</code><br><code>critical</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td>The user account that spawned the process.</td>
+<td><code>LOCALUSER</code></td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>The unique identifier of the user account which spawned the process. For Windows, this is the security identifier, <code>sid</code></td>
+<td><code>S-1-5-18</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="endpoint-file">Endpoint File</h4>
+<p>Datamodel Name: <code>EndpointFile</code></p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td>The action performed on the resource.</td>
+<td><code>create</code><br><code>delete</code><br><code>modify</code><br><code>read</code><br><code>write</code></td>
+</tr>
+<tr>
+<td><code>dest</code></td>
+<td>string</td>
+<td>The endpoint on which the filesystem activity takes place.</td>
+<td><code>10.10.1.1</code></td>
+</tr>
+<tr>
+<td><code>file_creation_time</code></td>
+<td>string</td>
+<td>The creation time of the file</td>
+<td><code>05/14/2015 12:47:06</code></td>
+</tr>
+<tr>
+<td><code>file_hash</code></td>
+<td>string</td>
+<td>The digests of the contents of the file located at filePath by using md5, sha1, etc.</td>
+<td><code>2aae6c35c94fcfb415dbe95f408b9ce91ee846ed</code></td>
+</tr>
+<tr>
+<td><code>file_group</code></td>
+<td>string</td>
+<td>The group owner of the file</td>
+<td><code>admin</code></td>
+</tr>
+<tr>
+<td><code>file_group_id</code></td>
+<td>string</td>
+<td>The group ID of the file</td>
+<td><code>801</code></td>
+</tr>
+<tr>
+<td><code>file_mode</code></td>
+<td>string</td>
+<td>The mode or permissions set of the file.</td>
+<td><code>0644</code> (linux) or NTFS ACL</td>
+</tr>
+<tr>
+<td><code>file_name</code></td>
+<td>string</td>
+<td>The name of the file.</td>
+<td><code>MyWordDoc.docx</code></td>
+</tr>
+<tr>
+<td><code>file_owner</code></td>
+<td>string</td>
+<td>The username of the owner of the file.</td>
+<td><code>adam</code></td>
+</tr>
+<tr>
+<td><code>file_owner_id</code></td>
+<td>string</td>
+<td>The user ID or SID of the owner of the file.</td>
+<td><code>501</code></td>
+</tr>
+<tr>
+<td><code>file_path</code></td>
+<td>string</td>
+<td>The full path to the file on the file system.</td>
+<td><code>C:\users\fakeuser\documents\MyFile.docx</code></td>
+</tr>
+<tr>
+<td><code>parent_process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the parent process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>process</code></td>
+<td>string</td>
+<td>All of the arguments passed to the process upon execution.</td>
+<td><code>C:\path\example.exe /flag1</code></td>
+</tr>
+<tr>
+<td><code>process_exec</code></td>
+<td>string</td>
+<td>The executable name of the process</td>
+<td><code>example.exe</code></td>
+</tr>
+<tr>
+<td><code>process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the process assigned by the operating system.</td>
+<td><code>837</code></td>
+</tr>
+<tr>
+<td><code>process_path</code></td>
+<td>string</td>
+<td>The file path of the executable associated with this process.</td>
+<td><code>C:\path\to\example.exe</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td>The user account that spawned the process.</td>
+<td><code>LOCALUSER</code></td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td>string</td>
+<td>The unique identifier of the user account which spawned the process. For Windows, this is the security identifier, <code>sid</code></td>
+<td><code>S-1-5-18</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="endpoint-registry">Endpoint Registry</h4>
+<p>Datamodel Name: <code>EndpointRegistry</code></p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td>The action performed on the resource.</td>
+<td><code>create</code><br><code>delete</code><br><code>modify</code><br><code>read</code></td>
+</tr>
+<tr>
+<td><code>dest</code></td>
+<td>string</td>
+<td>The endpoint on which the port is listening.</td>
+<td><code>10.10.1.1</code></td>
+</tr>
+<tr>
+<td><code>process</code></td>
+<td>string</td>
+<td>All of the arguments passed to the process upon execution.</td>
+<td><code>C:\path\example.exe /flag1</code></td>
+</tr>
+<tr>
+<td><code>process_guid</code></td>
+<td>string</td>
+<td>The globally unique identifier of the process assigned by the vendor_product.</td>
+<td><code>{f81d4fae-7dec-11d0-a765-00a0c91e6bf6}</code></td>
+</tr>
+<tr>
+<td><code>process_id</code></td>
+<td>string</td>
+<td>The numeric identifier of the process assigned by the operating system.</td>
+<td><code>456</code></td>
+</tr>
+<tr>
+<td><code>registry_hive</code></td>
+<td>string</td>
+<td>The logical group of keys, subkeys, and values in the registry.</td>
+<td><code>HKEY_CURRENT_USER</code><br><code>HKEY_LOCAL_MACHINE</code></td>
+</tr>
+<tr>
+<td><code>registry_key</code></td>
+<td>string</td>
+<td>The registry key specified in the event. Similar to a folder in a traditional file system.</td>
+<td><code>HKLM\SYSTEM\CurrentControlSet\services\RpcSs</code></td>
+</tr>
+<tr>
+<td><code>registry_value_name</code></td>
+<td>string</td>
+<td>The descriptive name for the data being stored in the key.</td>
+<td><code>InstalledVersion</code></td>
+</tr>
+<tr>
+<td><code>registry_value_data</code></td>
+<td>string</td>
+<td>The contents of the value, typically a text string.</td>
+<td><code>%SystemRoot%\system32\svchost.exe -k rpcss</code></td>
+</tr>
+<tr>
+<td><code>registry_value_type</code></td>
+<td>string</td>
+<td>The type of data being stored in the value. Types include binary data, 32 bit numbers, strings, etc.</td>
+<td><code>REG_SZ</code><br><code>REG_MULTI_SZ</code><br><code>REG_DWORD</code><br><code>REG_BINARY</code><br><code>REG_QWORD</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>The outcome of the registry action.</td>
+<td><code>failure</code><br><code>success</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td>The user account associated with the listening port.</td>
+<td><code>LOCALSYSTEM</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - Padas Inc. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/padasinc" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
