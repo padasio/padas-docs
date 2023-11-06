@@ -16,6 +16,7 @@ _Comparison Operators_
 - `=`: **Equals**, returns `true` if the value is an exact match. A single wildcard `*` is also accepted for string values. 
 - `!=`: **Not Equals**, returns `true` if the value does not match.
 - `?=`: **Contains**, checks whether the string value contains the text.  For arrays, it checks for the array item.
+- `~=`: **Regex**, checks whether the string value matches the given Regular Expression.
 - `>`: **Greater than**, returns `true` if query comparison value is greater than event field value. 
 - `<`: **Less than**, returns `true` if query comparison value is less than event field value.
 - `>=`: **Greater than or equals**, returns `true` if query comparison value is greater than or equals to the event field value.
@@ -77,6 +78,7 @@ The following table provides descriptions and examples of available operators ba
 | `=`               | `field1="value1"`<br/>`field1="val*"`<br/>`field1="*"` |
 | `!=`              | `field3 != 456`  <br/>`field4 != ["other1","item3"]` |
 | `?=`              | `field2 ?= "text2"` <br/>`field4 ?= "item2"`           |
+| `~=`              | `field2 ~= "\stext"` <br/>`field4 ~= "\d\stext\d\s"`           |
 | `>`               | `field3 > 100` |
 | `<`               | `field3 < 200` |
 | `>=`              | `field3 >= 123` |

@@ -1,4 +1,3 @@
-#### Step 3: Start UI
 1. Start UI component on the console.  Default configuration connects to `localhost` for Padas Engine.
     ```bash
     cd padas-ui/

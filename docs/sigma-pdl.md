@@ -2,6 +2,8 @@
 title: Sigma Rule Reference
 ---
 
+This reference section provides explanations on inner workings of [Sigma v2 to Padas converter script](https://github.com/padasinc/padas-tools/tree/main/sigma_v2_to_padas).
+
 ### Field Mapping (Padas : Sigma)
 The table below provides field mapping information of Padas [Rule](/stream-config/#rules) vs. Sigma Rule. There is a tiny difference between Simple and Meta mapping. Padas creates PDL with `detection` field from Simple Rule but `action` field from Meta.
 

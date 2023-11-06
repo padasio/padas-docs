@@ -8,9 +8,6 @@ title: Admin Guide
 ---
 
 ### Topic Properties
-Following Kafka topics are required for PADAS to operate properly.
-
-**NOTE**: While it's possible to create these topics either via REST API or from Padas UI, it is **highly recommended** to review [Topic Configuration](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) and tune settings for each Padas topic (specially for `partitions` and `replication_factor`) according to expected volume and performance requirements.
 
 --8<-- "props_topics.md"
 

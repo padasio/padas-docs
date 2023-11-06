@@ -25,7 +25,6 @@ padas.uuid=
 # N/A - Automatically assigned
 # Universally Unique Identifier for this instance.  Created upon initial start.
 
-
 ####################################
 # Optional Settings
 ####################################
@@ -48,15 +47,15 @@ padas.group=default
 ####################################
 # Advanced Settings
 ####################################
-padas.state.dir=/opt/padas/var/padas-streams-global-stores
+padas.config.store=rocksdb
 # Optional - <string>
-# State store directory to keep local RocksDB data
-# Default: ${padas.home}/var/padas-streams-global-stores
+# Configuration store setting, possible options: rocksdb, kafka
+# Default: rocksdb
 
-padas.log.dir=/opt/padas/var/logs
+padas.config.location=/opt/padas/var/config
 # Optional - <string>
-# Directory for logs
-# Default: ${padas.home}/var/logs
+# State store directory to keep local RocksDB data.  If it is a clustered RocksDB, provide the URL (e.g. "http://localhost:2379")
+# Default: ${padas.home}/var/config
 
 num.stream.threads=10
 # Optional - <integer>
@@ -69,12 +68,12 @@ num.stream.threads=10
 
 server.port=8999
 # Optional - <integer>
-# Port number for REST API
+# Port number for Manager web interface
 # Default: 8999
 
 server.ssl.enabled=true
 # Optional - <boolean>
-# Enable SSL with the server.ssl.* configuration
+# Enable SSL for Manager web interface with the server.ssl.* configuration
 # Default: true
 
 server.ssl.key-alias=padas

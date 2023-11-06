@@ -5,7 +5,7 @@ A task is the single unit of work performed on event data.  Each task has the fo
 - `PARSE_CSV`: Parse input `CSV` event into `JSON`.
 - `PARSE_KV`: Parse input key-value pairs event into `JSON`.
 - `TIMESTAMP`: Define a field from within the event data (`JSON` formatted) to use as the timestamp.
-- `PDL_EXPRESSION`: Allows event data transformation and enrichment via [PDL](../pdl-quick-reference) expressions.
-- `APPLY_RULES`: Apply predefined rules (per event and/or correlated/aggregated) to streaming events.
+- `PDL_EXPRESSION`: Allows event data transformation and enrichment via [PDL](../pdl-quick-reference) expressions. The input must be `JSON`.
+- `APPLY_RULES`: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be `JSON`.
 
 
