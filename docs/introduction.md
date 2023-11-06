@@ -32,17 +32,17 @@ Let's take a closer look at Padas configuration and engine's processing concepts
 
 #### Topology
 
---8<-- "description_topology.md"
+--8<-- "description/description_topology.md"
 
 #### Pipeline
 
---8<-- "description_pipeline.md"
+--8<-- "description/description_pipeline.md"
 
 #### Task
 
---8<-- "description_task.md"
+--8<-- "description/description_task.md"
 
 
 #### Rule
 
---8<-- "description_rule.md"
+--8<-- "description/description_rule.md"

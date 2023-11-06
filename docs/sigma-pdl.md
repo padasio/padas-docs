@@ -165,7 +165,7 @@ This field is where the actual conversion happens to make it meaningful for Pada
 
 <br>
 ###### Simple Rule Examples
---8<-- "sigma_pdl_simple.md"
+--8<-- "sigma/sigma_pdl_simple.md"
 <br>
 ###### Meta Rule Examples
---8<-- "sigma_pdl_meta.md"
+--8<-- "sigma/sigma_pdl_meta.md"

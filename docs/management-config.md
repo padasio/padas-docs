@@ -22,7 +22,7 @@ Node Information table provides details on registered Padas engine instances.
   </p>
 </figure>
 
---8<-- "props_node.md"
+--8<-- "props/props_node.md"
 
 
 ---

@@ -11,30 +11,30 @@ The sections below provide detailed field information regarding these datamodels
 
 #### Endpoint Listening Port
 
---8<-- "datamodel_endpoint_listening_port.md"
+--8<-- "datamodel/datamodel_endpoint_listening_port.md"
 
 <br>
 
 #### Endpoint Process
 
---8<-- "datamodel_endpoint_process.md"
+--8<-- "datamodel/datamodel_endpoint_process.md"
 
 <br>
 
 #### Endpoint Service
 
---8<-- "datamodel_endpoint_service.md"
+--8<-- "datamodel/datamodel_endpoint_service.md"
 
 <br>
 
 #### Endpoint File
 
---8<-- "datamodel_endpoint_file.md"
+--8<-- "datamodel/datamodel_endpoint_file.md"
 
 <br>
 
 #### Endpoint Registry
 
---8<-- "datamodel_endpoint_registry.md"
+--8<-- "datamodel/datamodel_endpoint_registry.md"
 
 <br>

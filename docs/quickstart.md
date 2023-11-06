@@ -47,22 +47,22 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 ---
 #### Step 1: Download
---8<-- "installation_step_download.md"
+--8<-- "installation/installation_step_download.md"
 
 ---
 
 #### Step 2: Start Engine
---8<-- "installation_step_engine.md"
+--8<-- "installation/installation_step_engine.md"
 
 ---
 
 #### Step 3: Start UI
---8<-- "installation_step_ui.md"
+--8<-- "installation/installation_step_ui.md"
 
 ---
 
 #### Step 4: Configuration & Namespaces
---8<-- "installation_step_configuration.md"
+--8<-- "installation/installation_step_configuration.md"
 
 ---
 
