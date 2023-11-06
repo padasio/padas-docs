@@ -64,12 +64,12 @@ extra:
     - icon: fontawesome/brands/twitter 
       link: https://twitter.com/padasinc
   generator: false
-  current_version: 0.0.5
+  current_version: 0.0.6
   version:
     provider: mike
 
 
-copyright: Copyright &copy; 2023 - Padas Inc. All rights reserved.
+copyright: Copyright &copy; 2024 - Padas Inc. All rights reserved.
 
 watch:
   - "snippets"
