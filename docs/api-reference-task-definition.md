@@ -12,18 +12,20 @@ title: Task Definition REST API
 
 ## Task Definition Examples
 
-### FILTER Definition Example
+### APPLY_RULES Definition Example
 
 ```json
 {
   "id": 1,
   "name": "MyTask Name",
   "description": "MyTask description goes here.",
-  "function": "FILTER",
+  "function": "APPLY_RULES",
   "definition": {
-    "type": "regex",
-    "action": "drop",
-    "value": "regex goes here"
+    "rules": [
+      "rule1",
+      "rule2"
+      ],
+    "matchAll": false
   }
 }
 ```
@@ -40,6 +42,36 @@ title: Task Definition REST API
     "field": "somefield",
     "regex": "someregex text here",
     "keepRaw": false
+  }
+}
+```
+
+### FILTER Definition Example
+
+```json
+{
+  "id": 1,
+  "name": "MyTask Name",
+  "description": "MyTask description goes here.",
+  "function": "FILTER",
+  "definition": {
+    "type": "regex",
+    "action": "drop",
+    "value": "regex goes here"
+  }
+}
+```
+
+### OUTPUT_FIELD Definition Example
+
+```json
+{
+  "id": 1,
+  "name": "MyTask Name",
+  "description": "MyTask description goes here.",
+  "function": "OUTPUT_FIELD",
+  "definition": {
+    "field": "someFieldName"
   }
 }
 ```
@@ -73,21 +105,6 @@ title: Task Definition REST API
 }
 ```
 
-### TIMESTAMP Definition Example
-
-```json
-{
-  "id": 1,
-  "name": "MyTask Name",
-  "description": "MyTask description goes here.",
-  "function": "TIMESTAMP",
-  "definition": {
-    "field": "somefield",
-    "format": "%H%M%S"
-  }
-}
-```
-
 ### PDL_EXPRESSION Definition Example
 
 ```json
@@ -102,20 +119,17 @@ title: Task Definition REST API
 }
 ```
 
-### APPLY_RULES Definition Example
+### TIMESTAMP Definition Example
 
 ```json
 {
   "id": 1,
   "name": "MyTask Name",
   "description": "MyTask description goes here.",
-  "function": "APPLY_RULES",
+  "function": "TIMESTAMP",
   "definition": {
-    "rules": [
-      "rule1",
-      "rule2"
-      ],
-    "matchAll": false
+    "field": "somefield",
+    "format": "%H%M%S"
   }
 }
 ```
