@@ -803,8 +803,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-definition-example" class="md-nav__link">
-    FILTER Definition Example
+  <a href="#apply_rules-definition-example" class="md-nav__link">
+    APPLY_RULES Definition Example
   </a>
   
 </li>
@@ -812,6 +812,20 @@
           <li class="md-nav__item">
   <a href="#extract-definition-example" class="md-nav__link">
     EXTRACT Definition Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-definition-example" class="md-nav__link">
+    FILTER Definition Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_field-definition-example" class="md-nav__link">
+    OUTPUT_FIELD Definition Example
   </a>
   
 </li>
@@ -831,13 +845,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timestamp-definition-example" class="md-nav__link">
-    TIMESTAMP Definition Example
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pdl_expression-definition-example" class="md-nav__link">
     PDL_EXPRESSION Definition Example
   </a>
@@ -845,8 +852,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply_rules-definition-example" class="md-nav__link">
-    APPLY_RULES Definition Example
+  <a href="#timestamp-definition-example" class="md-nav__link">
+    TIMESTAMP Definition Example
   </a>
   
 </li>
@@ -975,8 +982,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-definition-example" class="md-nav__link">
-    FILTER Definition Example
+  <a href="#apply_rules-definition-example" class="md-nav__link">
+    APPLY_RULES Definition Example
   </a>
   
 </li>
@@ -984,6 +991,20 @@
           <li class="md-nav__item">
   <a href="#extract-definition-example" class="md-nav__link">
     EXTRACT Definition Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-definition-example" class="md-nav__link">
+    FILTER Definition Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_field-definition-example" class="md-nav__link">
+    OUTPUT_FIELD Definition Example
   </a>
   
 </li>
@@ -1003,13 +1024,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timestamp-definition-example" class="md-nav__link">
-    TIMESTAMP Definition Example
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pdl_expression-definition-example" class="md-nav__link">
     PDL_EXPRESSION Definition Example
   </a>
@@ -1017,8 +1031,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply_rules-definition-example" class="md-nav__link">
-    APPLY_RULES Definition Example
+  <a href="#timestamp-definition-example" class="md-nav__link">
+    TIMESTAMP Definition Example
   </a>
   
 </li>
@@ -1047,13 +1061,14 @@
 
 <p>A task is the single unit of work performed on event data.  Each task has the following built-in functions that can perform processing on an event:</p>
 <ul>
-<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-quick-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
 <li><code>EXTRACT</code>: Extract any event input with provided Regular Expression defition (named groups). The output is <code>JSON</code>.</li>
+<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-quick-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>OUTPUT_FIELD</code>: Outputs the value of a given field.  The input must be <code>JSON</code> and the output is <code>String</code> representation of the selected field value.</li>
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
-<li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
 <li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions. The input must be <code>JSON</code>.</li>
-<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
+<li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
 </ul>
 <h2 id="important-notes">Important Notes</h2>
 <ul>
@@ -1062,16 +1077,18 @@
 <li>For description of each definition field and default values please refer to <a href="../stream-config/#tasks">Stream Configuration</a></li>
 </ul>
 <h2 id="task-definition-examples">Task Definition Examples</h2>
-<h3 id="filter-definition-example">FILTER Definition Example</h3>
+<h3 id="apply_rules-definition-example">APPLY_RULES Definition Example</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask Name&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask description goes here.&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FILTER&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;APPLY_RULES&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;regex&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;regex goes here&quot;</span>
+<span class="w">    </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;rule1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;rule2&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;matchAll&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1085,6 +1102,30 @@
 <span class="w">    </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;somefield&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;someregex text here&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;keepRaw&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="filter-definition-example">FILTER Definition Example</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask Name&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask description goes here.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FILTER&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;regex&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;regex goes here&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="output_field-definition-example">OUTPUT_FIELD Definition Example</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask Name&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask description goes here.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OUTPUT_FIELD&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;someFieldName&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1111,18 +1152,6 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="timestamp-definition-example">TIMESTAMP Definition Example</h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask Name&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask description goes here.&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TIMESTAMP&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;somefield&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%H%M%S&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
 <h3 id="pdl_expression-definition-example">PDL_EXPRESSION Definition Example</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -1134,18 +1163,15 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="apply_rules-definition-example">APPLY_RULES Definition Example</h3>
+<h3 id="timestamp-definition-example">TIMESTAMP Definition Example</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask Name&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyTask description goes here.&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;APPLY_RULES&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TIMESTAMP&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;rule1&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;rule2&quot;</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;matchAll&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;somefield&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%H%M%S&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

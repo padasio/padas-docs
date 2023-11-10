@@ -480,8 +480,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-definition" class="md-nav__link">
-    FILTER Definition
+  <a href="#appy_rules-definition" class="md-nav__link">
+    APPY_RULES Definition
   </a>
   
 </li>
@@ -489,6 +489,20 @@
           <li class="md-nav__item">
   <a href="#extract-definition" class="md-nav__link">
     EXTRACT Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-definition" class="md-nav__link">
+    FILTER Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_field-definition" class="md-nav__link">
+    OUTPUT_FIELD Definition
   </a>
   
 </li>
@@ -508,13 +522,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timestamp-definition" class="md-nav__link">
-    TIMESTAMP Definition
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pdl_expression-definition" class="md-nav__link">
     PDL_EXPRESSION Definition
   </a>
@@ -522,8 +529,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#appy_rules-definition" class="md-nav__link">
-    APPY_RULES Definition
+  <a href="#timestamp-definition" class="md-nav__link">
+    TIMESTAMP Definition
   </a>
   
 </li>
@@ -1044,8 +1051,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#filter-definition" class="md-nav__link">
-    FILTER Definition
+  <a href="#appy_rules-definition" class="md-nav__link">
+    APPY_RULES Definition
   </a>
   
 </li>
@@ -1053,6 +1060,20 @@
           <li class="md-nav__item">
   <a href="#extract-definition" class="md-nav__link">
     EXTRACT Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-definition" class="md-nav__link">
+    FILTER Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_field-definition" class="md-nav__link">
+    OUTPUT_FIELD Definition
   </a>
   
 </li>
@@ -1072,13 +1093,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timestamp-definition" class="md-nav__link">
-    TIMESTAMP Definition
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pdl_expression-definition" class="md-nav__link">
     PDL_EXPRESSION Definition
   </a>
@@ -1086,8 +1100,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#appy_rules-definition" class="md-nav__link">
-    APPY_RULES Definition
+  <a href="#timestamp-definition" class="md-nav__link">
+    TIMESTAMP Definition
   </a>
   
 </li>
@@ -1272,13 +1286,14 @@
 <h3 id="tasks">Tasks</h3>
 <p>A task is the single unit of work performed on event data.  Each task has the following built-in functions that can perform processing on an event:</p>
 <ul>
-<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-quick-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
 <li><code>EXTRACT</code>: Extract any event input with provided Regular Expression defition (named groups). The output is <code>JSON</code>.</li>
+<li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-quick-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
+<li><code>OUTPUT_FIELD</code>: Outputs the value of a given field.  The input must be <code>JSON</code> and the output is <code>String</code> representation of the selected field value.</li>
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
-<li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
 <li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions. The input must be <code>JSON</code>.</li>
-<li><code>APPLY_RULES</code>: Apply predefined rules (per event and/or correlated/aggregated) to streaming events. The input must be <code>JSON</code>.</li>
+<li><code>TIMESTAMP</code>: Define a field from within the event data (<code>JSON</code> formatted) to use as the timestamp.</li>
 </ul>
 <figure>
 <p>
@@ -1316,8 +1331,8 @@
 </tr>
 </tbody>
 </table>
-<h5 id="filter-definition"><code>FILTER</code> Definition</h5>
-<p>This function allows filtering (keep or drop) an event if it matches the specified regular expression (<code>regex</code>) or PDL query (<code>pdl</code>).  Event is not transformed and kept the same.</p>
+<h5 id="appy_rules-definition"><code>APPY_RULES</code> Definition</h5>
+<p>This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with <code>padas_rules</code> object array that contain matching rule information as well as the event data.</p>
 <table>
 <thead>
 <tr>
@@ -1328,18 +1343,28 @@
 </thead>
 <tbody>
 <tr>
-<td>Type</td>
-<td>Must be <code>pdl</code> or <code>regex</code>.  Defines the type of filgering.</td>
-<td rowspan="3" style="text-align: center;"><img src="../assets/img/padas_ui_task_filter_example.png" class="img-fluid py-5 w-75"></td>
+<td>ID</td>
+<td>ID the of the pre-defined rule.</td>
+<td rowspan="4" style="text-align: center;"><img src="../assets/img/padas_ui_task_apply_rules_example.png" class="img-fluid py-5 w-75"></td>
 </tr>
 <tr>
-<td>Value</td>
-<td>Depending on the Type, this must be a PDL query or a Regular Expression to match the event.</td>
+<td>Name</td>
+<td>Name the of the pre-defined rule.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 <tr>
-<td>Action</td>
-<td>When the query/regex matches, this action processed on the event.  Must be <code>keep</code> or <code>drop</code>.</td>
+<td>Decsription</td>
+<td>Decsription the of the pre-defined rule.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Data model</td>
+<td>Rules with this matching data model will be evaluated against the event.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Match All</td>
+<td>If set to <code>Match all rules</code>, all rules for this data model are evaluated.  If set to <code>First match wins</code>, first match wins and evaluation stops.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 </tbody>
@@ -1368,6 +1393,52 @@
 <tr>
 <td>Raw Field Name</td>
 <td>If raw data is to be kept, this will be the field to store it in. <code>_raw</code> is the default.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="filter-definition"><code>FILTER</code> Definition</h5>
+<p>This function allows filtering (keep or drop) an event if it matches the specified regular expression (<code>regex</code>) or PDL query (<code>pdl</code>).  Event is not transformed and kept the same.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Must be <code>pdl</code> or <code>regex</code>.  Defines the type of filgering.</td>
+<td rowspan="3" style="text-align: center;"><img src="../assets/img/padas_ui_task_filter_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Depending on the Type, this must be a PDL query or a Regular Expression to match the event.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>When the query/regex matches, this action processed on the event.  Must be <code>keep</code> or <code>drop</code>.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="output_field-definition"><code>OUTPUT_FIELD</code> Definition</h5>
+<p>This function outputs the value of a given field.  The output is <code>String</code> representation of the field value.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field</td>
+<td>Field name from the event data.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 </tbody>
@@ -1433,6 +1504,24 @@
 </tr>
 </tbody>
 </table>
+<h5 id="pdl_expression-definition"><code>PDL_EXPRESSION</code> Definition</h5>
+<p>This function allows data transformation and enrichment via PDL expressions.  Input must be <code>JSON</code> since fields and conditions require this in order to process event data.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pdl</td>
+<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
+<td rowspan="4" style="text-align: center;"><img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+</tbody>
+</table>
 <h5 id="timestamp-definition"><code>TIMESTAMP</code> Definition</h5>
 <p>This function extracts event timestamp from the given field with the provided format. The output is time in milliseconds in a new field (if specified).  The timestamp information is utilized by stream processing.</p>
 <table>
@@ -1462,62 +1551,6 @@
 <tr>
 <td>Time Field Name</td>
 <td>Field name to add if the above is set to <code>true</code>. Default is <code>_time</code>.</td>
-<td style="padding:0">&#8288;</td>
-</tr>
-</tbody>
-</table>
-<h5 id="pdl_expression-definition"><code>PDL_EXPRESSION</code> Definition</h5>
-<p>This function allows data transformation and enrichment via PDL expressions.  Input must be <code>JSON</code> since fields and conditions require this in order to process event data.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th style="text-align: center;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pdl</td>
-<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
-<td rowspan="4" style="text-align: center;"><img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"></td>
-</tr>
-</tbody>
-</table>
-<h5 id="appy_rules-definition"><code>APPY_RULES</code> Definition</h5>
-<p>This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with <code>padas_rules</code> object array that contain matching rule information as well as the event data.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th style="text-align: center;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ID</td>
-<td>ID the of the pre-defined rule.</td>
-<td rowspan="4" style="text-align: center;"><img src="../assets/img/padas_ui_task_apply_rules_example.png" class="img-fluid py-5 w-75"></td>
-</tr>
-<tr>
-<td>Name</td>
-<td>Name the of the pre-defined rule.</td>
-<td style="padding:0">&#8288;</td>
-</tr>
-<tr>
-<td>Decsription</td>
-<td>Decsription the of the pre-defined rule.</td>
-<td style="padding:0">&#8288;</td>
-</tr>
-<tr>
-<td>Data model</td>
-<td>Rules with this matching data model will be evaluated against the event.</td>
-<td style="padding:0">&#8288;</td>
-</tr>
-<tr>
-<td>Match All</td>
-<td>If set to <code>Match all rules</code>, all rules for this data model are evaluated.  If set to <code>First match wins</code>, first match wins and evaluation stops.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 </tbody>
