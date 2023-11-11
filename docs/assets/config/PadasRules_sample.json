@@ -3,7 +3,6 @@
     "id": 1,
     "name": "Execution with AT",
     "description": "In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows built-in command AT (at.exe) to schedule a command to be run at a specified time, date, and even host. ",
-    "datamodel": "EndpointProcess",
     "pdl": "process_path=\"C:\\\\Windows\\\\*\\\\at.exe\"",
     "annotations": [
       "T1053"
@@ -14,7 +13,6 @@
     "id": 2,
     "name": "Squiblydoo",
     "description": "Squiblydoo is a specific usage of regsvr32.dll to load a COM scriptlet directly from the internet and execute it in a way that bypasses application whitelisting.",
-    "datamodel": "EndpointProcess",
     "pdl": "process_path=\"*regsvr32.exe\" AND process=\"*scrobj.dll\"",
     "annotations": [
       "T1218"
@@ -25,7 +23,6 @@
     "id": 3,
     "name": "Services launching Cmd",
     "description": "To be a legitimate service, a process (or DLL) must have the appropriate service entry point SvcMain. If an application does not have the entry point, then it will timeout (default is 30 seconds) and the process will be killed. To survive the timeout, adversaries and red teams can create services that direct to cmd.exe with the flag /c, followed by the desired command",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND  process_exec=\"cmd.exe\" AND parent_process_exec=\"services.exe\"",
     "annotations": [
       "T1543"
@@ -36,7 +33,6 @@
     "id": 4,
     "name": "UAC Bypass",
     "description": "Bypassing user account control (UAC Bypass) is generally done by piggybacking on a system process that has auto-escalate privileges. This analytic looks to detect those cases as described by the open-source UACME tool.",
-    "datamodel": "EndpointProcess",
     "pdl": "process_integrity_level=\"high\"  AND (parent_process_path=\"c:\\\\windows\\\\system32\\\\fodhelper.exe\" OR (process=\"c:\\\\windows\\\\system32\\\\wusa.exe\\*/quiet*\" AND user != \"NOT_TRANSLATED\" AND parent_process_path != \"c:\\\\windows\\\\explorer.exe\") OR process=\"*cleanmgr.exe /autoclean\"\" OR (parent_process_path=\"c:\\\\windows\\\\*dccw.exe\" AND process_path != \"c:\\\\windows\\\\system32\\\\cttune.exe\") OR process_path=\"c:\\\\program files\\\\windows media player\\\\osk.exe\" OR parent_process_path=\"c:\\\\windows\\\\system32\\\\slui.exe\" OR (parent_process=\"\"c:\\\\windows\\\\system32\\\\dism.exe\\\\*.xml\" AND process_path!=\"c:\\\\users\\\\*\\\\appdata\\\\local\\\\temp\\\\*\\\\dismhost.exe\"))",
     "annotations": [
       "T1548"
@@ -47,7 +43,6 @@
     "id": 5,
     "name": "Command Launched from WinLogon",
     "description": "An adversary can use accessibility features (Ease of Access), such as StickyKeys or Utilman, to launch a command shell from the logon screen and gain SYSTEM access.",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND process=\"*cmd.exe\" AND parent_process=\"*winlogon.exe\"",
     "annotations": [
       "T1546"
@@ -58,7 +53,6 @@
     "id": 6,
     "name": "Host Discovery Commands",
     "description": "When entering on a host for the first time, an adversary may try to discover information about the host. There are several built-in Windows commands that can be used to learn about the software configurations, active users, administrators, and networking configuration. These commands should be monitored to identify when an adversary is learning information about the system and environment.",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND  (process_exec=\"hostname.exe\" OR process_exec=\"ipconfig.exe\" OR process_exec=\"net.exe\" OR process_exec=\"quser.exe\" OR process_exec=\"qwinsta.exe\" OR process_exec=\"systeminfo.exe\" OR process_exec=\"tasklist.exe\" OR process_exec=\"whoami.exe\" OR (process_exec=\"sc.exe\" AND (process ?= \" query \" OR process ?= \" qc \")))",
     "annotations": [
       "T1087",
@@ -75,7 +69,6 @@
     "id": 7,
     "name": "Create Remote Process via WMIC",
     "description": "Adversaries may use Windows Management Instrumentation (WMI) to move laterally, by launching executables remotely.",
-    "datamodel": "EndpointProcess",
     "pdl": "process_exec=\"wmic.exe\" AND process ?= \" process call create \" AND process ?= \" /node:\" ",
     "annotations": [
       "T1047"
@@ -86,7 +79,6 @@
     "id": 8,
     "name": "Generic Regsvr32: Main Pattern",
     "description": "Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This analytic looks for suspicious usage of the tool.",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND process_path!=\"*regsvr32.exe\" AND parent_process_path=\"*regsvr32.exe\" ",
     "annotations": [
       "T1218"
@@ -97,7 +89,6 @@
     "id": 9,
     "name": "Generic Regsvr32: Spawning Child Processes",
     "description": "Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This analytic looks for suspicious usage of the tool.",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND (parent_process_path=\"C:\\\\Windows\\\\System32\\\\regsvr32.exe\" OR parent_process_path=\"C:\\\\Windows\\\\SysWOW64\\\\regsvr32.exe\") AND process_path!=\"C:\\\\Windows\\\\System32\\\\regsvr32.exe\" AND process_path!=\"C:\\\\Windows\\\\SysWOW64\\\\regsvr32.exe\" AND process_path!=\"C:\\\\Windows\\\\SysWOW64\\\\WerFault.exe\" AND process_path!=\"C:\\\\Windows\\\\System32\\\\wevtutil.exe\" AND process_path!=\"C:\\\\Windows\\\\System32\\\\WerFault.exe\"",
     "annotations": [
       "T1218"
@@ -108,7 +99,6 @@
     "id": 10,
     "name": "Powershell Execution",
     "description": "PowerShell is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus which makes using PowerShell an easy way to circumvent security measures. This analytic detects execution of PowerShell scripts.",
-    "datamodel": "EndpointProcess",
     "pdl": "action=\"allowed\" AND process_path=\"C:\\\\Windows\\\\*\\\\powershell.exe\" AND parent_process_path!=\"C:\\\\Windows\\\\explorer.exe\" ",
     "annotations": [
       "T1059"

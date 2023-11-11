@@ -10,15 +10,15 @@ Description of fields can be found below.
 | Definition  | Function definition.  Each function has different definition parameters.  Please see below for details. |
 
 ##### `APPY_RULES` Definition
-This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with `padas_rules` object array that contain matching rule information as well as the event data.
+This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with `padas_rules` object array that contains matching rule information as well as the event data.
 
 | Field       | Description                                           | Example |
 | -------     | ----------------------------------------------------- | :---: |
 | ID   | ID the of the pre-defined rule. | <img src="../assets/img/padas_ui_task_apply_rules_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  |
 | Name  | Name the of the pre-defined rule. | &#8288 {: style="padding:0"} |
-| Decsription  | Decsription the of the pre-defined rule. | &#8288 {: style="padding:0"} |
-| Data model  | Rules with this matching data model will be evaluated against the event. | &#8288 {: style="padding:0"} |
-| Match All   | If set to `Match all rules`, all rules for this data model are evaluated.  If set to `First match wins`, first match wins and evaluation stops. | &#8288 {: style="padding:0"} |
+| Description  | Description the of the pre-defined rule. | &#8288 {: style="padding:0"} |
+| Rules       | List of selected rules to process when this task is running. |
+| Match All   | If set to `Match all rules`, all rules for this task are evaluated.  If set to `First match wins`, first match wins and evaluation stops. | &#8288 {: style="padding:0"} |
 
 ##### `EXTRACT` Definition
 This function allows usage of named capturing groups in regular expression to extract fields from event data.  The output is in `JSON` formatted event with named groups as fields.
@@ -69,7 +69,7 @@ This function allows data transformation and enrichment via PDL expressions.  In
 
 | Field       | Description                                           | Example |
 | -------     | ----------------------------------------------------- | :---: |
-| pdl   | PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see [PDL Expression](../pdl-expression) for syntax and usage. | <img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  |
+| pdl   | PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation(s) per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see [PDL Expression](../pdl-expression) for syntax and usage. | <img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"> {: rowspan=4}  |
 
 ##### `TIMESTAMP` Definition
 This function extracts event timestamp from the given field with the provided format. The output is time in milliseconds in a new field (if specified).  The timestamp information is utilized by stream processing.
