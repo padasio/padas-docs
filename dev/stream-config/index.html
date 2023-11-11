@@ -1332,7 +1332,7 @@
 </tbody>
 </table>
 <h5 id="appy_rules-definition"><code>APPY_RULES</code> Definition</h5>
-<p>This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with <code>padas_rules</code> object array that contain matching rule information as well as the event data.</p>
+<p>This function applies pre-defined rules (PDL queries) in order to generate event alerts that match them.  The output is enriched with <code>padas_rules</code> object array that contains matching rule information as well as the event data.</p>
 <table>
 <thead>
 <tr>
@@ -1353,18 +1353,18 @@
 <td style="padding:0">&#8288;</td>
 </tr>
 <tr>
-<td>Decsription</td>
-<td>Decsription the of the pre-defined rule.</td>
+<td>Description</td>
+<td>Description the of the pre-defined rule.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 <tr>
-<td>Data model</td>
-<td>Rules with this matching data model will be evaluated against the event.</td>
-<td style="padding:0">&#8288;</td>
+<td>Rules</td>
+<td>List of selected rules to process when this task is running.</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr>
 <td>Match All</td>
-<td>If set to <code>Match all rules</code>, all rules for this data model are evaluated.  If set to <code>First match wins</code>, first match wins and evaluation stops.</td>
+<td>If set to <code>Match all rules</code>, all rules for this task are evaluated.  If set to <code>First match wins</code>, first match wins and evaluation stops.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 </tbody>
@@ -1517,7 +1517,7 @@
 <tbody>
 <tr>
 <td>pdl</td>
-<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
+<td>PDL expression can contain one or more query, eval, fields, rename, flatten expression to perform necessary transformation(s) per event data. Also, PDL expression uses lookups to enrich your event data.<br/>Please see <a href="../pdl-expression">PDL Expression</a> for syntax and usage.</td>
 <td rowspan="4" style="text-align: center;"><img src="../assets/img/padas_ui_task_pdl_expressoin_example.png" class="img-fluid py-5 w-75"></td>
 </tr>
 </tbody>
@@ -1583,10 +1583,6 @@
 <tr>
 <td>Description</td>
 <td>Detailed description of the rule functionality.</td>
-</tr>
-<tr>
-<td>Data model</td>
-<td>Data model name where this rule is applicable to.  This is specified in a Task with <code>APPLY_RULES</code> function.<br/>Any arbitrary data model can be specified.  Please refer to <a href="../datamodel-reference/">Datamodel Reference</a> for more generic types and conventions.</td>
 </tr>
 <tr>
 <td>PDL</td>
