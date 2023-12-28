@@ -1158,7 +1158,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 <p>Following steps will guide you through how to manually create these configuration items instead of uploading.</p>
 <ol>
 <li>
-<p><strong>Create Rules</strong>: Create couple of rules for <code>mydata</code> data model. with the above tasks.  From <a href="https://localhost:9000/rules">Rules</a> menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+<p><strong>Create Rules</strong>: Create couple of rules from <a href="https://localhost:9000/rules">Rules</a> menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
@@ -1189,12 +1189,14 @@ Upload the configurations from the corresponding menus.  Each of the views provi
     </figure></p>
 </li>
 <li>
-<p><strong>Create Topology</strong>: Create a topology with the above pipeline that reads from <code>test_input</code> topic and writes to <code>test_output</code> topic.  From <a href="https://localhost:9000/topologies">Topologies</a> menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure></p>
+<p><strong>Create Topology</strong>: Create a topology with the above pipeline that reads from <code>test_input</code> topic and writes to <code>test_output</code> topic.  From <a href="https://localhost:9000/topologies">Topologies</a> menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.</p>
+<p><code>keySerde:</code> topic key SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
+  <code>valueSerde:</code> topic value SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
 </li>
 <li>
 <p><strong>Restart Node</strong>: Once a new topology is created we need to let Padas Engine know about it by restarting the node.  You can do this from the console (<code>CTRL-C</code> and start, or stop/start the service, etc.) or you can also do this from the UI from <a href="https://localhost:9000/nodes">Nodes</a> menu, click <span class="btn btn-padas">Start</span> button and you should see the state change to <code>RUNNING</code> for this node.
