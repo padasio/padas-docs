@@ -2,7 +2,7 @@
     ```bash
     cd padas-ui/
     ```
-    --8<-- "padas_ui_start_console.md"
+    --8<-- "padas/padas_ui_start_console.md"
 
 2. **Initialize User**: Go to [https://localhost:9000](https://localhost:9000) and since this is the first time, click the link below and create an administrator user.
 

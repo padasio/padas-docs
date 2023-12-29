@@ -29,13 +29,7 @@ Padas installation folder structure:
 
 ---
 
-### Step 4: Configuration & Namespaces
---8<-- "installation/installation_step_configuration.md"
---8<-- "installation/installation_step_createtopics.md"
-
----
-
-### Step 5: Register as a Service
+### Step 4: Register as a Service
 --8<-- "installation/installation_step_registerservice.md"
 
 ---
