@@ -29,7 +29,9 @@ Node Information table provides details on registered Padas engine instances.
 
 ### Topics
 
-Topics view displays information on required Padas topics for storing configuration items.  Details can be found in [Topic Properties](admin-guide.md#topic-properties) section in Admin Guide.
+The Topic view provides an overview of all created topics, and it also allows you to create new topics directly from this page. 
+
+**NOTE:** If padas.config.store=kafka is set in padas.properties file, required Kafka topics must be created for keeping centralized configuration entries. Details can be found in [Topic Properties](admin-guide.md#topic-properties) section in Admin Guide.
 
 <figure markdown>
   <p>
