@@ -1103,6 +1103,66 @@ tar<span class="w"> </span>-xzf<span class="w"> </span>padas-ui-<span class="o">
 <li>
 <p>Start engine node on the console.  The script will ask you to accept the license agreement (enter <code>y</code>)
     <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>padas/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas<span class="w"> </span>start-console
+PADAS<span class="w"> </span>SOFTWARE<span class="w"> </span>LICENSE<span class="w"> </span>AGREEMENT
+...
+Displayed<span class="w"> </span>Padas<span class="w"> </span>Software<span class="w"> </span>License<span class="w"> </span>Agreement<span class="w"> </span>contents<span class="w"> </span>can<span class="w"> </span>also<span class="w"> </span>be<span class="w"> </span>found<span class="w"> </span>at<span class="w"> </span>https://padas.io/legal/eula.html<span class="w"> </span>OR<span class="w"> </span><span class="k">in</span><span class="w"> </span>file<span class="w"> </span>/&lt;YOUR<span class="w"> </span>INSTALL<span class="w"> </span>DIR&gt;/padas/etc/license.txt
+Do<span class="w"> </span>you<span class="w"> </span>agree<span class="w"> </span>with<span class="w"> </span>this<span class="w"> </span>license?<span class="w"> </span><span class="o">[</span>y/n<span class="o">]</span>:<span class="w"> </span>y
+INFO<span class="w">  </span>Verifying<span class="w"> </span>Kafka<span class="w"> </span>broker<span class="w"> </span>connection...
+INFO<span class="w">  </span>Successfully<span class="w"> </span>verified<span class="w"> </span>Kafka<span class="w"> </span>Cluster<span class="w"> </span>connection.
+INFO<span class="w">  </span>Successfully<span class="w"> </span>verified<span class="w"> </span>existence<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>required<span class="w"> </span>topics.
+INFO<span class="w">  </span>Starting<span class="w"> </span>web<span class="w"> </span>interface<span class="w"> </span>at<span class="w"> </span>https://&lt;HOSTNAME&gt;:8999<span class="w"> </span>...
+
+
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:**@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@@@:****:@@@@@@@@@@@**:****@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@**********:::**********@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@:***********************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@************************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@**************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@*****************************@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@********************************<span class="p">&amp;</span>@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@#***********************************::@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@**:************************************@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@******************************@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@<span class="p">&amp;</span>*@@@@@@@@@@*************************@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@:**********@@@@@@@@@@@***********************@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@***********:@@@@@@@@@@@@********************o@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@***********@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>**************o@@@@@@@@@@@@@*******************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>**************@@@@@@@@@@@@@********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@:::o:********@@@@@@@@@@@@:********************:@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@o*******@@@@@@@@@@**************o@@@#****8@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@*******:@@@@@@@:***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8
+<span class="w">  </span>@@@@@@@@**********:@**************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*
+<span class="w">  </span>@@@@@@@:*****************************:8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<span class="p">&amp;</span>
+<span class="w">  </span>@@@@@@:***********************************@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:@
+<span class="w">  </span>@@@@@@o****************************************@@@@@@@@@@@@@@@@@@@@@@@@@:*@@
+<span class="w">  </span>@@@@@@o********************************************:*@@@@@@@@@@@@@@@@@:**@@@
+<span class="w">  </span>@@@@@@@@@******************************@::****************************:@@@@@
+<span class="w">  </span>@@@@@@@@@@*@@:******#@@@@@@@@@*********@@@@@@@@8**:****************@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@*****@@*****:8@@@@@@@@@8*********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@*****@@@:******@@@@@@@@@@@@:*****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@****<span class="p">&amp;</span>@@@@@@*****@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@**@@@****@@@@@@@@#***#@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@******:***@@@@@@@@***@@@@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@:<span class="p">&amp;</span>@@@@@@@@@@::@@*****:o@@@@@@@o***********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@:*****8#@:*#@@@@@@8*@*8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@<span class="p">&amp;</span>@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<span class="w">  </span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+<span class="w">  </span>____<span class="w">   </span>_<span class="w">    </span>____<span class="w">    </span>_<span class="w">    </span>____
+<span class="w"> </span><span class="p">|</span><span class="w">  </span>_<span class="w"> </span><span class="se">\ </span>/<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span>_<span class="w"> </span><span class="se">\ </span><span class="w"> </span>/<span class="w"> </span><span class="se">\ </span><span class="w"> </span>/<span class="w"> </span>___<span class="p">|</span>
+<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="o">)</span><span class="w"> </span>/<span class="w"> </span>_<span class="w"> </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>/<span class="w"> </span>_<span class="w"> </span><span class="se">\ \_</span>__<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="p">|</span><span class="w">  </span>__/<span class="w"> </span>___<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span>/<span class="w"> </span>___<span class="w"> </span><span class="se">\ </span>___<span class="o">)</span><span class="w"> </span><span class="p">|</span>
+<span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span>/_/<span class="w">   </span><span class="se">\_\_</span>___/_/<span class="w">   </span><span class="se">\_\_</span>___/
+
+INFO<span class="w">  </span>Starting<span class="w"> </span>App<span class="w"> </span>using<span class="w"> </span>Java<span class="w"> </span><span class="m">11</span>.0.10<span class="w"> </span>on<span class="w"> </span>&lt;HOSTNAME&gt;<span class="w"> </span>with<span class="w"> </span>PID<span class="w"> </span><span class="m">32965</span><span class="w"> </span><span class="o">(</span>/&lt;YOUR<span class="w"> </span>INSTALL<span class="w"> </span>DIR&gt;/padas/libs/padas-0.0.1.jar<span class="w"> </span>started<span class="w"> </span>by<span class="w"> </span>selim<span class="w"> </span><span class="k">in</span><span class="w"> </span>/&lt;YOUR<span class="w"> </span>INSTALL<span class="w"> </span>DIR&gt;/padas<span class="o">)</span>
+INFO<span class="w">  </span>No<span class="w"> </span>active<span class="w"> </span>profile<span class="w"> </span>set,<span class="w"> </span>falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>default<span class="w"> </span>profiles:<span class="w"> </span>default
+INFO<span class="w">  </span>Started<span class="w"> </span>App<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">12</span>.536<span class="w"> </span>seconds<span class="w"> </span><span class="o">(</span>JVM<span class="w"> </span>running<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">66</span>.174<span class="o">)</span>
 </code></pre></div></p>
 <p><strong>NOTE</strong>: If Padas is configured to utilize Kafka (<code>padas.config.store=kafka</code> in properties file) to store configurations you will need to create the required topics (configuration namespaces).  If not, you will receive a warning as following on the console.  </p>
 <div class="highlight"><pre><span></span><code>...
@@ -1117,6 +1177,9 @@ WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </
 <li>
 <p>Start UI component on the console.  Default configuration connects to <code>localhost</code> for Padas Engine.
     <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>padas-ui/
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>bin/padas-ui<span class="w"> </span>start-console
+<span class="o">[</span>HPM<span class="o">]</span><span class="w"> </span>Proxy<span class="w"> </span>created:<span class="w"> </span>/api<span class="w">  </span>-&gt;<span class="w"> </span>https://&lt;PADAS<span class="w"> </span>ENGINE<span class="w"> </span>HOST&gt;:8999
 </code></pre></div></p>
 </li>
 <li>
