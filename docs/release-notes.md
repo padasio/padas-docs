@@ -5,34 +5,28 @@ layout: documentation
 
 ### Version {{ current_version }}
 
-**Release Date**: 06.11.2023
+**Release Date**: 08.01.2024
 
 #### What's New?
 
 | Feature                         | Description |
 | ----------------------          | ----------------------       
-| PDL Expression commands for field extraction.  | New PDL commands perform additional field extractions on specific JSON fields: `rex`, `parse_csv`, `parse_kv`
-| PDL Operator for regex based query matching.   | New operator, `~=`, allows query matching based on regular expression patterns.
-| Topics UI and API update        | Topics UI and API allow Create, Read, Delete operations on Kafka topics.
-| Produce messages to a topic.    | Produce a message to a given topic from UI.
-| Consume messages from a topic.  | Subscribe and consume messages from a topic to visualize streaming event activity.
-| Embedded configuration without topic creation. | No need to create topics upon initial installation.  Padas configuration attribute `padas.config.store` supports both local (`rocksdb`) and compacted topic (`kafka`) based setup.
-| Define SerDe information for Topology topics.  | When creating Topologies, it's possible to specify SerDe (Serializer/Deserializer) information for both key and value.
+| Update topics view to support new features.  | Topics view now has an overview (summary of important settings), messages (ability to create and view topic content), and settings (view all topic settings) tabs.
+| Topology configuration allows custom stream configuration options. | Stream topology configuration supports Avro SerDe (Serializer/Deserializer) information to be specified and administrators can provide further resiliency parameters as per [Confluent Documentation](https://docs.confluent.io/platform/current/streams/developer-guide/config-streams.html#recommended-configuration-parameters-for-resiliency)
+| A new Task, `OUTPUT_FIELD` is added. | From a given JSON input streaming event, a single field value can be output as an event (e.g. only output a matching `_raw` field value to be consumed by endpoint analytics system).
 
 
 #### Known Issues
 
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
-
+| 06.11.2023    | PADAS-201	        | Cannot delete multiple configuration items from UI.
 
 #### Fixed Issues
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------   
-| 20.09.2023    | PADAS-71	        | After initial login, check for required topics is not performed.     
-| 29.09.2023    | PADAS-137	        | For `PARSE_KV`, `PARSE_CSV`, and `EXTRACT` Task definitions, `field` option is unused.  This option performs extraction/parsing on a specific field value. 
-| 20.09.2023    | PADAS-164         | The engine does not start if there are no topics.
-| 30.10.2023    | PADAS-172         | UI fails to start with emtpy `local.json` configuration file.
+| 01.11.2023    | PADAS-175	        | Fix typo and update streams and admin configuration in documentation.
+| 01.01.2024    | PADAS-216	        | User can be created without a role.
 
 ---

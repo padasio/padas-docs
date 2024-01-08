@@ -8,44 +8,38 @@ sudo useradd -d /opt/padas -U padas
 ```
 
 Padas installation folder structure:
---8<-- "padas_folders.md"
+--8<-- "padas/padas_folders.md"
 
 ---
 
 #### Step 1: Download
---8<-- "installation_step_download.md"
+--8<-- "installation/installation_step_download.md"
 
 **NOTE:** You can install these components in a distributed environment.  For possible configuration options, please refer to [Configuration File Reference](config-reference.md).
 
 ---
 
 #### Step 2: Start Engine
---8<-- "installation_step_engine.md"
+--8<-- "installation/installation_step_engine.md"
 
 ---
 
 #### Step 3: Start UI
---8<-- "installation_step_ui.md"
+--8<-- "installation/installation_step_ui.md"
 
 ---
 
-### Step 4: Configuration & Namespaces
---8<-- "installation_step_configuration.md"
---8<-- "installation_step_createtopics.md"
-
----
-
-### Step 5: Register as a Service
---8<-- "installation_step_registerservice.md"
+### Step 4: Register as a Service
+--8<-- "installation/installation_step_registerservice.md"
 
 ---
 
 ### Command Line Interface
 Comman Lince Interface (CLI) is a wrapper script is provided to manage PADAS service: `$PADAS_HOME/bin/padas`
---8<-- "padas_cli.md"
+--8<-- "padas/padas_cli.md"
 
 ---
 
 ### Uninstall
---8<-- "installation_step_uninstall.md"
+--8<-- "installation/installation_step_uninstall.md"
 

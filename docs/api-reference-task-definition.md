@@ -2,7 +2,7 @@
 title: Task Definition REST API
 ---
 
---8<-- "description_task.md"
+--8<-- "description/description_task.md"
 
 ## Important Notes
 
@@ -11,6 +11,40 @@ title: Task Definition REST API
 - For description of each definition field and default values please refer to [Stream Configuration](stream-config.md#tasks)
 
 ## Task Definition Examples
+
+### APPLY_RULES Definition Example
+
+```json
+{
+  "id": 1,
+  "name": "MyTask Name",
+  "description": "MyTask description goes here.",
+  "function": "APPLY_RULES",
+  "definition": {
+    "rules": [
+      "rule1",
+      "rule2"
+      ],
+    "matchAll": false
+  }
+}
+```
+
+### EXTRACT Definition Example
+
+```json
+{
+  "id": 1,
+  "name": "MyTask Name",
+  "description": "MyTask description goes here.",
+  "function": "EXTRACT",
+  "definition": {
+    "field": "somefield",
+    "regex": "someregex text here",
+    "keepRaw": false
+  }
+}
+```
 
 ### FILTER Definition Example
 
@@ -28,18 +62,16 @@ title: Task Definition REST API
 }
 ```
 
-### EXTRACT Definition Example
+### OUTPUT_FIELD Definition Example
 
 ```json
 {
   "id": 1,
   "name": "MyTask Name",
   "description": "MyTask description goes here.",
-  "function": "EXTRACT",
+  "function": "OUTPUT_FIELD",
   "definition": {
-    "field": "somefield",
-    "regex": "someregex text here",
-    "keepRaw": false
+    "field": "someFieldName"
   }
 }
 ```
@@ -73,21 +105,6 @@ title: Task Definition REST API
 }
 ```
 
-### TIMESTAMP Definition Example
-
-```json
-{
-  "id": 1,
-  "name": "MyTask Name",
-  "description": "MyTask description goes here.",
-  "function": "TIMESTAMP",
-  "definition": {
-    "field": "somefield",
-    "format": "%H%M%S"
-  }
-}
-```
-
 ### PDL_EXPRESSION Definition Example
 
 ```json
@@ -102,20 +119,17 @@ title: Task Definition REST API
 }
 ```
 
-### APPLY_RULES Definition Example
+### TIMESTAMP Definition Example
 
 ```json
 {
   "id": 1,
   "name": "MyTask Name",
   "description": "MyTask description goes here.",
-  "function": "APPLY_RULES",
+  "function": "TIMESTAMP",
   "definition": {
-    "rules": [
-      "rule1",
-      "rule2"
-      ],
-    "matchAll": false
+    "field": "somefield",
+    "format": "%H%M%S"
   }
 }
 ```

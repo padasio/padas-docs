@@ -47,22 +47,22 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 ---
 #### Step 1: Download
---8<-- "installation_step_download.md"
+--8<-- "installation/installation_step_download.md"
 
 ---
 
 #### Step 2: Start Engine
---8<-- "installation_step_engine.md"
+--8<-- "installation/installation_step_engine.md"
 
 ---
 
 #### Step 3: Start UI
---8<-- "installation_step_ui.md"
+--8<-- "installation/installation_step_ui.md"
 
 ---
 
 #### Step 4: Configuration & Namespaces
---8<-- "installation_step_configuration.md"
+--8<-- "installation/installation_step_configuration.md"
 
 ---
 
@@ -85,7 +85,7 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 ---
 Following steps will guide you through how to manually create these configuration items instead of uploading.
 
-1. **Create Rules**: Create couple of rules for `mydata` data model. with the above tasks.  From [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
+1. **Create Rules**: Create couple of rules from [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
@@ -114,6 +114,10 @@ Following steps will guide you through how to manually create these configuratio
     </figure>
 
 4. **Create Topology**: Create a topology with the above pipeline that reads from `test_input` topic and writes to `test_output` topic.  From [Topologies](https://localhost:9000/topologies) menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.
+
+      `keySerde:` topic key SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
+      `valueSerde:` topic value SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
+      
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">

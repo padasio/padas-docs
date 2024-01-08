@@ -3,13 +3,13 @@ title: Admin Guide
 ---
 
 ### JVM Settings
---8<-- "sysreq_java.md"
+--8<-- "sysreq/sysreq_java.md"
 
 ---
 
 ### Topic Properties
 
---8<-- "props_topics.md"
+--8<-- "props/props_topics.md"
 
 ---
 

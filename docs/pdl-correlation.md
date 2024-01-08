@@ -37,11 +37,11 @@ Correlation statements must start with the one of the available functions, follo
 
 
 ### Event Count
---8<-- "pdl_eventcount_details.md"
+--8<-- "pdl/pdl_eventcount_details.md"
 
 ### Value Count
---8<-- "pdl_valuecount_details.md"
+--8<-- "pdl/pdl_valuecount_details.md"
 
 ### Temporal
---8<-- "pdl_temporal_details.md"
+--8<-- "pdl/pdl_temporal_details.md"
 

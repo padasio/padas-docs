@@ -22,7 +22,7 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 ### Topologies
 
---8<-- "description_topology.md"
+--8<-- "description/description_topology.md"
 
 <figure markdown>
   <p>
@@ -30,13 +30,13 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
---8<-- "props_topology.md"
+--8<-- "props/props_topology.md"
 
 ---
 
 ### Pipelines
 
---8<-- "description_pipeline.md"
+--8<-- "description/description_pipeline.md"
 
 <figure markdown>
   <p>
@@ -44,13 +44,13 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
---8<-- "props_pipeline.md"
+--8<-- "props/props_pipeline.md"
 
 ---
 
 ### Tasks
 
---8<-- "description_task.md"
+--8<-- "description/description_task.md"
 
 <figure markdown>
   <p>
@@ -58,13 +58,13 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
---8<-- "props_task.md"
+--8<-- "props/props_task.md"
 
 ---
 
 ### Rules
 
---8<-- "description_rule.md"
+--8<-- "description/description_rule.md"
 
 <figure markdown>
   <p>
@@ -72,13 +72,13 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
---8<-- "props_rule.md"
+--8<-- "props/props_rule.md"
 
 ---
 
 ### Lookups
 
---8<-- "description_lookup.md"
+--8<-- "description/description_lookup.md"
 
 <figure markdown>
   <p>
@@ -86,7 +86,7 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
   </p>
 </figure>
 
---8<-- "props_lookup.md"
+--8<-- "props/props_lookup.md"
 
 ---
 
@@ -94,6 +94,6 @@ All of the configuration views (Topologies, Pipelines, Tasks, Rules) provide the
 
 Test view allows a simple interface to play with sample data and verify configurations.
 
---8<-- "props_test.md"
+--8<-- "props/props_test.md"
 
 ---
