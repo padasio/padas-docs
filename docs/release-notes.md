@@ -18,7 +18,7 @@ layout: documentation
 
 | Date Filed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------       
-
+| 06.11.2023    | PADAS-201	        | Cannot delete multiple items.     
 
 #### Fixed Issues
 
