@@ -985,8 +985,16 @@
 </thead>
 <tbody>
 <tr>
-<td>TBD</td>
-<td>TBD.</td>
+<td>Update topics view to support new features.</td>
+<td>Topics view now has an overview (summary of important settings), messages (ability to create and view topic content), and settings (view all topic settings) tabs.</td>
+</tr>
+<tr>
+<td>Topology configuration allows custom stream configuration options.</td>
+<td>Stream topology configuration supports Avro SerDe (Serializer/Deserializer) information to be specified and administrators can provide further resiliency parameters as per <a href="https://docs.confluent.io/platform/current/streams/developer-guide/config-streams.html#recommended-configuration-parameters-for-resiliency">Confluent Documentation</a></td>
+</tr>
+<tr>
+<td>A new Task, <code>OUTPUT_FIELD</code> is added.</td>
+<td>From a given JSON input streaming event, a single field value can be output as an event (e.g. only output a matching <code>_raw</code> field value to be consumed by endpoint analytics system).</td>
 </tr>
 </tbody>
 </table>
@@ -1003,7 +1011,7 @@
 <tr>
 <td>06.11.2023</td>
 <td>PADAS-201</td>
-<td>Cannot delete multiple items.</td>
+<td>Cannot delete multiple configuration items from UI.</td>
 </tr>
 </tbody>
 </table>
@@ -1018,9 +1026,14 @@
 </thead>
 <tbody>
 <tr>
-<td>X.1X.2023</td>
-<td>PADAS-XX</td>
-<td>TBD.</td>
+<td>01.11.2023</td>
+<td>PADAS-175</td>
+<td>Fix typo and update streams and admin configuration in documentation.</td>
+</tr>
+<tr>
+<td>01.01.2024</td>
+<td>PADAS-216</td>
+<td>User can be created without a role.</td>
 </tr>
 </tbody>
 </table>
