@@ -38,6 +38,7 @@ nav:
     - introduction.md
     - quickstart.md
     - sigmav2-quickstart.md
+    - about-regex.md
   - 'Install':
     - system-requirements.md
     - installation.md
