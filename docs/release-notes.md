@@ -25,5 +25,6 @@ layout: documentation
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------   
+| 29.02.2024    | PADAS-222         | Test API with `OUTPUT_FIELD` task fails with unknown task error.
 
 ---
