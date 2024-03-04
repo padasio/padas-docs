@@ -5,14 +5,13 @@ layout: documentation
 
 ### Version {{ current_version }}
 
-**Release Date**: 04.03.2024
+**Release Date**: 06.05.2024
 
 #### What's New?
 
 | Feature                         | Description |
 | ----------------------          | ----------------------       
-| Update on UI items and visualizations. | Various items and informational text have been updated for ease of management.
-| A new Task, `OUTPUT_FIELD` is added. | From a given JSON input streaming event, a single field value can be output as an event (e.g. only output a matching `_raw` field value to be consumed by endpoint analytics system).
+| TBD | TBD
 
 
 #### Known Issues
@@ -25,6 +24,6 @@ layout: documentation
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------   
-| 29.02.2024    | PADAS-222         | Test API with `OUTPUT_FIELD` task fails with unknown task error.
+| X.X.2024    | PADAS-XXX         | TBD
 
 ---
