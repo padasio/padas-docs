@@ -38,6 +38,7 @@ nav:
     - introduction.md
     - quickstart.md
     - sigmav2-quickstart.md
+    - about-regex.md
   - 'Install':
     - system-requirements.md
     - installation.md
@@ -64,7 +65,7 @@ extra:
     - icon: fontawesome/brands/twitter 
       link: https://twitter.com/padasinc
   generator: false
-  current_version: 0.0.6
+  current_version: 0.0.7
   version:
     provider: mike
 
