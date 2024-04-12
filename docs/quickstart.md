@@ -66,15 +66,24 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 ---
 
+#### Configure Padas with Ansible Playbooks
+Congratulations on setting up Confluent Kafka, Padas Engine, and Padas UI! Now, kickstart your experience with the playbooks. You have two options: either utilize the provided Ansible playbooks for a seamless setup or follow **Step 5** manually to configure Padas. 
+
+Download the [Ansible Playbooks](https://github.com/padasio/padas-demo){:target="_blank"} from the padas-demo repository.
+
+After configuring Padas with the **quick-start** playbook, proceed to **Step 6** for testing and playing around.
+
+---
+
 #### Step 5: Configure Padas
 
 **TLDR;**
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.
 
-  - For [Tasks](https://localhost:9000/tasks) upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
-  - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
-  - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
-  - For [Topologies](https://localhost:9000/topologies) upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
+  - For [Tasks](https://localhost:9000/tasks){:target="_blank"} upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
+  - For [Pipelines](https://localhost:9000/pipelines){:target="_blank"} upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
+  - For [Rules](https://localhost:9000/rules){:target="_blank"} upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
+  - For [Topologies](https://localhost:9000/topologies){:target="_blank"} upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
 
     <figure markdown>
       <p>
