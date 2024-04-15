@@ -335,16 +335,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-padas-with-ansible-playbooks" class="md-nav__link">
-    Configure Padas with Ansible Playbooks
+  <a href="#step-5-configure-padas" class="md-nav__link">
+    Step 5: Configure Padas
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Configure Padas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-configure-padas-with-ansible-playbooks" class="md-nav__link">
+    Option 1: Configure Padas with Ansible Playbooks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-configure-padas" class="md-nav__link">
-    Step 5: Configure Padas
+  <a href="#option-2-configure-padas-manually" class="md-nav__link">
+    Option 2: Configure Padas Manually
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -352,6 +365,26 @@
   <a href="#step-6-test-play" class="md-nav__link">
     Step 6: Test &amp; Play
   </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Test & Play">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-testing-with-padas-ui" class="md-nav__link">
+    Option 1: Testing with Padas UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-testing-using-kafka-cli-tools" class="md-nav__link">
+    Option 2: Testing using Kafka CLI Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1030,16 +1063,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-padas-with-ansible-playbooks" class="md-nav__link">
-    Configure Padas with Ansible Playbooks
+  <a href="#step-5-configure-padas" class="md-nav__link">
+    Step 5: Configure Padas
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Configure Padas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-configure-padas-with-ansible-playbooks" class="md-nav__link">
+    Option 1: Configure Padas with Ansible Playbooks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-configure-padas" class="md-nav__link">
-    Step 5: Configure Padas
+  <a href="#option-2-configure-padas-manually" class="md-nav__link">
+    Option 2: Configure Padas Manually
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1047,6 +1093,26 @@
   <a href="#step-6-test-play" class="md-nav__link">
     Step 6: Test &amp; Play
   </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Test & Play">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-testing-with-padas-ui" class="md-nav__link">
+    Option 1: Testing with Padas UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-testing-using-kafka-cli-tools" class="md-nav__link">
+    Option 2: Testing using Kafka CLI Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1235,12 +1301,13 @@ WARN<span class="w">  </span>Unable<span class="w"> </span>to<span class="w"> </
 <h4 id="step-4-configuration-namespaces">Step 4: Configuration &amp; Namespaces</h4>
 <p>By default, all configuration is stored locally and the user does not have to take any action other than editing desired configuation from Padas UI.</p>
 <hr />
-<h4 id="configure-padas-with-ansible-playbooks">Configure Padas with Ansible Playbooks</h4>
-<p>Congratulations on setting up Confluent Kafka, Padas Engine, and Padas UI! Now, kickstart your experience with the playbooks. You have two options: either utilize the provided Ansible playbooks for a seamless setup or follow <strong>Step 5</strong> manually to configure Padas. </p>
+<h4 id="step-5-configure-padas">Step 5: Configure Padas</h4>
+<h5 id="option-1-configure-padas-with-ansible-playbooks">Option 1: Configure Padas with Ansible Playbooks</h5>
+<p>Congratulations on setting up Confluent Kafka, Padas Engine, and Padas UI! Now, kickstart your experience with the playbooks. You have two options: either utilize the provided Ansible playbooks for a seamless setup or follow <strong>Option 2</strong> manually to configure Padas. </p>
 <p>Download the <a href="https://github.com/padasio/padas-demo" target="_blank">Ansible Playbooks</a> from the padas-demo repository.</p>
 <p>After configuring Padas with the <strong>quick-start</strong> playbook, proceed to <strong>Step 6</strong> for testing and playing around.</p>
 <hr />
-<h4 id="step-5-configure-padas">Step 5: Configure Padas</h4>
+<h5 id="option-2-configure-padas-manually">Option 2: Configure Padas Manually</h5>
 <p><strong>TLDR;</strong>
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.</p>
 <ul>
@@ -1310,6 +1377,34 @@ Upload the configurations from the corresponding menus.  Each of the views provi
 </li>
 </ol>
 <h4 id="step-6-test-play">Step 6: Test &amp; Play</h4>
+<h5 id="option-1-testing-with-padas-ui">Option 1: Testing with Padas UI</h5>
+<ol>
+<li>
+<p><strong>Navigate to the Test Page:</strong> Open your web browser and access the Padas UI. Once logged in, locate and click on the "Test" option in the navigation to open the Test page.</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_open_test_page.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+</li>
+<li>
+<p><strong>Configure and Run Your Test:</strong> On the Test page, locate the dropdown menu for selecting a Test Function and choose "pipeline" as it pertains to our example.
+In the provided field, paste the sample event data that corresponds to the pipeline function you are testing. Click the "Test" button.</p>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_select_test_function.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_1&quot;</span><span class="p">,</span><span class="nt">&quot;group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_1&quot;</span><span class="p">,</span><span class="nt">&quot;group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_1&quot;</span><span class="p">,</span><span class="nt">&quot;group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;failure&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p><figure markdown>
+  <p>
+  <img src="../assets/img/padas_ui_apply_test_function.png" class="w-50 img-fluid py-5">
+  </p>
+</figure></p>
+</li>
+</ol>
+<h5 id="option-2-testing-using-kafka-cli-tools">Option 2: Testing using Kafka CLI Tools</h5>
 <ol>
 <li>
 <p><strong>Generate Data</strong>: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
