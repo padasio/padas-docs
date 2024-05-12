@@ -5,7 +5,7 @@ layout: documentation
 
 ### Version {{ current_version }}
 
-**Release Date**: 06.05.2024
+**Release Date**: 13.05.2024
 
 #### What's New?
 
