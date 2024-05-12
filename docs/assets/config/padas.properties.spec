@@ -13,6 +13,11 @@ bootstrap.servers=localhost:9092
 # Kafka bootstrap server list with port information.  Multiple servers can be separated by comma.
 # Default: localhost:9092
 
+schema.registry.url="http://localhost:8081"
+# Optional - <string>
+# Schema registry URL for SerDe (e.g. Avro).  If not provided, it will use the default value.
+# Default: http://localhost:8081
+
 padas.uuid=
 # N/A - Automatically assigned
 # Universally Unique Identifier for this instance.  Created upon initial start.
@@ -48,6 +53,13 @@ padas.config.location=/opt/padas/var/config
 # Optional - <string>
 # State store directory to keep local RocksDB data.  If it is a clustered RocksDB, provide the URL (e.g. "http://localhost:2379")
 # Default: ${padas.home}/var/config
+
+# Following settings are for streams only
+state.dir=/opt/padas/var/state
+# Optional - <string>
+# State store directory for any streaming topologies to utilize.
+# Default: ${padas.home}/var/state
+
 
 num.stream.threads=10
 # Optional - <integer>
@@ -88,3 +100,35 @@ server.ssl.key-store-type=PKCS12
 # SSL Key Store type
 # Default: PKCS12
 
+####################################
+# SETTINGS FOR CLIENT AUTHENTICATION AND TLS/SSL - CONFLUENT KAFKA
+####################################
+security.protocol=PLAINTEXT
+# Optional - <string>
+# Security protocol for Kafka.  Possible options: PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL
+# Default: PLAINTEXT
+
+ssl.truststore.location=
+# Optional - <string>
+# Truststore location for SSL, e.g. /etc/security/tls/kafka.client.truststore.jks
+# Default: None
+
+ssl.truststore.password=
+# Optional - <string>
+# Truststore password for SSL, e.g. test1234
+# Default: None
+
+ssl.keystore.location=
+# Optional - <string>
+# Keystore location for SSL, e.g. /etc/security/tls/kafka.client.keystore.jks
+# Default: None
+
+ssl.keystore.password=
+# Optional - <string>
+# Keystore password for SSL, e.g. test1234
+# Default: None
+
+ssl.key.password=
+# Optional - <string>
+# Key password for SSL, e.g. test1234
+# Default: None
