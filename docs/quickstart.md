@@ -68,13 +68,25 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 #### Step 5: Configure Padas
 
+##### Option 1: Configure Padas with Ansible Playbooks
+
+Congratulations on setting up Confluent Kafka, Padas Engine, and Padas UI! Now, kickstart your experience with the playbooks. You have two options: either utilize the provided Ansible playbooks for a seamless setup or follow **Option 2** manually to configure Padas. 
+
+Download the [Ansible Playbooks](https://github.com/padasio/padas-demo){:target="_blank"} from the padas-demo repository.
+
+After configuring Padas with the **quick-start** playbook, proceed to **Step 6** for testing and playing around.
+
+---
+
+##### Option 2: Configure Padas Manually
+
 **TLDR;**
 Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.
 
-  - For [Tasks](https://localhost:9000/tasks) upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
-  - For [Pipelines](https://localhost:9000/pipelines) upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
-  - For [Rules](https://localhost:9000/rules) upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
-  - For [Topologies](https://localhost:9000/topologies) upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
+  - For [Tasks](https://localhost:9000/tasks){:target="_blank"} upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
+  - For [Pipelines](https://localhost:9000/pipelines){:target="_blank"} upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
+  - For [Rules](https://localhost:9000/rules){:target="_blank"} upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
+  - For [Topologies](https://localhost:9000/topologies){:target="_blank"} upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
 
     <figure markdown>
       <p>
@@ -132,6 +144,39 @@ Following steps will guide you through how to manually create these configuratio
     </figure>
 
 #### Step 6: Test & Play
+
+##### Option 1: Testing with Padas UI
+
+1. **Navigate to the Test Page:** Open your web browser and access the Padas UI. Once logged in, locate and click on the "Test" option in the navigation to open the Test page.
+
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_open_test_page.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+2. **Configure and Run Your Test:** On the Test page, locate the dropdown menu for selecting a Test Function and choose "pipeline" as it pertains to our example.
+In the provided field, paste the sample event data that corresponds to the pipeline function you are testing. Click the "Test" button.
+
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_select_test_function.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+    ```json
+    {"user": "user_1","group_id": 5,"action": "success", "user": "user_1","group_id": 1,"action": "success", "user": "user_1","group_id": 1,"action": "failure"}
+    ```
+
+    <figure markdown>
+      <p>
+      <img src="../assets/img/padas_ui_apply_test_function.png" class="w-50 img-fluid py-5">
+      </p>
+    </figure>
+
+
+
+##### Option 2: Testing using Kafka CLI Tools
 
 1. **Generate Data**: Let's generate a few sample event with a simple JSON message.  Note that the last 2 events will match the rules specified above.
     ```bash

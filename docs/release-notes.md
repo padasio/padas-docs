@@ -5,14 +5,14 @@ layout: documentation
 
 ### Version {{ current_version }}
 
-**Release Date**: 04.03.2024
+**Release Date**: 13.05.2024
 
 #### What's New?
 
 | Feature                         | Description |
 | ----------------------          | ----------------------       
-| Update on UI items and visualizations. | Various items and informational text have been updated for ease of management.
-| A new Task, `OUTPUT_FIELD` is added. | From a given JSON input streaming event, a single field value can be output as an event (e.g. only output a matching `_raw` field value to be consumed by endpoint analytics system).
+| `PDL_EXPRESSION` task supports correlation queries | Correlation support was only available in rules (i.e. `APPLY_RULES` function) but by adding this feature to `PDL_EXPRESSION`, it's possible to perform aggregation and related solutions (e.g. joining results of 2 separate topologies aggregated over a field) 
+| Confluent Streams Security Integration | Stream configuration via `padas.properties` supports TLS/SSL related security settings as per [Secure Deployment for Kafka Streams in Confluent Platform](https://docs.confluent.io/platform/current/streams/developer-guide/security.html#kstreams-security)
 
 
 #### Known Issues
@@ -25,6 +25,7 @@ layout: documentation
 
 | Date Fixed    | Issue Number      | Description |
 | ------------- | ----------------  | ----------------------   
-| 29.02.2024    | PADAS-222         | Test API with `OUTPUT_FIELD` task fails with unknown task error.
+| 15.03.2024    | PADAS-95         | Padas Engine start script to display proper notification.
+| 01.04.2024    | PADAS-173         | Padas UI start script to display proper notification.
 
 ---
