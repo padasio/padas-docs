@@ -528,6 +528,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#parse_cef-definition" class="md-nav__link">
+    PARSE_CEF Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parse_csv-definition" class="md-nav__link">
     PARSE_CSV Definition
   </a>
@@ -1099,6 +1106,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#parse_cef-definition" class="md-nav__link">
+    PARSE_CEF Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parse_csv-definition" class="md-nav__link">
     PARSE_CSV Definition
   </a>
@@ -1310,6 +1324,7 @@
 <li><code>EXTRACT</code>: Extract any event input with provided Regular Expression defition (named groups). The output is <code>JSON</code>.</li>
 <li><code>FILTER</code>: Filter an event (keep or drop) based on <a href="../pdl-quick-reference">PDL</a> or regex definition.  For PDL, the input must be <code>JSON</code>.</li>
 <li><code>OUTPUT_FIELD</code>: Outputs the value of a given field.  The input must be <code>JSON</code> and the output is <code>String</code> representation of the selected field value.</li>
+<li><code>PARSE_CEF</code>: Parse input CEF (Common Event Format) event into <code>JSON</code>.</li>
 <li><code>PARSE_CSV</code>: Parse input <code>CSV</code> event into <code>JSON</code>.</li>
 <li><code>PARSE_KV</code>: Parse input key-value pairs event into <code>JSON</code>.</li>
 <li><code>PDL_EXPRESSION</code>: Allows event data transformation and enrichment via <a href="../pdl-quick-reference">PDL</a> expressions. The input must be <code>JSON</code>.</li>
@@ -1459,6 +1474,29 @@
 <tr>
 <td>Field</td>
 <td>Field name from the event data.</td>
+<td style="padding:0">&#8288;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parse_cef-definition"><code>PARSE_CEF</code> Definition</h5>
+<p>This function allows parsing CEF (Common Event Format) formatted data.  The output is <code>JSON</code> formatted event with specified field names.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep Raw</td>
+<td>Boolean to keep raw data in a separate field.  If set to <code>true</code> a field name should be provided.</td>
+<td rowspan="2" style="text-align: center;"><img src="../assets/img/padas_ui_task_parsecef_example.png" class="img-fluid py-5 w-75"></td>
+</tr>
+<tr>
+<td>Raw Field Name</td>
+<td>If raw data is to be kept, this will be the field to store it in. <code>_raw</code> is the default.</td>
 <td style="padding:0">&#8288;</td>
 </tr>
 </tbody>
