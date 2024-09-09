@@ -1,0 +1,14 @@
+[
+  {
+    "id": 100,
+    "name": "transform:winlogbeat:sysmon to padas data model",
+    "description": "Transform winlogbeat sysmon events to Padas Data model and apply relevant rules",
+    "tasks": [
+      100,
+      101,
+      102,
+      103,
+      110
+    ]
+  }
+]
