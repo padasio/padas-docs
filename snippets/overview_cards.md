@@ -2,6 +2,10 @@
 
     [:material-cube-unfolded:{.padas} **Introduction**](introduction.md): This review provides information on Padas architecture and basic concepts to quickly get started on your preferred platform.
 
+=== ":fontawesome-solid-user:{.padas} Contact"
+    :fontawesome-solid-user:{.padas} **Contact**: You can contact us via email at info@padas.io to get information, schedule a meeting, or learn more about Padas and much more.
+
+
 === ":material-contain-start:{.padas} Quick Start"
 
     [:material-contain-start:{.padas} **Quick Start**](quickstart.md): Get up and running with this quick start tutorial to build a simple topology to transform and filter sample data.

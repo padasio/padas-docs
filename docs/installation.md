@@ -12,8 +12,8 @@ Padas installation folder structure:
 
 ---
 
-#### Step 1: Download
---8<-- "installation/installation_step_download.md"
+#### Step 1: Acquiring Padas
+--8<-- "installation/installation_step_acquire.md"
 
 **NOTE:** You can install these components in a distributed environment.  For possible configuration options, please refer to [Configuration File Reference](config-reference.md).
 
