@@ -10,7 +10,7 @@ Regular expressions in Padas are used within the following context:
 
 - [EXTRACT](/stream-config/#extract-definition) Task definition
 - [FILTER](/stream-config/#filter-definition) Task definition
-- [rex](/pdl-expression/#rex) command within PPadas Domain Language (PDL)
+- [rex](/pdl-expression/#rex) command within Padas Domain Language (PDL)
 
 #### Terminology
 - **Pattern**: A sequence of characters representing the search criteria.

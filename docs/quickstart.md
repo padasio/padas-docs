@@ -46,8 +46,8 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 **NOTE**: For the purposes of demo, the goal is carried with multiple tasks, where as a simple `FILTER` function can be utilized as well.
 
 ---
-#### Step 1: Download
---8<-- "installation/installation_step_download.md"
+#### Step 1: Acquiring Padas
+--8<-- "installation/installation_step_acquire.md"
 
 ---
 

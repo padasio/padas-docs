@@ -1,3 +1,5 @@
+At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites. 
+
 1. Start engine node on the console.  The script will ask you to accept the license agreement (enter `y`)
     ```bash
     cd padas/

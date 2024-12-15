@@ -45,6 +45,14 @@ This function outputs the value of a given field.  The output is `String` repres
 | -------     | ----------------------------------------------------- | :---: |
 | Field       | Field name from the event data. |  &#8288 {: style="padding:0"} |
 
+##### `PARSE_CEF` Definition
+This function allows parsing CEF (Common Event Format) formatted data.  The output is `JSON` formatted event with specified field names.
+
+| Field       | Description                                           | Example |
+| -------     | ----------------------------------------------------- | :---: |
+| Keep Raw    | Boolean to keep raw data in a separate field.  If set to `true` a field name should be provided.| <img src="../assets/img/padas_ui_task_parsecef_example.png" class="img-fluid py-5 w-75"> {: rowspan=2} |
+| Raw Field Name | If raw data is to be kept, this will be the field to store it in. `_raw` is the default.| &#8288 {: style="padding:0"} |
+
 ##### `PARSE_CSV` Definition
 This function allows parsing CSV formatted data with any delimiter.  The output is `JSON` formatted event with specified field names.
 

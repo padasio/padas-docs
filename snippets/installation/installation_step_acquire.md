@@ -1,8 +1,8 @@
-1. [Download](http://padas.io/index.html#download) the latest version of Padas Engine and UI components applicable to your platform.
+1. [Contact](mailto:info@padas.io) with us to get the latest version of Padas Engine and UI components applicable to your platform. 
 
     ```bash 
-    wget https://padas.io/assets/downloads/padas-{{ current_version }}.tgz
-    wget https://padas.io/assets/downloads/padas-ui-{{ current_version }}-linux-x64.tgz
+    padas-{{ current_version }}.tgz
+    padas-ui-{{ current_version }}-linux-x64.tgz
     ```
 
 2. Use the `tar` command to decompress the archive file
