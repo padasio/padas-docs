@@ -1,6 +1,6 @@
 1. Start UI component on the console.  Default configuration connects to `localhost` for Padas Engine.
     ```bash
-    cd padas-ui/
+    cd padas/ui
     ```
     --8<-- "padas/padas_ui_start_console.md"
 
@@ -15,5 +15,5 @@
       </p>
     </figure>
 
-3. **Login**: After initial user creation you will be redrected to Login screen; Login with the newly created user credentials.
+3. **Login**: After initial user creation you will be redirected to Login screen; Login with the newly created user credentials.
 

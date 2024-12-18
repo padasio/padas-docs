@@ -1,8 +1,8 @@
-At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites. 
+<p class="padas-important-color">At this stage, make sure you have Confluent Kafka is running as mentioned in prerequisites.</p>
 
-1. Start engine node on the console.  The script will ask you to accept the license agreement (enter `y`)
+1. Start engine node on the console.  The script will ask you to accept the license agreement (enter `y or yes`)
     ```bash
-    cd padas/
+    cd padas/engine
     ```
     --8<-- "padas/padas_engine_start_console.md"
 

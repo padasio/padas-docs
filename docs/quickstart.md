@@ -68,47 +68,63 @@ We will have a couple of simple rules that will trigger when `group_name` (soon 
 
 #### Step 5: Configure Padas
 
-##### Option 1: Configure Padas with Ansible Playbooks
+##### Option 1: Configure Padas Using Stream Configs JSON File
 
-Congratulations on setting up Confluent Kafka, Padas Engine, and Padas UI! Now, kickstart your experience with the playbooks. You have two options: either utilize the provided Ansible playbooks for a seamless setup or follow **Option 2** manually to configure Padas. 
+For [Stream Configs](https://localhost:9000/stream-configs){:target="_blank"} upload [PadasQuickStartStreamConfigurations.json](../assets/config/PadasQuickStartStreamConfigurations.json)
 
-Download the [Ansible Playbooks](https://github.com/padasio/padas-demo){:target="_blank"} from the padas-demo repository.
+To configure the stream settings, follow the steps below:  
 
-After configuring Padas with the **quick-start** playbook, proceed to **Step 6** for testing and playing around.
+1. Navigate to [Stream Configs](https://localhost:9000/stream-configs){:target="_blank"}.  
+2. Click on the **Upload** button. This will open a dialog window.
+<figure markdown>
+  <p>
+    <img src="../assets/img/padas_ui_upload_config1.png" class="w-60 img-fluid py-5">
+  </p>
+</figure>  
+3. In the dialog, select the file **PadasQuickStartStreamConfigurations.json** from your local system.
+<figure markdown>
+  <p>
+    <img src="../assets/img/padas_ui_upload_config2.png" class="w-60 img-fluid py-5">
+  </p>
+</figure>  
+4. Once selected, click the **Upload** button.
+<figure markdown>
+  <p>
+    <img src="../assets/img/padas_ui_upload_config.png" class="w-60 img-fluid py-5">
+  </p>
+</figure> 
+Upon a successful upload, the following components will be configured automatically:  
+- Rules  
+- Tasks  
+- Pipeline  
+- Topology   
 
 ---
+     
+##### Option 2: Configure Padas Manually  
 
-##### Option 2: Configure Padas Manually
+The following steps will guide you on how to manually create the necessary configuration items instead of uploading a JSON file.  
 
-**TLDR;**
-Upload the configurations from the corresponding menus.  Each of the views provide a way to bulk upload configurations from a file.
+<span class='padas-important-color'>**1. Create Rules**</span>
 
-  - For [Tasks](https://localhost:9000/tasks){:target="_blank"} upload [PadasQuickStartTasks.json](../assets/config/PadasQuickStartTasks.json)
-  - For [Pipelines](https://localhost:9000/pipelines){:target="_blank"} upload [PadasQuickStartPipelines.json](../assets/config/PadasQuickStartPipelines.json)
-  - For [Rules](https://localhost:9000/rules){:target="_blank"} upload [PadasQuickStartRules.json](../assets/config/PadasQuickStartRules.json)
-  - For [Topologies](https://localhost:9000/topologies){:target="_blank"} upload [PadasQuickStartTopologies.json](../assets/config/PadasQuickStartTopologies.json)
-
-    <figure markdown>
-      <p>
-      <img src="../assets/img/padas_ui_upload_config.png" class="w-50 img-fluid py-5">
-      </p>
-    </figure>
-
----
-Following steps will guide you through how to manually create these configuration items instead of uploading.
-
-1. **Create Rules**: Create couple of rules from [Rules](https://localhost:9000/rules) menu, click <span class="btn btn-padas">New Rule</span> button and fill in the details.
-    <figure markdown>
+   - Click on the **Create New** dropdown and select **Rule**.  
+   - Fill in the fields in the dialog as shown in the examples below.
+       <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_rule_create_1.png" class="w-50 img-fluid py-5">
       </p>
       <p>
       <img src="../assets/img/padas_ui_rule_create_2.png" class="w-50 img-fluid py-5">
       </p>
-    </figure>
+    </figure>  
+   - Click on **Create Rule**.  
+   - Repeat this process to create **2 rules**.  
 
-2. **Create Tasks**: We will create 2 tasks.  First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.  From [Tasks](https://localhost:9000/tasks) menu, click <span class="btn btn-padas">New Task</span> button and fill in the details.
-    <figure markdown>
+<span class='padas-important-color'>**2. Create Tasks**</span>  
+
+   - Click on the **Create New** dropdown and select **Task**.  
+   - Fill in the fields in the dialog as shown in the examples below.
+       <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_task_eval_create.png" class="w-50 img-fluid py-5">
       </p>
@@ -116,27 +132,51 @@ Following steps will guide you through how to manually create these configuratio
       <!-- TODO: INSERT NEW SCREENSHOT HERE -->
       <img src="../assets/img/padas_ui_task_apply_rules_create.png" class="w-50 img-fluid py-5">
       </p>
-    </figure>
+    </figure>  
+   - Click on **Create Task**.  
+   - Repeat this process to create **2 tasks**. 
+   
+   First one will simply perform some enrichment and add a new field `group_name` based on a condition.  The second one will run all selected PDL rules.
 
-3. **Create Pipeline**: Create a pipeline with the above tasks.  From [Pipelines](https://localhost:9000/pipelines) menu, click <span class="btn btn-padas">New Pipeline</span> button and fill in the details.  Note that the output of a task becomes an input for the following task in the pipeline.
-    <figure markdown>
+<span class='padas-important-color'>**3. Create a Pipeline**</span> 
+
+   - Click on the **Create New** dropdown and select **Pipeline**.  
+   - Fill in the fields in the dialog as shown in the example below.
+       <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_pipeline_create.png" class="w-50 img-fluid py-5">
       </p>
-    </figure>
+    </figure>  
+   - Click on **Create Pipeline**.
 
-4. **Create Topology**: Create a topology with the above pipeline that reads from `test_input` topic and writes to `test_output` topic.  From [Topologies](https://localhost:9000/topologies) menu, click <span class="btn btn-padas">New Topology</span> button and fill in the details.
+   Note that the output of a task becomes an input for the following task in the pipeline.  
 
-      `keySerde:` topic key SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
-      `valueSerde:` topic value SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
-      
-    <figure markdown>
+<span class='padas-important-color'>**4. Create a Topology**</span> 
+
+  Create a topology with the above pipeline that reads from `test_input` topic and writes to `test_output` topic. 
+
+   - Click on the **Create New** dropdown and select **Topology**.  
+   - Fill in the fields in the dialog as shown in the example below.
+       <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_topology_create.png" class="w-50 img-fluid py-5">
       </p>
-    </figure>
+    </figure>  
+   - Click on **Create Topology**.
 
-4. **Restart Node**: Once a new topology is created we need to let Padas Engine know about it by restarting the node.  You can do this from the console (`CTRL-C` and start, or stop/start the service, etc.) or you can also do this from the UI from [Nodes](https://localhost:9000/nodes) menu, click <span class="btn btn-padas">Start</span> button and you should see the state change to `RUNNING` for this node.
+      `keySerde:` topic key SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde".
+
+      `valueSerde:` topic value SerDe, if not specified default is "org.apache.kafka.common.serialization.Serdes$StringSerde". 
+
+<span class='padas-important-color'>**5. Restart Node**</span>
+
+##### Option 1: From Console 
+
+Once a new topology is created we need to let Padas Engine know about it by restarting the node.  You can do this from the console (`CTRL-C` and start, or stop/start the service, etc.)
+
+##### Option 2: From UI 
+
+ You can also do this from the UI from [Engines](https://localhost:9000/nodes) menu, click <span class="btn btn-padas">Start</span> button and you should see the state change to `RUNNING` for this node.
     <figure markdown>
       <p>
       <img src="../assets/img/padas_ui_nodes.png" class="w-50 img-fluid py-5">

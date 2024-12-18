@@ -309,3 +309,7 @@ a:hover {
 .padas-front {
   z-index: 20;
 }
+
+.padas-important-color {
+  color:  #3ca3b8;
+}
