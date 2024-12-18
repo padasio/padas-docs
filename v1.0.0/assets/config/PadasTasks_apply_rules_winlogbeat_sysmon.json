@@ -1,0 +1,15 @@
+[
+  {
+    "id": 110,
+    "name": "Endpoint:Rules",
+    "description": "Endpoint rules",
+    "function": "APPLY_RULES",
+    "definition": {
+      "rules": [
+        "endpointprocess",
+        "endpointlisteningport"
+      ],
+      "matchAll": true
+    }
+  }
+]

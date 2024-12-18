@@ -1,0 +1,84 @@
+{
+    "Rule": [
+        {
+            "id": "test_rule_for_evil",
+            "name": "Test Rule for Evil",
+            "description": "Match for group name that starts with evil",
+            "pdl": "group_name=\"evil*\"",
+            "annotations": [
+                "T1234",
+                "T1235"
+            ],
+            "enabled": true
+        },
+        {
+            "id": "test_rule_for_failure",
+            "name": "Test Rule for Failure",
+            "description": "Match when action is failure",
+            "pdl": "action=\"failure\"",
+            "annotations": [
+                "T9876"
+            ],
+            "enabled": true
+        }
+    ],
+    "Task": [
+        {
+            "id": 1,
+            "name": "Test Eval",
+            "description": "Map group id to name",
+            "function": "PDL_EXPRESSION",
+            "definition": {
+                "value": "eval group_name=if(group_id=1,\"evil group\",\"some other group\")"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Test Rules",
+            "description": "Apply rules for mydata",
+            "function": "APPLY_RULES",
+            "definition": {
+                "rules": [
+                    "test_rule_for_evil",
+                    "test_rule_for_failure"
+                ],
+                "matchAll": true
+            }
+        }
+    ],
+    "Pipeline": [
+        {
+            "id": 1,
+            "name": "Test Pipeline",
+            "description": "Quickstart pipeline",
+            "tasks": [
+                1,
+                2
+            ]
+        }
+    ],
+    "Topology": [
+        {
+            "id": 1,
+            "name": "Test topology",
+            "description": "Read mock data input and write to test output",
+            "pipelines": [
+                1
+            ],
+            "enabled": true,
+            "group": "default",
+            "input": {
+                "name": "test",
+                "keySerde": "org.apache.kafka.common.serialization.Serdes$StringSerde",
+                "valueSerde": "org.apache.kafka.common.serialization.Serdes$StringSerde"
+            },
+            "output": [
+                {
+                    "name": "test",
+                    "keySerde": "org.apache.kafka.common.serialization.Serdes$StringSerde",
+                    "valueSerde": "org.apache.kafka.common.serialization.Serdes$StringSerde"
+                }
+            ]
+        }
+    ]
+}
